@@ -1,0 +1,4 @@
+baseURL = 'https://coreydaley.com/'
+languageCode = 'en-us'
+title = 'Corey Daley'
+theme = 'ananke'
