@@ -1,0 +1,15 @@
+# Hugo generated files
+/public/
+/resources/
+.hugo_build.lock
+
+# Node.js dependencies (if you use them)
+/node_modules/
+
+# Optional: temporary files, log files, OS-specific files, or editor files
+.DS_Store
+Thumbs.db
+npm-debug.log
+hugo.log
+
+.claude
