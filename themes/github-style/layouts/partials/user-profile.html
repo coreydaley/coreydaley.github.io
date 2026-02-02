@@ -105,7 +105,6 @@
         </div>
 
         <div class="border-top color-border-secondary pt-3 mt-3 clearfix hide-sm hide-md">
-          <h2 class="mb-2 h4">Organizations</h2>
           <div style="display:flex;justify-content:flex-start;flex-wrap:wrap;margin-bottom:3px;">
           {{ if .Site.Params.github}}
           <a style="margin: 0 10px 10px 0;" href="https://github.com/{{ .Site.Params.github }}">
@@ -225,6 +224,6 @@ else {
     githubIconElement.setAttribute('class', 'octicon')
     githubIconElement.setAttribute('color', '#f0f6fc')
   }
-  if (twitterIconElement)  twitterIconElement.setAttribute('fill', 'white') 
+  if (twitterIconElement)  twitterIconElement.setAttribute('fill', 'white')
 }
 </script>

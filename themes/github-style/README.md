@@ -22,13 +22,6 @@ cd themes/github-style
 git pull
 ```
 
-Then, you need to rename the previous `posts` folder to `post`
-
-```bash
-cd <you-project-folder>
-mv content/posts content/post
-```
-
 ## Setup readme
 
 ```bash
@@ -68,6 +61,7 @@ summary: "The summary content"
 ### Approach 2: use `<!--more-->`
 
 Use `<!--more-->` to separate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
+
 ```
 ---
 title: "title"
@@ -88,27 +82,6 @@ lastmod = true
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
-```
-
-## Use [gitalk](https://github.com/gitalk/gitalk) to support comments
-
-add to `config.toml`
-
-```toml
-enableGitalk = true
-
-  [params.gitalk]
-    clientID = "Your client ID"
-    clientSecret = "Your client secret"
-    repo = "repo"
-    owner = "Your Github username"
-    admin = "Your Github username"
-    id = "location.pathname"
-    labels = "gitalk"
-    perPage = 30
-    pagerDirection = "last"
-    createIssueManually = true
-    distractionFreeMode = false
 ```
 
 ## Support LaTeX
@@ -132,6 +105,7 @@ display block $$ ... $$
 ![latex example](https://raw.githubusercontent.com/MeiK2333/github-style/master/images/latex_example.png)
 
 ## Support MathJax
+
 you can add MathJax:true to frontmatter
 
 ```
