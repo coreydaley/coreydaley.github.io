@@ -189,6 +189,8 @@
       {{ block "overview" . }}{{ end }}
       {{ else if eq .Section "pages" }}
       {{ block "pages" . }}{{ end }}
+      {{ else if eq .RelPermalink "/search/" }}
+      {{ partial "search-results.html" . }}
       {{ else }}
       {{ block "posts" . }}{{ end }}
       {{ end }}

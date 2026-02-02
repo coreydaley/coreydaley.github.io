@@ -41,6 +41,15 @@
               Pages
               <span class="Counter">{{ $pages_count }}</span>
             </a>
+            <a class="UnderlineNav-item {{ if eq .RelPermalink "/search/" }} selected {{ end }}" href="{{urls.JoinPath .Site.BaseURL "search/"}}">
+              <svg class="octicon octicon-search UnderlineNav-octicon hide-sm" height="16" viewBox="0 0 16 16"
+                version="1.1" width="16">
+                <path fill-rule="evenodd"
+                  d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z">
+                </path>
+              </svg>
+              Search
+            </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
             <svg width="106" height="60" viewBox="0 0 106 60" fill="none" stroke-width="3" stroke-linecap="round"

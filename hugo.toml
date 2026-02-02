@@ -22,3 +22,4 @@ pygmentsUseClasses = true
   location = "Elizabethtown, KY"
   # custom_css = ["css/custom.css"]
   # custom_js = ["js/custom.js"]
+  enableSearch = true
