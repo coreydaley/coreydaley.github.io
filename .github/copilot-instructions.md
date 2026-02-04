@@ -36,6 +36,8 @@ hugo new posts/my-post-title.md
    date = '2026-02-01T22:16:10-05:00'
    draft = false
    title = 'Post Title'
+   description = 'Brief description for SEO and previews'
+   tags = ['tag1', 'tag2', 'tag3']
    +++
    ```
 
@@ -43,6 +45,7 @@ hugo new posts/my-post-title.md
 
 3. **Content Organization**:
    - Blog posts: `content/posts/*.md`
+   - Tutorials: `content/tutorials/*.md`
    - Static pages: `content/pages/*.md`
    - Search page: `content/search.md` (special page for Pagefind UI)
 
@@ -81,41 +84,23 @@ All issues and pull requests for this repository are managed through the **"Blog
 When working on an issue, follow this workflow:
 
 1. **Pick up an issue** - When starting work on an issue:
-   - **Assign the issue to yourself** for the duration of work
-   - **Move the issue to "In Progress"** status in the project
+   - **Assign the issue to Copilot** for the duration of work
+   - **Copilot should move the issue to "In Progress"** status in the project
    - Create a feature branch for your work
 
 2. **Create a pull request** - When ready to submit your work:
    - **Always link the PR to the issue** using one of GitHub's supported methods:
      - In the PR description, use keywords: `Closes #<issue-number>`, `Fixes #<issue-number>`, or `Resolves #<issue-number>`
-     - Alternative: Use the "Development" section in the issue sidebar to link the PR
    - Example PR description: `Closes #42 - Add new blog post about Hugo themes`
-   - **Add the PR to the "Blog: coreydaley.dev" project** with "In Progress" status
+   - Copilot should move the pull request to "In Progress" status in the project
 
-3. **Add PR to Project** - **IMPORTANT**: After creating the pull request:
-   - **Manually add the PR to the "Blog: coreydaley.dev" project**
-   - Methods to add PR to project:
-     - **Method 1 (GitHub CLI)**: Use `gh pr edit <PR-number> --add-project "Blog: coreydaley.dev"`
-     - **Method 2 (GitHub API)**: Use the GitHub API to add the PR to the project
-     - **Method 3 (Web UI)**: In the PR sidebar, click "Projects" and select "Blog: coreydaley.dev"
-   - Set the initial status to **"In Progress"**
-   - **This step is NOT automatic** - you must explicitly add the PR to the project
+3. **PR Status Management**
+   - When the PR is ready for review:
+     - **Copilot should mark the PR as "Ready for review"** (if it was a draft)
+     - **Copilot should move the PR to "Review"** status in the project
+   - **Copilot should also move the linked issue to "Review"** status in the project
 
-4. **PR Status Management** - After adding PR to the project:
-   - **Option 1: Draft PR** - If created as a draft while work is in progress
-     - Keep the PR in **"In Progress"** status
-     - When ready, **mark the PR as "Ready for review"** (convert from draft)
-     - **PR status automatically moves to "Review"** in the project
-   - **Option 2: Ready PR** - If created as ready for review immediately
-     - Keep the PR in **"In Progress"** status initially
-     - Manually **mark as "Ready for review"** when prepared for code review
-     - **PR status automatically moves to "Review"** in the project
-
-5. **Issue Status Management** - When the PR is ready for review:
-   - **Manually move the associated issue to "Review"** status
-   - This signals that both the code changes and the issue are ready for review
-
-6. **Automatic Issue Closure** - When a PR is merged:
+4. **Automatic Issue Closure** - When a PR is merged:
    - The linked issue is automatically closed via GitHub workflow
    - Both the issue and PR move to "Done" status automatically
 
@@ -123,30 +108,15 @@ When working on an issue, follow this workflow:
 
 - **Always link PRs to issues** - Every PR should reference at least one issue
 - **Use closing keywords** - Use `Closes #123`, `Fixes #123`, or `Resolves #123` in PR descriptions
-- **Always add PRs to the project** - **CRITICAL**: After creating a PR, manually add it to the "Blog: coreydaley.dev" project using gh CLI, GitHub API, or the web UI
-- **Draft PRs for work in progress** - Create PRs as drafts if work is still in progress, then mark as "Ready for review" when complete
 - **Update project status** - Move items through the project board as work progresses
 - **Self-assign issues** - Assign issues to yourself when you start working on them
 
 ### Project Status Flow
 
-**Issue Status (manual updates required):**
 ```
-Issue: Backlog → In Progress → Review → Done (auto-closed on PR merge)
-PR:    Created → [Manual: Add to Project] → In Progress → Ready for review → Review (in project) → Done (on merge)
+Backlog --> Ready --> In Progress --> Review --> Done
 ```
 
-**PR Status (partially automated):**
-```
-Created → Added to "In Progress" → Mark "Ready for review" → Auto-moves to "Review" → Merged → Auto-moves to "Done"
-```
-
-**Key Automation Points:**
-- ⚠️ PR must be manually added to project when created (status: "In Progress")
-- ✅ PR automatically moves to "Review" when marked "Ready for review"
-- ✅ Issue automatically closes when PR merges
-- ✅ Both PR and issue automatically move to "Done" on merge
-- ⚠️ Issue status must be manually updated to "Review" when PR is ready
 ## Content Creation Workflow with GitHub Issues
 
 ### Issue-Based Content Management
@@ -156,17 +126,17 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
 1. **Create an Issue** - Create a GitHub issue with the "blog post" or "tutorial" label
    - Title should describe the content topic
    - Description should outline key points to cover
-   - Issue is automatically added to the "Blog: coreydaley.dev" project
 
 2. **Issue Assignment** - When starting work:
-   - **Assign the issue to yourself** (or GitHub Copilot)
-   - **Move issue to "In Progress"** status in the project
+   - **Assign the issue to GitHub Copilot**
+   - **Copilot should move the issue to "In Progress"** status in the project
 
 3. **Content Creation** - Create the blog post file:
+
    ```bash
    # If Hugo is available locally
    hugo new posts/descriptive-filename.md
-   
+
    # Otherwise, manually create with proper TOML frontmatter
    # File: content/posts/descriptive-filename.md
    +++
@@ -181,16 +151,11 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
 4. **Create Pull Request** - When content is ready:
    - Create a PR with the content changes
    - **Link the PR to the issue**: `Closes #<issue-number>`
-   - **IMPORTANT: Add the PR to the project** using one of these methods:
-     - `gh pr edit <PR-number> --add-project "Blog: coreydaley.dev"`
-     - GitHub API to add PR to project
-     - Web UI: Click "Projects" in PR sidebar and select "Blog: coreydaley.dev"
-   - Set initial project status to **"In Progress"**
 
 5. **Ready for Review** - When PR is complete:
    - If PR was created as a draft, **mark it as "Ready for review"** (convert from draft)
-   - **Move the PR to "Review"** status in the project
-   - **Move the issue to "Review"** status in the project
+   - **Copilot should move the PR to "Review"** status in the project
+   - **Copilot should move the issue to "Review"** status in the project
    - This signals that both are ready for review
 
 6. **Publishing** - After review and merge:
@@ -216,4 +181,5 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
 - **Search updates**: Pagefind indexes automatically in CI - no manual steps needed
 
 ## When creating content such as blog posts or tutorials
+
 - At the bottom of the new content add "Authored by GitHub Copilot"
