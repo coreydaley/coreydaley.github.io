@@ -132,9 +132,3 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
 
 ## When creating content such as blog posts or tutorials
 - At the bottom of the new content add "Authored by GitHub Copilot"
-
-## When working on an issue
-- Assign the issue to yourself
-- Move the issue to "In Progress"
-- When a pull request is created move the issue to "In Review"
-- When the pull request is merged move the issue to "Done"
