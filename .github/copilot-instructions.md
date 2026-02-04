@@ -70,6 +70,58 @@ The github-style theme supports:
 - Custom CSS/JS (configured via `custom_css`/`custom_js` params in hugo.toml)
 - User profile with avatar, status emoji, social links, location
 
+## Content Creation Workflow with GitHub Issues
+
+### Issue-Based Content Management
+
+Blog posts and tutorials are managed through GitHub Issues with the following workflow:
+
+1. **Create an Issue** - Create a GitHub issue with the "blog post" or "tutorial" label
+   - Title should describe the content topic
+   - Description should outline key points to cover
+   - Add issue to the GitHub Project board (if using Projects)
+
+2. **Issue Assignment** - Assign the issue to yourself or GitHub Copilot
+   - Issue status moves from "Backlog" to "In Progress" when work begins
+
+3. **Content Creation** - Create the blog post file:
+   ```bash
+   # If Hugo is available locally
+   hugo new posts/descriptive-filename.md
+   
+   # Otherwise, manually create with proper TOML frontmatter
+   # File: content/posts/descriptive-filename.md
+   +++
+   date = '2026-02-04T16:25:00-05:00'
+   draft = true
+   title = 'Your Post Title'
+   description = 'Brief description for SEO and previews'
+   tags = ['tag1', 'tag2', 'tag3']
+   +++
+   ```
+
+4. **Draft Review** - Write content with `draft = true`
+   - Test locally with `hugo server -D`
+   - Commit changes to feature branch
+   - Update issue status to "Review" if using Projects
+
+5. **Publishing** - When ready to publish:
+   - Change `draft = false` in frontmatter
+   - Commit and push to trigger deployment
+   - Merge PR to `main` branch
+
+6. **Issue Closure** - Close the issue when post is published
+   - Issue status automatically moves to "Published" or "Done"
+   - This maintains a clear audit trail of content creation
+
+### Benefits of Issue-Based Workflow
+
+- **Tracking**: All content ideas are tracked in one place
+- **Collaboration**: Team members can comment and suggest topics
+- **Transparency**: Progress is visible through issue status
+- **Automation**: CI/CD automatically deploys when merged to main
+- **History**: Git commits link back to originating issues
+
 ## When Modifying Content
 
 - **New posts**: Use `hugo new posts/filename.md` to ensure proper archetype/frontmatter
