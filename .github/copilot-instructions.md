@@ -92,8 +92,13 @@ When working on an issue, follow this workflow:
    - Example PR description: `Closes #42 - Add new blog post about Hugo themes`
 
 3. **PR Status Management** - When creating a pull request:
-   - The PR is automatically added to the project in **"In Progress"** status
-   - When the PR is ready for review, **move the PR to "Review"** status
+   - **Option 1: Draft PR** - Create the PR as a draft while work is in progress
+     - The PR is automatically added to the project in **"In Progress"** status
+     - When ready, **mark the PR as "Ready for review"** (convert from draft)
+     - Then **move the PR to "Review"** status in the project
+   - **Option 2: Ready PR** - Create the PR as ready for review immediately
+     - The PR is automatically added to the project in **"In Progress"** status
+     - When ready for review, **move the PR to "Review"** status in the project
 
 4. **Issue Status Management** - When the PR is ready for review:
    - **Move the associated issue to "Review"** status
@@ -107,6 +112,7 @@ When working on an issue, follow this workflow:
 
 - **Always link PRs to issues** - Every PR should reference at least one issue
 - **Use closing keywords** - Use `Closes #123`, `Fixes #123`, or `Resolves #123` in PR descriptions
+- **Draft PRs for work in progress** - Create PRs as drafts if work is still in progress, then mark as "Ready for review" when complete
 - **Update project status** - Move items through the project board as work progresses
 - **Self-assign issues** - Assign issues to yourself when you start working on them
 
@@ -114,7 +120,7 @@ When working on an issue, follow this workflow:
 
 ```
 Issue: Backlog → In Progress → Review → Done (auto-closed on PR merge)
-PR:    (auto-added to In Progress) → Review → Done (on merge)
+PR:    Draft (optional) → In Progress → Ready for review → Review (in project) → Done (on merge)
 ```
 
 ## Content Creation Workflow with GitHub Issues
@@ -154,6 +160,7 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
    - PR is automatically added to the project in "In Progress" status
 
 5. **Ready for Review** - When PR is complete:
+   - If PR was created as a draft, **mark it as "Ready for review"** (convert from draft)
    - **Move the PR to "Review"** status in the project
    - **Move the issue to "Review"** status in the project
    - This signals that both are ready for review
