@@ -70,6 +70,53 @@ The github-style theme supports:
 - Custom CSS/JS (configured via `custom_css`/`custom_js` params in hugo.toml)
 - User profile with avatar, status emoji, social links, location
 
+## GitHub Project Management
+
+### Project: "Blog coreydaley.dev"
+
+All issues and pull requests for this repository are managed through the **"Blog coreydaley.dev"** GitHub Project.
+
+### Issue Management Workflow
+
+When working on an issue, follow this workflow:
+
+1. **Pick up an issue** - When starting work on an issue:
+   - **Assign the issue to yourself** for the duration of work
+   - **Move the issue to "In Progress"** status in the project
+   - Create a feature branch for your work
+
+2. **Link PR to Issue** - When creating a pull request:
+   - **Always link the PR to the issue** using one of GitHub's supported methods:
+     - In the PR description, use keywords: `Closes #<issue-number>`, `Fixes #<issue-number>`, or `Resolves #<issue-number>`
+     - Alternative: Use the "Development" section in the issue sidebar to link the PR
+   - Example PR description: `Closes #42 - Add new blog post about Hugo themes`
+
+3. **PR Status Management** - When creating a pull request:
+   - The PR is automatically added to the project in **"In Progress"** status
+   - When the PR is ready for review, **move the PR to "Review"** status
+
+4. **Issue Status Management** - When the PR is ready for review:
+   - **Move the associated issue to "Review"** status
+   - This signals that both the code changes and the issue are ready for review
+
+5. **Automatic Issue Closure** - When a PR is merged:
+   - The linked issue is automatically closed via GitHub workflow
+   - Both the issue and PR move to "Done" status automatically
+
+### Pull Request Best Practices
+
+- **Always link PRs to issues** - Every PR should reference at least one issue
+- **Use closing keywords** - Use `Closes #123`, `Fixes #123`, or `Resolves #123` in PR descriptions
+- **Update project status** - Move items through the project board as work progresses
+- **Self-assign issues** - Assign issues to yourself when you start working on them
+
+### Project Status Flow
+
+```
+Issue: Backlog → In Progress → Review → Done (auto-closed on PR merge)
+PR:    (auto-added to In Progress) → Review → Done (on merge)
+```
+
 ## Content Creation Workflow with GitHub Issues
 
 ### Issue-Based Content Management
@@ -79,10 +126,11 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
 1. **Create an Issue** - Create a GitHub issue with the "blog post" or "tutorial" label
    - Title should describe the content topic
    - Description should outline key points to cover
-   - Add issue to the GitHub Project board (if using Projects)
+   - Issue is automatically added to the "Blog coreydaley.dev" project
 
-2. **Issue Assignment** - Assign the issue to yourself or GitHub Copilot
-   - Issue status moves from "Backlog" to "In Progress" when work begins
+2. **Issue Assignment** - When starting work:
+   - **Assign the issue to yourself** (or GitHub Copilot)
+   - **Move issue to "In Progress"** status in the project
 
 3. **Content Creation** - Create the blog post file:
    ```bash
@@ -100,26 +148,28 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
    +++
    ```
 
-4. **Draft Review** - Write content with `draft = true`
-   - Test locally with `hugo server -D`
-   - Commit changes to feature branch
-   - Update issue status to "Review" if using Projects
+4. **Create Pull Request** - When content is ready:
+   - Create a PR with the content changes
+   - **Link the PR to the issue**: `Closes #<issue-number>`
+   - PR is automatically added to the project in "In Progress" status
 
-5. **Publishing** - When ready to publish:
-   - Change `draft = false` in frontmatter
-   - Commit and push to trigger deployment
+5. **Ready for Review** - When PR is complete:
+   - **Move the PR to "Review"** status in the project
+   - **Move the issue to "Review"** status in the project
+   - This signals that both are ready for review
+
+6. **Publishing** - After review and merge:
    - Merge PR to `main` branch
-
-6. **Issue Closure** - Close the issue when post is published
-   - Issue status automatically moves to "Published" or "Done"
-   - This maintains a clear audit trail of content creation
+   - Issue is automatically closed by workflow
+   - Both PR and issue move to "Done" status
 
 ### Benefits of Issue-Based Workflow
 
 - **Tracking**: All content ideas are tracked in one place
-- **Collaboration**: Team members can comment and suggest topics
-- **Transparency**: Progress is visible through issue status
-- **Automation**: CI/CD automatically deploys when merged to main
+- **Project Visibility**: Progress is visible through the project board
+- **Transparency**: Status updates show work in progress
+- **Automation**: Issues auto-close when PRs merge via workflow
+- **Linking**: PRs are always linked to issues for context
 - **History**: Git commits link back to originating issues
 
 ## When Modifying Content
