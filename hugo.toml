@@ -5,6 +5,9 @@ theme = 'github-style'
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
+[pagination]
+  pagerSize = 10
+
 [params]
   author = "Corey Daley"
   description = "Software Engineer | Secure Software Development & Cybersecurity | Embracing AI, writing code in Go and Python"

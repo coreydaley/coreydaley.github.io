@@ -2,6 +2,8 @@
 date = '2026-02-01T22:16:10-05:00'
 draft = false
 title = 'Welcome to My New Blog'
+description = 'The journey begins: How I built this blog with Hugo and GitHub Pages, and what you can expect from this space.'
+tags = ['hugo', 'github-pages', 'static-site', 'web-development', 'blogging']
 +++
 
 Hey there, and welcome! I'm excited to finally have my own corner of the internet up and running. This is the first real post on my new blog, and I wanted to kick things off by talking a little about how I built it.
