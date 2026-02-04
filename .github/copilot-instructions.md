@@ -90,7 +90,7 @@ When working on an issue, follow this workflow:
      - In the PR description, use keywords: `Closes #<issue-number>`, `Fixes #<issue-number>`, or `Resolves #<issue-number>`
      - Alternative: Use the "Development" section in the issue sidebar to link the PR
    - Example PR description: `Closes #42 - Add new blog post about Hugo themes`
-   - **The PR is automatically added to the project in "In Progress" status**
+   - **Add the PR to the "Blog: coreydaley.dev" project** with "In Progress" status
 
 3. **PR Status Options**:
    - **Option 1: Draft PR** - Create the PR as a draft while work is in progress
@@ -98,7 +98,7 @@ When working on an issue, follow this workflow:
      - When ready, **mark the PR as "Ready for review"** (convert from draft)
      - **PR status automatically moves to "Review"** in the project
    - **Option 2: Ready PR** - Create the PR as ready for review immediately
-     - PR is automatically added to the project in "In Progress" status
+     - PR added to the project in "In Progress" status
      - Manually **mark as "Ready for review"** when prepared for code review
      - **PR status automatically moves to "Review"** in the project
 
@@ -114,6 +114,7 @@ When working on an issue, follow this workflow:
 
 - **Always link PRs to issues** - Every PR should reference at least one issue
 - **Use closing keywords** - Use `Closes #123`, `Fixes #123`, or `Resolves #123` in PR descriptions
+- **Add PR to project** - When creating a PR, add it to the "Blog: coreydaley.dev" project with "In Progress" status
 - **Draft PRs for work in progress** - Create PRs as drafts if work is still in progress, then mark as "Ready for review" when complete
 - **Update project status** - Move items through the project board as work progresses
 - **Self-assign issues** - Assign issues to yourself when you start working on them
@@ -127,11 +128,11 @@ Backlog → In Progress → Review → Done (auto-closed on PR merge)
 
 **PR Status (partially automated):**
 ```
-Created → Auto-added to "In Progress" → Mark "Ready for review" → Auto-moves to "Review" → Merged → Auto-moves to "Done"
+Created → Added to "In Progress" → Mark "Ready for review" → Auto-moves to "Review" → Merged → Auto-moves to "Done"
 ```
 
 **Key Automation Points:**
-- ✅ PR automatically added to project when created (status: "In Progress")
+- ⚠️ PR must be manually added to project when created (status: "In Progress")
 - ✅ PR automatically moves to "Review" when marked "Ready for review"
 - ✅ Issue automatically closes when PR merges
 - ✅ Both PR and issue automatically move to "Done" on merge
