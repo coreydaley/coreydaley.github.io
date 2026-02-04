@@ -85,23 +85,25 @@ When working on an issue, follow this workflow:
    - **Move the issue to "In Progress"** status in the project
    - Create a feature branch for your work
 
-2. **Link PR to Issue** - When creating a pull request:
+2. **Create a pull request** - When ready to submit your work:
    - **Always link the PR to the issue** using one of GitHub's supported methods:
      - In the PR description, use keywords: `Closes #<issue-number>`, `Fixes #<issue-number>`, or `Resolves #<issue-number>`
      - Alternative: Use the "Development" section in the issue sidebar to link the PR
    - Example PR description: `Closes #42 - Add new blog post about Hugo themes`
+   - **The PR is automatically added to the project in "In Progress" status**
 
-3. **PR Status Management** - When creating a pull request:
+3. **PR Status Options**:
    - **Option 1: Draft PR** - Create the PR as a draft while work is in progress
-     - The PR is automatically added to the project in **"In Progress"** status
+     - PR shows in the project with "In Progress" status
      - When ready, **mark the PR as "Ready for review"** (convert from draft)
-     - Then **move the PR to "Review"** status in the project
+     - **PR status automatically moves to "Review"** in the project
    - **Option 2: Ready PR** - Create the PR as ready for review immediately
-     - The PR is automatically added to the project in **"In Progress"** status
-     - When ready for review, **move the PR to "Review"** status in the project
+     - PR is automatically added to the project in "In Progress" status
+     - Manually **mark as "Ready for review"** when prepared for code review
+     - **PR status automatically moves to "Review"** in the project
 
 4. **Issue Status Management** - When the PR is ready for review:
-   - **Move the associated issue to "Review"** status
+   - **Manually move the associated issue to "Review"** status
    - This signals that both the code changes and the issue are ready for review
 
 5. **Automatic Issue Closure** - When a PR is merged:
@@ -118,10 +120,22 @@ When working on an issue, follow this workflow:
 
 ### Project Status Flow
 
+**Issue Status (manual updates required):**
 ```
-Issue: Backlog → In Progress → Review → Done (auto-closed on PR merge)
-PR:    Draft (optional) → In Progress → Ready for review → Review (in project) → Done (on merge)
+Backlog → In Progress → Review → Done (auto-closed on PR merge)
 ```
+
+**PR Status (partially automated):**
+```
+Created → Auto-added to "In Progress" → Mark "Ready for review" → Auto-moves to "Review" → Merged → Auto-moves to "Done"
+```
+
+**Key Automation Points:**
+- ✅ PR automatically added to project when created (status: "In Progress")
+- ✅ PR automatically moves to "Review" when marked "Ready for review"
+- ✅ Issue automatically closes when PR merges
+- ✅ Both PR and issue automatically move to "Done" on merge
+- ⚠️ Issue status must be manually updated to "Review" when PR is ready
 
 ## Content Creation Workflow with GitHub Issues
 
