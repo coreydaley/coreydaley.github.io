@@ -91,20 +91,29 @@ When working on an issue, follow this workflow:
      - Alternative: Use the "Development" section in the issue sidebar to link the PR
    - Example PR description: `Closes #42 - Add new blog post about Hugo themes`
 
-3. **PR Status Management** - When creating a pull request:
-   - **Option 1: Draft PR** - Create the PR as a draft while work is in progress
-     - The PR is automatically added to the project in **"In Progress"** status
+3. **Add PR to Project** - **IMPORTANT**: After creating the pull request:
+   - **Manually add the PR to the "Blog: coreydaley.dev" project**
+   - Methods to add PR to project:
+     - **Method 1 (GitHub CLI)**: Use `gh pr edit <PR-number> --add-project "Blog: coreydaley.dev"`
+     - **Method 2 (GitHub API)**: Use the GitHub API to add the PR to the project
+     - **Method 3 (Web UI)**: In the PR sidebar, click "Projects" and select "Blog: coreydaley.dev"
+   - Set the initial status to **"In Progress"**
+   - **This step is NOT automatic** - you must explicitly add the PR to the project
+
+4. **PR Status Management** - After adding PR to the project:
+   - **Option 1: Draft PR** - If created as a draft while work is in progress
+     - Keep the PR in **"In Progress"** status
      - When ready, **mark the PR as "Ready for review"** (convert from draft)
      - Then **move the PR to "Review"** status in the project
-   - **Option 2: Ready PR** - Create the PR as ready for review immediately
-     - The PR is automatically added to the project in **"In Progress"** status
+   - **Option 2: Ready PR** - If created as ready for review immediately
+     - Keep the PR in **"In Progress"** status initially
      - When ready for review, **move the PR to "Review"** status in the project
 
-4. **Issue Status Management** - When the PR is ready for review:
+5. **Issue Status Management** - When the PR is ready for review:
    - **Move the associated issue to "Review"** status
    - This signals that both the code changes and the issue are ready for review
 
-5. **Automatic Issue Closure** - When a PR is merged:
+6. **Automatic Issue Closure** - When a PR is merged:
    - The linked issue is automatically closed via GitHub workflow
    - Both the issue and PR move to "Done" status automatically
 
@@ -112,6 +121,7 @@ When working on an issue, follow this workflow:
 
 - **Always link PRs to issues** - Every PR should reference at least one issue
 - **Use closing keywords** - Use `Closes #123`, `Fixes #123`, or `Resolves #123` in PR descriptions
+- **Always add PRs to the project** - **CRITICAL**: After creating a PR, manually add it to the "Blog: coreydaley.dev" project using gh CLI, GitHub API, or the web UI
 - **Draft PRs for work in progress** - Create PRs as drafts if work is still in progress, then mark as "Ready for review" when complete
 - **Update project status** - Move items through the project board as work progresses
 - **Self-assign issues** - Assign issues to yourself when you start working on them
@@ -120,8 +130,10 @@ When working on an issue, follow this workflow:
 
 ```
 Issue: Backlog → In Progress → Review → Done (auto-closed on PR merge)
-PR:    Draft (optional) → In Progress → Ready for review → Review (in project) → Done (on merge)
+PR:    Created → [Manual: Add to Project] → In Progress → Ready for review → Review (in project) → Done (on merge)
 ```
+
+**Note**: Adding a PR to the project is a **manual step** that must be performed after PR creation. Use `gh pr edit`, GitHub API, or the web UI to add the PR to the "Blog: coreydaley.dev" project.
 
 ## Content Creation Workflow with GitHub Issues
 
@@ -157,7 +169,11 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
 4. **Create Pull Request** - When content is ready:
    - Create a PR with the content changes
    - **Link the PR to the issue**: `Closes #<issue-number>`
-   - PR is automatically added to the project in "In Progress" status
+   - **IMPORTANT: Add the PR to the project** using one of these methods:
+     - `gh pr edit <PR-number> --add-project "Blog: coreydaley.dev"`
+     - GitHub API to add PR to project
+     - Web UI: Click "Projects" in PR sidebar and select "Blog: coreydaley.dev"
+   - Set initial project status to **"In Progress"**
 
 5. **Ready for Review** - When PR is complete:
    - If PR was created as a draft, **mark it as "Ready for review"** (convert from draft)
