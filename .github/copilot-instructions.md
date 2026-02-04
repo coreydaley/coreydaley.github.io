@@ -72,9 +72,9 @@ The github-style theme supports:
 
 ## GitHub Project Management
 
-### Project: "Blog coreydaley.dev"
+### Project: "Blog: coreydaley.dev"
 
-All issues and pull requests for this repository are managed through the **"Blog coreydaley.dev"** GitHub Project.
+All issues and pull requests for this repository are managed through the **"Blog: coreydaley.dev"** GitHub Project.
 
 ### Issue Management Workflow
 
@@ -126,7 +126,7 @@ Blog posts and tutorials are managed through GitHub Issues with the following wo
 1. **Create an Issue** - Create a GitHub issue with the "blog post" or "tutorial" label
    - Title should describe the content topic
    - Description should outline key points to cover
-   - Issue is automatically added to the "Blog coreydaley.dev" project
+   - Issue is automatically added to the "Blog: coreydaley.dev" project
 
 2. **Issue Assignment** - When starting work:
    - **Assign the issue to yourself** (or GitHub Copilot)
