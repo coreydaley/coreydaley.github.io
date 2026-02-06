@@ -13,6 +13,7 @@ pygmentsUseClasses = true
   description = "Software Engineer | Secure Software Development & Cybersecurity | Embracing AI, writing code in Go and Python"
   github = "coreydaley"
   linkedin = "coreydaley-dev"
+  facebook = "coreydaley.dev"
   email = "corey@coreydaley.dev"
   url = "https://coreydaley.dev"
   keywords = "blog, google analytics"
