@@ -1,0 +1,299 @@
+{{ define "main" }}
+<div class="search-page">
+  <div class="search-container">
+    <input
+      type="text"
+      id="search-input"
+      class="search-input"
+      placeholder="Search..."
+      autofocus
+    />
+  </div>
+
+  <div id="search-results" class="search-results-list"></div>
+</div>
+
+<!-- Import core Pagefind API (not the UI) -->
+<script type="module">
+  // Import pagefind as a module
+  const pagefind = await import("/pagefind/pagefind.js");
+
+  // Perform search using Pagefind API and return JSON results
+  async function performSearch(query) {
+    const resultsContainer = document.getElementById("search-results");
+
+    if (!query || query.trim().length === 0) {
+      resultsContainer.innerHTML =
+        '<p class="search-message">Enter a search query to find results.</p>';
+      return [];
+    }
+
+    resultsContainer.innerHTML = '<p class="search-message">Searching...</p>';
+
+    try {
+      // Perform search using Pagefind API
+      const search = await pagefind.search(query);
+
+      console.log(
+        `Found ${search.results.length} results for query: "${query}"`,
+      );
+
+      // Get full data for all results
+      const fullResults = await Promise.all(
+        search.results.map((result) => result.data()),
+      );
+
+      // Process results into clean JSON format
+      const jsonResults = fullResults.map((result) => ({
+        url: result.url,
+        title: result.meta.title || "Untitled",
+        description: result.meta.description || "",
+        excerpt: result.excerpt,
+        tags: result.meta.tags ? result.meta.tags.split(", ") : [],
+        date: result.meta.date || "",
+        wordCount: result.word_count,
+      }));
+
+      // Log results as JSON to console
+      console.log("Search results as JSON:");
+      console.log(JSON.stringify(jsonResults, null, 2));
+      console.log("Raw results object:", jsonResults);
+
+      // Display results on page
+      displayResults(jsonResults);
+
+      return jsonResults;
+    } catch (error) {
+      console.error("Search failed:", error);
+      resultsContainer.innerHTML = `<p class="search-message error">Search error: ${error.message}</p>`;
+      return [];
+    }
+  }
+
+  // Display results in the UI
+  function displayResults(results) {
+    const resultsContainer = document.getElementById("search-results");
+    resultsContainer.innerHTML = "";
+
+    if (results.length === 0) {
+      resultsContainer.innerHTML =
+        '<p class="search-message">No results found.</p>';
+      return;
+    }
+
+    results.forEach((result) => {
+      const article = document.createElement("article");
+      article.className = "search-result-item";
+
+      const tagsHtml =
+        result.tags.length > 0
+          ? '<div class="search-result-tags">' +
+            result.tags
+              .slice(0, 3)
+              .map(
+                (tag) =>
+                  `<a href="/tags/${tag.toLowerCase().replace(/\s+/g, "-")}" class="search-result-tag">${tag}</a>`,
+              )
+              .join("") +
+            "</div>"
+          : "";
+
+      article.innerHTML = `
+        <div class="search-result-url">${window.location.origin}${result.url}</div>
+        <h3 class="search-result-title">
+          <a href="${result.url}">${result.title}</a>
+        </h3>
+        ${result.excerpt ? `<p class="search-result-description">${result.description}</p>` : ""}
+        ${tagsHtml}
+        <div class="search-result-footer">
+          <a href="${result.url}" class="search-result-link">Read more →</a>
+        </div>
+      `;
+
+      resultsContainer.appendChild(article);
+    });
+  }
+
+  // Debounce search to avoid too many requests
+  let searchTimeout;
+  function debouncedSearch(query) {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      performSearch(query);
+    }, 300);
+  }
+
+  // Initialize immediately (module scripts are already deferred)
+  console.log("Pagefind search script loaded");
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get("q") || "";
+  const searchInput = document.getElementById("search-input");
+
+  console.log("Search query from URL:", searchQuery);
+
+  // Set input value from URL parameter
+  if (searchQuery) {
+    searchInput.value = searchQuery;
+    // Perform initial search if query parameter exists
+    console.log("Performing search for:", searchQuery);
+    await performSearch(searchQuery);
+  }
+
+  // Hook up live search
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value;
+    debouncedSearch(query);
+
+    // Update URL with query parameter
+    const newUrl = new URL(window.location);
+    if (query) {
+      newUrl.searchParams.set("q", query);
+    } else {
+      newUrl.searchParams.delete("q");
+    }
+    window.history.replaceState({}, "", newUrl);
+  });
+</script>
+
+<style>
+  .search-container {
+    margin-bottom: 3rem;
+  }
+
+  .search-input {
+    background: var(--bg-card, #fff);
+    border: 2px solid var(--border-color, #e1e4e8);
+    border-radius: 15px;
+
+    font-family: var(
+      --font-body,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif
+    );
+    font-size: 1rem;
+    color: var(--text-primary, #24292e);
+    width: 100%;
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.1));
+    transition: all 0.2s ease;
+  }
+
+  .search-input:focus {
+    border-color: var(--primary, #0366d6);
+    outline: none;
+    box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+
+  .search-message {
+    font-family: var(
+      --font-body,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif
+    );
+    color: var(--text-secondary, #586069);
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-card, #fff);
+    border-radius: 15px;
+    border: 2px solid var(--border-color, #e1e4e8);
+  }
+
+  .search-message.error {
+    color: #d73a49;
+    border-color: #d73a49;
+  }
+
+  .search-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .search-result-item {
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .search-result-url {
+    font-size: 0.875rem;
+    color: var(--text-tertiary, #6a737d);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono, "Monaco", "Courier New", monospace);
+  }
+
+  .search-result-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .search-result-title a {
+    color: var(--text-primary, #24292e);
+    text-decoration: none;
+  }
+
+  .search-result-title a:hover {
+    color: var(--primary, #0366d6);
+  }
+
+  .search-result-description {
+    color: var(--text-secondary, #586069);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .search-result-description mark {
+    background-color: #fff8c5;
+    padding: 0.125rem 0.25rem;
+    border-radius: 3px;
+  }
+
+  .search-result-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .search-result-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-secondary, #f6f8fa);
+    border: 1px solid var(--border-color, #e1e4e8);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    color: var(--text-secondary, #586069);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .search-result-tag:hover {
+    background: var(--primary, #0366d6);
+    color: white;
+    border-color: var(--primary, #0366d6);
+  }
+
+  .search-result-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+
+    text-align: right;
+  }
+
+  .search-result-link {
+    color: var(--primary, #0366d6);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .search-result-link:hover {
+    color: var(--primary-dark, #0256c7);
+    text-decoration: underline;
+  }
+</style>
+{{ end }}

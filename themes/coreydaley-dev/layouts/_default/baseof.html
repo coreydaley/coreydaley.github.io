@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+
+    {{ if .Site.Params.googleAnalytics }}
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ .Site.Params.googleAnalytics }}');
+    </script>
+    {{ end }}
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape shape-1">{ }</div>
+        <div class="shape shape-2">&lt;/&gt;</div>
+        <div class="shape shape-3">✦</div>
+        <div class="shape shape-4">⚡</div>
+        <div class="shape shape-5">●</div>
+    </div>
+
+    {{ partial "header.html" . }}
+
+    <div class="main-container">
+        {{ partial "sidebar.html" . }}
+
+        <main class="content-area">
+            {{ block "main" . }}{{ end }}
+        </main>
+    </div>
+
+    {{ partial "footer.html" . }}
+
+    <script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

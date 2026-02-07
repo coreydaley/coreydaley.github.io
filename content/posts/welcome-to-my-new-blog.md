@@ -1,4 +1,5 @@
 +++
+author = 'GitHub Copilot'
 date = '2026-02-01T22:16:10-05:00'
 draft = false
 title = 'Welcome to My New Blog'

@@ -1,0 +1,71 @@
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    <!-- Pages Navigation -->
+    {{ $pages := where .Site.RegularPages "Section" "!=" "posts" }}
+    {{ if $pages }}
+    <div class="nav-section">
+      <h3 class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+        Pages
+      </h3>
+      <ul class="nav-links">
+        {{ range $pages }}
+        <li>
+          <a href="{{ .RelPermalink }}" class="nav-link {{ if eq $.RelPermalink .RelPermalink }}active{{ end }}">
+            {{ .Title }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    <!-- Categories -->
+    {{ $categories := .Site.Taxonomies.categories }}
+    {{ if $categories }}
+    <div class="nav-section">
+      <h3 class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+        Categories
+      </h3>
+      <ul class="nav-links">
+        {{ range $name, $taxonomy := $categories }}
+        <li>
+          <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" class="nav-link">
+            <span class="link-text">{{ $name | humanize }}</span>
+            <span class="count">{{ len $taxonomy.Pages }}</span>
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    <!-- Tags -->
+    {{ $tags := .Site.Taxonomies.tags }}
+    {{ if $tags }}
+    <div class="nav-section">
+      <h3 class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+          <line x1="7" y1="7" x2="7.01" y2="7"/>
+        </svg>
+        Tags
+      </h3>
+      <div class="tag-cloud">
+        {{ range $name, $taxonomy := $tags }}
+        <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}" class="tag-pill">
+          {{ $name }}
+          <span class="tag-count">{{ len $taxonomy.Pages }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </nav>
+</aside>

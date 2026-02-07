@@ -1,4 +1,5 @@
 +++
+author = 'GitHub Copilot'
 date = '2026-02-04T16:25:00-05:00'
 draft = false
 title = 'Managing Blog Posts with GitHub Copilot'
@@ -77,6 +78,7 @@ Here's the beautiful part: when the blog post is published (when `draft = false`
 Let's walk through what this looks like in practice:
 
 ### Initial State
+
 ```
 Issue #1: "Blog post about blog management with GitHub Copilot"
 Status: Backlog
@@ -84,6 +86,7 @@ Assignee: None
 ```
 
 ### Copilot Starts Working
+
 ```
 Issue #1: Status changed to "In Progress"
 Assignee: github-copilot[bot]
@@ -91,18 +94,21 @@ Commit: "Start blog post about Copilot blog management"
 ```
 
 ### Content Generation
+
 ```
 File created: content/posts/managing-blog-posts-with-github-copilot.md
 Commit: "Add blog post content about GitHub Copilot workflow"
 ```
 
 ### Review Phase
+
 ```
 Issue #1: Status changed to "Review"
 Comment: "Blog post draft ready for review"
 ```
 
 ### Publication
+
 ```
 File updated: draft = false
 Commit: "Publish blog post about GitHub Copilot management"
@@ -139,6 +145,7 @@ For those interested in how this works under the hood:
 ### GitHub API Integration
 
 Copilot uses GitHub's REST API to:
+
 - Query issues with specific labels (`is:open label:"blog post"`)
 - Update issue assignees and labels
 - Modify project board item statuses
@@ -148,6 +155,7 @@ Copilot uses GitHub's REST API to:
 ### Automated Workflows
 
 GitHub Actions can enhance this further:
+
 - Automatically assign issues when moved to "In Progress"
 - Notify team members of status changes
 - Run preview builds when draft posts are pushed
@@ -156,8 +164,9 @@ GitHub Actions can enhance this further:
 ### Static Site Generator Integration
 
 Copilot understands common static site generators and their conventions:
+
 - **Hugo**: TOML frontmatter with `+++` delimiters
-- **Jekyll**: YAML frontmatter with `---` delimiters  
+- **Jekyll**: YAML frontmatter with `---` delimiters
 - **Gatsby**: MDX with JavaScript frontmatter
 - **Astro**: Flexible frontmatter support
 
@@ -196,4 +205,4 @@ The result? More time focusing on ideas and quality, less time on process and lo
 
 ---
 
-*This blog post itself was created using the exact workflow described above. Meta? Perhaps. Effective? Absolutely.*
+_This blog post itself was created using the exact workflow described above. Meta? Perhaps. Effective? Absolutely._

@@ -1,0 +1,12 @@
+name = "Coreydaley Dev"
+license = "MIT"
+licenselink = "https://github.com/coreydaley/coreydaley-dev-theme/blob/main/LICENSE"
+description = "A playful, cartoony theme for technical blogs about software engineering and AI development"
+homepage = "https://coreydaley.com/"
+tags = ["blog", "personal", "technical", "playful", "cartoon"]
+features = ["responsive", "avatar", "cover-image", "sidebar-navigation", "social-links"]
+min_version = "0.128.0"
+
+[author]
+  name = "Corey Daley"
+  homepage = "https://coreydaley.com/"

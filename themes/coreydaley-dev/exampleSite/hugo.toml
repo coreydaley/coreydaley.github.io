@@ -1,0 +1,25 @@
+baseURL = 'https://example.com/'
+languageCode = 'en-us'
+title = 'Corey Daley'
+theme = 'coreydaley-dev'
+
+[params]
+  # Header Images
+  avatar = '/images/avatar.jpg'
+  coverImage = '/images/cover.jpg'
+
+  # Site Description
+  description = 'A technical blog about software engineering, AI development, and building cool stuff with code'
+  tagline = 'Software Engineer | AI Enthusiast | Code Creator'
+
+  # About Section
+  about = 'Passionate software engineer exploring the intersection of AI and development. Building tools, sharing knowledge, and learning in public.'
+
+  # Google Analytics (optional)
+  # googleAnalytics = 'G-XXXXXXXXXX'
+
+[params.social]
+  github = 'https://github.com/coreydaley'
+  linkedin = 'https://linkedin.com/in/coreydaley'
+  twitter = 'https://twitter.com/coreydaley'
+  email = 'hello@coreydaley.com'

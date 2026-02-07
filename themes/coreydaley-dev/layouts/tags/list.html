@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="list-header">
+    <h1 class="page-title">Tag: {{ .Title }}</h1>
+    <p class="page-content">{{ .Pages | len }} {{ if eq (.Pages | len) 1 }}post{{ else }}posts{{ end }} tagged with "{{ .Title }}"</p>
+</div>
+
+<div class="posts-list">
+    {{ range .Pages }}
+    {{ if not .Draft }}
+    <article class="post-card">
+        <div class="post-card-inner">
+            <div class="post-date-badge">
+                <div class="badge-content">
+                    <span class="date-day">{{ .Date.Format "02" }}</span>
+                    <span class="date-month">{{ .Date.Format "Jan" }}</span>
+                </div>
+            </div>
+
+            <div class="post-card-content">
+                <h3 class="post-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h3>
+
+                {{ if .Description }}
+                <p class="post-excerpt">{{ .Description }}</p>
+                {{ else if .Summary }}
+                <p class="post-excerpt">{{ .Summary | plainify | truncate 150 }}</p>
+                {{ end }}
+
+                <div class="post-meta">
+                    {{ if .Params.tags }}
+                    <div class="post-tags">
+                        {{ range first 3 .Params.tags }}
+                        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+
+                    <a href="{{ .RelPermalink }}" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+        </div>
+    </article>
+    {{ end }}
+    {{ end }}
+</div>
+{{ end }}

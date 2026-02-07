@@ -1,4 +1,5 @@
 +++
+author = 'GitHub Copilot'
 date = '2026-02-04T19:50:00-05:00'
 draft = false
 title = 'The Art of Iterative Cycles with AI: Why Your First Prompt is Never Your Best'
@@ -10,7 +11,7 @@ If you're working with AI tools like GitHub Copilot or Claude, you've probably n
 
 ## The One-Shot Myth
 
-When AI coding assistants first gained popularity, there was a tempting narrative: "Just describe what you want, and the AI will generate perfect code on the first try." 
+When AI coding assistants first gained popularity, there was a tempting narrative: "Just describe what you want, and the AI will generate perfect code on the first try."
 
 The reality is more nuanced. AI doesn't read your mind. It interprets your instructions based on patterns it has learned, the context you've provided, and statistical probabilities. The first attempt is often:
 
@@ -27,11 +28,13 @@ Working effectively with AI requires embracing iteration as part of the process.
 ### Round 1: The Initial Attempt
 
 You provide a prompt:
+
 ```
 "Create a function to validate user email addresses"
 ```
 
 The AI generates a basic email validator. It works, but:
+
 - Doesn't handle edge cases like international characters
 - Isn't integrated with your existing validation framework
 - Uses a different error handling pattern than the rest of your code
@@ -39,9 +42,10 @@ The AI generates a basic email validator. It works, but:
 ### Round 2: Adding Context
 
 You refine:
+
 ```
-"Create a function to validate user email addresses. 
-Use our existing ValidationError class for error handling. 
+"Create a function to validate user email addresses.
+Use our existing ValidationError class for error handling.
 Support international email addresses (RFC 6531).
 Follow the same pattern as our phone number validator."
 ```
@@ -51,8 +55,8 @@ Now the AI has more context. The result is better—it uses your error classes a
 ### Round 3: Edge Case Refinement
 
 ```
-"The validator looks good, but we also need to reject 
-disposable email domains like guerrillamail.com. 
+"The validator looks good, but we also need to reject
+disposable email domains like guerrillamail.com.
 Can you add that check?"
 ```
 
@@ -83,20 +87,23 @@ When you're not trying to be perfect on the first try, you're more willing to ex
 ### Start Broad, Then Narrow
 
 Begin with a high-level request to establish the overall structure:
+
 ```
 "Create a REST API endpoint for user registration"
 ```
 
 Then refine specific aspects:
+
 ```
 "Add rate limiting to prevent abuse"
-"Add email verification before account activation"  
+"Add email verification before account activation"
 "Return detailed validation errors in the response"
 ```
 
 ### Use the AI's Output as a Conversation Starter
 
 When the AI generates code, don't just accept or reject it wholesale. Ask questions:
+
 - "Why did you choose this approach?"
 - "What are the trade-offs here?"
 - "How would this handle [specific scenario]?"
@@ -106,6 +113,7 @@ The AI's explanations often reveal considerations you hadn't thought about.
 ### Embrace Small, Focused Iterations
 
 Rather than one massive prompt with 10 requirements, make 3-4 smaller requests that build on each other. This makes it easier to:
+
 - Spot issues early
 - Understand what changed and why
 - Roll back specific changes if needed
@@ -113,6 +121,7 @@ Rather than one massive prompt with 10 requirements, make 3-4 smaller requests t
 ### Keep Track of What Works
 
 As you iterate, you'll discover which types of prompts work well for different tasks. Build a mental (or literal) library:
+
 - "For database queries, I should specify my ORM upfront"
 - "When generating tests, I need to mention our testing framework first"
 - "UI components need design system references early"
@@ -164,8 +173,9 @@ If all five are true, ship it.
 The key insight is this: **AI doesn't replace thinking; it accelerates implementation.**
 
 You still need to:
+
 - Define the problem clearly
-- Evaluate solutions critically  
+- Evaluate solutions critically
 - Test thoroughly
 - Refine until it's right
 
@@ -212,7 +222,7 @@ So the next time your AI assistant's first attempt isn't quite right, don't be d
 
 ---
 
-*What's been your experience with iterative AI workflows? Have you found strategies that speed up the refinement process? I'd love to hear about them.*
+_What's been your experience with iterative AI workflows? Have you found strategies that speed up the refinement process? I'd love to hear about them._
 
 ---
 

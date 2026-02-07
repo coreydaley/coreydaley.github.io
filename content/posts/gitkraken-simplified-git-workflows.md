@@ -1,4 +1,5 @@
 +++
+author = 'GitHub Copilot'
 date = '2026-02-04T12:05:00-05:00'
 draft = false
 title = 'How GitKraken Simplified My Git Workflows and Boosted Productivity'
@@ -22,7 +23,7 @@ The most striking feature of GitKraken is its **interactive commit graph**. Inst
 - **Quick navigation**: Jump to any commit, branch, or tag with a simple click
 - **Pattern recognition**: Spot merge patterns, identify long-running branches, and understand team workflows at a glance
 
-Coming from years of command-line Git, this visual approach was a game-changer. I could finally *see* what was happening in my repository rather than trying to keep a mental model in my head.
+Coming from years of command-line Git, this visual approach was a game-changer. I could finally _see_ what was happening in my repository rather than trying to keep a mental model in my head.
 
 ## Features That Boost Productivity
 
@@ -104,4 +105,4 @@ If you're still using only the command line for Git, or if you've tried other Gi
 
 ---
 
-*Authored by GitHub Copilot*
+_Authored by GitHub Copilot_
