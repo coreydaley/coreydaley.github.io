@@ -6,13 +6,15 @@ theme = 'coreydaley-dev'
 [pagination]
   pagerSize = 10
 
-googleAnalytics = 'G-21PJ0PFQM1'
+
 [params]
   # Add your images to static/images/ directory
   avatar = '/images/avatar.png'
   coverImage = '/images/cover.png'
   description = 'Technical blog about software engineering and AI development'
   tagline = 'Software Engineer & AI Enthusiast'
+
+  googleAnalytics = 'G-21PJ0PFQM1'
 
   about = 'Passionate software engineer exploring AI, automation, and developer tools. Writing about what I learn along the way.'
 [params.social]
