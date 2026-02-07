@@ -11,8 +11,9 @@
         <div class="post-card-inner">
             <div class="post-date-badge">
                 <div class="badge-content">
-                    <span class="date-day">{{ .Date.Format "02" }}</span>
-                    <span class="date-month">{{ .Date.Format "Jan" }}</span>
+                    <span class="date-month">
+            {{ .Date.Format "January" }} {{ .Date.Format "02 2006" }}</span
+          >
                 </div>
             </div>
 
@@ -30,18 +31,12 @@
                 <div class="post-meta">
                     {{ if .Params.tags }}
                     <div class="post-tags">
-                        {{ range first 3 .Params.tags }}
+                        {{ range .Params.tags }}
                         <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
                         {{ end }}
                     </div>
                     {{ end }}
 
-                    <a href="{{ .RelPermalink }}" class="read-more">
-                        Read More
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
                 </div>
             </div>
 
