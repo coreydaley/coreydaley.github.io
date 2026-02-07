@@ -12,6 +12,7 @@
         Pages
       </h3>
       <ul class="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
         {{ range $pages }}
         <li>
           <a href="{{ .RelPermalink }}" class="nav-link {{ if eq $.RelPermalink .RelPermalink }}active{{ end }}">
