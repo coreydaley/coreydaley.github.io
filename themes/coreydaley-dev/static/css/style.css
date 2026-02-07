@@ -412,8 +412,6 @@ body {
 .search-input {
     width: 100%;
     padding: 0.5rem .5rem 0.5rem .5rem;
-    background: var(--bg-card);
-    border-radius: 15px;
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--text-primary);
