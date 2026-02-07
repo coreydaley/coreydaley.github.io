@@ -6,7 +6,7 @@ theme = 'coreydaley-dev'
 [pagination]
   pagerSize = 10
 
-googleAnalytics = 'G-KTVYYMZHNL'
+googleAnalytics = 'G-21PJ0PFQM1'
 [params]
   # Add your images to static/images/ directory
   avatar = '/images/avatar.png'
