@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 
-    {{ if .Site.Params.googleAnalytics }}
+    {{ if .Site.params.tracking.googleAnalytics }}
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalytics }}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.params.tracking.googleAnalytics }}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', '{{ .Site.Params.googleAnalytics }}');
+      gtag('config', '{{ .Site.params.tracking.googleAnalytics }}');
     </script>
     {{ end }}
 </head>

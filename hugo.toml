@@ -3,14 +3,10 @@ languageCode = 'en-us'
 title = 'Corey Daley'
 theme = 'coreydaley-dev'
 
-[pagination]
-  pagerSize = 10
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-
 
 [params]
   # Add your images to static/images/ directory
@@ -19,9 +15,6 @@ theme = 'coreydaley-dev'
   description = 'Technical blog about software engineering and AI development'
   tagline = 'Software Engineer & AI Enthusiast'
 
-  googleAnalytics = 'G-21PJ0PFQM1'
-
-  about = 'Passionate software engineer exploring AI, automation, and developer tools. Writing about what I learn along the way.'
 [params.social]
   github = 'https://github.com/coreydaley'
   linkedin = 'https://linkedin.com/in/coreydaley-dev'
@@ -29,23 +22,5 @@ theme = 'coreydaley-dev'
   facebook = 'https://facebook.com/coreydaley.dev'
   email = 'corey@coreydaley.dev'
 
-#[params]
-#  author = "Corey Daley"
-#  description = "Software Engineer & AI Enthusiast | Secure Software Development & Cybersecurity | Writing code in Go and Python"
-#  github = "coreydaley"
-#  linkedin = "coreydaley-dev"
-#  facebook = "coreydaley.dev"
-#  twitter = "coreydaley_dev"
-#  email = "corey@coreydaley.dev"
-#  url = "https://coreydaley.dev"
-#  keywords = "blog, google analytics"
-#  rss = false
-#  lastmod = true
-#  userStatusEmoji = "😀"
-#  favicon = "/images/github.png"
-#  avatar = "/images/avatar.png"
-#  headerIcon = "/images/github-mark-white.png"
-#  location = "Elizabethtown, KY"
-#  # custom_css = ["css/custom.css"]
-#  # custom_js = ["js/custom.js"]
-#  enableSearch = true
+[params.tracking]
+  googleAnalytics = 'G-21PJ0PFQM1'
