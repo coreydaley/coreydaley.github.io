@@ -89,7 +89,6 @@
         result.tags.length > 0
           ? '<div class="search-result-tags">' +
             result.tags
-              .slice(0, 3)
               .map(
                 (tag) =>
                   `<a href="/tags/${tag.toLowerCase().replace(/\s+/g, "-")}" class="search-result-tag">${tag}</a>`,
