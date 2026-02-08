@@ -1,3 +1,8 @@
+<!--
+Created by: AI Agent
+Date: 2026-02-06T23:07:00-05:00
+-->
+
 # Agent Instructions for coreydaley.github.io
 
 ## Project Overview
@@ -70,6 +75,119 @@ The `.github/workflows/hugo.yml` workflow:
 - **Testing locally**: Always use `-D` flag to preview drafts
 - **Search updates**: Pagefind indexes automatically in CI - no manual steps needed
 
-## When creating content such as blog posts or tutorials
+## AI Agent Content Authorship
 
-- The Agent creating the content should add themselves as the 'author' in the front matter of the markdown file
+When an AI Agent creates new content such as blog posts or tutorials, it **MUST** set the `author` field in the frontmatter with the following format:
+
+```
+author = 'Agent Name (Model Name Version)'
+```
+
+**Examples**:
+
+- `author = 'Claude Code (Claude Sonnet 4.5)'`
+- `author = 'Claude Code (Claude Opus 4.6)'`
+- `author = 'Task Agent (Claude Haiku 4.5)'`
+- `author = 'ChatGPT (GPT-4o)'`
+- `author = 'ChatGPT (GPT-4 Turbo)'`
+- `author = 'GitHub Copilot (GPT-4)'`
+
+**Format Requirements**:
+
+- Include the agent name (e.g., "Claude Code", "ChatGPT", "GitHub Copilot", "Task Agent")
+- Include the model family name (e.g., "Claude Sonnet", "GPT-4o", "GPT-4 Turbo")
+- Include the major version number where applicable
+- Do NOT include the full model ID with dates
+- Use parentheses to separate agent name from model info
+
+## AI Agent File Creation and Modification Tracking
+
+### When Creating New Structure Files
+
+When an AI Agent creates new HTML, CSS, JavaScript, or Markdown files, it **MUST** include a comment block at the top of the file with:
+
+- **Created By**: Agent name and model (same format as content authorship)
+- **Date**: Current date and time in ISO 8601 format
+
+**HTML Example**:
+
+```html
+<!--
+Created By: Claude Code (Claude Sonnet 4.5)
+Date: 2026-02-08T14:30:00-05:00
+-->
+<!DOCTYPE html>
+<html>
+  ...
+</html>
+```
+
+**CSS Example**:
+
+```css
+/*
+ * Created By: Claude Code (Claude Sonnet 4.5)
+ * Date: 2026-02-08T14:30:00-05:00
+ */
+body {
+  ...
+}
+```
+
+**JavaScript Example**:
+
+```javascript
+/**
+ * Created By: Claude Code (Claude Sonnet 4.5)
+ * Date: 2026-02-08T14:30:00-05:00
+ */
+function example() {
+  ...
+}
+```
+
+**Markdown Example**:
+
+```markdown
+<!--
+Created By: Claude Code (Claude Sonnet 4.5)
+Date: 2026-02-08T14:30:00-05:00
+-->
+
+# Document Title
+
+...
+```
+
+### When Modifying Existing Structure Files
+
+When an AI Agent modifies existing HTML, CSS, JavaScript, or Markdown files, it **MUST** update or add a "Last Modified By" entry in the comment block at the top of the file:
+
+**HTML/Markdown Example**:
+
+```html
+<!--
+Created By: Claude Code (Claude Sonnet 4.5)
+Date: 2026-02-08T14:30:00-05:00
+Last Modified By: ChatGPT (GPT-4o)
+Last Modified: 2026-02-10T09:15:00-05:00
+-->
+```
+
+**CSS/JavaScript Example**:
+
+```css
+/*
+ * Created By: Claude Code (Claude Sonnet 4.5)
+ * Date: 2026-02-08T14:30:00-05:00
+ * Last Modified By: GitHub Copilot (GPT-4)
+ * Last Modified: 2026-02-10T09:15:00-05:00
+ */
+```
+
+**Important Notes**:
+
+- Always preserve the original "Created By" information
+- Update the "Last Modified By" and "Last Modified" fields with current agent and timestamp
+- Use ISO 8601 date format with timezone (e.g., `2026-02-08T14:30:00-05:00`)
+- If the file doesn't have a comment block, add one with both creation and modification info
