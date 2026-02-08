@@ -978,7 +978,6 @@ body {
    =================================== */
 
 .search-page {
-    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -1039,7 +1038,6 @@ body {
 
 /* Search Results List - Google Style */
 .search-results-list {
-    max-width: 900px;
     margin: 0 auto;
 }
 

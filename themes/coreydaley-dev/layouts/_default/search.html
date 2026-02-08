@@ -2,17 +2,19 @@
 Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T00:00:00-05:00 */}}
 {{ define "main" }}
 <div class="search-page">
-  <div class="search-container">
-    <input
-      type="text"
-      id="search-input"
-      class="search-input"
-      placeholder="Search..."
-      autofocus
-    />
-  </div>
+  <article class="single-post">
+    <div class="search-container">
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search..."
+        autofocus
+      />
+    </div>
 
-  <div id="search-results" class="search-results-list"></div>
+    <div id="search-results" class="search-results-list"></div>
+  </article>
 </div>
 
 <!-- Import core Pagefind API (not the UI) -->
@@ -102,9 +104,6 @@ Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T00:00:00-05:00 */}}
         </h3>
         ${result.excerpt ? `<p class="search-result-description">${result.description}</p>` : ""}
         ${tagsHtml}
-        <div class="search-result-footer">
-          <a href="${result.url}" class="search-result-link">Read more →</a>
-        </div>
       `;
 
       resultsContainer.appendChild(article);
