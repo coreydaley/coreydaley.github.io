@@ -1,3 +1,8 @@
+<!--
+Created by: AI Agent
+Date: 2026-02-06T22:56:44-05:00
+-->
+
 # Coreydaley Dev Theme
 
 A playful, eye-catching Hugo theme for technical blogs about software engineering and AI development. Features a cartoony design with vibrant colors, smooth animations, and a LinkedIn-inspired layout.

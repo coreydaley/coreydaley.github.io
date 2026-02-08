@@ -1,3 +1,8 @@
+<!--
+Created by: AI Agent
+Date: 2026-02-06T22:56:44-05:00
+-->
+
 # Quick Start: Switch to Coreydaley Dev Theme
 
 Your new custom Hugo theme is ready! Here's how to activate it:
