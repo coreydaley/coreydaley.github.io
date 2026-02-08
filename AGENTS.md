@@ -1,8 +1,3 @@
-<!--
-Created by: AI Agent
-Date: 2026-02-06T23:07:00-05:00
--->
-
 # Agent Instructions for coreydaley.github.io
 
 ## Project Overview
@@ -104,12 +99,28 @@ author = 'Agent Name (Model Name Version)'
 
 ### When Creating New Structure Files
 
-When an AI Agent creates new HTML, CSS, JavaScript, or Markdown files, it **MUST** include a comment block at the top of the file with:
+When an AI Agent creates new HTML, CSS, JavaScript, TOML, or YAML files, it **MUST** include a comment block at the top of the file with:
 
 - **Created By**: Agent name and model (same format as content authorship)
 - **Date**: Current date and time in ISO 8601 format
 
-**HTML Example**:
+**IMPORTANT**: Do NOT add comment blocks to Markdown content files as they can interfere with Hugo frontmatter parsing.
+
+**Hugo Template (HTML) Example**:
+
+For Hugo template files (in `themes/*/layouts/`), use Hugo template comment format:
+
+```html
+{{/* Created by: AI Agent | Date: 2026-02-08T14:30:00-05:00 */}}
+<!DOCTYPE html>
+<html>
+  ...
+</html>
+```
+
+**Standalone HTML Example**:
+
+For standalone HTML files (not Hugo templates):
 
 ```html
 <!--
@@ -146,24 +157,37 @@ function example() {
 }
 ```
 
-**Markdown Example**:
+**TOML Example**:
 
-```markdown
-<!--
-Created By: Claude Code (Claude Sonnet 4.5)
-Date: 2026-02-08T14:30:00-05:00
--->
+```toml
+# Created by: AI Agent
+# Date: 2026-02-08T14:30:00-05:00
 
-# Document Title
+baseURL = 'https://example.com/'
+...
+```
 
+**YAML Example**:
+
+```yaml
+# Created by: AI Agent
+# Date: 2026-02-08T14:30:00-05:00
+
+name: Workflow Name
 ...
 ```
 
 ### When Modifying Existing Structure Files
 
-When an AI Agent modifies existing HTML, CSS, JavaScript, or Markdown files, it **MUST** update or add a "Last Modified By" entry in the comment block at the top of the file:
+When an AI Agent modifies existing HTML, CSS, JavaScript, TOML, or YAML files, it **MUST** update or add a "Last Modified By" entry in the comment block at the top of the file:
 
-**HTML/Markdown Example**:
+**Hugo Template (HTML) Example**:
+
+```html
+{{/* Created by: AI Agent | Date: 2026-02-08T14:30:00-05:00 | Last Modified By: ChatGPT (GPT-4o) | Last Modified: 2026-02-10T09:15:00-05:00 */}}
+```
+
+**Standalone HTML Example**:
 
 ```html
 <!--
@@ -185,9 +209,21 @@ Last Modified: 2026-02-10T09:15:00-05:00
  */
 ```
 
+**TOML/YAML Example**:
+
+```toml
+# Created by: AI Agent
+# Date: 2026-02-08T14:30:00-05:00
+# Last Modified By: GitHub Copilot (GPT-4)
+# Last Modified: 2026-02-10T09:15:00-05:00
+```
+
 **Important Notes**:
 
 - Always preserve the original "Created By" information
 - Update the "Last Modified By" and "Last Modified" fields with current agent and timestamp
 - Use ISO 8601 date format with timezone (e.g., `2026-02-08T14:30:00-05:00`)
 - If the file doesn't have a comment block, add one with both creation and modification info
+- **Do NOT add comment blocks to Markdown content files** - they can break Hugo frontmatter parsing
+- For Hugo template files (layouts), always use `{{/* ... */}}` comment format
+- For standalone HTML, CSS, and JS files, use standard comment formats
