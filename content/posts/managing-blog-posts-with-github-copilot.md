@@ -5,6 +5,7 @@ draft = false
 title = 'Managing Blog Posts with GitHub Copilot'
 description = 'How GitHub Copilot automates blog post creation by working directly with GitHub Issues and Projects, tracking progress, and closing issues when posts are published.'
 tags = ['github-copilot', 'automation', 'workflow', 'productivity', 'ai', 'blogging']
+categories = ['AI', 'Automation', 'Productivity']
 +++
 
 Managing a blog can feel like juggling multiple tasks: brainstorming ideas, drafting content, tracking progress, and finally publishing. But what if your AI assistant could handle much of this workflow automatically? That's exactly what GitHub Copilot does when you integrate it with GitHub Issues and Projects.

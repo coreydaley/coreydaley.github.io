@@ -5,6 +5,7 @@ draft = false
 title = 'The Art of Iterative Cycles with AI: Why Your First Prompt is Never Your Best'
 description = 'Working with AI is an iterative process, not a one-shot solution. Learn why embracing the cycle of refinement leads to better results and how to make the most of AI-assisted development.'
 tags = ['ai', 'productivity', 'workflow', 'github-copilot', 'claude', 'best-practices', 'development']
+categories = ['AI', 'Best Practices']
 +++
 
 If you're working with AI tools like GitHub Copilot or Claude, you've probably noticed something: the first response is rarely perfect. And that's not a bug—it's a feature. Understanding why AI assistance is an iterative process, not a one-shot solution, is key to using these tools effectively.

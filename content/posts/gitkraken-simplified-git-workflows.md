@@ -5,6 +5,7 @@ draft = false
 title = 'How GitKraken Simplified My Git Workflows and Boosted Productivity'
 description = 'Discover how GitKraken transformed my development workflow with its visual interface, powerful features, and seamless integrations that make Git more productive and less intimidating.'
 tags = ['gitkraken', 'git', 'version-control', 'productivity', 'developer-tools']
+categories = ['Tools', 'Productivity']
 +++
 
 If you've been working with Git for any length of time, you know it's an incredibly powerful version control system — but it can also be complex and intimidating, especially when dealing with branching, merging, and resolving conflicts. That's where GitKraken comes in, and it's completely transformed how I work with Git on a daily basis.

@@ -60,11 +60,23 @@
         Tags
       </h3>
       <div class="tag-cloud">
+        {{ $maxCount := 0 }}
+        {{ $minCount := 999 }}
         {{ range $name, $taxonomy := $tags }}
-        <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}" class="tag-pill">
-          {{ $name }}
-          <span class="tag-count">{{ len $taxonomy.Pages }}</span>
-        </a>
+          {{ $count := len $taxonomy.Pages }}
+          {{ if gt $count $maxCount }}{{ $maxCount = $count }}{{ end }}
+          {{ if lt $count $minCount }}{{ $minCount = $count }}{{ end }}
+        {{ end }}
+        {{ range $name, $taxonomy := $tags }}
+          {{ $count := len $taxonomy.Pages }}
+          {{ $weight := 1.0 }}
+          {{ if gt $maxCount $minCount }}
+            {{ $weight = div (sub $count $minCount | float) (sub $maxCount $minCount | float) }}
+          {{ end }}
+          {{ $size := add 0.75 (mul $weight 0.75) }}
+          <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}" class="tag-cloud-item" style="font-size: {{ $size }}rem;">
+            {{ $name }}
+          </a>
         {{ end }}
       </div>
     </div>

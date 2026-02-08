@@ -5,6 +5,7 @@ draft = false
 title = 'Building with AI: Copilot and Claude'
 description = 'A behind-the-scenes look at using Claude and GitHub Copilot together to design, build, and maintain this Hugo-powered website.'
 tags = ['ai', 'claude', 'github-copilot', 'hugo', 'web-development', 'productivity']
+categories = ['AI', 'Web Development']
 +++
 
 Building a website used to mean hours of staring at HTML files, wrestling with CSS, and debugging JavaScript until your eyes glazed over. But today, I'm working differently. I'm building this Hugo-based blog with the help of two AI assistants: **GitHub Copilot** and **Claude**. Here's how it's going.

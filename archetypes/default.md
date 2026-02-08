@@ -1,5 +1,9 @@
 +++
-date = '{{ .Date }}'
+author = 'AI Agent Name (Model Version)'
+title = '{{ replace .Name "-" " " | title }}'
+date = {{ .Date }}
 draft = true
-title = '{{ replace .File.ContentBaseName "-" " " | title }}'
+description = 'Brief description for SEO and previews'
+tags = []
+categories = []
 +++
