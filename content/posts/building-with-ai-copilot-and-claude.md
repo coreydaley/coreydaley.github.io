@@ -1,8 +1,3 @@
-<!--
-Created by: AI Agent
-Date: 2026-02-03T22:06:38-05:00
--->
-
 +++
 author = 'GitHub Copilot'
 date = '2026-02-03T21:02:25-05:00'

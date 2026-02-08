@@ -1,8 +1,3 @@
-<!--
-Created by: AI Agent
-Date: 2026-02-06T23:07:00-05:00
--->
-
 +++
 author = 'Claude Sonnet 4.5'
 date = '2026-02-06T23:03:54-05:00'
