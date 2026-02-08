@@ -1,104 +1,105 @@
 {{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By:
-Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T00:00:00-05:00 */}}
+  Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T00:00:00-05:00
+*/}}
 {{ define "main" }}
-<div class="search-page">
-  <article class="single-post">
-    <div class="search-container">
-      <input
-        type="text"
-        id="search-input"
-        class="search-input"
-        placeholder="Search..."
-        autofocus
-      />
-    </div>
+  <div class="search-page">
+    <article class="single-post">
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search..."
+          autofocus
+        />
+      </div>
 
-    <div id="search-results" class="search-results-list"></div>
-  </article>
-</div>
+      <div id="search-results" class="search-results-list"></div>
+    </article>
+  </div>
 
-<!-- Import core Pagefind API (not the UI) -->
-<script type="module">
-  // Import pagefind as a module
-  const pagefind = await import("/pagefind/pagefind.js");
+  <!-- Import core Pagefind API (not the UI) -->
+  <script type="module">
+    // Import pagefind as a module
+    const pagefind = await import("/pagefind/pagefind.js");
 
-  // Perform search using Pagefind API and return JSON results
-  async function performSearch(query) {
-    const resultsContainer = document.getElementById("search-results");
+    // Perform search using Pagefind API and return JSON results
+    async function performSearch(query) {
+      const resultsContainer = document.getElementById("search-results");
 
-    if (!query || query.trim().length === 0) {
-      resultsContainer.innerHTML =
-        '<p class="search-message">Enter a search query to find results.</p>';
-      return [];
+      if (!query || query.trim().length === 0) {
+        resultsContainer.innerHTML =
+          '<p class="search-message">Enter a search query to find results.</p>';
+        return [];
+      }
+
+      resultsContainer.innerHTML = '<p class="search-message">Searching...</p>';
+
+      try {
+        // Perform search using Pagefind API
+        const search = await pagefind.search(query);
+
+        console.log(
+          `Found ${search.results.length} results for query: "${query}"`,
+        );
+
+        // Get full data for all results
+        const fullResults = await Promise.all(
+          search.results.map((result) => result.data()),
+        );
+
+        // Process results into clean JSON format
+        const jsonResults = fullResults.map((result) => ({
+          url: result.url,
+          title: result.meta.title || "Untitled",
+          description: result.meta.description || "",
+          excerpt: result.excerpt,
+          tags: result.meta.tags ? result.meta.tags.split(", ") : [],
+          date: result.meta.date || "",
+          wordCount: result.word_count,
+        }));
+
+        // Log results as JSON to console
+
+        // Display results on page
+        displayResults(jsonResults);
+
+        return jsonResults;
+      } catch (error) {
+        console.error("Search failed:", error);
+        resultsContainer.innerHTML = `<p class="search-message error">Search error: ${error.message}</p>`;
+        return [];
+      }
     }
 
-    resultsContainer.innerHTML = '<p class="search-message">Searching...</p>';
+    // Display results in the UI
+    function displayResults(results) {
+      const resultsContainer = document.getElementById("search-results");
+      resultsContainer.innerHTML = "";
 
-    try {
-      // Perform search using Pagefind API
-      const search = await pagefind.search(query);
+      if (results.length === 0) {
+        resultsContainer.innerHTML =
+          '<p class="search-message">No results found.</p>';
+        return;
+      }
 
-      console.log(
-        `Found ${search.results.length} results for query: "${query}"`,
-      );
+      results.forEach((result) => {
+        const article = document.createElement("article");
+        article.className = "search-result-item";
 
-      // Get full data for all results
-      const fullResults = await Promise.all(
-        search.results.map((result) => result.data()),
-      );
+        const tagsHtml =
+          result.tags.length > 0
+            ? '<div class="search-result-tags">' +
+              result.tags
+                .map(
+                  (tag) =>
+                    `<a href="/tags/${tag.toLowerCase().replace(/\s+/g, "-")}" class="search-result-tag">${tag}</a>`,
+                )
+                .join("") +
+              "</div>"
+            : "";
 
-      // Process results into clean JSON format
-      const jsonResults = fullResults.map((result) => ({
-        url: result.url,
-        title: result.meta.title || "Untitled",
-        description: result.meta.description || "",
-        excerpt: result.excerpt,
-        tags: result.meta.tags ? result.meta.tags.split(", ") : [],
-        date: result.meta.date || "",
-        wordCount: result.word_count,
-      }));
-
-      // Log results as JSON to console
-
-      // Display results on page
-      displayResults(jsonResults);
-
-      return jsonResults;
-    } catch (error) {
-      console.error("Search failed:", error);
-      resultsContainer.innerHTML = `<p class="search-message error">Search error: ${error.message}</p>`;
-      return [];
-    }
-  }
-
-  // Display results in the UI
-  function displayResults(results) {
-    const resultsContainer = document.getElementById("search-results");
-    resultsContainer.innerHTML = "";
-
-    if (results.length === 0) {
-      resultsContainer.innerHTML =
-        '<p class="search-message">No results found.</p>';
-      return;
-    }
-
-    results.forEach((result) => {
-      const article = document.createElement("article");
-      article.className = "search-result-item";
-
-      const tagsHtml =
-        result.tags.length > 0
-          ? '<div class="search-result-tags">' +
-            result.tags
-              .map(
-                (tag) =>
-                  `<a href="/tags/${tag.toLowerCase().replace(/\s+/g, "-")}" class="search-result-tag">${tag}</a>`,
-              )
-              .join("") +
-            "</div>"
-          : "";
-
-      article.innerHTML = `
+        article.innerHTML = `
         <h3 class="search-result-title">
           <a href="${result.url}">${result.title}</a>
         </h3>
@@ -106,46 +107,46 @@ Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T00:00:00-05:00 */}}
         ${tagsHtml}
       `;
 
-      resultsContainer.appendChild(article);
-    });
-  }
-
-  // Debounce search to avoid too many requests
-  let searchTimeout;
-  function debouncedSearch(query) {
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(() => {
-      performSearch(query);
-    }, 300);
-  }
-
-  // Initialize immediately (module scripts are already deferred)
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const searchQuery = urlParams.get("q") || "";
-  const searchInput = document.getElementById("search-input");
-
-  // Set input value from URL parameter
-  if (searchQuery) {
-    searchInput.value = searchQuery;
-    // Perform initial search if query parameter exists
-
-    await performSearch(searchQuery);
-  }
-
-  // Hook up live search
-  searchInput.addEventListener("input", (e) => {
-    const query = e.target.value;
-    debouncedSearch(query);
-
-    // Update URL with query parameter
-    const newUrl = new URL(window.location);
-    if (query) {
-      newUrl.searchParams.set("q", query);
-    } else {
-      newUrl.searchParams.delete("q");
+        resultsContainer.appendChild(article);
+      });
     }
-    window.history.replaceState({}, "", newUrl);
-  });
-</script>
+
+    // Debounce search to avoid too many requests
+    let searchTimeout;
+    function debouncedSearch(query) {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        performSearch(query);
+      }, 300);
+    }
+
+    // Initialize immediately (module scripts are already deferred)
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get("q") || "";
+    const searchInput = document.getElementById("search-input");
+
+    // Set input value from URL parameter
+    if (searchQuery) {
+      searchInput.value = searchQuery;
+      // Perform initial search if query parameter exists
+
+      await performSearch(searchQuery);
+    }
+
+    // Hook up live search
+    searchInput.addEventListener("input", (e) => {
+      const query = e.target.value;
+      debouncedSearch(query);
+
+      // Update URL with query parameter
+      const newUrl = new URL(window.location);
+      if (query) {
+        newUrl.searchParams.set("q", query);
+      } else {
+        newUrl.searchParams.delete("q");
+      }
+      window.history.replaceState({}, "", newUrl);
+    });
+  </script>
 {{ end }}

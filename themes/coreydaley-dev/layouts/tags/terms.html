@@ -1,16 +1,18 @@
 {{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 */}}
-{{ define "main" }}
-<div class="list-header">
+{{ define
+  "main"
+}}
+  <div class="list-header">
     <h1 class="page-title">All Tags</h1>
     <p class="page-content">Browse posts by tag</p>
-</div>
+  </div>
 
-<div class="tags-cloud">
+  <div class="tags-cloud">
     {{ range .Data.Terms.ByCount }}
-    <a href="{{ .Page.RelPermalink }}" class="tag-cloud-item">
+      <a href="{{ .Page.RelPermalink }}" class="tag-cloud-item">
         <span class="tag-name">{{ .Page.Title }}</span>
         <span class="tag-count">{{ .Count }}</span>
-    </a>
+      </a>
     {{ end }}
-</div>
+  </div>
 {{ end }}
