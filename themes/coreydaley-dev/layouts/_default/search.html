@@ -1,4 +1,5 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By:
+Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T00:00:00-05:00 */}}
 {{ define "main" }}
 <div class="search-page">
   <div class="search-container">
@@ -56,9 +57,6 @@
       }));
 
       // Log results as JSON to console
-      console.log("Search results as JSON:");
-      console.log(JSON.stringify(jsonResults, null, 2));
-      console.log("Raw results object:", jsonResults);
 
       // Display results on page
       displayResults(jsonResults);
@@ -123,19 +121,16 @@
   }
 
   // Initialize immediately (module scripts are already deferred)
-  console.log("Pagefind search script loaded");
 
   const urlParams = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get("q") || "";
   const searchInput = document.getElementById("search-input");
 
-  console.log("Search query from URL:", searchQuery);
-
   // Set input value from URL parameter
   if (searchQuery) {
     searchInput.value = searchQuery;
     // Perform initial search if query parameter exists
-    console.log("Performing search for:", searchQuery);
+
     await performSearch(searchQuery);
   }
 
@@ -154,145 +149,4 @@
     window.history.replaceState({}, "", newUrl);
   });
 </script>
-
-<style>
-  .search-container {
-    margin-bottom: 3rem;
-  }
-
-  .search-input {
-    background: var(--bg-card, #fff);
-    border: 2px solid var(--border-color, #e1e4e8);
-    border-radius: 15px;
-
-    font-family: var(
-      --font-body,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      sans-serif
-    );
-    font-size: 1rem;
-    color: var(--text-primary, #24292e);
-    width: 100%;
-    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.1));
-    transition: all 0.2s ease;
-  }
-
-  .search-input:focus {
-    border-color: var(--primary, #0366d6);
-    outline: none;
-    box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
-  }
-
-  .search-message {
-    font-family: var(
-      --font-body,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      sans-serif
-    );
-    color: var(--text-secondary, #586069);
-    text-align: center;
-    padding: 2rem;
-    background: var(--bg-card, #fff);
-    border-radius: 15px;
-    border: 2px solid var(--border-color, #e1e4e8);
-  }
-
-  .search-message.error {
-    color: #d73a49;
-    border-color: #d73a49;
-  }
-
-  .search-results-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .search-result-item {
-    padding: 1.5rem;
-    transition: all 0.2s ease;
-  }
-
-  .search-result-url {
-    font-size: 0.875rem;
-    color: var(--text-tertiary, #6a737d);
-    margin-bottom: 0.5rem;
-    font-family: var(--font-mono, "Monaco", "Courier New", monospace);
-  }
-
-  .search-result-title {
-    margin: 0 0 0.75rem 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .search-result-title a {
-    color: var(--text-primary, #24292e);
-    text-decoration: none;
-  }
-
-  .search-result-title a:hover {
-    color: var(--primary, #0366d6);
-  }
-
-  .search-result-description {
-    color: var(--text-secondary, #586069);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .search-result-description mark {
-    background-color: #fff8c5;
-    padding: 0.125rem 0.25rem;
-    border-radius: 3px;
-  }
-
-  .search-result-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-
-  .search-result-tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background: var(--bg-secondary, #f6f8fa);
-    border: 1px solid var(--border-color, #e1e4e8);
-    border-radius: 20px;
-    font-size: 0.875rem;
-    color: var(--text-secondary, #586069);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .search-result-tag:hover {
-    background: var(--primary, #0366d6);
-    color: white;
-    border-color: var(--primary, #0366d6);
-  }
-
-  .search-result-footer {
-    margin-top: 1rem;
-    padding-top: 1rem;
-
-    text-align: right;
-  }
-
-  .search-result-link {
-    color: var(--primary, #0366d6);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .search-result-link:hover {
-    color: var(--primary-dark, #0256c7);
-    text-decoration: underline;
-  }
-</style>
 {{ end }}
