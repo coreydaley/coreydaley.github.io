@@ -39,8 +39,25 @@ hugo new posts/my-post-title.md
    title = 'Post Title'
    description = 'Brief description for SEO and previews'
    tags = ['tag1', 'tag2', 'tag3']
+   categories = ['Category 1', 'Category 2']
    +++
    ```
+
+   **Required Fields**:
+   - `author`: AI agent and model that created the content
+   - `date`: ISO 8601 timestamp with timezone
+   - `draft`: Boolean (true/false)
+   - `title`: Post title
+   - `description`: SEO-friendly summary
+   - `tags`: Specific keywords (lowercase, hyphenated)
+   - `categories`: Broad topic groupings (Title Case)
+
+   **Categories Guidelines**:
+   - Use 1-3 categories per post based on primary topics
+   - Categories are broader than tags (e.g., "AI" vs "github-copilot")
+   - Use Title Case for category names (e.g., "Web Development", "Best Practices")
+   - Common categories: AI, Web Development, Productivity, Tools, Career, Automation, Best Practices, Getting Started
+   - Choose categories that help organize content into meaningful sections
 
 2. **Draft Publishing**: Posts default to `draft = true` (set in `archetypes/default.md`). Remove or set to `false` to publish.
 
