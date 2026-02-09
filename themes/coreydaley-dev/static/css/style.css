@@ -578,13 +578,7 @@ body {
    Posts List - Vertical Layout
    =================================== */
 
-.posts-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 100%;
-    margin: 0 auto;
-}
+/* .posts-list styling is defined with .single-post below for card appearance */
 
 /* Simple list layout for index page */
 .posts-list-simple {
@@ -844,7 +838,8 @@ body {
    Single Post
    =================================== */
 
-.single-post {
+.single-post,
+.posts-list {
     background: var(--bg-card);
     border-radius: 30px;
     padding: 3rem;
@@ -1413,7 +1408,8 @@ body {
         font-size: 1rem;
     }
 
-    .single-post {
+    .single-post,
+    .posts-list {
         padding: 1.5rem;
     }
 
