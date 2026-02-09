@@ -1,20 +1,20 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By:
-  Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T00:00:00-05:00
-*/}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T15:00:00-05:00 */}}
 {{ define "main" }}
-  <div class="search-page">
-    <div class="search-container">
-      <input
-        type="text"
-        id="search-input"
-        class="search-input"
-        placeholder="Search..."
-        autofocus
-      />
-    </div>
+  <article class="posts-list">
+    <div class="search-page">
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search..."
+          autofocus
+        />
+      </div>
 
-    <div id="search-results"></div>
-  </div>
+      <div id="search-results"></div>
+    </div>
+  </article>
 
   <!-- Import core Pagefind API (not the UI) -->
   <script type="module">
