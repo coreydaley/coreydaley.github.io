@@ -13,16 +13,12 @@
 :root {
     /* Color Palette */
     --primary: #2ca3e5;
-    --primary-light: #5dc3f5;
     --primary-dark: #5dc3f5;
     --accent-pink: #ec4899;
     --accent-cyan: #06b6d4;
-    --accent-yellow: #fbbf24;
-    --accent-green: #10b981;
     --accent-orange: #f97316;
 
     /* Backgrounds - Light Theme */
-    --bg-light: #ffffff;
     --bg-page: #f8f9fa;
     --bg-card: #ffffff;
     --bg-card-hover: #f8f9fa;
@@ -35,7 +31,6 @@
 
     /* Borders */
     --border-color: #e5e7eb;
-    --border-color-strong: #d1d5db;
 
     /* Effects */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
