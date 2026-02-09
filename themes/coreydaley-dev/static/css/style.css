@@ -136,7 +136,7 @@ body {
 }
 
 .header-nav-link:hover {
-    color: yellow;
+    color: var(--accent-pink);
 }
 
 .header-content {
@@ -334,7 +334,7 @@ body {
 
 .social-link:hover,
 .nav-link:hover {
-    color: var(--primary);
+    color: var(--accent-pink);
 }
 
 .social-link svg {
@@ -377,7 +377,7 @@ body {
 }
 
 .tag-cloud-item:hover {
-    color: var(--primary);
+    color: var(--accent-pink);
     transform: scale(1.1);
 }
 
@@ -507,7 +507,7 @@ body {
 }
 
 .search-result-title a:hover {
-    color: var(--primary, #0366d6);
+    color: var(--accent-pink);
 }
 
 .search-result-description {
@@ -561,7 +561,7 @@ body {
 }
 
 .search-result-link:hover {
-    color: var(--primary-dark, #0256c7);
+    color: var(--accent-pink);
     text-decoration: underline;
 }
 
@@ -657,7 +657,7 @@ body {
 }
 
 .post-item .taxonomy-link:hover {
-    color: var(--primary);
+    color: var(--accent-pink);
     text-decoration: underline;
 }
 
@@ -680,8 +680,8 @@ body {
 }
 
 .post-item .read-more:hover {
-    color: var(--primary-dark);
-    text-decoration: underline;
+    color: var(--accent-pink);
+    text-decoration: none;
     box-shadow: none;
     border: none;
 }
@@ -772,7 +772,7 @@ body {
 }
 
 .post-title a:hover {
-    color: var(--primary);
+    color: var(--accent-pink);
 }
 
 .post-excerpt {
@@ -832,7 +832,7 @@ body {
 
 .read-more:hover {
     box-shadow: var(--shadow-md);
-    border-color: var(--accent-cyan);
+    border-color: var(--accent-pink);
 }
 
 .read-more svg {
@@ -902,7 +902,7 @@ body {
 }
 
 .single-post-taxonomy .taxonomy-link:hover {
-    color: var(--primary);
+    color: var(--accent-pink);
     text-decoration: underline;
 }
 
@@ -1050,7 +1050,7 @@ body {
 }
 
 .nav-post:hover {
-    border-color: var(--primary);
+    border-color: var(--accent-pink);
     box-shadow: var(--shadow-md);
 }
 
