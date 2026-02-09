@@ -3,19 +3,17 @@
 */}}
 {{ define "main" }}
   <div class="search-page">
-    <article class="single-post">
-      <div class="search-container">
-        <input
-          type="text"
-          id="search-input"
-          class="search-input"
-          placeholder="Search..."
-          autofocus
-        />
-      </div>
+    <div class="search-container">
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search..."
+        autofocus
+      />
+    </div>
 
-      <div id="search-results" class="search-results-list"></div>
-    </article>
+    <div id="search-results"></div>
   </div>
 
   <!-- Import core Pagefind API (not the UI) -->
@@ -55,6 +53,7 @@
           description: result.meta.description || "",
           excerpt: result.excerpt,
           tags: result.meta.tags ? result.meta.tags.split(", ") : [],
+          categories: result.meta.categories ? result.meta.categories.split(", ") : [],
           date: result.meta.date || "",
           wordCount: result.word_count,
         }));
@@ -76,6 +75,7 @@
     function displayResults(results) {
       const resultsContainer = document.getElementById("search-results");
       resultsContainer.innerHTML = "";
+      resultsContainer.className = "posts-list-simple";
 
       if (results.length === 0) {
         resultsContainer.innerHTML =
@@ -83,31 +83,74 @@
         return;
       }
 
-      results.forEach((result) => {
+      results.forEach((result, index) => {
         const article = document.createElement("article");
-        article.className = "search-result-item";
+        article.className = "post-item";
 
-        const tagsHtml =
-          result.tags.length > 0
-            ? '<div class="search-result-tags">' +
-              result.tags
+        // Format date
+        const dateStr = result.date
+          ? new Date(result.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "2-digit",
+            })
+          : "";
+
+        // Build categories HTML
+        const categoriesHtml =
+          result.categories && result.categories.length > 0
+            ? `<div class="post-categories">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="taxonomy-icon">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+              </svg>
+              ${result.categories
                 .map(
-                  (tag) =>
-                    `<a href="/tags/${tag.toLowerCase().replace(/\s+/g, "-")}" class="search-result-tag">${tag}</a>`,
+                  (category, i) =>
+                    `${i > 0 ? ", " : ""}<a href="/categories/${category.toLowerCase().replace(/\s+/g, "-")}" class="taxonomy-link">${category}</a>`,
                 )
-                .join("") +
-              "</div>"
+                .join("")}
+            </div>`
             : "";
 
+        // Build tags HTML
+        const tagsHtml =
+          result.tags && result.tags.length > 0
+            ? `<div class="post-tags-list">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="taxonomy-icon">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                <line x1="7" y1="7" x2="7.01" y2="7"/>
+              </svg>
+              ${result.tags
+                .map(
+                  (tag, i) =>
+                    `${i > 0 ? ", " : ""}<a href="/tags/${tag.toLowerCase().replace(/\s+/g, "-")}" class="taxonomy-link">${tag}</a>`,
+                )
+                .join("")}
+            </div>`
+            : "";
+
+        const taxonomyHtml = categoriesHtml || tagsHtml
+          ? `<div class="post-taxonomy">${categoriesHtml}${tagsHtml}</div>`
+          : "";
+
         article.innerHTML = `
-        <h3 class="search-result-title">
-          <a href="${result.url}">${result.title}</a>
-        </h3>
-        ${result.excerpt ? `<p class="search-result-description">${result.description}</p>` : ""}
-        ${tagsHtml}
-      `;
+          ${dateStr ? `<div class="post-date">${dateStr}</div>` : ""}
+          <h2 class="post-title">
+            <a href="${result.url}">${result.title}</a>
+          </h2>
+          ${result.description ? `<p class="post-excerpt">${result.description}</p>` : ""}
+          ${taxonomyHtml}
+          <a href="${result.url}" class="read-more">Read more →</a>
+        `;
 
         resultsContainer.appendChild(article);
+
+        // Add separator if not the last item
+        if (index < results.length - 1) {
+          const separator = document.createElement("hr");
+          separator.className = "post-separator";
+          resultsContainer.appendChild(separator);
+        }
       });
     }
 

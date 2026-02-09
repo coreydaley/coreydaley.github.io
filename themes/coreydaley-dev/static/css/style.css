@@ -586,6 +586,112 @@ body {
     margin: 0 auto;
 }
 
+/* Simple list layout for index page */
+.posts-list-simple {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.post-item {
+    padding: 2rem 0;
+    position: relative;
+}
+
+.post-item .post-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.post-item .post-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    padding-right: 120px;
+}
+
+.post-item .post-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-item .post-title a:hover {
+    color: var(--primary);
+}
+
+.post-item .post-excerpt {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.post-item .post-taxonomy {
+    margin-bottom: 1rem;
+}
+
+.post-item .post-categories,
+.post-item .post-tags-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.post-item .taxonomy-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    stroke: var(--text-muted);
+}
+
+.post-item .taxonomy-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-item .taxonomy-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.post-item .read-more {
+    position: absolute;
+    bottom: 2rem;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.post-item .read-more:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+    box-shadow: none;
+    border: none;
+}
+
+.post-separator {
+    border: none;
+    border-top: 2px solid var(--border-color);
+    margin: 0;
+}
+
 .post-card {
     position: relative;
 }
@@ -766,6 +872,38 @@ body {
     flex-wrap: wrap;
     gap: 1.5rem;
     color: var(--text-secondary);
+}
+
+.single-post-taxonomy {
+    display: block;
+}
+
+.single-post-taxonomy .post-categories,
+.single-post-taxonomy .post-tags-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.single-post-taxonomy .taxonomy-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    stroke: var(--text-muted);
+}
+
+.single-post-taxonomy .taxonomy-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.single-post-taxonomy .taxonomy-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
 }
 
 .meta-item {
