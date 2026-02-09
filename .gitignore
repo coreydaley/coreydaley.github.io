@@ -5,6 +5,10 @@
 
 # Node.js dependencies (if you use them)
 /node_modules/
+package-lock.json
+
+# PurgeCSS backups
+*.css.backup
 
 # Optional: temporary files, log files, OS-specific files, or editor files
 .DS_Store

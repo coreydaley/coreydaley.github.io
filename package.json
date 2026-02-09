@@ -1,6 +1,16 @@
 {
+  "name": "coreydaley-github-io",
+  "version": "1.0.0",
+  "description": "Personal blog built with Hugo",
+  "scripts": {
+    "pagefind": "pagefind --source public",
+    "purgecss": "purgecss --config purgecss.config.js"
+  },
   "devDependencies": {
     "prettier": "^3.8.1",
-    "prettier-plugin-go-template": "^0.0.15"
+    "prettier-plugin-go-template": "^0.0.15",
+    "@fullhuman/purgecss": "^6.0.0",
+    "purgecss": "^6.0.0",
+    "pagefind": "^1.2.0"
   }
 }
