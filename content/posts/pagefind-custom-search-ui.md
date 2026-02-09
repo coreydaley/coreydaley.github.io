@@ -10,13 +10,15 @@ categories = ['Web Development', 'Tools', 'Best Practices']
 
 The search experience on this site needed to feel like the rest of the theme: clean, typographic, and aligned with the post list layout. The default Pagefind UI is great for quick setup, but it brings its own markup and styles. Instead, the search page uses the **Pagefind API directly**, pulls JSON results, and renders the results using the same post card structure used elsewhere.
 
+You can see it in action on the [search page](/search/).
+
 This post walks through the key ideas in `themes/coreydaley-dev/layouts/_default/search.html` and how the custom flow works. You can view the full file on GitHub: [search.html](https://github.com/coreydaley/coreydaley.github.io/blob/main/themes/coreydaley-dev/layouts/_default/search.html).
 
-**Why skip the default UI**
+## Why Skip The Default UI
 
 The stock Pagefind UI gives you a search box and results list out of the box, but that HTML structure doesn’t match the theme’s post list markup. The goal here was to keep the search results visually consistent: dates in the same format, taxonomy chips in the same place, separators between posts, and familiar “Read more” links.
 
-**Load Pagefind as a module**
+## Load Pagefind As A Module
 
 The page imports the core Pagefind API (not the UI bundle) directly:
 
@@ -31,7 +33,7 @@ The page imports the core Pagefind API (not the UI bundle) directly:
 
 This is the foundation for custom rendering. You keep the search engine, but own the markup.
 
-**Turn results into clean JSON**
+## Turn Results Into Clean JSON
 
 `performSearch(query)` is the main entry point. After calling `pagefind.search(query)`, it fetches full result data with:
 
@@ -65,7 +67,7 @@ const jsonResults = fullResults.map((result) => ({
 
 This step is the big win: the JSON object is decoupled from Pagefind’s internal shape, so the rendering logic stays readable and theme-specific.
 
-**Render results using the site’s post list styles**
+## Render Results Using The Site’s Post List Styles
 
 `displayResults(results)` builds the HTML using the same visual components as the rest of the site:
 
@@ -88,7 +90,7 @@ article.innerHTML = `
 
 Because the markup matches the site’s list layout, the search results feel like native content — not a bolted-on widget.
 
-**Small UX details that add polish**
+## Small UX Details That Add Polish
 
 A few subtle touches help the page feel responsive and intentional:
 
@@ -108,7 +110,7 @@ searchInput.addEventListener("input", (e) => {
 });
 ```
 
-**The result: Pagefind power, theme-native presentation**
+## The Result: Pagefind Power, Theme-Native Presentation
 
 The key idea is simple: Pagefind handles indexing and search relevance, while the site controls the UI. By converting Pagefind results into a clean JSON structure and rendering them with existing post styles, the search page keeps visual consistency without sacrificing search quality.
 
