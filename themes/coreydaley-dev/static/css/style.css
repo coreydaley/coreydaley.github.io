@@ -191,6 +191,12 @@ a:hover {
 
 .avatar-container {
     position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.avatar-container:hover .avatar {
+    transform: rotateY(360deg);
 }
 
 .avatar {
