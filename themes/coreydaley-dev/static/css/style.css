@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-10T17:20:00-05:00
+ * Last Modified: 2026-02-10T19:00:00-05:00
  */
 
 /* ===================================
@@ -35,7 +35,6 @@
     /* Effects */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 
     /* Typography */
     --font-display: 'Fredoka', sans-serif;
@@ -89,7 +88,7 @@ a:hover {
     position: relative;
     height: var(--header-height);
     margin-bottom: 3rem;
-    overflow: visible;
+    overflow: hidden;
     border-radius: 0 0 40px 40px;
 }
 
@@ -141,42 +140,226 @@ a:hover {
     color: var(--accent-pink);
 }
 
-.header-tabs {
+.header-search {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    gap: 0;
+    top: 1rem;
+    right: 2rem;
     z-index: 10;
 }
 
-.header-tab {
+.header-search .search-form {
+    margin: 0;
+}
+
+.header-search .search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.header-search .search-input {
+    width: 250px;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.header-search .search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.header-search .search-input:focus {
+    background: #ffffff;
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header-search .search-button {
+    position: absolute;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+.header-search .search-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.header-search .search-button svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--primary);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    max-width: 85vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4rem 0 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-pink) 100%);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+    display: flex;
+}
+
+.mobile-menu-toggle:checked ~ .mobile-nav {
+    right: 0;
+}
+
+.mobile-nav-link {
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--primary);
-    margin-right: 3px;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    display: block;
+    width: 100%;
+    transition: background 0.2s ease;
+}
+
+.mobile-nav-link:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+}
+
+.hamburger-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    padding: 0.5rem;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
     transition: all 0.3s ease;
-    border-radius: 0;
-    border-radius: 15px 15px 0 0;
 }
 
-
-
-.header-tab:last-child {
-    border-right: none;
+.mobile-menu-toggle:checked ~ .hamburger-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
 }
 
-.header-tab:hover {
-    background: var(--accent-pink);
+.mobile-menu-toggle:checked ~ .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle:checked ~ .hamburger-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle:checked ~ .menu-overlay {
+    display: block;
+}
+
+/* Mobile nav sections - hidden on desktop */
+.mobile-only {
+    display: none;
+}
+
+.mobile-nav-section {
+    width: 100%;
+}
+
+.mobile-nav-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.75rem 1.5rem 0.5rem;
+    margin: 1rem 0 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mobile-nav-title svg {
+    width: 16px;
+    height: 16px;
+}
+
+.mobile-sub-link {
+    padding-left: 2.5rem !important;
+    font-size: 0.9rem !important;
+    opacity: 0.95;
+}
+
+.mobile-sub-link .count {
+    margin-left: auto;
+    opacity: 0.7;
+    font-size: 0.85rem;
+}
+
+.mobile-tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem 1rem;
+}
+
+.mobile-tag-item {
+    padding: 0.35rem 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
     color: #ffffff;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s;
 }
 
-.header-tab.active {
-    background: var(--bg-page);
-    color: var(--text-primary);
+.mobile-tag-item:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
 }
 
 .header-content {
