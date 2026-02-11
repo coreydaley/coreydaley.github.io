@@ -1,4 +1,4 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-10T17:30:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-10T19:00:00-05:00 */}}
 <header class="site-header">
   <div
     class="cover-image"
@@ -83,16 +83,81 @@
     </div>
   </div>
 
-  <nav class="header-tabs">
-    {{ $pages := where .Site.RegularPages "Section" "!=" "posts" }}
-    <a href="/" class="header-tab {{ if eq .RelPermalink "/" }}active{{ end }}">Home</a>
-    {{ range $pages }}
-      <a
-        href="{{ .RelPermalink }}"
-        class="header-tab {{ if eq $.RelPermalink .RelPermalink }}active{{ end }}"
-      >
-        {{ .Title }}
-      </a>
+  <!-- Desktop Search -->
+  <div class="header-search">
+    <form action="/search" method="get" class="search-form">
+      <div class="search-input-wrapper">
+        <input
+          type="text"
+          name="q"
+          placeholder="Search posts..."
+          class="search-input"
+          required
+        />
+        <button type="submit" class="search-button">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Mobile Menu Toggle -->
+  <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" />
+  <label for="mobile-menu-toggle" class="hamburger-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <label for="mobile-menu-toggle" class="menu-overlay"></label>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav">
+    <!-- Categories (mobile only) -->
+    {{ $categories := .Site.Taxonomies.categories }}
+    {{ if $categories }}
+      <div class="mobile-nav-section mobile-only">
+        <h3 class="mobile-nav-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+          </svg>
+          Categories
+        </h3>
+        {{ range $name, $taxonomy := $categories }}
+          <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" class="mobile-nav-link mobile-sub-link">
+            {{ $name | humanize }}
+            <span class="count">{{ len $taxonomy.Pages }}</span>
+          </a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    <!-- Tags (mobile only) -->
+    {{ $tags := .Site.Taxonomies.tags }}
+    {{ if $tags }}
+      <div class="mobile-nav-section mobile-only">
+        <h3 class="mobile-nav-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+            <line x1="7" y1="7" x2="7.01" y2="7"/>
+          </svg>
+          Tags
+        </h3>
+        <div class="mobile-tag-cloud">
+          {{ range $name, $taxonomy := $tags }}
+            <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}" class="mobile-tag-item">
+              {{ $name }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
     {{ end }}
   </nav>
 </header>
