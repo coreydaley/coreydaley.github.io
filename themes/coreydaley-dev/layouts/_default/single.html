@@ -72,6 +72,7 @@
 
     <div data-pagefind-body class="post-content">
       {{ if eq .Section "posts" }}
+        {{ .Content }}
         <div
           data-pagefind-meta="date:{{ .Date.Format "2006-01-02" }}"
           class="post-author-date"
@@ -83,7 +84,7 @@
           >
         </div>
       {{ end }}
-      {{ .Content }}
+
     </div>
 
     <footer class="post-footer">
