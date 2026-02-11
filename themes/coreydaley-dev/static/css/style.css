@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-08T15:10:00-05:00
+ * Last Modified: 2026-02-10T17:20:00-05:00
  */
 
 /* ===================================
@@ -65,6 +65,14 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    text-decoration:none;
+    color: var(--primary);
+}
+a:hover {
+    text-decoration:none;
+    color: var(--accent-pink);
+}
 /* ===================================
    Floating Background Shapes - Hidden
    =================================== */
@@ -562,6 +570,10 @@ body {
     position: relative;
 }
 
+.post-item:first-child {
+    padding-top: 0;
+}
+
 .post-item .post-date {
     font-size: 0.9rem;
     color: var(--text-muted);
@@ -655,6 +667,54 @@ body {
     border: none;
     border-top: 2px solid var(--border-color);
     margin: 0;
+}
+
+/* ===================================
+   Pagination
+   =================================== */
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+    gap: 1rem;
+}
+
+.pagination-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.pagination-link:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-pink);
+    transform: translateY(-2px);
+}
+
+.pagination-info {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.pagination-prev {
+    margin-right: auto;
+}
+
+.pagination-next {
+    margin-left: auto;
 }
 
 .post-card {
@@ -800,7 +860,7 @@ body {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--primary);
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
@@ -1353,5 +1413,20 @@ body {
 
     .post-title {
         margin-right: 0;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pagination-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pagination-prev,
+    .pagination-next {
+        margin: 0;
     }
 }

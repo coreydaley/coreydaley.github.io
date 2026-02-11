@@ -1,9 +1,10 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T14:50:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-10T17:20:00-05:00 */}}
 {{ define "main" }}
   <article class="posts-list">
     <div class="posts-list-simple">
-      {{ $posts := where .Site.RegularPages "Type" "posts" }}
-      {{ range $index, $post := $posts }}
+      {{ $allPosts := where .Site.RegularPages "Type" "posts" }}
+      {{ $paginator := .Paginate $allPosts }}
+      {{ range $index, $post := $paginator.Pages }}
         {{ if not $post.Draft }}
           <article class="post-item">
             <div class="post-date">
@@ -22,52 +23,97 @@
               </p>
             {{ end }}
 
+
             <div class="post-taxonomy">
               {{ if $post.Params.categories }}
                 <div class="post-categories">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="taxonomy-icon">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="taxonomy-icon"
+                  >
+                    <path
+                      d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                    />
                   </svg>
                   {{ range $index, $category := $post.Params.categories }}
-                    {{ if $index }}, {{ end }}
-                    <a href="{{ "/categories/" | relURL }}{{ $category | urlize }}" class="taxonomy-link">{{ $category }}</a>
+                    {{ if $index }},{{ end }}
+                    <a
+                      href="{{ "/categories/" | relURL }}{{ $category | urlize }}"
+                      class="taxonomy-link"
+                      >{{ $category }}</a
+                    >
                   {{ end }}
                 </div>
               {{ end }}
 
               {{ if $post.Params.tags }}
                 <div class="post-tags-list">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="taxonomy-icon">
-                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                    <line x1="7" y1="7" x2="7.01" y2="7"/>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="taxonomy-icon"
+                  >
+                    <path
+                      d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+                    />
+                    <line x1="7" y1="7" x2="7.01" y2="7" />
                   </svg>
                   {{ range $index, $tag := $post.Params.tags }}
-                    {{ if $index }}, {{ end }}
-                    <a href="{{ "/tags/" | relURL }}{{ $tag | urlize }}" class="taxonomy-link">{{ $tag }}</a>
+                    {{ if $index }},{{ end }}
+                    <a
+                      href="{{ "/tags/" | relURL }}{{ $tag | urlize }}"
+                      class="taxonomy-link"
+                      >{{ $tag }}</a
+                    >
                   {{ end }}
                 </div>
               {{ end }}
             </div>
 
             <a href="{{ $post.RelPermalink }}" class="read-more">Read more →</a>
-
           </article>
 
-          {{ if ne (add $index 1) (len $posts) }}
+          {{ if ne (add $index 1) (len $paginator.Pages) }}
             <hr class="post-separator" />
           {{ end }}
         {{ end }}
       {{ end }}
     </div>
 
-    {{ if eq (len (where .Site.RegularPages "Type" "posts")) 0 }}
+    {{ if eq (len $allPosts) 0 }}
       <div class="no-posts">
         <div class="no-posts-icon">📝</div>
         <h3>No posts yet</h3>
         <p>
-          Check back soon for exciting content about software engineering and AI!
+          Check back soon for exciting content about software engineering and
+          AI!
         </p>
       </div>
+    {{ end }}
+
+    {{ if gt $paginator.TotalPages 1 }}
+      <nav class="pagination">
+        {{ if $paginator.HasPrev }}
+          <a
+            href="{{ $paginator.Prev.URL }}"
+            class="pagination-link pagination-prev"
+            >← Newer Posts</a
+          >
+        {{ end }}
+
+        {{ if $paginator.HasNext }}
+          <a
+            href="{{ $paginator.Next.URL }}"
+            class="pagination-link pagination-next"
+            >Older Posts →</a
+          >
+        {{ end }}
+      </nav>
     {{ end }}
   </article>
 {{ end }}
