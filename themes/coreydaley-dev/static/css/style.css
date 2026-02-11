@@ -1614,45 +1614,128 @@ a:hover {
     .site-tagline {
         font-size: 1.1rem;
     }
+
+    .header-social-icons {
+        margin-left: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .post-item .post-title {
+        padding-right: 0;
+    }
+
+    .post-item .read-more {
+        position: static;
+        margin-top: 1rem;
+    }
 }
 
 @media (max-width: 640px) {
     :root {
-        --header-height: 320px;
+        --header-height: auto;
     }
 
     .site-header {
-        border-radius: 0 0 25px 25px;
+        border-radius: 0 0 20px 20px;
+        margin-bottom: 2rem;
+    }
+
+    .header-content {
+        padding: 1.5rem 1rem;
     }
 
     .avatar {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
 
     .site-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
     }
 
     .site-tagline {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .header-social-icons {
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .header-social-icons .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .header-social-icons .social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .hamburger-icon {
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+
+    .hamburger-icon span {
+        width: 24px;
+    }
+
+    .mobile-nav {
+        width: 250px;
+        padding: 3.5rem 0 1.5rem;
+    }
+
+    .mobile-nav-link {
+        padding: 0.9rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .main-container {
+        padding: 0 0.75rem 1.5rem;
+    }
+
+    .sidebar-nav {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
     }
 
     .single-post,
     .posts-list {
-        padding: 1.5rem;
+        padding: 1.25rem;
+        border-radius: 20px;
+    }
+
+    .post-item {
+        padding: 1.5rem 0;
+    }
+
+    .post-item .post-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
     }
 
     .post-title-single {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .post-content {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
+    .post-content h1 { font-size: 1.5rem; }
+    .post-content h2 { font-size: 1.3rem; }
+    .post-content h3 { font-size: 1.15rem; }
+
     .post-card-inner {
-        padding: 1.5rem;
+        padding: 1.25rem;
+        border-radius: 20px;
     }
 
     .post-date-badge {
