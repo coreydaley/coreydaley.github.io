@@ -89,9 +89,8 @@ a:hover {
     position: relative;
     height: var(--header-height);
     margin-bottom: 3rem;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 0 0 40px 40px;
-    box-shadow: var(--shadow-lg);
 }
 
 .cover-image {
@@ -142,6 +141,46 @@ a:hover {
     color: var(--accent-pink);
 }
 
+.header-tabs {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    gap: 0;
+    z-index: 10;
+}
+
+.header-tab {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(44, 163, 229, 0.6);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.header-tab:first-child {
+    border-radius: 15px 0 0 0;
+}
+
+.header-tab:last-child {
+    border-right: none;
+}
+
+.header-tab:hover {
+    background: rgba(236, 72, 153, 0.4);
+    color: #ffffff;
+}
+
+.header-tab.active {
+    background: var(--bg-page);
+    color: var(--text-primary);
+}
+
 .header-content {
     position: relative;
     z-index: 2;
@@ -181,8 +220,8 @@ a:hover {
     display: flex;
     gap: 1rem;
     align-items: center;
-    align-self: flex-end;
-    margin-bottom: -1.5rem;
+    margin-top: 1.5rem;
+    margin-left: 75px;
 }
 
 .header-social-icons .social-icon {
@@ -256,17 +295,18 @@ a:hover {
    Sidebar
    =================================== */
 
-.sidebar {
+.sidebar-nav {
     width: var(--sidebar-width);
     position: sticky;
     height: fit-content;
-    background: var(--bg-sidebar);
+    background: var(--bg-card);
     border-radius: 30px;
     padding: 2rem;
     box-shadow: var(--shadow-md);
     border: 2px solid var(--border-color);
     position: relative;
     overflow: hidden;
+    margin-bottom:25px;
 }
 
 .sidebar-decoration {
@@ -278,15 +318,13 @@ a:hover {
     z-index: 1;
 }
 
-.nav-section {
-    margin-bottom: 2.5rem;
-}
+
 
 .section-title {
     font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--text-primary);
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -296,7 +334,7 @@ a:hover {
 .section-title svg {
     width: 20px;
     height: 20px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 
@@ -628,14 +666,14 @@ a:hover {
 }
 
 .post-item .taxonomy-link {
-    color: var(--text-secondary);
+    color: var(--primary);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .post-item .taxonomy-link:hover {
     color: var(--accent-pink);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .post-item .read-more {
@@ -665,7 +703,7 @@ a:hover {
 
 .post-separator {
     border: none;
-    border-top: 2px solid var(--border-color);
+    border-top: 2px dashed var(--border-color);
     margin: 0;
 }
 
@@ -700,6 +738,7 @@ a:hover {
 .pagination-link:hover {
     box-shadow: var(--shadow-md);
     border-color: var(--accent-pink);
+    color: #ffffff;
     transform: translateY(-2px);
 }
 
@@ -1348,6 +1387,27 @@ a:hover {
     }
 
     .header-nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .header-tabs {
+        position: static;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 0.75rem 1rem;
+        border-radius: 0;
+    }
+
+    .header-tab {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0 !important;
+    }
+
+    .header-tab:last-child {
         border-bottom: none;
     }
 

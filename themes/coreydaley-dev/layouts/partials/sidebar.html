@@ -1,29 +1,6 @@
 {{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 */}}
 <aside class="sidebar">
   <nav class="sidebar-nav">
-    <!-- Pages Navigation -->
-    {{ $pages := where .Site.RegularPages "Section" "!=" "posts" }}
-    {{ if $pages }}
-      <div class="nav-section">
-        <ul class="nav-links">
-          <li><a href="/" class="nav-link">Home</a></li>
-          {{ range $pages }}
-            <li>
-              <a
-                href="{{ .RelPermalink }}"
-                class="nav-link {{ if eq $.RelPermalink .RelPermalink }}
-                  active
-                {{ end }}"
-              >
-                {{ .Title }}
-              </a>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
-    {{ end }}
-
-
     <!-- Categories -->
     {{ $categories := .Site.Taxonomies.categories }}
     {{ if $categories }}
@@ -56,8 +33,8 @@
         </ul>
       </div>
     {{ end }}
-
-
+  </nav>
+  <nav class="sidebar-nav">
     <!-- Tags -->
     {{ $tags := .Site.Taxonomies.tags }}
     {{ if $tags }}
