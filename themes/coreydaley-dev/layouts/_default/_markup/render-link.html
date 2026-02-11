@@ -1,0 +1,9 @@
+{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-10T22:15:00-05:00 */}}
+{{- $url := .Destination -}}
+{{- $isExternal := and (not (hasPrefix $url "/")) (not (hasPrefix $url "#")) (hasPrefix $url "http") -}}
+
+<a href="{{ $url }}"
+   {{- with .Title }} title="{{ . }}"{{ end -}}
+   {{- if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end -}}>
+   {{- .Text | safeHTML -}}
+</a>
