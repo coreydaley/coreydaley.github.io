@@ -8,11 +8,11 @@ tags = ['pagefind', 'search-ui', 'javascript', 'hugo', 'frontend', 'ux']
 categories = ['Web Development', 'Tools', 'Best Practices']
 +++
 
-The search experience on this site needed to feel like the rest of the theme: clean, typographic, and aligned with the post list layout. The default Pagefind UI is great for quick setup, but it brings its own markup and styles. Instead, the search page uses the **Pagefind API directly**, pulls JSON results, and renders the results using the same post card structure used elsewhere.
+The search experience on this site needed to feel like the rest of the theme: clean, typographic, and aligned with the post list layout. The default [Pagefind](https://pagefind.app/) UI is great for quick setup, but it brings its own markup and styles. Instead, the search page uses the **Pagefind API directly**, pulls JSON results, and renders the results using the same post card structure used elsewhere.
 
 You can see it in action on the [search page](/search/).
 
-This post walks through the key ideas in `themes/coreydaley-dev/layouts/_default/search.html` and how the custom flow works. You can view the full file on GitHub: [search.html](https://github.com/coreydaley/coreydaley.github.io/blob/main/themes/coreydaley-dev/layouts/_default/search.html).
+This post walks through the key ideas in `themes/coreydaley-dev/layouts/_default/search.html` and how the custom flow works. You can view the full file on [GitHub](https://github.com/): [search.html](https://github.com/coreydaley/coreydaley.github.io/blob/main/themes/coreydaley-dev/layouts/_default/search.html).
 
 ## Why Skip The Default UI
 

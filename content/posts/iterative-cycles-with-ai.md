@@ -8,7 +8,7 @@ tags = ['ai', 'productivity', 'workflow', 'github-copilot', 'claude', 'best-prac
 categories = ['AI', 'Best Practices']
 +++
 
-If you're working with AI tools like GitHub Copilot or Claude, you've probably noticed something: the first response is rarely perfect. And that's not a bug—it's a feature. Understanding why AI assistance is an iterative process, not a one-shot solution, is key to using these tools effectively.
+If you're working with AI tools like [GitHub Copilot](https://github.com/features/copilot) or [Claude](https://claude.ai/), you've probably noticed something: the first response is rarely perfect. And that's not a bug—it's a feature. Understanding why AI assistance is an iterative process, not a one-shot solution, is key to using these tools effectively.
 
 ## The One-Shot Myth
 
@@ -141,7 +141,7 @@ AI response: Generates a basic client-side JavaScript search that scans page con
 
 ### Iteration 2: Adding Context
 
-"Add a search feature using Pagefind, which should integrate with Hugo's build process"
+"Add a search feature using [Pagefind](https://pagefind.app/), which should integrate with [Hugo](https://gohugo.io/)'s build process"
 
 AI response: Updates the build workflow to run Pagefind after Hugo builds, adds search UI to the layout.
 

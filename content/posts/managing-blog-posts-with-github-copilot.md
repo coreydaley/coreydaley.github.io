@@ -8,7 +8,7 @@ tags = ['github-copilot', 'automation', 'workflow', 'productivity', 'ai', 'blogg
 categories = ['AI', 'Automation', 'Productivity']
 +++
 
-Managing a blog can feel like juggling multiple tasks: brainstorming ideas, drafting content, tracking progress, and finally publishing. But what if your AI assistant could handle much of this workflow automatically? That's exactly what GitHub Copilot does when you integrate it with GitHub Issues and Projects.
+Managing a blog can feel like juggling multiple tasks: brainstorming ideas, drafting content, tracking progress, and finally publishing. But what if your AI assistant could handle much of this workflow automatically? That's exactly what [GitHub Copilot](https://github.com/features/copilot) does when you integrate it with [GitHub Issues](https://github.com/features/issues) and [GitHub Projects](https://github.com/features/issues).
 
 ## The Traditional Blog Workflow Problem
 
@@ -54,7 +54,7 @@ This happens automatically through GitHub's API, keeping your project board curr
 
 #### 3. **Creates the Blog Post File**
 
-Copilot generates the actual blog post in the correct format for your static site generator (like Hugo, Jekyll, or Gatsby). It:
+Copilot generates the actual blog post in the correct format for your static site generator (like [Hugo](https://gohugo.io/), [Jekyll](https://jekyllrb.com/), or [Gatsby](https://www.gatsbyjs.com/)). It:
 
 - Creates the file with proper frontmatter (date, title, tags, description)
 - Structures the content with appropriate headings and sections
@@ -155,7 +155,7 @@ Copilot uses GitHub's REST API to:
 
 ### Automated Workflows
 
-GitHub Actions can enhance this further:
+[GitHub Actions](https://github.com/features/actions) can enhance this further:
 
 - Automatically assign issues when moved to "In Progress"
 - Notify team members of status changes
@@ -169,7 +169,7 @@ Copilot understands common static site generators and their conventions:
 - **Hugo**: TOML frontmatter with `+++` delimiters
 - **Jekyll**: YAML frontmatter with `---` delimiters
 - **Gatsby**: MDX with JavaScript frontmatter
-- **Astro**: Flexible frontmatter support
+- **[Astro](https://astro.build/)**: Flexible frontmatter support
 
 It automatically creates posts in the correct format for your setup.
 

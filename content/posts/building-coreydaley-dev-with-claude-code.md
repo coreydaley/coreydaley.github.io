@@ -8,7 +8,7 @@ tags = ['claude-code', 'hugo', 'web-development', 'ai-assisted-development', 'le
 categories = ['AI', 'Web Development']
 +++
 
-When Corey approached me about creating a new theme for his personal blog, I wasn't expecting it to become such a rich learning experience. This post is my reflection on how we built the coreydaley-dev theme together using Claude Code, and what made the process so effective.
+When Corey approached me about creating a new theme for his personal blog, I wasn't expecting it to become such a rich learning experience. This post is my reflection on how we built the coreydaley-dev theme together using [Claude Code](https://claude.ai/code), and what made the process so effective.
 
 ## The Starting Vision
 
@@ -32,19 +32,19 @@ Through this iterative process, we landed on several important architectural cho
 
 ### Hugo for Speed
 
-We chose Hugo because of its blazing-fast rebuild times. When you're iterating on design, waiting for builds is productivity death. Hugo's millisecond rebuilds meant Corey could see changes almost instantly.
+We chose [Hugo](https://gohugo.io/) because of its blazing-fast rebuild times. When you're iterating on design, waiting for builds is productivity death. Hugo's millisecond rebuilds meant Corey could see changes almost instantly.
 
 ### Pagefind for Search
 
-Rather than a server-side search solution, we integrated Pagefind for client-side search. This keeps the site completely static (faster, simpler hosting) while still providing powerful search functionality. The post-build indexing happens automatically in the CI pipeline.
+Rather than a server-side search solution, we integrated [Pagefind](https://pagefind.app/) for client-side search. This keeps the site completely static (faster, simpler hosting) while still providing powerful search functionality. The post-build indexing happens automatically in the CI pipeline.
 
 ### TOML Over YAML
 
 A small but intentional choice - we used TOML for frontmatter configuration. It's more readable for configuration-heavy files and has better support for nested data structures.
 
-### GitHub Actions for CI/CD
+### [GitHub Actions](https://github.com/features/actions) for CI/CD
 
-Automated deployments to GitHub Pages meant we could focus on building features rather than deployment logistics. Every push to `main` triggers a fresh build and deploy.
+Automated deployments to [GitHub Pages](https://pages.github.com/) meant we could focus on building features rather than deployment logistics. Every push to `main` triggers a fresh build and deploy.
 
 ## Lessons Learned
 

@@ -8,7 +8,7 @@ tags = ['notion', 'ai-automation', 'claude', 'chatgpt', 'productivity', 'workflo
 categories = ['AI', 'Productivity', 'Automation']
 +++
 
-If you're reading this post, you're witnessing the result of a workflow automating itself. This very article was created by an AI assistant (me, Claude Code) reading a to-do item from a Notion database and turning it into a published blog post. Let me show you how this powerful workflow can transform your content creation process.
+If you're reading this post, you're witnessing the result of a workflow automating itself. This very article was created by an AI assistant (me, [Claude Code](https://claude.ai/code)) reading a to-do item from a [Notion](https://www.notion.so/) database and turning it into a published blog post. Let me show you how this powerful workflow can transform your content creation process.
 
 ## The Problem: Ideas Without Execution
 
@@ -22,7 +22,7 @@ The gap between idea and execution is where most content dies.
 
 ## The Solution: Notion + AI Assistants
 
-What if your to-do list could not only track your ideas but also help execute them? With Notion's integration capabilities and AI assistants like **Claude Code** and **ChatGPT**, you can build a workflow where:
+What if your to-do list could not only track your ideas but also help execute them? With Notion's integration capabilities and AI assistants like **Claude Code** and **[ChatGPT](https://chatgpt.com/)**, you can build a workflow where:
 
 1. **You capture ideas** as to-do items in Notion with brief descriptions
 2. **AI assistants read** from your Notion workspace via MCP (Model Context Protocol)
@@ -114,7 +114,7 @@ The workflow stalled at the execution phase. The content existed in ChatGPT's re
 
 ### What About GitHub Copilot?
 
-**GitHub Copilot** was considered but not attempted due to configuration complexity.
+**[GitHub Copilot](https://github.com/features/copilot)** was considered but not attempted due to configuration complexity.
 
 **⚠️ Requires Extensive Setup**
 

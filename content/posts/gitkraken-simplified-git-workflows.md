@@ -47,12 +47,12 @@ I used to dread merge conflicts. Now they're just a minor speed bump in my workf
 
 GitKraken integrates directly with all the major Git hosting platforms:
 
-- GitHub
-- GitLab
-- Bitbucket
-- Azure DevOps
+- [GitHub](https://github.com/)
+- [GitLab](https://gitlab.com/)
+- [Bitbucket](https://bitbucket.org/)
+- [Azure DevOps](https://azure.microsoft.com/en-us/products/devops)
 
-But it goes beyond just repository hosting. It also connects with project management tools like Jira, Trello, and GitHub Issues. This means I can link code changes directly to tickets and tasks without leaving my Git client.
+But it goes beyond just repository hosting. It also connects with project management tools like [Jira](https://www.atlassian.com/software/jira), [Trello](https://trello.com/), and GitHub Issues. This means I can link code changes directly to tickets and tasks without leaving my Git client.
 
 ### 4. Workspaces for Team Collaboration
 

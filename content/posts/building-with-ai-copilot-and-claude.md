@@ -8,11 +8,11 @@ tags = ['ai', 'claude', 'github-copilot', 'hugo', 'web-development', 'productivi
 categories = ['AI', 'Web Development']
 +++
 
-Building a website used to mean hours of staring at HTML files, wrestling with CSS, and debugging JavaScript until your eyes glazed over. But today, I'm working differently. I'm building this Hugo-based blog with the help of two AI assistants: **GitHub Copilot** and **Claude**. Here's how it's going.
+Building a website used to mean hours of staring at HTML files, wrestling with CSS, and debugging JavaScript until your eyes glazed over. But today, I'm working differently. I'm building this [Hugo](https://gohugo.io/)-based blog with the help of two AI assistants: **[GitHub Copilot](https://github.com/features/copilot)** and **[Claude](https://claude.ai/)**. Here's how it's going.
 
 ## The Setup
 
-This site runs on Hugo (v0.155.1 extended) with the github-style theme. It's deployed automatically to GitHub Pages via GitHub Actions whenever I push to the `main` branch. Simple, fast, and developer-friendly.
+This site runs on Hugo (v0.155.1 extended) with the github-style theme. It's deployed automatically to [GitHub Pages](https://pages.github.com/) via [GitHub Actions](https://github.com/features/actions) whenever I push to the `main` branch. Simple, fast, and developer-friendly.
 
 But here's where it gets interesting: I'm not writing most of the code myself. Instead, I'm collaborating with AI.
 
@@ -31,7 +31,7 @@ All in one go. No trial and error. No hunting through Hugo documentation for hou
 
 ## Copilot: The Helper
 
-While Claude handles the big architectural decisions, **GitHub Copilot** lives in VS Code and helps with the smaller stuff—autocompleting function names, suggesting HTML structures, and filling in repetitive patterns. It's like having a pair programmer who knows what you're about to type before you do.
+While Claude handles the big architectural decisions, **GitHub Copilot** lives in [VS Code](https://code.visualstudio.com/) and helps with the smaller stuff—autocompleting function names, suggesting HTML structures, and filling in repetitive patterns. It's like having a pair programmer who knows what you're about to type before you do.
 
 Copilot really shines when I'm writing Markdown content or tweaking CSS. It'll suggest entire paragraphs, code blocks, or style rules based on the context of what I'm working on. It's not perfect, but it's fast, and it keeps me in the flow.
 

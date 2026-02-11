@@ -12,7 +12,7 @@ Hey there, and welcome! I'm excited to finally have my own corner of the interne
 
 ## Why Hugo?
 
-When I decided to start a blog, I knew I wanted something fast, simple, and easy to maintain. I didn't want to deal with databases, server-side runtimes, or bloated CMS platforms. That led me straight to [Hugo](https://gohugo.io/) — a static site generator built with Go.
+When I decided to start a blog, I knew I wanted something fast, simple, and easy to maintain. I didn't want to deal with databases, server-side runtimes, or bloated CMS platforms. That led me straight to [Hugo](https://gohugo.io/) — a static site generator built with [Go](https://go.dev/).
 
 Hugo takes Markdown files, runs them through templates, and spits out a fully static website. No servers to manage, no security patches to worry about, and the pages load incredibly fast. You write your content in Markdown, run a build command, and you've got a complete site ready to deploy.
 
@@ -24,7 +24,7 @@ For the look and feel, I'm using the [github-style](https://github.com/MeiK2333/
 
 ## Hosting on GitHub Pages
 
-The whole site is hosted on GitHub Pages with automated deployments. Every time I push a change to the main branch, a GitHub Actions workflow kicks in — it builds the site with Hugo and deploys it automatically. No manual steps, no FTP uploads, no hassle. Just write, commit, push, and the site is updated.
+The whole site is hosted on [GitHub Pages](https://pages.github.com/) with automated deployments. Every time I push a change to the main branch, a [GitHub Actions](https://github.com/features/actions) workflow kicks in — it builds the site with Hugo and deploys it automatically. No manual steps, no FTP uploads, no hassle. Just write, commit, push, and the site is updated.
 
 ## What's Next
 
