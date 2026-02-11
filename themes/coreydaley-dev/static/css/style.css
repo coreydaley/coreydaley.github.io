@@ -1548,12 +1548,20 @@ a:hover {
 @media (max-width: 968px) {
     .main-container {
         flex-direction: column;
+        padding: 0 1rem 2rem;
+        gap: 2rem;
     }
 
-    .sidebar {
+    .sidebar-nav {
+        display: none;
+    }
+
+    .content-area {
         width: 100%;
-        position: static;
-        margin-bottom: 2rem;
+    }
+
+    .mobile-only {
+        display: block;
     }
 
     .header-nav {
@@ -1561,7 +1569,7 @@ a:hover {
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        padding: 0.75rem 1rem;
+        padding: 0.75rem 0;
         border-radius: 0;
     }
 
@@ -1576,31 +1584,27 @@ a:hover {
         border-bottom: none;
     }
 
-    .header-tabs {
-        position: static;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 0.75rem 1rem;
-        border-radius: 0;
+    .hamburger-icon {
+        display: flex;
     }
 
-    .header-tab {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0 !important;
-    }
-
-    .header-tab:last-child {
-        border-bottom: none;
+    .header-search {
+        display: none;
     }
 
     .header-content {
         flex-direction: column;
         text-align: center;
-        padding: 2rem;
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .header-text {
+        order: 2;
+    }
+
+    .avatar-container {
+        order: 1;
     }
 
     .site-title {
