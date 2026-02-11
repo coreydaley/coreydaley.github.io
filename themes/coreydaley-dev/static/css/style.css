@@ -130,7 +130,7 @@ a:hover {
     font-size: 0.95rem;
     padding: 0.75rem 1rem;
     transition: all 0.3s;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 5px solid rgba(255, 255, 255, 1);
 }
 
 .header-nav-link:last-child {
@@ -156,23 +156,21 @@ a:hover {
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.75rem 1.5rem;
-    background: rgba(44, 163, 229, 0.6);
-    backdrop-filter: blur(10px);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--primary);
+    margin-right: 3px;
     transition: all 0.3s ease;
     border-radius: 0;
+    border-radius: 15px 15px 0 0;
 }
 
-.header-tab:first-child {
-    border-radius: 15px 0 0 0;
-}
+
 
 .header-tab:last-child {
     border-right: none;
 }
 
 .header-tab:hover {
-    background: rgba(236, 72, 153, 0.4);
+    background: var(--accent-pink);
     color: #ffffff;
 }
 
@@ -221,7 +219,7 @@ a:hover {
     gap: 1rem;
     align-items: center;
     margin-top: 1.5rem;
-    margin-left: 75px;
+    margin-left: 70px;
 }
 
 .header-social-icons .social-icon {
