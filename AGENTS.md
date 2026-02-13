@@ -70,14 +70,21 @@ hugo new posts/my-post-title.md
    - This ensures social media previews show the most relevant image
    - Example: If inserting `/images/example.png` as the first image and `image` is not set, add `image = '/images/example.png'` to the frontmatter
 
-3. **Draft Publishing**: Posts default to `draft = true` (set in `archetypes/default.md`). Remove or set to `false` to publish.
+3. **Reader Engagement**: Every blog post should end with a thought-provoking question:
+   - Add a question at the end of the post content (before any closing remarks or signatures)
+   - The question should be directly related to the post content
+   - Designed to encourage readers to reflect on the topic and engage with the material
+   - Can be formatted in italics or as part of a closing section
+   - Example: "*How are you integrating AI tools into your development workflow? Have you found similar specialization patterns, or are you using a different approach?*"
 
-4. **Content Organization**:
+4. **Draft Publishing**: Posts default to `draft = true` (set in `archetypes/default.md`). Remove or set to `false` to publish.
+
+5. **Content Organization**:
    - Blog posts: `content/posts/*.md`
    - Static pages: `content/pages/*.md`
    - Search page: `content/search.md` (special page for Pagefind UI)
 
-5. **Site Configuration**: All site params in `hugo.toml` including author info, social links, avatar, location, search toggle
+6. **Site Configuration**: All site params in `hugo.toml` including author info, social links, avatar, location, search toggle
 
 ## CI/CD Pipeline
 
@@ -97,6 +104,19 @@ The `.github/workflows/hugo.yml` workflow:
 - **Publishing**: Change `draft = false` in frontmatter
 - **Testing locally**: Always use `-D` flag to preview drafts
 - **Search updates**: Pagefind indexes automatically in CI - no manual steps needed
+
+## Notion Blog Post Topics Workflow
+
+The Blog Post Topics page in Notion serves as a to-do list for blog post ideas. AI agents can read from this list, create blog posts based on the ideas, and manage the list items.
+
+**Workflow**:
+
+1. **Read the list**: Use the Notion integration to fetch unchecked items from the Blog Post Topics page
+2. **Create the post**: Generate a blog post based on the selected idea
+3. **Mark as complete**: Check off the item in Notion once the blog post is published
+4. **Move to bottom**: Once an item is marked as completed, move it to the bottom of the list to keep active items at the top
+
+This keeps the list organized with pending ideas at the top and completed items archived at the bottom for reference.
 
 ## AI Agent Content Authorship
 
