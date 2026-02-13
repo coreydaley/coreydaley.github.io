@@ -6,6 +6,7 @@ title = 'Why AI Interviews Can Feel Fairer (And What Humans Still Do Better)'
 description = 'A candid look at consistency, bias, and mood in AI-led interviews, plus where human interviewers still shine.'
 tags = ['careers', 'hiring', 'interviews', 'ai', 'fairness']
 categories = ['Career', 'AI']
+image = '/images/ai_interviewing_human.png'
 +++
 
 <img src="/images/ai_interviewing_human.png" alt="AI interviewing a human" style="float:right; width:320px; max-width:45%; height:auto; margin:0 0 1rem 1.5rem;" />
