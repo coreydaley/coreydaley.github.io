@@ -376,6 +376,11 @@ a:hover {
     height: 100%;
 }
 
+.avatar-link {
+    text-decoration: none;
+    display: block;
+}
+
 .avatar-container {
     position: relative;
     perspective: 1000px;

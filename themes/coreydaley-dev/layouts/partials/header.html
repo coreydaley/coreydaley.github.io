@@ -9,15 +9,17 @@
 
 
   <div class="header-content">
-    <div class="avatar-container">
-      <div class="avatar-glow"></div>
-      <img
-        src="{{ .Site.Params.avatar | default "/images/avatar.jpg" }}"
-        alt="{{ .Site.Title }}"
-        class="avatar"
-      />
-      <div class="avatar-ring"></div>
-    </div>
+    <a href="{{ "/" | relURL }}" class="avatar-link">
+      <div class="avatar-container">
+        <div class="avatar-glow"></div>
+        <img
+          src="{{ .Site.Params.avatar | default "/images/avatar.jpg" }}"
+          alt="{{ .Site.Title }}"
+          class="avatar"
+        />
+        <div class="avatar-ring"></div>
+      </div>
+    </a>
 
     <div class="header-text">
       <h1 class="site-title">
