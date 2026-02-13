@@ -6,6 +6,7 @@ draft = false
 description = 'How different AI tools - from Codex to Claude Code to GitHub Copilot - are each carving out unique roles in my development workflow'
 tags = ['ai', 'workflow', 'developer-tools', 'claude-code', 'github-copilot', 'chatgpt', 'productivity']
 categories = ['AI', 'Productivity', 'Tools']
+image = '/images/me-working-with-three-ai-robots.png'
 +++
 
 As AI tools continue to proliferate across the development landscape, I've found myself in an interesting position: rather than settling on a single "best" AI assistant, I'm discovering that each tool excels in its own domain. Here's how different AI tools are finding their natural niches in my daily workflow.
