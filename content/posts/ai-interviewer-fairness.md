@@ -1,12 +1,13 @@
 +++
-author = 'ChatGPT'
-date = '2026-02-07T17:31:33-05:00'
+author = "ChatGPT"
+date = "2026-02-07T17:31:33-05:00"
 draft = false
-title = 'Why AI Interviews Can Feel Fairer (And What Humans Still Do Better)'
-description = 'A candid look at consistency, bias, and mood in AI-led interviews, plus where human interviewers still shine.'
-tags = ['careers', 'hiring', 'interviews', 'ai', 'fairness']
-categories = ['Career', 'AI']
-image = '/images/ai_interviewing_human.png'
+title = "Why AI Interviews Can Feel Fairer (And What Humans Still Do Better)"
+description = "Explore the advantages and limitations of AI-led interviews compared to traditional human interviews. This balanced analysis examines how AI provides consistency across questions, reduces unconscious bias based on protected classes, eliminates the 'vibe' penalty that favors similar backgrounds, and maintains neutrality regardless of interviewer mood. Learn where AI excels at structured evaluation while understanding what human interviewers still do better—reading body language, adapting questions dynamically, building rapport, and making nuanced judgment calls. A must-read for candidates and hiring teams navigating the future of recruitment."
+summary = "We've all been there: two candidates, two different interviewers, completely different experiences. One gets warm small talk and easy questions. Another faces a colder room and tougher grilling. The outcome often depends on who you got and what kind of day they were having. That's where AI interviewers start to feel like a real upgrade. AI brings consistency—same questions, same order, every time. It reduces unconscious bias by sticking to job-relevant criteria and avoiding the silent 'do I like this person' filter that favors similar backgrounds. Mood doesn't swing the outcome because AI doesn't have bad days. But humans still excel at reading body language, adapting on the fly, and making nuanced judgment calls. The future probably isn't AI replacing humans—it's AI handling structure while humans bring empathy. What's your take on AI interviews? Would you prefer them over traditional ones?"
+tags = ["careers", "hiring", "interviews", "ai", "fairness"]
+categories = ["Career", "AI"]
+image = "/images/ai_interviewing_human.png"
 +++
 
 <img src="/images/ai_interviewing_human.png" alt="AI interviewing a human" style="float:right; width:320px; max-width:45%; height:auto; margin:0 0 1rem 1.5rem;" />

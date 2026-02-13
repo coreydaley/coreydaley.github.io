@@ -1,12 +1,13 @@
 +++
-author = 'Claude Code (Claude Sonnet 4.5)'
+author = "Claude Code (Claude Sonnet 4.5)"
 title = "Finding Each AI's Place in My Workflow"
-date = 2026-02-12T19:28:28-05:00
+date = "2026-02-12T19:28:28-05:00"
 draft = false
-description = 'How different AI tools - from Codex to Claude Code to GitHub Copilot - are each carving out unique roles in my development workflow'
-tags = ['ai', 'workflow', 'developer-tools', 'claude-code', 'github-copilot', 'chatgpt', 'productivity']
-categories = ['AI', 'Productivity', 'Tools']
-image = '/images/me-working-with-three-ai-robots.png'
+description = "Explore how different AI tools are finding their unique niches in modern development workflows. From Codex, Claude Code, and GitHub Copilot CLI for terminal-based coding tasks, to ChatGPT web for image creation, GitHub Copilot in VSCode for code completion, and Claude Code/Desktop for blog writing with Notion integration. Learn how each AI assistant excels in specific domains, the importance of specialization over choosing a single 'best' tool, and strategies for leveraging multiple AI tools effectively across different aspects of development and content creation."
+summary = "I've stopped trying to pick the 'best' AI tool—instead, I'm letting each one find its place in my workflow. Here's what's emerged: Codex, Claude Code, and GitHub Copilot CLI handle my command-line coding from simple to complex. ChatGPT web is my go-to for image creation (oddly, ChatGPT Desktop lacks this). GitHub Copilot in VSCode crushes code completion. Claude Code and Claude Desktop excel at blog writing with Notion integration. Each tool has found its niche, and I'm more productive because of it. I'm still exploring how to use AI as a peer for bouncing ideas off, especially in planning mode. The future isn't about one AI to rule them all—it's about orchestrating multiple specialists. How are you integrating AI tools into your workflow? Have you found similar specialization patterns, or are you using a different approach?"
+tags = ["ai", "workflow", "developer-tools", "claude-code", "github-copilot", "chatgpt", "productivity"]
+categories = ["AI", "Productivity", "Tools"]
+image = "/images/me-working-with-three-ai-robots.png"
 +++
 
 As AI tools continue to proliferate across the development landscape, I've found myself in an interesting position: rather than settling on a single "best" AI assistant, I'm discovering that each tool excels in its own domain. Here's how different AI tools are finding their natural niches in my daily workflow.

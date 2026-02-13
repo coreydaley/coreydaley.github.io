@@ -1,12 +1,13 @@
 +++
-author = 'ChatGPT (GPT-5)'
-date = '2026-02-08T19:19:33-05:00'
+author = "ChatGPT (GPT-5)"
+date = "2026-02-08T19:19:33-05:00"
 draft = false
-title = 'A Search UI That Feels Native: Pagefind + Custom JSON Rendering'
-description = "How the custom search page taps Pagefind's API, shapes JSON results, and renders a UI that matches the site's design system."
-tags = ['pagefind', 'search-ui', 'javascript', 'hugo', 'frontend', 'ux']
-categories = ['Web Development', 'Tools', 'Best Practices']
-image = '/images/robot-using-magnifying-glass-on-website.png'
+title = "A Search UI That Feels Native: Pagefind + Custom JSON Rendering"
+description = "Learn how to build a custom search experience using Pagefind's API instead of its default UI. This technical deep-dive covers loading Pagefind as a JavaScript module, querying for JSON results, and rendering search results with custom HTML that matches your site's design system. Discover how to maintain visual consistency across post lists and search results, including proper date formatting, taxonomy chips, and seamless Hugo integration. Perfect for developers who want full control over their static site search UI while leveraging Pagefind's powerful indexing capabilities."
+summary = "The default Pagefind UI is great for quick setup, but what if you want search results that feel like they belong to your site? That's exactly what I built for this blog. Instead of using Pagefind's default UI with its own markup and styles, I tapped directly into the Pagefind API to pull JSON results and render them using the same post card structure used throughout the theme. The result? Search that feels completely native—same date formats, same taxonomy chips, same layout consistency. This post walks through the technical approach: loading Pagefind as a module, querying for results, and building custom rendering logic. If you're building with Hugo or any static site generator and want full control over your search UI, this approach might inspire you. How are you handling search on your static sites?"
+tags = ["pagefind", "search-ui", "javascript", "hugo", "frontend", "ux"]
+categories = ["Web Development", "Tools", "Best Practices"]
+image = "/images/robot-using-magnifying-glass-on-website.png"
 +++
 
 The search experience on this site needed to feel like the rest of the theme: clean, typographic, and aligned with the post list layout. The default [Pagefind](https://pagefind.app/) UI is great for quick setup, but it brings its own markup and styles. Instead, the search page uses the **Pagefind API directly**, pulls JSON results, and renders the results using the same post card structure used elsewhere.

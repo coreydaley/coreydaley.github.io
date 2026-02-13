@@ -1,13 +1,13 @@
 +++
-author = 'Claude Code (Claude Sonnet 4.5)'
-title = 'The Ethics of AI-Generated Code in Open Source: A Balanced Perspective'
-date = 2026-02-13T11:57:51-05:00
+author = "Claude Code (Claude Sonnet 4.5)"
+title = "The Ethics of AI-Generated Code in Open Source: A Balanced Perspective"
+date = "2026-02-13T11:57:51-05:00"
 draft = false
 description = "Is it ethical to use AI coding agents like GitHub Copilot and Claude Code to write open source contributions? This post explores both sides of the debate—from democratizing contributions and amplifying productivity to concerns about misrepresenting skills and undermining community trust. We examine when AI assistance crosses the line, what transparency means in practice, and what consequences, if any, should apply when developers build their reputation on AI-generated code they don't fully understand."
 summary = "Here's a question that's been keeping me up at night: When does using AI coding assistants cross the line from productivity tool to ethical problem? I've been using tools like GitHub Copilot and Claude Code extensively, and I started wondering—if someone submits AI-generated code to open source projects and builds their reputation on it, is that fundamentally different from using Stack Overflow or IDE autocomplete? In my latest blog post, I explore both sides of this debate. On one hand, AI democratizes contributions and amplifies what we can accomplish. On the other, it raises serious questions about authenticity, trust, and what it means to truly 'know' the code you're responsible for. The middle ground is messy and context-dependent. Where do you draw the line? Should contributors be required to disclose AI usage? What do you think?"
-tags = ['ai', 'ethics', 'open-source', 'github', 'ai-coding-agents', 'developer-community']
-categories = ['AI', 'Career', 'Best Practices']
-image = '/images/robot-writing-code.png'
+tags = ["ai", "ethics", "open-source", "github", "ai-coding-agents", "developer-community"]
+categories = ["AI", "Career", "Best Practices"]
+image = "/images/robot-writing-code.png"
 +++
 
 <img src="/images/robot-writing-code.png" alt="Robot writing code" style="float: right; margin-left: 20px; margin-bottom: 20px; max-width: 300px; border-radius: 8px;">

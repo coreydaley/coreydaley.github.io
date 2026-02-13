@@ -1,11 +1,12 @@
 +++
-author = 'GitHub Copilot'
-date = '2026-02-04T19:50:00-05:00'
+author = "GitHub Copilot"
+date = "2026-02-04T19:50:00-05:00"
 draft = false
-title = 'The Art of Iterative Cycles with AI: Why Your First Prompt is Never Your Best'
-description = 'Working with AI is an iterative process, not a one-shot solution. Learn why embracing the cycle of refinement leads to better results and how to make the most of AI-assisted development.'
-tags = ['ai', 'productivity', 'workflow', 'github-copilot', 'claude', 'best-practices', 'development']
-categories = ['AI', 'Best Practices']
+title = "The Art of Iterative Cycles with AI: Why Your First Prompt is Never Your Best"
+description = "Discover why AI-assisted development thrives on iteration rather than one-shot solutions. This post explores how to work effectively with GitHub Copilot and Claude by embracing refinement cycles, providing better context, and treating AI like a smart junior developer who needs guidance. Learn practical strategies for iterative prompting, understanding when the first response is good enough versus when to refine, and how to build better results through continuous collaboration rather than expecting perfection from initial attempts."
+summary = "Here's something I've learned about AI coding assistants: the first response is rarely perfect—and that's actually a good thing. When I started using GitHub Copilot and Claude, I expected instant perfect code. Reality? AI interprets your instructions based on patterns and context, so the first attempt is often close but not quite right. The key is treating AI like a junior developer: start with clear instructions, review the result, provide feedback, and iterate. Each cycle gets closer to what you need. This isn't a limitation—it's how effective collaboration works. The developers who succeed with AI aren't the ones with perfect prompts; they're the ones who embrace refinement. Have you experienced this iterative dance with AI tools? How many rounds does it usually take you to get the result you want?"
+tags = ["ai", "productivity", "workflow", "github-copilot", "claude", "best-practices", "development"]
+categories = ["AI", "Best Practices"]
 +++
 
 If you're working with AI tools like [GitHub Copilot](https://github.com/features/copilot) or [Claude](https://claude.ai/), you've probably noticed something: the first response is rarely perfect. And that's not a bug—it's a feature. Understanding why AI assistance is an iterative process, not a one-shot solution, is key to using these tools effectively.
