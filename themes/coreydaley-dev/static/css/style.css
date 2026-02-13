@@ -1150,6 +1150,14 @@ a:hover {
     line-height: 1.2;
 }
 
+.reading-time {
+    text-align: right;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
 .post-metadata {
     display: flex;
     flex-wrap: wrap;

@@ -72,6 +72,11 @@
     </header>
 
     <div data-pagefind-body class="post-content">
+      <div class="reading-time">
+        Reading time: {{ .ReadingTime }}
+        minute{{ if (ne .ReadingTime 1) }}s{{ end }}
+      </div>
+
       {{ if eq .Section "posts" }}
         {{ .Content }}
         <div
