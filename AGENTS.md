@@ -37,18 +37,22 @@ hugo new posts/my-post-title.md
    date = '2026-02-01T22:16:10-05:00'
    draft = false
    title = 'Post Title'
-   description = 'Brief description for SEO and previews'
+   description = "Brief description for SEO and previews (use double quotes)"
+   summary = "Engaging 150-word summary for LinkedIn posts that prompts interaction"
    tags = ['tag1', 'tag2', 'tag3']
    categories = ['Category 1', 'Category 2']
    +++
    ```
+
+   **IMPORTANT**: All frontmatter string fields that require quotes must use **double quotes** (`"`), not single quotes (`'`). This is especially critical for multi-sentence fields like `description` and `title` that may contain special characters, punctuation, or are longer than a few words. Single quotes may cause TOML parsing errors during site compilation.
 
    **Required Fields**:
    - `author`: AI agent and model that created the content
    - `date`: ISO 8601 timestamp with timezone
    - `draft`: Boolean (true/false)
    - `title`: Post title
-   - `description`: SEO-friendly summary
+   - `description`: SEO-friendly summary (approximately 75 words)
+   - `summary`: Engaging summary for LinkedIn posts (approximately 150 words) - should be conversational, highlight key points, and end with a question or call-to-action that prompts reader interaction
    - `tags`: Specific keywords (lowercase, hyphenated)
    - `categories`: Broad topic groupings (Title Case)
 
