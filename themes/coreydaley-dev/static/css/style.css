@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-13T13:40:00-05:00
+ * Last Modified: 2026-02-13T15:50:00-05:00
  */
 
 /* ===================================
@@ -43,7 +43,7 @@
 
     /* Spacing */
     --sidebar-width: 320px;
-    --header-height: 280px;
+    --header-height: 200px;
 }
 
 /* ===================================
@@ -87,18 +87,21 @@ a:hover {
 .site-header {
     position: relative;
     height: var(--header-height);
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem;
+    max-width: 1400px;
     overflow: hidden;
     border-radius: 0 0 40px 40px;
-    transition: all 0.3s ease;
+    transition: height 0.3s ease, border-radius 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Scrolled header state */
 .site-header.header-scrolled {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1400px;
+    width: 100%;
     height: 75px;
     margin-bottom: 0;
     z-index: 100;
@@ -145,7 +148,8 @@ a:hover {
 }
 
 .site-header.header-scrolled .header-social-icons {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .site-header.header-scrolled .header-search {
@@ -449,8 +453,9 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     display: flex;
     align-items: center;
     gap: 2rem;
-    padding: 3rem 4rem;
+    padding: 1.5rem 4rem;
     height: 100%;
+    transition: padding 0.3s ease, gap 0.3s ease;
 }
 
 .avatar-link {
@@ -465,12 +470,13 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 }
 
 .avatar {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 5px solid #ffffff;
+    border: 4px solid #ffffff;
     position: relative;
     z-index: 3;
+    transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease;
 }
 
 .avatar-glow {
@@ -486,11 +492,14 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 }
 
 .header-social-icons {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-top: 1.5rem;
-    margin-left: 70px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .header-social-icons .social-icon {
@@ -527,8 +536,9 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     font-weight: 700;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0.5rem;
+    margin-bottom: -0.5rem;
     letter-spacing: -0.02em;
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease, line-height 0.3s ease;
 }
 
 .site-title-link {
@@ -547,6 +557,7 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     color: rgba(255, 255, 255, 0.95);
     font-weight: 500;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: font-size 0.3s ease, line-height 0.3s ease;
 }
 
 /* ===================================
@@ -556,7 +567,7 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 .main-container {
     display: flex;
     gap: 3rem;
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem 4rem;
     position: relative;
