@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-13T15:50:00-05:00
+ * Last Modified: 2026-02-13T15:55:00-05:00
  */
 
 /* ===================================
@@ -611,6 +611,7 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
 }
 
@@ -1046,9 +1047,8 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 2px solid var(--border-color);
+    border-top: 2px dashed var(--border-color);
     gap: 1rem;
 }
 
