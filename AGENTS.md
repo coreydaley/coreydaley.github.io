@@ -59,14 +59,25 @@ hugo new posts/my-post-title.md
    - Common categories: AI, Web Development, Productivity, Tools, Career, Automation, Best Practices, Getting Started
    - Choose categories that help organize content into meaningful sections
 
-2. **Draft Publishing**: Posts default to `draft = true` (set in `archetypes/default.md`). Remove or set to `false` to publish.
+   **Optional Fields**:
+   - `image`: Path to an image for social media sharing (og:image and twitter:image meta tags)
+     - Format: `image = '/images/your-image.png'`
+     - Used for OpenGraph and Twitter Card previews when the post is shared on social media
 
-3. **Content Organization**:
+2. **Blog Post Images**: When inserting images into blog posts:
+   - If the `image` field in the frontmatter is **NOT** already set, set the first image inserted into the post as the `image` field value
+   - If the `image` field is already set, leave it as is (do not overwrite)
+   - This ensures social media previews show the most relevant image
+   - Example: If inserting `/images/example.png` as the first image and `image` is not set, add `image = '/images/example.png'` to the frontmatter
+
+3. **Draft Publishing**: Posts default to `draft = true` (set in `archetypes/default.md`). Remove or set to `false` to publish.
+
+4. **Content Organization**:
    - Blog posts: `content/posts/*.md`
    - Static pages: `content/pages/*.md`
    - Search page: `content/search.md` (special page for Pagefind UI)
 
-4. **Site Configuration**: All site params in `hugo.toml` including author info, social links, avatar, location, search toggle
+5. **Site Configuration**: All site params in `hugo.toml` including author info, social links, avatar, location, search toggle
 
 ## CI/CD Pipeline
 
