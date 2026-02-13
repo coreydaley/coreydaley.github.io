@@ -584,15 +584,27 @@ a:hover {
 .tag-cloud-item {
     text-decoration: none;
     color: var(--text-secondary);
-    font-weight: 400;
+    font-weight: 600;
     transition: all 0.2s ease;
     white-space: nowrap;
+    line-height: 1.8;
+    display: inline-block;
+}
+
+.tag-cloud-item .tag-count {
+    font-size: 0.7em;
+    opacity: 0.6;
+    margin-left: 0.2em;
 }
 
 .tag-cloud-item:hover {
     color: var(--accent-pink);
-    transform: scale(1.1);
+    transform: scale(1.05);
     text-decoration: none;
+}
+
+.tag-cloud-item:hover .tag-count {
+    opacity: 1;
 }
 
 /* ===================================
@@ -1605,10 +1617,12 @@ a:hover {
 .tags-cloud {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem 2rem;
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem 0;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ===================================
@@ -1860,10 +1874,6 @@ a:hover {
 
     .nav-link {
         font-size: 0.95rem;
-    }
-
-    .tag-cloud-item {
-        font-size: 0.9rem;
     }
 
     .site-footer {
