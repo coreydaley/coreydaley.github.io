@@ -1,0 +1,40 @@
+{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-12T20:47:00-05:00 */}}
+{{ define "main" }}
+  <div class="list-header">
+    <h1 class="page-title">All Categories</h1>
+    <p class="page-content">Browse posts by category</p>
+  </div>
+
+  {{- /* Calculate min and max counts for font scaling */ -}}
+  {{- $minCount := 999999 -}}
+  {{- $maxCount := 0 -}}
+  {{- range .Data.Terms.Alphabetical -}}
+    {{- if lt .Count $minCount -}}
+      {{- $minCount = .Count -}}
+    {{- end -}}
+    {{- if gt .Count $maxCount -}}
+      {{- $maxCount = .Count -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Font size range: 0.9rem to 2.5rem */ -}}
+  {{- $minSize := 0.9 -}}
+  {{- $maxSize := 2.5 -}}
+  {{- $spread := sub $maxCount $minCount -}}
+
+  <div class="tags-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+      {{- /* Calculate font size based on count */ -}}
+      {{- $fontSize := $minSize -}}
+      {{- if gt $spread 0 -}}
+        {{- $ratio := div (sub .Count $minCount | float) $spread -}}
+        {{- $fontSize = add $minSize (mul $ratio (sub $maxSize $minSize)) -}}
+      {{- end -}}
+
+      <a href="{{ .Page.RelPermalink }}" class="tag-cloud-item" style="font-size: {{ $fontSize }}rem;">
+        <span class="tag-name">{{ .Page.Title }}</span>
+        <span class="tag-count">({{ .Count }})</span>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
