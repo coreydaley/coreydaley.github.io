@@ -1140,8 +1140,8 @@ a:hover {
 }
 
 .post-header {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
     border-bottom: 2px solid var(--border-color);
 }
 
