@@ -836,7 +836,6 @@ a:hover {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0 0 1rem 0;
-    padding-right: 120px;
 }
 
 .post-item .post-title a {
@@ -918,21 +917,15 @@ a:hover {
 }
 
 /* Post item with featured image */
-.post-item-with-image {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-}
-
 .post-item-with-image .post-image {
-    flex-shrink: 0;
+    float: left;
     width: 180px;
     height: 135px;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    order: 2;
+    margin: 0 1.5rem 1rem 0;
 }
 
 .post-item-with-image .post-image:hover {
@@ -948,9 +941,7 @@ a:hover {
 }
 
 .post-item-with-image .post-content {
-    flex: 1;
-    min-width: 0;
-    order: 1;
+    overflow: hidden;
 }
 
 .post-separator {
