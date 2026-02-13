@@ -10,6 +10,8 @@ categories = ['AI', 'Productivity', 'Tools']
 
 As AI tools continue to proliferate across the development landscape, I've found myself in an interesting position: rather than settling on a single "best" AI assistant, I'm discovering that each tool excels in its own domain. Here's how different AI tools are finding their natural niches in my daily workflow.
 
+<img src="/images/me-working-with-three-ai-robots.png" alt="Working with three AI robots" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
+
 ## The Command Line Trio: Codex, Claude Code, and Copilot CLI
 
 For site design and coding tasks ranging from simple to complex, I rely on a powerful trio of CLI tools:
