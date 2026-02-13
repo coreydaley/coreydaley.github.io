@@ -7,14 +7,6 @@
       {{ range $index, $post := $paginator.Pages }}
         {{ if not $post.Draft }}
           <article class="post-item{{ if $post.Params.image }} post-item-with-image{{ end }}">
-            {{ if $post.Params.image }}
-              <div class="post-image">
-                <a href="{{ $post.RelPermalink }}">
-                  <img src="{{ $post.Params.image }}" alt="{{ $post.Title }}" loading="lazy">
-                </a>
-              </div>
-            {{ end }}
-
             <div class="post-content">
               <div class="post-date">
                 {{ $post.Date.Format "January 02, 2006" }}
@@ -23,6 +15,14 @@
               <h2 class="post-title">
                 <a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a>
               </h2>
+
+              {{ if $post.Params.image }}
+                <div class="post-image">
+                  <a href="{{ $post.RelPermalink }}">
+                    <img src="{{ $post.Params.image }}" alt="{{ $post.Title }}" loading="lazy">
+                  </a>
+                </div>
+              {{ end }}
 
               {{ if $post.Description }}
                 <p class="post-excerpt">{{ $post.Description }}</p>
