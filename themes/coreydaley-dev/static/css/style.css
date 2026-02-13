@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-12T20:00:00-05:00
+ * Last Modified: 2026-02-12T20:35:00-05:00
  */
 
 /* ===================================
@@ -138,6 +138,7 @@ a:hover {
 
 .header-nav-link:hover {
     color: var(--accent-pink);
+    text-decoration:none;
 }
 
 .header-search {
@@ -196,6 +197,7 @@ a:hover {
 
 .header-search .search-button:hover {
     background: rgba(0, 0, 0, 0.05);
+    text-decoration: none;
 }
 
 .header-search .search-button svg {
@@ -245,6 +247,7 @@ a:hover {
 
 .mobile-nav-link:hover {
     background: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
 }
 
 /* Mobile Menu Toggle */
@@ -360,6 +363,7 @@ a:hover {
 .mobile-tag-item:hover {
     background: rgba(255, 255, 255, 0.35);
     transform: translateY(-1px);
+    text-decoration: none;
 }
 
 .header-content {
@@ -378,10 +382,6 @@ a:hover {
     cursor: pointer;
 }
 
-.avatar-container:hover .avatar {
-    transform: rotateY(360deg);
-}
-
 .avatar {
     width: 200px;
     height: 200px;
@@ -389,8 +389,6 @@ a:hover {
     border: 5px solid #ffffff;
     position: relative;
     z-index: 3;
-    transition: transform 0.8s ease-in-out;
-    transform-style: preserve-3d;
 }
 
 .avatar-glow {
@@ -429,9 +427,11 @@ a:hover {
 
 .header-social-icons .social-icon:hover {
     background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: var(--accent-pink);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: var(--accent-pink);
 }
 
 .header-social-icons .social-icon svg {
@@ -457,6 +457,7 @@ a:hover {
 
 .site-title-link:hover {
     opacity: 0.9;
+    text-decoration: none;
 }
 
 .site-tagline {
@@ -552,6 +553,7 @@ a:hover {
 
 .nav-link:hover {
     color: var(--accent-pink);
+    text-decoration: none;
 }
 
 .nav-link .count {
@@ -585,6 +587,7 @@ a:hover {
 .tag-cloud-item:hover {
     color: var(--accent-pink);
     transform: scale(1.1);
+    text-decoration: none;
 }
 
 /* ===================================
@@ -634,6 +637,7 @@ a:hover {
 
 .search-button:hover {
     background: var(--bg-card-hover);
+    text-decoration: none;
 }
 
 .search-button svg {
@@ -714,6 +718,7 @@ a:hover {
 
 .search-result-title a:hover {
     color: var(--accent-pink);
+    text-decoration: none;
 }
 
 .search-result-description {
@@ -751,6 +756,7 @@ a:hover {
     background: var(--primary, #0366d6);
     color: white;
     border-color: var(--primary, #0366d6);
+    text-decoration: none;
 }
 
 .search-result-footer {
@@ -824,6 +830,7 @@ a:hover {
 
 .post-item .post-title a:hover {
     color: var(--accent-pink);
+    text-decoration: none;
 }
 
 .post-item .post-excerpt {
@@ -968,6 +975,7 @@ a:hover {
     border-color: var(--accent-pink);
     color: #ffffff;
     transform: translateY(-2px);
+    text-decoration: none;
 }
 
 .pagination-prev {
@@ -1031,6 +1039,7 @@ a:hover {
 
 .post-title a:hover {
     color: var(--accent-pink);
+    text-decoration: none;
 }
 
 .post-excerpt {
@@ -1071,6 +1080,7 @@ a:hover {
 .tag:hover {
     background: rgba(44, 163, 229, 0.2);
     transform: translateY(-1px);
+    text-decoration: none;
 }
 
 .read-more {
@@ -1091,6 +1101,7 @@ a:hover {
 .read-more:hover {
     box-shadow: var(--shadow-md);
     border-color: var(--accent-pink);
+    text-decoration: none;
 }
 
 .read-more svg {
@@ -1175,7 +1186,7 @@ a:hover {
 
 .single-post-taxonomy .taxonomy-link:hover {
     color: var(--accent-pink);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .post-content {
@@ -1213,6 +1224,7 @@ a:hover {
 
 .post-content a:hover {
     color: var(--accent-pink);
+    text-decoration: none;
 }
 
 .post-content ul,
@@ -1300,6 +1312,7 @@ a:hover {
 .nav-post:hover {
     border-color: var(--accent-pink);
     box-shadow: var(--shadow-md);
+    text-decoration: none;
 }
 
 .nav-post svg {
@@ -1413,6 +1426,7 @@ a:hover {
 
 .pagefind-ui__button:hover {
     box-shadow: var(--shadow-md) !important;
+    text-decoration: none !important;
 }
 
 .pagefind-ui__message {
@@ -1503,6 +1517,7 @@ a:hover {
     background: rgba(44, 163, 229, 0.2);
     border-color: rgba(44, 163, 229, 0.4);
     transform: translateY(-1px);
+    text-decoration: none;
 }
 
 .search-result-link {
