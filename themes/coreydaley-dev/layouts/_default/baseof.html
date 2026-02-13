@@ -11,7 +11,7 @@
       {{- $title = printf "%s | %s" .Title .Site.Title -}}
     {{- end -}}
     {{- $description := .Description | default .Site.Params.description -}}
-    {{- $image := .Params.image | default .Params.coverImage | default .Site.Params.coverImage -}}
+    {{- $image := .Params.image | default .Params.avatar | default .Site.Params.avatar -}}
     {{- if $image -}}
       {{- $image = $image | absURL -}}
     {{- end -}}
