@@ -138,6 +138,14 @@ The Blog Post Topics page in Notion serves as a to-do list for blog post ideas. 
 3. **Mark as complete**: Check off the item in Notion once the blog post is published
 4. **Move to bottom**: Once an item is marked as completed, move it to the bottom of the list to keep active items at the top
 
+**⚠️ CRITICAL**: Steps 3 and 4 are **mandatory** and must **ALWAYS** be completed after creating a blog post from the Notion list. Failing to mark items as complete and move them to the bottom will:
+- Leave the list in an inconsistent state
+- Cause duplicate blog posts to be created on subsequent runs
+- Break the workflow's ability to track which ideas have been completed
+- Clutter the active to-do list with finished items
+
+**Always complete the full workflow**: Read → Create → Mark Complete → Move to Bottom
+
 This keeps the list organized with pending ideas at the top and completed items archived at the bottom for reference.
 
 ## AI Agent Content Authorship
