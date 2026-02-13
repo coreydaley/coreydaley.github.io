@@ -6,25 +6,34 @@
       {{ $paginator := .Paginate $allPosts }}
       {{ range $index, $post := $paginator.Pages }}
         {{ if not $post.Draft }}
-          <article class="post-item">
-            <div class="post-date">
-              {{ $post.Date.Format "January 02, 2006" }}
-            </div>
-
-            <h2 class="post-title">
-              <a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a>
-            </h2>
-
-            {{ if $post.Description }}
-              <p class="post-excerpt">{{ $post.Description }}</p>
-            {{ else if $post.Summary }}
-              <p class="post-excerpt">
-                {{ $post.Summary | plainify | truncate 200 }}
-              </p>
+          <article class="post-item{{ if $post.Params.image }} post-item-with-image{{ end }}">
+            {{ if $post.Params.image }}
+              <div class="post-image">
+                <a href="{{ $post.RelPermalink }}">
+                  <img src="{{ $post.Params.image }}" alt="{{ $post.Title }}" loading="lazy">
+                </a>
+              </div>
             {{ end }}
 
+            <div class="post-content">
+              <div class="post-date">
+                {{ $post.Date.Format "January 02, 2006" }}
+              </div>
 
-            <div class="post-taxonomy">
+              <h2 class="post-title">
+                <a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a>
+              </h2>
+
+              {{ if $post.Description }}
+                <p class="post-excerpt">{{ $post.Description }}</p>
+              {{ else if $post.Summary }}
+                <p class="post-excerpt">
+                  {{ $post.Summary | plainify | truncate 200 }}
+                </p>
+              {{ end }}
+
+
+              <div class="post-taxonomy">
               {{ if $post.Params.categories }}
                 <div class="post-categories">
                   <svg
@@ -73,9 +82,10 @@
                   {{ end }}
                 </div>
               {{ end }}
-            </div>
+              </div>
 
-            <a href="{{ $post.RelPermalink }}" class="read-more">Read more →</a>
+              <a href="{{ $post.RelPermalink }}" class="read-more">Read more →</a>
+            </div>
           </article>
 
           {{ if ne (add $index 1) (len $paginator.Pages) }}
