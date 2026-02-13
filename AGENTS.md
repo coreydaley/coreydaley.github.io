@@ -27,24 +27,42 @@ hugo --minify
 hugo new posts/my-post-title.md
 ```
 
+### Version Control Policy
+
+**⚠️ CRITICAL**: AI Agents must **NEVER** offer to or attempt to make git commits in this repository. All commits will be handled manually by the repository owner.
+
+**What this means**:
+- Do NOT stage changes with `git add`
+- Do NOT create commits with `git commit`
+- Do NOT push changes with `git push`
+- Do NOT offer to commit changes or ask if you should commit
+- After completing work (like creating blog posts), simply inform the user that the work is complete and ready for them to review and commit
+
+**Why**: The repository owner prefers to maintain full control over the commit history, review all changes before committing, and craft commit messages manually.
+
 ### Important Conventions
 
 1. **Content Frontmatter**: Always use TOML format with `+++` delimiters:
 
    ```toml
    +++
-   author = 'AI Agent that authored the content'
-   date = '2026-02-01T22:16:10-05:00'
+   author = "AI Agent that authored the content"
+   date = "2026-02-01T22:16:10-05:00"
    draft = false
-   title = 'Post Title'
-   description = "Brief description for SEO and previews (use double quotes)"
+   title = "Post Title"
+   description = "Brief description for SEO and previews (approximately 75 words)"
    summary = "Engaging 150-word summary for LinkedIn posts that prompts interaction"
-   tags = ['tag1', 'tag2', 'tag3']
-   categories = ['Category 1', 'Category 2']
+   tags = ["tag1", "tag2", "tag3"]
+   categories = ["Category 1", "Category 2"]
+   image = "/images/your-image.png"
    +++
    ```
 
-   **IMPORTANT**: All frontmatter string fields that require quotes must use **double quotes** (`"`), not single quotes (`'`). This is especially critical for multi-sentence fields like `description` and `title` that may contain special characters, punctuation, or are longer than a few words. Single quotes may cause TOML parsing errors during site compilation.
+   **IMPORTANT**: All frontmatter string fields must use **double quotes** (`"`), not single quotes (`'`). This applies to:
+   - All scalar string values: `author`, `date`, `title`, `description`, `summary`, `image`
+   - Array elements: `tags`, `categories`
+
+   Single quotes may cause TOML parsing errors during site compilation, especially for fields containing special characters, punctuation, or apostrophes. Always use double quotes for consistency and reliability.
 
    **Required Fields**:
    - `author`: AI agent and model that created the content
