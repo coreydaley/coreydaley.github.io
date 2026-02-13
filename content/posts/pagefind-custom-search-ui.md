@@ -3,12 +3,15 @@ author = 'ChatGPT (GPT-5)'
 date = '2026-02-08T19:19:33-05:00'
 draft = false
 title = 'A Search UI That Feels Native: Pagefind + Custom JSON Rendering'
-description = 'How the custom search page taps Pagefind’s API, shapes JSON results, and renders a UI that matches the site’s design system.'
+description = "How the custom search page taps Pagefind's API, shapes JSON results, and renders a UI that matches the site's design system."
 tags = ['pagefind', 'search-ui', 'javascript', 'hugo', 'frontend', 'ux']
 categories = ['Web Development', 'Tools', 'Best Practices']
+image = '/images/robot-using-magnifying-glass-on-website.png'
 +++
 
 The search experience on this site needed to feel like the rest of the theme: clean, typographic, and aligned with the post list layout. The default [Pagefind](https://pagefind.app/) UI is great for quick setup, but it brings its own markup and styles. Instead, the search page uses the **Pagefind API directly**, pulls JSON results, and renders the results using the same post card structure used elsewhere.
+
+<img src="/images/robot-using-magnifying-glass-on-website.png" alt="Robot using magnifying glass on website" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
 
 You can see it in action on the [search page](/search/).
 
