@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-13T15:50:00-05:00
+ * Last Modified: 2026-02-13T15:55:00-05:00
  */
 
 /* ===================================
@@ -907,6 +907,11 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 .post-item {
     padding: 2rem 0;
     position: relative;
+    min-height: 200px;
+}
+
+.post-item .post-content {
+    padding-bottom: 4rem;
 }
 
 .post-item:first-child {
@@ -914,10 +919,12 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 }
 
 .post-item .post-date {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     margin-bottom: 0.5rem;
     font-weight: 500;
+    text-align: right;
+    font-style: italic;
 }
 
 .post-item .post-title {
@@ -946,8 +953,10 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 }
 
 .post-item .post-taxonomy {
-    margin-bottom: 1rem;
-    max-width: 100%;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    max-width: calc(100% - 150px);
     overflow: hidden;
     clear: left;
 }
@@ -958,7 +967,6 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 0.5rem;
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
@@ -1015,7 +1023,7 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     border-radius: 8px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 1.5rem 1rem 0;
+    margin: .5rem 1.5rem 1rem 0;
 }
 
 .post-item-with-image .post-image:hover {
@@ -1214,15 +1222,14 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 .posts-list {
     background: var(--bg-card);
     border-radius: 30px;
-    padding: 3rem;
+    padding: 2rem;
     border: 2px solid var(--border-color);
     box-shadow: var(--shadow-md);
 }
 
 .post-header {
     margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px dashed var(--border-color);
 }
 
 .post-header-content {
@@ -1391,9 +1398,9 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
    =================================== */
 
 .post-footer {
-    margin-top: 4rem;
+    margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 2px solid var(--border-color);
+    border-top: 2px dashed var(--border-color);
 }
 
 .post-navigation {
@@ -1820,6 +1827,16 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 
     .post-item .post-title {
         padding-right: 0;
+    }
+
+    .post-item .post-content {
+        padding-bottom: 0;
+    }
+
+    .post-item .post-taxonomy {
+        position: static;
+        max-width: 100%;
+        margin-bottom: 1rem;
     }
 
     .post-item .read-more {

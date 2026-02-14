@@ -1,4 +1,4 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-12T20:20:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-13T16:00:00-05:00 */}}
 {{ define "main" }}
   <article class="single-post">
     <header class="post-header">
@@ -12,6 +12,28 @@
           style="display:none;"
           >{{ .Description }}</span
         >
+      </div>
+    </header>
+
+    <div data-pagefind-body class="post-content">
+      <div class="reading-time">
+        Reading time:
+        {{ .ReadingTime }}
+        minute{{ if (ne .ReadingTime 1) }}s{{ end }}
+      </div>
+
+      {{ if eq .Section "posts" }}
+        {{ .Content }}
+        <div
+          data-pagefind-meta="date:{{ .Date.Format "2006-01-02" }}"
+          class="post-author-date"
+          style="display:block; text-align: right; margin-bottom:1rem; font-style: italic; color: var(--text-secondary, #586069);"
+        >
+          Authored by {{ .Params.author | default .Site.Title }} on
+          <time datetime="{{ .Date.Format "2006-01-02" }}"
+            >{{ .Date.Format "January 2, 2006" }}</time
+          >
+        </div>
         <div class="post-taxonomy single-post-taxonomy">
           {{ if .Params.categories }}
             <div class="post-categories">
@@ -27,9 +49,9 @@
                 />
               </svg>
               <span
-                data-pagefind-meta="categories:{{ delimit .Params.categories ", " }}"
+                data-pagefind-meta="categories:{{ delimit (sort .Params.categories) ", " }}"
               >
-                {{ range $index, $category := .Params.categories }}
+                {{ range $index, $category := sort .Params.categories }}
                   {{ if $index }},{{ end }}
                   <a
                     href="{{ "/categories/" | relURL }}{{ $category | urlize }}"
@@ -55,8 +77,10 @@
                 />
                 <line x1="7" y1="7" x2="7.01" y2="7" />
               </svg>
-              <span data-pagefind-meta="tags:{{ delimit .Params.tags ", " }}">
-                {{ range $index, $tag := .Params.tags }}
+              <span
+                data-pagefind-meta="tags:{{ delimit (sort .Params.tags) ", " }}"
+              >
+                {{ range $index, $tag := sort .Params.tags }}
                   {{ if $index }},{{ end }}
                   <a
                     href="{{ "/tags/" | relURL }}{{ $tag | urlize }}"
@@ -67,27 +91,6 @@
               </span>
             </div>
           {{ end }}
-        </div>
-      </div>
-    </header>
-
-    <div data-pagefind-body class="post-content">
-      <div class="reading-time">
-        Reading time: {{ .ReadingTime }}
-        minute{{ if (ne .ReadingTime 1) }}s{{ end }}
-      </div>
-
-      {{ if eq .Section "posts" }}
-        {{ .Content }}
-        <div
-          data-pagefind-meta="date:{{ .Date.Format "2006-01-02" }}"
-          class="post-author-date"
-          style="display:block; text-align: right; margin-bottom:1rem; font-style: italic; color: var(--text-secondary, #586069);"
-        >
-          Authored by {{ .Params.author | default .Site.Title }} on
-          <time datetime="{{ .Date.Format "2006-01-02" }}"
-            >{{ .Date.Format "January 2, 2006" }}</time
-          >
         </div>
       {{ end }}
 
