@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-14T15:00:00-05:00
+ * Last Modified: 2026-02-14T16:30:00-05:00
  */
 
 /* ===================================
@@ -1905,9 +1905,11 @@ nav.sharebuttons li > a:hover .will-change {
     }
 
     .header-social-icons {
+        position: static;
         margin-left: 0;
         justify-content: center;
         margin-top: 1rem;
+        flex-wrap: wrap;
     }
 
     .post-item .post-title {
@@ -1969,6 +1971,7 @@ nav.sharebuttons li > a:hover .will-change {
     .header-social-icons {
         gap: 0.75rem;
         margin-top: 1rem;
+        flex-wrap: wrap;
     }
 
     .header-social-icons .social-icon {

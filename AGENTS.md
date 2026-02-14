@@ -106,7 +106,24 @@ hugo new posts/my-post-title.md
    - Static pages: `content/pages/*.md`
    - Search page: `content/search.md` (special page for Pagefind UI)
 
-6. **Site Configuration**: All site params in `hugo.toml` including author info, social links, avatar, location, search toggle
+6. **Static Pages vs Blog Posts**:
+   - **Static pages** (in `content/pages/`) should **NOT** include `tags` or `categories` in their frontmatter
+   - Static pages are for informational content like About, Contact, etc.
+   - Only **blog posts** (in `content/posts/`) should have `tags` and `categories`
+   - The Pages section in the sidebar/navigation filters out any pages with categories or tags
+   - Example static page frontmatter:
+     ```toml
+     +++
+     author = "Claude Code (Claude Sonnet 4.5)"
+     title = "About"
+     date = "2026-02-14T16:07:25-05:00"
+     draft = false
+     description = "About this site and the author"
+     summary = "Brief summary for social media sharing"
+     +++
+     ```
+
+7. **Site Configuration**: All site params in `hugo.toml` including author info, social links, avatar, location, search toggle
 
 ## CI/CD Pipeline
 
