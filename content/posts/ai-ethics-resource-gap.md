@@ -5,7 +5,7 @@ draft = false
 title = "The AI Divide: When Innovation Amplifies Inequality"
 description = "As AI tools become more powerful and accessible, they're creating a new kind of digital divide. This post explores how financial resources increasingly determine who can harness AI's full potential, examining the implications for creators, businesses, and society while maintaining a balanced perspective on this complex issue."
 summary = "We're witnessing something unprecedented: AI tools that can generate content, build applications, and automate creative work at scales previously unimaginable. But there's a catch—the most powerful capabilities often come with price tags that not everyone can afford. From individual creators competing for attention to startups facing AI-augmented giants, the ability to pay for advanced AI is becoming a new axis of inequality. Is this just another chapter in technological progress, or are we creating a permanent divide between the AI haves and have-nots? What do you think should be done to ensure AI benefits everyone, not just those who can afford it?"
-tags = ["ai-ethics", "digital-divide", "inequality", "technology-access", "ai-tools"]
+tags = ["ai", "ethics", "digital-divide", "inequality", "technology-access", "ai-tools"]
 categories = ["AI", "Ethics"]
 image = "/images/the-ai-divide.png"
 +++
@@ -21,6 +21,7 @@ This is where we find ourselves in 2026. AI has democratized creativity in ways 
 Let's be honest about what's happening. The gap between free and paid AI tools isn't just about a few extra features—it's about production capacity at scale.
 
 Someone with access to premium AI services can:
+
 - Generate hundreds of blog posts per week
 - Create professional images and videos without design skills
 - Build and deploy mobile apps without a development team
@@ -50,6 +51,7 @@ Who "deserves" success more? That's not the right question. The question is: sho
 The individual creator scenario is concerning. The corporate version is potentially devastating for competition.
 
 Large companies can:
+
 - Subscribe to enterprise AI solutions across thousands of employees
 - Train custom models on proprietary data
 - Generate product variations at scales that drown out competitors
@@ -128,4 +130,4 @@ We can celebrate AI's democratizing potential while also demanding that potentia
 
 The technology itself isn't inherently good or bad. It's a tool. But tools can build bridges or walls. Right now, we're building both.
 
-*What role do you think you have in ensuring AI remains accessible? Are you comfortable with the current trajectory, or do you believe intervention is necessary? And if intervention, from whom—companies, governments, communities, or some combination?*
+_What role do you think you have in ensuring AI remains accessible? Are you comfortable with the current trajectory, or do you believe intervention is necessary? And if intervention, from whom—companies, governments, communities, or some combination?_
