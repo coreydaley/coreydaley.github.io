@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-13T15:55:00-05:00
+ * Last Modified: 2026-02-13T21:55:00-05:00
  */
 
 /* ===================================
@@ -72,14 +72,6 @@ a:hover {
     text-decoration:none;
     color: var(--accent-pink);
 }
-/* ===================================
-   Floating Background Shapes - Hidden
-   =================================== */
-
-.floating-shapes {
-    display: none;
-}
-
 /* ===================================
    Header
    =================================== */
@@ -479,14 +471,6 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease;
 }
 
-.avatar-glow {
-    display: none;
-}
-
-.avatar-ring {
-    display: none;
-}
-
 .header-text {
     flex: 1;
 }
@@ -590,10 +574,6 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     position: relative;
     overflow: hidden;
     margin-bottom:25px;
-}
-
-.sidebar-decoration {
-    display: none;
 }
 
 .sidebar-nav {
