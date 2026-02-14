@@ -6,7 +6,7 @@ draft = false
 description = "Is it ethical to use AI coding agents like GitHub Copilot and Claude Code to write open source contributions? This post explores both sides of the debate—from democratizing contributions and amplifying productivity to concerns about misrepresenting skills and undermining community trust. We examine when AI assistance crosses the line, what transparency means in practice, and what consequences, if any, should apply when developers build their reputation on AI-generated code they don't fully understand."
 summary = "Here's a question that's been keeping me up at night: When does using AI coding assistants cross the line from productivity tool to ethical problem? I've been using tools like GitHub Copilot and Claude Code extensively, and I started wondering—if someone submits AI-generated code to open source projects and builds their reputation on it, is that fundamentally different from using Stack Overflow or IDE autocomplete? In my latest blog post, I explore both sides of this debate. On one hand, AI democratizes contributions and amplifies what we can accomplish. On the other, it raises serious questions about authenticity, trust, and what it means to truly 'know' the code you're responsible for. The middle ground is messy and context-dependent. Where do you draw the line? Should contributors be required to disclose AI usage? What do you think?"
 tags = ["ai", "ethics", "open-source", "github", "ai-coding-agents", "developer-community"]
-categories = ["AI", "Career", "Best Practices"]
+categories = ["AI", "Career", "Best Practices", "Ethics"]
 image = "/images/robot-writing-code.png"
 +++
 
@@ -27,6 +27,7 @@ Let's start with the argument in favor of this practice.
 ### AI as an Amplifier
 
 Proponents argue that AI coding agents are simply the next evolution of developer tools. We don't question whether it's ethical to use:
+
 - Stack Overflow answers in our code
 - IDE auto-completion features
 - Code generators and scaffolding tools
@@ -55,6 +56,7 @@ Now let's examine the opposing perspective.
 The strongest argument against this practice is that it fundamentally misrepresents the contributor's abilities. Your GitHub profile and contribution history serve as a portfolio—a demonstration of your skills, problem-solving abilities, and expertise. When AI writes the code, the profile no longer accurately reflects your capabilities.
 
 This becomes especially problematic when:
+
 - Employers use GitHub profiles for hiring decisions
 - Maintainers grant permissions based on contribution history
 - The community awards recognition and speaking opportunities based on perceived expertise
@@ -66,6 +68,7 @@ Open source thrives on trust. When maintainers approve PRs, they're not just acc
 ### The Learning Gap
 
 Critics argue that relying heavily on AI for contributions creates developers who can review code but can't write it from scratch. This superficial understanding becomes problematic when:
+
 - Bugs emerge that require deep knowledge to fix
 - The AI-generated code needs significant refactoring
 - Contributors are asked to explain their design decisions
@@ -87,6 +90,7 @@ Perhaps the answer isn't black and white. Consider these scenarios:
 **Scenario 2**: A newcomer uses AI to write an entire feature for a project they barely understand, makes minimal changes, and submits it without fully comprehending how it works.
 
 Most people would agree Scenario 1 is acceptable, while Scenario 2 raises ethical concerns. The difference lies in:
+
 - **Understanding**: Do you truly understand the code?
 - **Capability**: Could you have written it without AI?
 - **Intent**: Are you trying to learn and contribute, or just inflate your profile?
@@ -98,6 +102,7 @@ Most people would agree Scenario 1 is acceptable, while Scenario 2 raises ethica
 This brings us to perhaps the most challenging question: if someone is discovered to be submitting AI-generated code without sufficient understanding or transparency, what should happen?
 
 Possible responses range from:
+
 - **No consequences**: AI use is acceptable as long as code quality is good
 - **Required disclosure**: Projects mandate declaring AI assistance
 - **Revoked privileges**: Contributors lose commit access or maintainer status
@@ -124,6 +129,6 @@ The key, in my view, is intentionality. Use AI to augment your capabilities, not
 
 ## Your Turn
 
-*What's your stance on this issue? Should developers who use AI to generate substantial portions of their open source contributions be required to disclose it? Is there a line between acceptable AI assistance and misleading contribution inflation? And if someone is discovered to have built their reputation primarily on AI-generated code they don't fully understand, what—if anything—should the consequences be?*
+_What's your stance on this issue? Should developers who use AI to generate substantial portions of their open source contributions be required to disclose it? Is there a line between acceptable AI assistance and misleading contribution inflation? And if someone is discovered to have built their reputation primarily on AI-generated code they don't fully understand, what—if anything—should the consequences be?_
 
-*I'd love to hear your thoughts in the comments or reach out via the contact methods in my bio.*
+_I'd love to hear your thoughts in the comments or reach out via the contact methods in my bio._
