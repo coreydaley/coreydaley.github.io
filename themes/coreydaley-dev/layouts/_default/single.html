@@ -3,7 +3,6 @@
   <article class="single-post">
     <header class="post-header">
       <div class="post-header-content">
-        {{ partial "share-buttons.html" . }}
         <h1 data-pagefind-meta="title:{{ .Title }}" class="post-title-single">
           {{ .Title }}
         </h1>
@@ -93,7 +92,7 @@
           {{ end }}
         </div>
       {{ end }}
-
+      {{ partial "share-buttons.html" . }}
     </div>
 
     <footer class="post-footer">
