@@ -29,8 +29,6 @@ theme = 'coreydaley-dev'
 [params.social]
   github = 'https://github.com/coreydaley'
   linkedin = 'https://linkedin.com/in/coreydaley-dev'
-  twitter = 'https://twitter.com/coreydaley_dev'
-  facebook = 'https://facebook.com/coreydaley.dev'
   email = 'corey@coreydaley.dev'
 
 [params.tracking]
