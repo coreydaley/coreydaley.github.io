@@ -1,9 +1,9 @@
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-08T14:30:00-05:00
 # Last Modified By: Claude Code (Claude Sonnet 4.5)
-# Last Modified: 2026-02-13T21:35:00-05:00
+# Last Modified: 2026-02-14T13:00:00-05:00
 
-.PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all resize-images
+.PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all resize-images format
 
 # Default target
 help:
@@ -19,6 +19,7 @@ help:
 	@echo "  make build-all    - Build, Pagefind, and PurgeCSS (production)"
 	@echo "  make restore      - Restore original CSS from backup"
 	@echo "  make resize-images- Resize images in static/images/ to max 512px width"
+	@echo "  make format       - Format templates, CSS, and JS with Prettier"
 	@echo "  make clean        - Clean generated files"
 	@echo "  make clean-all    - Clean all generated files including backups"
 
@@ -113,6 +114,14 @@ restore:
 # Resize images to max 512px width
 resize-images:
 	@./scripts/resize-images.sh
+
+# Format Hugo templates, CSS, and JS with Prettier
+format:
+	@echo "Formatting Hugo templates, CSS, and JS with Prettier..."
+	npx prettier --write "themes/coreydaley-dev/layouts/**/*.html"
+	npx prettier --write "themes/coreydaley-dev/assets/css/**/*.css"
+	npx prettier --write "themes/coreydaley-dev/assets/js/**/*.js"
+	@echo "Formatting complete!"
 
 # Clean generated files
 clean:

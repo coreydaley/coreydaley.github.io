@@ -1,0 +1,125 @@
+{{/* Created By: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-14T15:30:00-05:00 */}}
+{{/* Post List Partial
+  Displays a list of posts with consistent formatting
+
+  Parameters:
+  - .pages: The pages to display
+  - .paginator: Optional paginator object for pagination controls
+*/}}
+<div class="posts-list-simple">
+  {{ range $index, $post := .pages }}
+    {{ if not $post.Draft }}
+      <article
+        class="post-item{{ if $post.Params.image }}
+          post-item-with-image
+        {{ end }}"
+      >
+        <div class="post-content">
+          <h2 class="post-title">
+            <a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a>
+          </h2>
+
+          {{ if $post.Params.image }}
+            <div class="post-image">
+              <a href="{{ $post.RelPermalink }}">
+                <img
+                  src="{{ $post.Params.image }}"
+                  alt="{{ $post.Title }}"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          {{ end }}
+
+          {{ if $post.Description }}
+            <p class="post-excerpt">{{ $post.Description }}</p>
+          {{ else if $post.Summary }}
+            <p class="post-excerpt">
+              {{ $post.Summary | plainify | truncate 200 }}
+            </p>
+          {{ end }}
+
+
+          <div class="post-taxonomy">
+            {{ if $post.Params.categories }}
+              <div class="post-categories">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="taxonomy-icon"
+                >
+                  <path
+                    d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+                {{ range $index, $category := sort $post.Params.categories }}
+                  {{ if $index }},{{ end }}
+                  <a
+                    href="{{ "/categories/" | relURL }}{{ $category | urlize }}"
+                    class="taxonomy-link"
+                    >{{ $category }}</a
+                  >
+                {{ end }}
+              </div>
+            {{ end }}
+
+            {{ if $post.Params.tags }}
+              <div class="post-tags-list">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="taxonomy-icon"
+                >
+                  <path
+                    d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+                  />
+                  <line x1="7" y1="7" x2="7.01" y2="7" />
+                </svg>
+                {{ range $index, $tag := sort $post.Params.tags }}
+                  {{ if $index }},{{ end }}
+                  <a
+                    href="{{ "/tags/" | relURL }}{{ $tag | urlize }}"
+                    class="taxonomy-link"
+                    >{{ $tag }}</a
+                  >
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+
+          <a href="{{ $post.RelPermalink }}" class="read-more">Read more →</a>
+        </div>
+      </article>
+
+      {{ if ne (add $index 1) (len $.pages) }}
+        <hr class="post-separator" />
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+
+{{ if .paginator }}
+  {{ if gt .paginator.TotalPages 1 }}
+    <nav class="pagination">
+      {{ if .paginator.HasPrev }}
+        <a
+          href="{{ .paginator.Prev.URL }}"
+          class="pagination-link pagination-prev"
+          >← Newer Posts</a
+        >
+      {{ end }}
+
+      {{ if .paginator.HasNext }}
+        <a
+          href="{{ .paginator.Next.URL }}"
+          class="pagination-link pagination-next"
+          >Older Posts →</a
+        >
+      {{ end }}
+    </nav>
+  {{ end }}
+{{ end }}

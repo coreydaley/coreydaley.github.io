@@ -1,6 +1,6 @@
 # coreydaley.github.io
 
-Personal blog and portfolio site built with Hugo and deployed to GitHub Pages.
+Personal blog site built with Hugo and deployed to GitHub Pages.
 
 ## Project Overview
 
@@ -20,6 +20,7 @@ Before working on this project, ensure you have the following installed:
 - **Node.js** (for Prettier and Pagefind)
 - **npm** (comes with Node.js)
 - **Git** (for version control)
+- **pre-commit** ([installation guide](https://pre-commit.com/#install)) - for git hooks
 
 ## Quick Start
 
@@ -36,7 +37,23 @@ cd coreydaley.github.io
 npm install
 ```
 
-### 3. Start Development Server
+### 3. Set Up Git Hooks
+
+Install pre-commit to automatically check image sizing before commits:
+
+```bash
+# Install pre-commit (choose one method)
+pip install pre-commit
+# or
+brew install pre-commit
+
+# Install the git hook scripts
+pre-commit install
+```
+
+This sets up a pre-commit hook that runs `make resize-images` before each commit. If images need resizing, the commit will be blocked until you stage the changes.
+
+### 4. Start Development Server
 
 ```bash
 hugo server -D
@@ -64,18 +81,21 @@ author = 'AI Agent Name (Model Version)'
 title = 'Post Title'
 date = '2026-02-08T14:30:00-05:00'
 draft = true
-description = 'Brief description for SEO and previews'
+description = 'Brief description for SEO and previews (approximately 75 words)'
+summary = 'Engaging 150-word summary for LinkedIn posts that prompts interaction'
 tags = ['tag1', 'tag2', 'tag3']
 categories = ['Category 1', 'Category 2']
 +++
 ```
 
 **Required Fields:**
+
 - `author`: Attribution for AI or human author
 - `title`: Post title
 - `date`: ISO 8601 timestamp with timezone
 - `draft`: Boolean (set to `false` to publish)
-- `description`: SEO-friendly summary
+- `description`: Brief description for SEO and previews (approximately 75 words)
+- `summary`: Engaging summary for LinkedIn posts (approximately 150 words) - should be conversational, highlight key points, and end with a question or call-to-action
 - `tags`: Specific keywords (lowercase, hyphenated)
 - `categories`: Broad topic groupings (Title Case, 1-3 per post)
 
@@ -148,19 +168,22 @@ Visit `http://localhost:8000` to preview the production build.
 ├── .github/
 │   └── workflows/
 │       └── hugo.yml           # GitHub Actions CI/CD
+├── .pre-commit-config.yaml    # Pre-commit hooks configuration
 ├── .prettierrc                # Prettier configuration
 ├── AGENTS.md                  # Instructions for AI agents
 ├── CLAUDE.md                  # Claude-specific instructions
+├── Makefile                   # Build automation tasks
 ├── README.md                  # This file
 ├── archetypes/
 │   └── default.md             # Template for new posts
 ├── content/
 │   ├── posts/                 # Blog posts
-│   ├── search.md              # Search page
-│   └── about.md               # About page
+│   └── search.md              # Search page
 ├── hugo.toml                  # Hugo configuration
 ├── package.json               # npm dependencies
 ├── public/                    # Built site (gitignored)
+├── scripts/
+│   └── check-image-resize.sh  # Pre-commit hook script
 └── themes/
     └── coreydaley-dev/        # Custom theme
         ├── layouts/           # Hugo templates
@@ -173,6 +196,7 @@ Visit `http://localhost:8000` to preview the production build.
 ### Site Configuration (`hugo.toml`)
 
 Main site settings including:
+
 - Base URL and site title
 - Author information
 - Social media links
@@ -183,6 +207,7 @@ Main site settings including:
 ### Prettier Configuration (`.prettierrc`)
 
 Prettier is configured to format Hugo templates using the `prettier-plugin-go-template` plugin. Configuration includes:
+
 - HTML template formatting with Go template syntax support
 - Consistent indentation and line wrapping
 - Automatic formatting on save (if editor supports it)
@@ -190,6 +215,7 @@ Prettier is configured to format Hugo templates using the `prettier-plugin-go-te
 ### Editor Configuration (`.editorconfig`)
 
 EditorConfig maintains consistent coding styles:
+
 - UTF-8 encoding
 - LF line endings
 - 2-space indentation for HTML, JS, YAML, TOML
@@ -246,7 +272,8 @@ See [AGENTS.md](AGENTS.md) for complete AI agent instructions.
 1. Read through [AGENTS.md](AGENTS.md) for project conventions
 2. Ensure Hugo v0.155.1 extended is installed
 3. Run `npm install` to install formatting tools
-4. Start dev server: `hugo server -D`
+4. Install pre-commit hooks: `pre-commit install`
+5. Start dev server: `hugo server -D`
 
 ### Making Changes
 
@@ -300,13 +327,24 @@ hugo server --disableFastRender
 ### Browser Cache Issues
 
 If CSS/JS changes don't appear:
+
 - Hard refresh: `Cmd+Shift+R` (Mac) or `Ctrl+Shift+R` (Windows/Linux)
 - Clear browser cache
 - Restart Hugo dev server
 
 ## License
 
-This project is open source and available under the MIT License.
+### Code License
+
+The code in this repository (themes, templates, scripts, configuration files, build tools) is open source and available under the [MIT License](LICENSE).
+
+### Content License
+
+The blog content (posts, articles, images in `/content/` and `/static/images/`) is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](LICENSE-CONTENT) (CC BY-NC-ND 4.0).
+
+[![CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+This means you can share the content with attribution, but not for commercial purposes or with modifications.
 
 ## Acknowledgments
 
@@ -314,6 +352,7 @@ This project is open source and available under the MIT License.
 - Search powered by [Pagefind](https://pagefind.app/)
 - Hosted on [GitHub Pages](https://pages.github.com/)
 - Formatted with [Prettier](https://prettier.io/)
+- Git hooks managed by [pre-commit](https://pre-commit.com/)
 - AI-assisted development with Claude Code
 
 ---

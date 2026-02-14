@@ -1,15 +1,18 @@
 # Created by: AI Agent
 # Date: 2026-02-06T22:56:44-05:00
+# Last Modified By: Claude Code (Claude Sonnet 4.5)
+# Last Modified: 2026-02-14T15:55:00-05:00
 
-name = "Coreydaley Dev"
+name = "coreydaley-dev"
 license = "MIT"
 licenselink = "https://github.com/coreydaley/coreydaley-dev-theme/blob/main/LICENSE"
 description = "A playful, cartoony theme for technical blogs about software engineering and AI development"
-homepage = "https://coreydaley.com/"
+homepage = "https://github.com/coreydaley/coreydaley-dev-theme/"
+demosite = "https://theme.coreydaley.dev/"
 tags = ["blog", "personal", "technical", "playful", "cartoon"]
 features = ["responsive", "avatar", "cover-image", "sidebar-navigation", "social-links"]
-min_version = "0.128.0"
+min_version = "0.155.2"
 
 [author]
   name = "Corey Daley"
-  homepage = "https://coreydaley.com/"
+  homepage = "https://coreydaley.dev/"

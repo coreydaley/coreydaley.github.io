@@ -1,0 +1,12 @@
+# Created by: Claude Code (Claude Sonnet 4.5)
+# Date: 2026-02-14T12:30:00-05:00
+
+repos:
+  - repo: local
+    hooks:
+      - id: check-image-resize
+        name: Check image resize
+        entry: scripts/check-image-resize.sh
+        language: script
+        pass_filenames: false
+        always_run: true

@@ -1,4 +1,4 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-08T15:00:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-14T15:45:00-05:00 */}}
 {{ define "main" }}
   <article class="posts-list">
     <div class="search-page">
@@ -53,8 +53,11 @@
           description: result.meta.description || "",
           excerpt: result.excerpt,
           tags: result.meta.tags ? result.meta.tags.split(", ") : [],
-          categories: result.meta.categories ? result.meta.categories.split(", ") : [],
+          categories: result.meta.categories
+            ? result.meta.categories.split(", ")
+            : [],
           date: result.meta.date || "",
+          image: result.meta.image || "",
           wordCount: result.word_count,
         }));
 
@@ -85,16 +88,9 @@
 
       results.forEach((result, index) => {
         const article = document.createElement("article");
-        article.className = "post-item";
-
-        // Format date
-        const dateStr = result.date
-          ? new Date(result.date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "2-digit",
-            })
-          : "";
+        article.className = result.image
+          ? "post-item post-item-with-image"
+          : "post-item";
 
         // Build categories HTML
         const categoriesHtml =
@@ -129,18 +125,30 @@
             </div>`
             : "";
 
-        const taxonomyHtml = categoriesHtml || tagsHtml
-          ? `<div class="post-taxonomy">${categoriesHtml}${tagsHtml}</div>`
+        const taxonomyHtml =
+          categoriesHtml || tagsHtml
+            ? `<div class="post-taxonomy">${categoriesHtml}${tagsHtml}</div>`
+            : "";
+
+        // Build image HTML
+        const imageHtml = result.image
+          ? `<div class="post-image">
+              <a href="${result.url}">
+                <img src="${result.image}" alt="${result.title}" loading="lazy" />
+              </a>
+            </div>`
           : "";
 
         article.innerHTML = `
-          ${dateStr ? `<div class="post-date">${dateStr}</div>` : ""}
-          <h2 class="post-title">
-            <a href="${result.url}">${result.title}</a>
-          </h2>
-          ${result.description ? `<p class="post-excerpt">${result.description}</p>` : ""}
-          ${taxonomyHtml}
-          <a href="${result.url}" class="read-more">Read more →</a>
+          <div class="post-content">
+            <h2 class="post-title">
+              <a href="${result.url}">${result.title}</a>
+            </h2>
+            ${imageHtml}
+            ${result.description ? `<p class="post-excerpt">${result.description}</p>` : ""}
+            ${taxonomyHtml}
+            <a href="${result.url}" class="read-more">Read more →</a>
+          </div>
         `;
 
         resultsContainer.appendChild(article);

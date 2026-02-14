@@ -3,6 +3,9 @@
 /resources/
 .hugo_build.lock
 
+# Pagefind generated files
+/static/pagefind/
+
 # Node.js dependencies (if you use them)
 /node_modules/
 package-lock.json

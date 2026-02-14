@@ -2,8 +2,11 @@
 {{- $url := .Destination -}}
 {{- $isExternal := and (not (hasPrefix $url "/")) (not (hasPrefix $url "#")) (hasPrefix $url "http") -}}
 
-<a href="{{ $url }}"
-   {{- with .Title }} title="{{ . }}"{{ end -}}
-   {{- if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end -}}>
-   {{- .Text | safeHTML -}}
+
+<a
+  href="{{ $url }}"
+  {{- with .Title }}title="{{ . }}"{{ end -}}
+  {{- if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end -}}
+>
+  {{- .Text | safeHTML -}}
 </a>

@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-13T21:55:00-05:00
+ * Last Modified: 2026-02-14T15:00:00-05:00
  */
 
 /* ===================================
@@ -37,9 +37,9 @@
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     /* Typography */
-    --font-display: 'Fredoka', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-    --font-code: 'Fira Code', monospace;
+    --font-display: "Fredoka", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-code: "Fira Code", monospace;
 
     /* Spacing */
     --sidebar-width: 250px;
@@ -65,13 +65,22 @@ body {
 }
 
 a {
-    text-decoration:none;
+    text-decoration: none;
     color: var(--primary);
 }
 a:hover {
-    text-decoration:none;
+    text-decoration: none;
     color: var(--accent-pink);
 }
+
+/* ===================================
+   Utility Classes
+   =================================== */
+
+.hidden {
+    display: none !important;
+}
+
 /* ===================================
    Header
    =================================== */
@@ -83,7 +92,10 @@ a:hover {
     max-width: 1400px;
     overflow: hidden;
     border-radius: 0 0 40px 40px;
-    transition: height 0.3s ease, border-radius 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        height 0.3s ease,
+        border-radius 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 /* Scrolled header state */
@@ -173,7 +185,11 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(135deg, var(--primary) 0%, var(--accent-pink) 100%);
+    background-image: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--accent-pink) 100%
+    );
 }
 
 .cover-overlay {
@@ -211,7 +227,7 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 
 .header-nav-link:hover {
     color: var(--accent-pink);
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .header-search {
@@ -289,7 +305,11 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     flex-direction: column;
     justify-content: flex-start;
     padding: 4rem 0 2rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-pink) 100%);
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--accent-pink) 100%
+    );
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     transition: right 0.3s ease;
     z-index: 999;
@@ -447,7 +467,9 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     gap: 2rem;
     padding: 1.5rem 4rem;
     height: 100%;
-    transition: padding 0.3s ease, gap 0.3s ease;
+    transition:
+        padding 0.3s ease,
+        gap 0.3s ease;
 }
 
 .avatar-link {
@@ -468,7 +490,10 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     border: 4px solid #ffffff;
     position: relative;
     z-index: 3;
-    transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease;
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        border-width 0.3s ease;
 }
 
 .header-text {
@@ -522,7 +547,10 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: -0.5rem;
     letter-spacing: -0.02em;
-    transition: font-size 0.3s ease, margin-bottom 0.3s ease, line-height 0.3s ease;
+    transition:
+        font-size 0.3s ease,
+        margin-bottom 0.3s ease,
+        line-height 0.3s ease;
 }
 
 .site-title-link {
@@ -541,7 +569,9 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     color: rgba(255, 255, 255, 0.95);
     font-weight: 500;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    transition: font-size 0.3s ease, line-height 0.3s ease;
+    transition:
+        font-size 0.3s ease,
+        line-height 0.3s ease;
 }
 
 /* ===================================
@@ -573,15 +603,13 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     border: 2px solid var(--border-color);
     position: relative;
     overflow: hidden;
-    margin-bottom:25px;
+    margin-bottom: 25px;
 }
 
 .sidebar-nav {
     position: relative;
     z-index: 1;
 }
-
-
 
 .section-title {
     font-family: var(--font-display);
@@ -601,16 +629,13 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     color: var(--text-primary);
 }
 
-
 .nav-links {
     list-style: none;
 }
 
-
 .nav-links li {
     margin-bottom: 0.5rem;
 }
-
 
 .nav-link {
     display: flex;
@@ -623,7 +648,6 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     font-size: 1.05rem;
     transition: color 0.2s ease;
 }
-
 
 .nav-link:hover {
     color: var(--accent-pink);
@@ -648,6 +672,7 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     gap: 0.75rem;
     align-items: baseline;
     line-height: 1.8;
+    max-width: 100%;
 }
 
 .tag-cloud-item {
@@ -655,9 +680,11 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     color: var(--text-secondary);
     font-weight: 600;
     transition: all 0.2s ease;
-    white-space: nowrap;
     line-height: 1.8;
     display: inline-block;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .tag-cloud-item .tag-count {
@@ -693,7 +720,7 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 
 .search-input {
     width: 100%;
-    padding: 0.5rem .5rem 0.5rem .5rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--text-primary);
@@ -744,7 +771,13 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     background: var(--bg-card, #fff);
     border: 2px solid var(--border-color, #e1e4e8);
     border-radius: 15px;
-    font-family: var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+    font-family: var(
+        --font-body,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif
+    );
     font-size: 1rem;
     color: var(--text-primary, #24292e);
     width: 100%;
@@ -759,7 +792,13 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 }
 
 .search-message {
-    font-family: var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+    font-family: var(
+        --font-body,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif
+    );
     color: var(--text-secondary, #586069);
     text-align: center;
     padding: 2rem;
@@ -1002,8 +1041,10 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: .5rem 1.5rem 1rem 0;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    margin: 0.5rem 1.5rem 1rem 0;
 }
 
 .post-item-with-image .post-image:hover {
@@ -1096,7 +1137,11 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+    background: linear-gradient(
+        135deg,
+        var(--accent-pink),
+        var(--accent-orange)
+    );
     border-radius: 15px;
     padding: 0.8rem;
     box-shadow: var(--shadow-md);
@@ -1225,6 +1270,48 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     display: none;
 }
 
+/* Share buttons layout and styling */
+.sharebuttons,
+.sharebuttons ul {
+    display: flex;
+    margin: 1rem 0 0 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.sharebuttons span {
+    color: #bbb;
+}
+
+.sharebuttons ul li {
+    list-style: none;
+    margin: 0;
+}
+
+.sharebuttons ul li a {
+    margin: 0 0.5rem;
+    display: block;
+}
+
+.sharebuttons ul li:first-child a {
+    margin: 0 0.2rem 0 0.5rem;
+}
+
+.sharebuttons ul li a svg {
+    width: auto;
+    height: 1.1rem;
+    display: block;
+}
+
+.will-change {
+    fill: #1a1a1a;
+    transition: 250ms;
+}
+
+nav.sharebuttons li > a:hover .will-change {
+    fill: #ec4899;
+}
+
 .post-title-single {
     font-family: var(--font-display);
     font-size: 1.5rem;
@@ -1270,6 +1357,14 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     stroke: var(--text-muted);
 }
 
+.post-author-date {
+    display: block;
+    text-align: right;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: var(--text-secondary, #586069);
+}
+
 .single-post-taxonomy .taxonomy-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -1300,9 +1395,15 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     font-weight: 600;
 }
 
-.post-content h1 { font-size: 1.75rem; }
-.post-content h2 { font-size: 1.5rem; }
-.post-content h3 { font-size: 1.25rem; }
+.post-content h1 {
+    font-size: 1.75rem;
+}
+.post-content h2 {
+    font-size: 1.5rem;
+}
+.post-content h3 {
+    font-size: 1.25rem;
+}
 
 .post-content p {
     margin-bottom: 1.5rem;
@@ -1506,7 +1607,11 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 }
 
 .pagefind-ui__button {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    ) !important;
     color: #ffffff !important;
     border: none !important;
     border-radius: 12px !important;
@@ -1662,7 +1767,7 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     padding: 2rem;
     color: var(--text-muted);
     font-size: 0.9rem;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 }
 
 .heart {
@@ -1931,9 +2036,15 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
         font-size: 0.95rem;
     }
 
-    .post-content h1 { font-size: 1.5rem; }
-    .post-content h2 { font-size: 1.3rem; }
-    .post-content h3 { font-size: 1.15rem; }
+    .post-content h1 {
+        font-size: 1.5rem;
+    }
+    .post-content h2 {
+        font-size: 1.3rem;
+    }
+    .post-content h3 {
+        font-size: 1.15rem;
+    }
 
     .post-card-inner {
         padding: 1.25rem;

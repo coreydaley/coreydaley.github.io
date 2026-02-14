@@ -22,6 +22,7 @@
   {{- $maxSize := 2.5 -}}
   {{- $spread := sub $maxCount $minCount -}}
 
+
   <div class="tags-cloud">
     {{ range .Data.Terms.Alphabetical }}
       {{- /* Calculate font size based on count */ -}}
@@ -31,7 +32,12 @@
         {{- $fontSize = add $minSize (mul $ratio (sub $maxSize $minSize)) -}}
       {{- end -}}
 
-      <a href="{{ .Page.RelPermalink }}" class="tag-cloud-item" style="font-size: {{ $fontSize }}rem;">
+
+      <a
+        href="{{ .Page.RelPermalink }}"
+        class="tag-cloud-item"
+        style="font-size: {{ $fontSize }}rem;"
+      >
         <span class="tag-name">{{ .Page.Title }}</span>
         <span class="tag-count">({{ .Count }})</span>
       </a>

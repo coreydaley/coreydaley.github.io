@@ -32,10 +32,13 @@
         {{ if $page.Params.tags }}
           <div class="post-tags">
             {{ range $page.Params.tags }}
-              <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+              <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag"
+                >{{ . }}</a
+              >
             {{ end }}
           </div>
         {{ end }}
+
 
         <a href="{{ $page.RelPermalink }}" class="read-more">Read more →</a>
       </article>

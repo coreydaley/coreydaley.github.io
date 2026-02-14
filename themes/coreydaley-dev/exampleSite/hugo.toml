@@ -1,28 +1,45 @@
 # Created by: AI Agent
 # Date: 2026-02-06T22:56:44-05:00
+# Last Modified By: Claude Code (Claude Sonnet 4.5)
+# Last Modified: 2026-02-14T16:15:00-05:00
 
 baseURL = 'https://example.com/'
 languageCode = 'en-us'
-title = 'Corey Daley'
+title = 'Your Name'
 theme = 'coreydaley-dev'
 
+[pagination]
+  pagerSize = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
-  # Header Images
+  # Add your images to static/images/ directory
   avatar = '/images/avatar.jpg'
   coverImage = '/images/cover.jpg'
+  description = 'A blog about some really cool stuff'
+  tagline = 'Your Awesome Tagline'
 
-  # Site Description
-  description = 'A technical blog about software engineering, AI development, and building cool stuff with code'
-  tagline = 'Software Engineer | AI Enthusiast | Code Creator'
-
-  # About Section
-  about = 'Passionate software engineer exploring the intersection of AI and development. Building tools, sharing knowledge, and learning in public.'
-
-  # Google Analytics (optional)
-  # googleAnalytics = 'G-XXXXXXXXXX'
+  # Enable special date avatar swapping (e.g., Halloween, Christmas, etc.)
+  # Set to false to disable automatic avatar changes on holidays
+  enableCheckSpecialDate = false
 
 [params.social]
-  github = 'https://github.com/coreydaley'
-  linkedin = 'https://linkedin.com/in/coreydaley'
-  twitter = 'https://twitter.com/coreydaley'
-  email = 'hello@coreydaley.com'
+  # Social media links - only configured links will be displayed
+  github = 'https://github.com/yourusername'
+  linkedin = 'https://linkedin.com/in/yourusername'
+  twitter = 'https://twitter.com/yourusername'
+  facebook = 'https://facebook.com/yourusername'
+  instagram = 'https://instagram.com/yourusername'
+  mastodon = 'https://mastodon.social/@yourusername'
+  bluesky = 'https://bsky.app/profile/yourusername.bsky.social'
+  youtube = 'https://youtube.com/@yourusername'
+  reddit = 'https://reddit.com/u/yourusername'
+  stackoverflow = 'https://stackoverflow.com/users/yourid/yourname'
+  email = 'your@email.com'
+
+[params.tracking]
+  # googleAnalytics = 'G-XXXXXXXXXX'
