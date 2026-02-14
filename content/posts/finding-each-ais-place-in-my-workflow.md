@@ -7,12 +7,12 @@ description = "Explore how different AI tools are finding their unique niches in
 summary = "I've stopped trying to pick the 'best' AI tool—instead, I'm letting each one find its place in my workflow. Here's what's emerged: Codex, Claude Code, and GitHub Copilot CLI handle my command-line coding from simple to complex. ChatGPT web is my go-to for image creation (oddly, ChatGPT Desktop lacks this). GitHub Copilot in VSCode crushes code completion. Claude Code and Claude Desktop excel at blog writing with Notion integration. Each tool has found its niche, and I'm more productive because of it. I'm still exploring how to use AI as a peer for bouncing ideas off, especially in planning mode. The future isn't about one AI to rule them all—it's about orchestrating multiple specialists. How are you integrating AI tools into your workflow? Have you found similar specialization patterns, or are you using a different approach?"
 tags = ["ai", "workflow", "developer-tools", "claude-code", "github-copilot", "chatgpt", "productivity"]
 categories = ["AI", "Productivity", "Tools"]
-image = "/images/me-working-with-three-ai-robots.png"
+image = "/images/posts/me-working-with-three-ai-robots.png"
 +++
 
 As AI tools continue to proliferate across the development landscape, I've found myself in an interesting position: rather than settling on a single "best" AI assistant, I'm discovering that each tool excels in its own domain. Here's how different AI tools are finding their natural niches in my daily workflow.
 
-<img src="/images/me-working-with-three-ai-robots.png" alt="Working with three AI robots" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
+<img src="/images/posts/me-working-with-three-ai-robots.png" alt="Working with three AI robots" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
 
 ## The Command Line Trio: Codex, Claude Code, and Copilot CLI
 

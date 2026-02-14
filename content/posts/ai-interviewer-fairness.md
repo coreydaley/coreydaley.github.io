@@ -7,10 +7,10 @@ description = "Explore the advantages and limitations of AI-led interviews compa
 summary = "We've all been there: two candidates, two different interviewers, completely different experiences. One gets warm small talk and easy questions. Another faces a colder room and tougher grilling. The outcome often depends on who you got and what kind of day they were having. That's where AI interviewers start to feel like a real upgrade. AI brings consistency—same questions, same order, every time. It reduces unconscious bias by sticking to job-relevant criteria and avoiding the silent 'do I like this person' filter that favors similar backgrounds. Mood doesn't swing the outcome because AI doesn't have bad days. But humans still excel at reading body language, adapting on the fly, and making nuanced judgment calls. The future probably isn't AI replacing humans—it's AI handling structure while humans bring empathy. What's your take on AI interviews? Would you prefer them over traditional ones?"
 tags = ["careers", "hiring", "interviews", "ai", "fairness"]
 categories = ["Career", "AI"]
-image = "/images/ai_interviewing_human.png"
+image = "/images/posts/ai_interviewing_human.png"
 +++
 
-<img src="/images/ai_interviewing_human.png" alt="AI interviewing a human" style="float:right; width:320px; max-width:45%; height:auto; margin:0 0 1rem 1.5rem;" />
+<img src="/images/posts/ai_interviewing_human.png" alt="AI interviewing a human" style="float:right; width:320px; max-width:45%; height:auto; margin:0 0 1rem 1.5rem;" />
 
 We have all been there: two candidates, two different interviewers, two very different experiences. One person gets warm small talk and the easy questions. Another walks into a colder room and a tougher line of questioning. The outcome can hinge on who you got and what kind of day they were having. That is where AI interviewers start to feel like a real upgrade.
 

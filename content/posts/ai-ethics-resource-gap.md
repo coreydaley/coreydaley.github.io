@@ -7,10 +7,10 @@ description = "As AI tools become more powerful and accessible, they're creating
 summary = "We're witnessing something unprecedented: AI tools that can generate content, build applications, and automate creative work at scales previously unimaginable. But there's a catch—the most powerful capabilities often come with price tags that not everyone can afford. From individual creators competing for attention to startups facing AI-augmented giants, the ability to pay for advanced AI is becoming a new axis of inequality. Is this just another chapter in technological progress, or are we creating a permanent divide between the AI haves and have-nots? What do you think should be done to ensure AI benefits everyone, not just those who can afford it?"
 tags = ["ai", "ethics", "digital-divide", "inequality", "technology-access", "ai-tools"]
 categories = ["AI", "Ethics"]
-image = "/images/the-ai-divide.png"
+image = "/images/posts/the-ai-divide.png"
 +++
 
-<img src="/images/the-ai-divide.png" alt="The AI Divide" style="float: left; margin-right: 20px; margin-bottom: 20px; max-width: 400px;">
+<img src="/images/posts/the-ai-divide.png" alt="The AI Divide" style="float: left; margin-right: 20px; margin-bottom: 20px; max-width: 400px;">
 
 There's a moment many of us have experienced recently: watching AI generate in seconds what would have taken hours or days. A blog post. A professional image. A working prototype. It feels like magic—until you hit your usage limit and realize the real magic requires a subscription.
 

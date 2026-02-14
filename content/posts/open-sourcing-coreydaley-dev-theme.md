@@ -7,12 +7,12 @@ description = "Announcing the release of coreydaley-dev, a fun and functional Hu
 summary = "I'm excited to announce that the Hugo theme powering this site—coreydaley-dev—is now open source! After building it collaboratively with Claude Code, I've released it under the MIT license so anyone can use, modify, and learn from it. The theme offers a unique cartoony aesthetic with practical features like special date avatar swapping (think Halloween pumpkins or holiday themes), Pagefind search integration, responsive design, and full customization options. You can preview it at theme.coreydaley.dev or grab it from GitHub at coreydaley/coreydaley-dev-theme. This wasn't just about creating a theme—it was an experiment in AI-assisted development and a chance to give back to the Hugo community. If you're looking for a Hugo theme that stands out from the typical minimal design while remaining fast and functional, check it out! What features would you want to see in a Hugo theme?"
 tags = ["hugo", "open-source", "web-development", "themes", "mit-license", "ai-collaboration"]
 categories = ["Web Development", "Open Source", "Getting Started"]
-image = "/images/coreydaley-dev-theme.png"
+image = "/images/posts/coreydaley-dev-theme.png"
 +++
 
 I'm excited to share something I've been working on: **the Hugo theme powering this site is now open source**. After months of iterative development and collaboration with Claude Code, I've released the **coreydaley-dev theme** under the MIT license. You can find it on GitHub at [coreydaley/coreydaley-dev-theme](https://github.com/coreydaley/coreydaley-dev-theme) and see a live preview at [theme.coreydaley.dev](https://theme.coreydaley.dev).
 
-<img src="/images/coreydaley-dev-theme.png" alt="coreydaley-dev Hugo theme preview" style="float: left; margin: 0 20px 20px 0; max-width: 400px; width: 100%;">
+<img src="/images/posts/coreydaley-dev-theme.png" alt="coreydaley-dev Hugo theme preview" style="float: left; margin: 0 20px 20px 0; max-width: 400px; width: 100%;">
 
 ## Why Open Source?
 

@@ -7,12 +7,12 @@ description = "Learn how to build a custom search experience using Pagefind's AP
 summary = "The default Pagefind UI is great for quick setup, but what if you want search results that feel like they belong to your site? That's exactly what I built for this blog. Instead of using Pagefind's default UI with its own markup and styles, I tapped directly into the Pagefind API to pull JSON results and render them using the same post card structure used throughout the theme. The result? Search that feels completely native—same date formats, same taxonomy chips, same layout consistency. This post walks through the technical approach: loading Pagefind as a module, querying for results, and building custom rendering logic. If you're building with Hugo or any static site generator and want full control over your search UI, this approach might inspire you. How are you handling search on your static sites?"
 tags = ["pagefind", "search-ui", "javascript", "hugo", "frontend", "ux"]
 categories = ["Web Development", "Tools", "Best Practices"]
-image = "/images/robot-using-magnifying-glass-on-website.png"
+image = "/images/posts/robot-using-magnifying-glass-on-website.png"
 +++
 
 The search experience on this site needed to feel like the rest of the theme: clean, typographic, and aligned with the post list layout. The default [Pagefind](https://pagefind.app/) UI is great for quick setup, but it brings its own markup and styles. Instead, the search page uses the **Pagefind API directly**, pulls JSON results, and renders the results using the same post card structure used elsewhere.
 
-<img src="/images/robot-using-magnifying-glass-on-website.png" alt="Robot using magnifying glass on website" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
+<img src="/images/posts/robot-using-magnifying-glass-on-website.png" alt="Robot using magnifying glass on website" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
 
 You can see it in action on the [search page](/search/).
 
