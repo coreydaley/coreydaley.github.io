@@ -89,7 +89,10 @@
     />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
+    {{ with resources.Get "css/style.css" }}
+      {{ $css := . | resources.Minify | resources.Fingerprint }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" />
+    {{ end }}
     <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
 
     {{ if .Site.Params.tracking.googleAnalytics }}
@@ -129,7 +132,9 @@
 
     {{ partial "footer.html" . }}
 
-
-    <script src="{{ "js/main.js" | relURL }}"></script>
+    {{ with resources.Get "js/main.js" }}
+      {{ $js := . | resources.Minify | resources.Fingerprint }}
+      <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+    {{ end }}
   </body>
 </html>
