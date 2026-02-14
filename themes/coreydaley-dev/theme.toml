@@ -6,11 +6,11 @@
 name = "coreydaley-dev"
 license = "MIT"
 licenselink = "https://github.com/coreydaley/coreydaley-dev-theme/blob/main/LICENSE"
-description = "A playful, cartoony theme for technical blogs about software engineering and AI development"
+description = "A minimal and responsive theme for Hugo with integrated search using Pagefind"
 homepage = "https://github.com/coreydaley/coreydaley-dev-theme/"
 demosite = "https://theme.coreydaley.dev/"
-tags = ["blog", "personal", "technical", "playful", "cartoon"]
-features = ["responsive", "avatar", "cover-image", "sidebar-navigation", "social-links"]
+tags = ["blog", "personal", "minimal", "search", "pagefind", "responsive", "mobile"]
+features = ["responsive", "avatar", "cover-image", "sidebar-navigation", "social-links", "search", "pagefind", "mobile"]
 min_version = "0.155.2"
 
 [author]
