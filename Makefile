@@ -16,6 +16,7 @@ help:
 	@echo "  make build-purge  - Build Hugo site and run PurgeCSS"
 	@echo "  make build-all    - Build, Pagefind, and PurgeCSS (production)"
 	@echo "  make restore      - Restore original CSS from backup"
+	@echo "  make resize-images- Resize images in static/images/ to max 512px width"
 	@echo "  make clean        - Clean generated files"
 	@echo "  make clean-all    - Clean all generated files including backups"
 
@@ -106,6 +107,10 @@ restore:
 	else \
 		echo "No backup file found"; \
 	fi
+
+# Resize images to max 512px width
+resize-images:
+	@./scripts/resize-images.sh
 
 # Clean generated files
 clean:
