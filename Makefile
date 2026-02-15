@@ -1,14 +1,15 @@
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-08T14:30:00-05:00
 # Last Modified By: Claude Code (Claude Sonnet 4.5)
-# Last Modified: 2026-02-14T13:00:00-05:00
+# Last Modified: 2026-02-15T00:00:00-05:00
 
-.PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all resize-images format
+.PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all resize-images format pre-commit
 
 # Default target
 help:
 	@echo "Available commands:"
 	@echo "  make install      - Install npm dependencies"
+	@echo "  make pre-commit   - Install pre-commit hooks"
 	@echo "  make dev          - Start Hugo development server with drafts"
 	@echo "  make serve        - Start Hugo development server"
 	@echo "  make build        - Build Hugo site to public/"
@@ -28,6 +29,12 @@ install:
 	@echo "Installing npm dependencies..."
 	npm install
 	@echo "Dependencies installed!"
+
+# Install pre-commit hooks
+pre-commit:
+	@echo "Installing pre-commit hooks..."
+	pre-commit install
+	@echo "Pre-commit hooks installed!"
 
 # Start development server with drafts
 dev:
