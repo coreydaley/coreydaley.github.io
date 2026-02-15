@@ -29,9 +29,10 @@ hugo new posts/my-post-title.md
 
 ### Version Control Policy
 
-**⚠️ CRITICAL**: AI Agents must **NEVER** offer to or attempt to make git commits in this repository. All commits will be handled manually by the repository owner.
+**⚠️ CRITICAL**: AI Agents must **NEVER** offer to make git commits in this repository.
 
 **What this means**:
+
 - Do NOT stage changes with `git add`
 - Do NOT create commits with `git commit`
 - Do NOT push changes with `git push`
@@ -97,7 +98,7 @@ hugo new posts/my-post-title.md
    - The question should be directly related to the post content
    - Designed to encourage readers to reflect on the topic and engage with the material
    - Can be formatted in italics or as part of a closing section
-   - Example: "*How are you integrating AI tools into your development workflow? Have you found similar specialization patterns, or are you using a different approach?*"
+   - Example: "_How are you integrating AI tools into your development workflow? Have you found similar specialization patterns, or are you using a different approach?_"
 
 4. **Draft Publishing**: Posts default to `draft = true` (set in `archetypes/default.md`). Remove or set to `false` to publish.
 
@@ -156,6 +157,7 @@ The Blog Post Topics page in Notion serves as a to-do list for blog post ideas. 
 4. **Move to bottom**: Once an item is marked as completed, move it to the bottom of the list to keep active items at the top
 
 **⚠️ CRITICAL**: Steps 3 and 4 are **mandatory** and must **ALWAYS** be completed after creating a blog post from the Notion list. Failing to mark items as complete and move them to the bottom will:
+
 - Leave the list in an inconsistent state
 - Cause duplicate blog posts to be created on subsequent runs
 - Break the workflow's ability to track which ideas have been completed
@@ -279,7 +281,8 @@ When an AI Agent modifies existing HTML, CSS, JavaScript, TOML, or YAML files, i
 **Hugo Template (HTML) Example**:
 
 ```html
-{{/* Created by: AI Agent | Date: 2026-02-08T14:30:00-05:00 | Last Modified By: ChatGPT (GPT-4o) | Last Modified: 2026-02-10T09:15:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-08T14:30:00-05:00 | Last Modified By:
+ChatGPT (GPT-4o) | Last Modified: 2026-02-10T09:15:00-05:00 */}}
 ```
 
 **Standalone HTML Example**:
