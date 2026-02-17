@@ -11,11 +11,6 @@ theme = 'coreydaley-dev'
 [pagination]
   pagerSize = 10
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
 [params]
   # Add your images to static/images/ directory
   avatar = '/images/avatars/avatar.png'
