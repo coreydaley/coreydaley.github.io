@@ -1,0 +1,9 @@
+{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-17T22:00:00-05:00 */}}
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $side := .Get "side" | default "right" }}
+{{ if eq $side "left" -}}
+<img src="{{ $src }}" alt="{{ $alt }}" style="float: left; margin: 0 20px 20px 0; max-width: 400px; width: 100%;">
+{{- else -}}
+<img src="{{ $src }}" alt="{{ $alt }}" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
+{{- end }}
