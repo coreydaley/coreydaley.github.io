@@ -30,9 +30,7 @@ What if your to-do list could not only track your ideas but also help execute th
 4. **Posts are published** automatically to your blog
 5. **To-dos are marked complete** once the work is done
 
-<div style="text-align: center; margin: 2rem 0;">
-  <img src="/images/posts/notion-blog-post-topics.png" alt="Notion Blog Post Topics To-Do List" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-</div>
+{{< figure-block src="/images/posts/notion-blog-post-topics.png" alt="Notion Blog Post Topics To-Do List" >}}
 
 ## How It Works
 
