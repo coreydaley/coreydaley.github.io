@@ -82,7 +82,7 @@ You can find me on:
 This blog is built with:
 
 - **[Hugo](https://gohugo.io/)** (v0.155.1 extended) for blazing-fast static site generation
-- **coreydaley-dev theme** created collaboratively with Claude Code
+- **[coreydaley-dev theme](https://github.com/coreydaley/coreydaley-dev-theme)** created collaboratively with Claude Code
 - **[Pagefind](https://pagefind.app/)** for client-side search functionality
 - **[GitHub Pages](https://pages.github.com/)** for hosting with automated deployments via [GitHub Actions](https://github.com/features/actions)
 

@@ -54,7 +54,7 @@ hugo new posts/my-post-title.md
    description = "Brief description for SEO and previews (approximately 75 words)"
    summary = "Engaging 150-word summary for LinkedIn posts that prompts interaction"
    tags = ["tag1", "tag2", "tag3"]
-   categories = ["Category 1", "Category 2"]
+   categories = ["Category 1", "Category 2", "Category 3"]
    image = "/images/your-image.png"
    +++
    ```
@@ -76,7 +76,7 @@ hugo new posts/my-post-title.md
    - `categories`: Broad topic groupings (Title Case)
 
    **Categories Guidelines**:
-   - Use 1-3 categories per post based on primary topics
+   - Use 3 categories per post based on primary topics
    - Categories are broader than tags (e.g., "AI" vs "github-copilot")
    - Use Title Case for category names (e.g., "Web Development", "Best Practices")
    - Common categories: AI, Web Development, Productivity, Tools, Career, Automation, Best Practices, Getting Started
