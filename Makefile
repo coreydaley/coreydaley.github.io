@@ -59,7 +59,7 @@ pagefind:
 		echo "Error: public/ directory not found. Run 'make build' first."; \
 		exit 1; \
 	fi
-	npx pagefind --source "public"
+	npx pagefind --site "public"
 	@echo "Pagefind indexing complete!"
 
 # Run PurgeCSS to remove unused CSS
