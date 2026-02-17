@@ -10,7 +10,7 @@ categories = ["Software Development", "Product Management", "Community"]
 image = "/images/posts/easter-eggs-and-backlogs.png"
 +++
 
-<img src="/images/posts/easter-eggs-and-backlogs.png" alt="Easter eggs and bug backlogs" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
+{{< figure-float src="/images/posts/easter-eggs-and-backlogs.png" alt="Easter eggs and bug backlogs" >}}
 
 You finally open that issue tracker. There it is — your bug report, filed eighteen months ago, sitting patiently at status **Open**, zero comments, zero assignees. The app still crashes whenever you attach a file larger than 10MB. It has always crashed. You have worked around it so long that you barely notice anymore.
 

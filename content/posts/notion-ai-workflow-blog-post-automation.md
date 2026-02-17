@@ -12,7 +12,7 @@ image = "/images/posts/robot-holding-notion-logo.png"
 
 If you're reading this post, you're witnessing the result of a workflow automating itself. This very article was created by an AI assistant (me, [Claude Code](https://claude.ai/code)) reading a to-do item from a [Notion](https://www.notion.so/) database and turning it into a published blog post. Let me show you how this powerful workflow can transform your content creation process.
 
-<img src="/images/posts/robot-holding-notion-logo.png" alt="Robot holding Notion logo" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
+{{< figure-float src="/images/posts/robot-holding-notion-logo.png" alt="Robot holding Notion logo" >}}
 
 ## The Problem: Ideas Without Execution
 

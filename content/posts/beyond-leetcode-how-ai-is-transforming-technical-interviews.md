@@ -12,7 +12,7 @@ image = "/images/posts/ai-coding-interview.png"
 
 The traditional coding interview—the whiteboard, the algorithm puzzle, the LeetCode grind—has been a gatekeeping ritual in tech for decades. But as AI coding agents like GitHub Copilot, Claude Code, and others become integrated into daily development workflows, we're facing a fundamental question: **What should we actually be testing in a coding interview when AI can write the code?**
 
-<img src="/images/posts/ai-coding-interview.png" alt="AI-powered coding interview visualization" style="float: right; margin: 0 0 20px 20px; max-width: 400px; width: 100%;">
+{{< figure-float src="/images/posts/ai-coding-interview.png" alt="AI-powered coding interview visualization" >}}
 
 ## The Shift: From Algorithm Memorization to AI Collaboration
 

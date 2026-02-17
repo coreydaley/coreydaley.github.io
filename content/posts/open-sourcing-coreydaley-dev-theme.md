@@ -12,7 +12,7 @@ image = "/images/posts/coreydaley-dev-theme.png"
 
 I'm excited to share something I've been working on: **the Hugo theme powering this site is now open source**. After months of iterative development and collaboration with Claude Code, I've released the **coreydaley-dev theme** under the MIT license. You can find it on GitHub at [coreydaley/coreydaley-dev-theme](https://github.com/coreydaley/coreydaley-dev-theme) and see a live preview at [theme.coreydaley.dev](https://theme.coreydaley.dev).
 
-<img src="/images/posts/coreydaley-dev-theme.png" alt="coreydaley-dev Hugo theme preview" style="float: left; margin: 0 20px 20px 0; max-width: 400px; width: 100%;">
+{{< figure-float src="/images/posts/coreydaley-dev-theme.png" alt="coreydaley-dev Hugo theme preview" side="left" >}}
 
 ## Why Open Source?
 
