@@ -10,7 +10,7 @@ categories = ["AI", "Career", "Best Practices", "Ethics"]
 image = "/images/posts/robot-writing-code.png"
 +++
 
-{{< figure-float src="/images/posts/robot-writing-code.png" alt="Robot writing code" >}}
+{{< figure-float src="/images/posts/robot-writing-code.png" alt="Anime-style robot with blue eyes typing code on glowing monitors" >}}
 
 The rise of AI coding agents like GitHub Copilot, Claude Code, and ChatGPT has fundamentally changed how we write software. These tools can generate entire functions, fix bugs, and even architect solutions in seconds. But this technological leap forward has created an ethical gray area that the developer community is still grappling with: **Is it ethical to use AI-generated code to contribute to open source projects and build your online presence?**
 

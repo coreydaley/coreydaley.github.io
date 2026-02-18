@@ -12,7 +12,7 @@ image = "/images/posts/robot-using-magnifying-glass-on-website.png"
 
 The search experience on this site needed to feel like the rest of the theme: clean, typographic, and aligned with the post list layout. The default [Pagefind](https://pagefind.app/) UI is great for quick setup, but it brings its own markup and styles. Instead, the search page uses the **Pagefind API directly**, pulls JSON results, and renders the results using the same post card structure used elsewhere.
 
-{{< figure-float src="/images/posts/robot-using-magnifying-glass-on-website.png" alt="Robot using magnifying glass on website" >}}
+{{< figure-float src="/images/posts/robot-using-magnifying-glass-on-website.png" alt="Friendly white robot holding magnifying glass next to website monitor" >}}
 
 You can see it in action on the [search page](/search/).
 

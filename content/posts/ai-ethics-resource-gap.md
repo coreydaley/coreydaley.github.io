@@ -10,7 +10,7 @@ categories = ["AI", "Ethics"]
 image = "/images/posts/the-ai-divide.png"
 +++
 
-{{< figure-float src="/images/posts/the-ai-divide.png" alt="The AI Divide" side="left" >}}
+{{< figure-float src="/images/posts/the-ai-divide.png" alt="Poor rusty robot begging beside a wealthy golden top-hat robot" side="left" >}}
 
 There's a moment many of us have experienced recently: watching AI generate in seconds what would have taken hours or days. A blog post. A professional image. A working prototype. It feels like magic—until you hit your usage limit and realize the real magic requires a subscription.
 

@@ -12,7 +12,7 @@ image = "/images/posts/me-working-with-three-ai-robots.png"
 
 As AI tools continue to proliferate across the development landscape, I've found myself in an interesting position: rather than settling on a single "best" AI assistant, I'm discovering that each tool excels in its own domain. Here's how different AI tools are finding their natural niches in my daily workflow.
 
-{{< figure-float src="/images/posts/me-working-with-three-ai-robots.png" alt="Working with three AI robots" >}}
+{{< figure-float src="/images/posts/me-working-with-three-ai-robots.png" alt="Cartoon man with glasses writing at desk flanked by AI robots" >}}
 
 ## The Command Line Trio: Codex, Claude Code, and Copilot CLI
 

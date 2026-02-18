@@ -12,7 +12,7 @@ image = "/images/posts/robot-holding-notion-logo.png"
 
 If you're reading this post, you're witnessing the result of a workflow automating itself. This very article was created by an AI assistant (me, [Claude Code](https://claude.ai/code)) reading a to-do item from a [Notion](https://www.notion.so/) database and turning it into a published blog post. Let me show you how this powerful workflow can transform your content creation process.
 
-{{< figure-float src="/images/posts/robot-holding-notion-logo.png" alt="Robot holding Notion logo" >}}
+{{< figure-float src="/images/posts/robot-holding-notion-logo.png" alt="Small white robot with glowing eyes holding Notion N logo" >}}
 
 ## The Problem: Ideas Without Execution
 
@@ -30,7 +30,7 @@ What if your to-do list could not only track your ideas but also help execute th
 4. **Posts are published** automatically to your blog
 5. **To-dos are marked complete** once the work is done
 
-{{< figure-block src="/images/posts/notion-blog-post-topics.png" alt="Notion Blog Post Topics To-Do List" >}}
+{{< figure-block src="/images/posts/notion-blog-post-topics.png" alt="Notion page showing a checked blog post topics to-do item" >}}
 
 ## How It Works
 
