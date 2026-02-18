@@ -87,11 +87,36 @@ hugo new posts/my-post-title.md
      - Format: `image = '/images/your-image.png'`
      - Used for OpenGraph and Twitter Card previews when the post is shared on social media
 
-2. **Blog Post Images**: When inserting images into blog posts:
+2. **Blog Post Images**: When inserting images into blog posts, follow this mandatory workflow:
+
+   **Step 1 — Resize the image first**
+   Before inserting any image, run the image resizer script to ensure the image is optimized (max 512px wide):
+   ```bash
+   ./scripts/resize-images.sh
+   ```
+   Or equivalently:
+   ```bash
+   make resize-images
+   ```
+   This must be done before inserting the image reference into the post.
+
+   **Step 2 — Generate alt text from the actual image contents**
+   After resizing, read the image file directly to view its visual contents, then write alt text that describes what is literally depicted in the image. Do **NOT** base alt text on the filename, post title, or assumed content.
+   - Alt text must be approximately 10 words
+   - Describe the actual visual subject matter (e.g., people, objects, scenes, UI elements)
+   - Be specific and concrete — screen readers rely on this for accessibility
+
+   **Step 3 — Insert the image with the generated alt text**
+   Use the appropriate shortcode with the alt text you generated from viewing the image:
+   ```
+   {{< figure-float src="/images/posts/example.png" alt="Your 10-word description of image contents" >}}
+   ```
+
+   **Step 4 — Update the frontmatter `image` field if needed**
    - If the `image` field in the frontmatter is **NOT** already set, set the first image inserted into the post as the `image` field value
    - If the `image` field is already set, leave it as is (do not overwrite)
    - This ensures social media previews show the most relevant image
-   - Example: If inserting `/images/example.png` as the first image and `image` is not set, add `image = '/images/example.png'` to the frontmatter
+   - Example: If inserting `/images/example.png` as the first image and `image` is not set, add `image = "/images/example.png"` to the frontmatter
 
 3. **Reader Engagement**: Every blog post should end with a thought-provoking question:
    - Add a question at the end of the post content (before any closing remarks or signatures)
