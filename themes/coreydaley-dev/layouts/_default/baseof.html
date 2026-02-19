@@ -36,6 +36,12 @@
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Resource hints -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    {{ with .Site.Params.coverImage }}
+      <link rel="preload" as="image" href="{{ . }}" />
+    {{ end }}
+
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="{{ $title }}" />
     <meta property="og:description" content="{{ $description }}" />
@@ -143,6 +149,7 @@
     <script
       src="{{ $js.RelPermalink }}"
       integrity="{{ $js.Data.Integrity }}"
+      defer
     ></script>
   </body>
 </html>
