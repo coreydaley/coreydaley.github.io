@@ -20,99 +20,78 @@ function checkSpecialDateAvatar() {
   const month = now.getMonth() + 1; // getMonth() returns 0-11
   const day = now.getDate();
   const dayOfWeek = now.getDay(); // 0 = Sunday, 4 = Thursday, 5 = Friday
+  const cacheKey = `special-avatar-${now.getFullYear()}-${month}-${day}`;
 
-  // Check for New Year's Day (January 1)
+  // Return cached result if available for today
+  try {
+    const cached = localStorage.getItem(cacheKey);
+    if (cached !== null) {
+      if (cached) {
+        const { src, alt } = JSON.parse(cached);
+        avatar.src = src;
+        avatar.alt = alt;
+      }
+      return;
+    }
+  } catch (_) {
+    /* ignore storage errors */
+  }
+
+  // Compute special date avatar
+  let src = null;
+  let alt = null;
+
   if (month === 1 && day === 1) {
-    avatar.src = "/images/avatars/avatar-newyears.png";
-    avatar.alt = "Profile avatar celebrating New Year's Day";
-    return;
+    src = "/images/avatars/avatar-newyears.png";
+    alt = "Profile avatar celebrating New Year's Day";
+  } else if (month === 2 && day === 14) {
+    src = "/images/avatars/avatar-valentines.png";
+    alt = "Profile avatar celebrating Valentine's Day";
+  } else if (month === 3 && day === 1) {
+    src = "/images/avatars/avatar-birthday.png";
+    alt = "Profile avatar celebrating a birthday";
+  } else if (month === 3 && day === 17) {
+    src = "/images/avatars/avatar-stpatricks.png";
+    alt = "Profile avatar celebrating St. Patrick's Day";
+  } else if (month === 5 && day === 5) {
+    src = "/images/avatars/avatar-cincodemayo.png";
+    alt = "Profile avatar celebrating Cinco de Mayo";
+  } else if (month === 5 && dayOfWeek === 1 && day >= 25 && day <= 31) {
+    src = "/images/avatars/avatar-memorial.png";
+    alt = "Profile avatar honoring Memorial Day";
+  } else if (month === 7 && day === 4) {
+    src = "/images/avatars/avatar-independence-day.png";
+    alt = "Profile avatar celebrating Independence Day";
+  } else if (month === 9 && dayOfWeek === 1 && day >= 1 && day <= 7) {
+    src = "/images/avatars/avatar-labor.png";
+    alt = "Profile avatar celebrating Labor Day";
+  } else if (month === 10 && day === 31) {
+    src = "/images/avatars/avatar-halloween.png";
+    alt = "Profile avatar dressed up for Halloween";
+  } else if (month === 11 && day === 11) {
+    src = "/images/avatars/avatar-veterans.png";
+    alt = "Profile avatar honoring Veterans Day";
+  } else if (month === 11 && dayOfWeek === 4 && day >= 22 && day <= 28) {
+    src = "/images/avatars/avatar-thanksgiving.png";
+    alt = "Profile avatar celebrating Thanksgiving";
+  } else if (month === 12 && day === 25) {
+    src = "/images/avatars/avatar-christmas.png";
+    alt = "Profile avatar celebrating Christmas";
+  } else if (day === 13 && dayOfWeek === 5) {
+    src = "/images/avatars/avatar-friday13.png";
+    alt = "Profile avatar themed for Friday the 13th";
   }
 
-  // Check for Independence Day (July 4)
-  if (month === 7 && day === 4) {
-    avatar.src = "/images/avatars/avatar-independence-day.png";
-    avatar.alt = "Profile avatar celebrating Independence Day";
-    return;
+  // Cache result — empty string means no special date today
+  try {
+    localStorage.setItem(cacheKey, src ? JSON.stringify({ src, alt }) : "");
+  } catch (_) {
+    /* ignore storage errors */
   }
 
-  // Check for Christmas (December 25)
-  if (month === 12 && day === 25) {
-    avatar.src = "/images/avatars/avatar-christmas.png";
-    avatar.alt = "Profile avatar celebrating Christmas";
-    return;
-  }
-
-  // Check for St. Patrick's Day (March 17)
-  if (month === 3 && day === 17) {
-    avatar.src = "/images/avatars/avatar-stpatricks.png";
-    avatar.alt = "Profile avatar celebrating St. Patrick's Day";
-    return;
-  }
-
-  // Check for Birthday (March 1)
-  if (month === 3 && day === 1) {
-    avatar.src = "/images/avatars/avatar-birthday.png";
-    avatar.alt = "Profile avatar celebrating a birthday";
-    return;
-  }
-
-  // Check for Valentine's Day (February 14)
-  if (month === 2 && day === 14) {
-    avatar.src = "/images/avatars/avatar-valentines.png";
-    avatar.alt = "Profile avatar celebrating Valentine's Day";
-    return;
-  }
-
-  // Check for Cinco de Mayo (May 5)
-  if (month === 5 && day === 5) {
-    avatar.src = "/images/avatars/avatar-cincodemayo.png";
-    avatar.alt = "Profile avatar celebrating Cinco de Mayo";
-    return;
-  }
-
-  // Check for Memorial Day (last Monday of May)
-  // Last Monday is always between May 25-31
-  if (month === 5 && dayOfWeek === 1 && day >= 25 && day <= 31) {
-    avatar.src = "/images/avatars/avatar-memorial.png";
-    avatar.alt = "Profile avatar honoring Memorial Day";
-    return;
-  }
-
-  // Check for Labor Day (1st Monday of September)
-  // 1st Monday is always between Sept 1-7
-  if (month === 9 && dayOfWeek === 1 && day >= 1 && day <= 7) {
-    avatar.src = "/images/avatars/avatar-labor.png";
-    avatar.alt = "Profile avatar celebrating Labor Day";
-    return;
-  }
-
-  // Check for Halloween (October 31)
-  if (month === 10 && day === 31) {
-    avatar.src = "/images/avatars/avatar-halloween.png";
-    avatar.alt = "Profile avatar dressed up for Halloween";
-    return;
-  }
-
-  // Check for Veterans Day (November 11)
-  if (month === 11 && day === 11) {
-    avatar.src = "/images/avatars/avatar-veterans.png";
-    avatar.alt = "Profile avatar honoring Veterans Day";
-    return;
-  }
-
-  // Check for Thanksgiving (4th Thursday of November)
-  // 4th Thursday is always between Nov 22-28
-  if (month === 11 && dayOfWeek === 4 && day >= 22 && day <= 28) {
-    avatar.src = "/images/avatars/avatar-thanksgiving.png";
-    avatar.alt = "Profile avatar celebrating Thanksgiving";
-    return;
-  }
-
-  // Check for Friday the 13th
-  if (day === 13 && dayOfWeek === 5) {
-    avatar.src = "/images/avatars/avatar-friday13.png";
-    avatar.alt = "Profile avatar themed for Friday the 13th";
-    return;
+  if (src) {
+    avatar.src = src;
+    avatar.alt = alt;
   }
 }
 
