@@ -1,4 +1,4 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.5) | Last Modified: 2026-02-14T16:35:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-18T00:00:00-05:00 */}}
 <aside class="sidebar">
   <nav class="sidebar-nav">
     <!-- Pages -->
@@ -9,6 +9,7 @@
           fill="none"
           stroke="currentColor"
           stroke-width="2"
+          aria-hidden="true"
         >
           <path
             d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
@@ -52,6 +53,7 @@
             fill="none"
             stroke="currentColor"
             stroke-width="2"
+            aria-hidden="true"
           >
             <path
               d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
@@ -85,6 +87,7 @@
             fill="none"
             stroke="currentColor"
             stroke-width="2"
+            aria-hidden="true"
           >
             <path
               d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
@@ -112,6 +115,7 @@
               href="{{ "/tags/" | relURL }}{{ $name | urlize }}"
               class="tag-cloud-item"
               style="font-size: {{ $size }}rem;"
+              aria-label="{{ $name }}, {{ $count }} {{ if eq $count 1 }}post{{ else }}posts{{ end }}"
             >
               {{ $name }}
             </a>

@@ -1,8 +1,8 @@
 /**
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
- * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-14T14:30:00-05:00
+ * Last Modified By: Claude Code (Claude Sonnet 4.6)
+ * Last Modified: 2026-02-18T00:00:00-05:00
  */
 
 // Coreydaley Dev Theme - Minimal JavaScript
@@ -38,6 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
       link.setAttribute("rel", "noopener noreferrer");
     }
   });
+
+  // Mobile menu: keep aria-expanded in sync with checkbox state
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const hamburgerLabel = document.querySelector(".hamburger-icon");
+  if (mobileMenuToggle && hamburgerLabel) {
+    mobileMenuToggle.addEventListener("change", function () {
+      const expanded = this.checked;
+      hamburgerLabel.setAttribute("aria-expanded", expanded ? "true" : "false");
+      hamburgerLabel.setAttribute(
+        "aria-label",
+        expanded ? "Close navigation menu" : "Open navigation menu",
+      );
+    });
+  }
 
   // Sticky header on scroll
   const header = document.querySelector(".site-header");

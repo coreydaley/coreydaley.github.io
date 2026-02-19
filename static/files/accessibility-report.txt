@@ -1,0 +1,136 @@
+   |
+   ▟█▙     Claude Code v2.1.47
+▗ ▗   ▖ ▖  Sonnet 4.6 · Claude Pro
+           ~/Code/github.com/coreydaley/coreydaley.github.io
+  ▘▘ ▝▝
+
+❯ verify that the html output of my hugo builds are accessible for those that are blind, meaning that it works well with screen readers, and suggest improvements
+
+⏺ Explore(Explore Hugo site accessibility)
+  ⎿  Done (24 tool uses · 119.5k tokens · 1m 31s)
+  (ctrl+o to expand)
+
+⏺ Here's a full accessibility audit of the site's HTML output. The site has a solid foundation with semantic HTML and good color contrast, but there are several gaps.
+
+  ---
+  Accessibility Audit Results
+
+  What's Working Well
+
+  - <html lang="en"> is set correctly
+  - Semantic elements used throughout (<main>, <header>, <footer>, <article>, <nav>, <aside>)
+  - Heading hierarchy is mostly correct (h1 → h2 → h3)
+  - <time datetime="..."> used on post dates
+  - Image alt text is generally present
+  - Color contrast ratios are acceptable (WCAG AA)
+  - External links have rel="noopener noreferrer"
+  - Pagination wrapped in <nav>
+
+  ---
+  Issues by Priority
+
+  Critical
+
+  1. No skip navigation link
+  Screen reader and keyboard users must tab through every header link before reaching the main content on every page load. Fix in baseof.html — add as the very first element in <body>:
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  And in CSS:
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 9999;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
+  And add id="main-content" to <main class="content-area">.
+
+  2. Search results have no ARIA live region (search.html)
+  When search results load dynamically, screen readers aren't notified. The results <div> needs:
+  <div id="search-results" role="status" aria-live="polite" aria-atomic="true">
+
+  3. Search inputs have no <label> elements
+  There are two search inputs (header and search page) that use only placeholder text — placeholders disappear on focus and aren't reliably announced. Each needs:
+  <label for="search-input" class="sr-only">Search posts</label>
+
+  ---
+  High Priority
+
+  4. SVG icons have no accessible text (30+ instances)
+  Every social media link in the header, footer, sidebar, and share buttons contains only an SVG — no text, no aria-label. Screen readers announce these as generic interactive elements.
+  Fix by adding aria-label to the wrapping <a>:
+  <a href="..." aria-label="GitHub profile" ...>
+    <svg ...>...</svg>
+  </a>
+  Alternatively, add aria-hidden="true" to purely decorative SVGs if the link's aria-label covers it.
+
+  5. Mobile menu toggle not accessible (header.html)
+  The hamburger menu uses a hidden checkbox with no aria-expanded or aria-controls. A screen reader user has no way to know the menu is open or closed. Needs:
+  <input type="checkbox" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" ...>
+  And JS to toggle aria-expanded on state change.
+
+  ---
+  Medium Priority
+
+  6. No :focus styles defined in CSS
+  The default browser focus indicator is often too subtle (especially in Safari). Add explicit focus styles:
+  :focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  7. "Read more →" links lack context (post-list.html)
+  Screen readers announce link text out of context. "Read more" alone is ambiguous. Fix with aria-label:
+  <a href="{{ .RelPermalink }}" aria-label="Read more about {{ .Title }}">Read more →</a>
+  Also, the → arrow should be wrapped in <span aria-hidden="true"> so it isn't read aloud.
+
+  8. Tag cloud font-size conveys meaning invisibly (tags/terms.html)
+  Popular tags are displayed larger, but screen readers can't perceive this. Add aria-label with count:
+  <a href="{{ .Page.RelPermalink }}" aria-label="{{ .Page.Title }}, {{ .Count }} posts">
+
+  9. Special date avatar alt text doesn't update (special-date-avatar.js)
+  When the avatar changes to a holiday variant, the alt text remains the original. Add:
+  avatar.alt = "Profile avatar — holiday theme";
+
+  10. Emoji in footer isn't accessible (footer.html)
+  The 💜 heart emoji will be read as "Purple Heart" by screen readers. Either:
+  <span class="heart" aria-label="love" role="img">💜</span>
+  Or replace with a CSS heart or text.
+
+  ---
+  Summary Table
+
+  ┌──────────────────────────────────────┬────────────────────────────────┬──────────┐
+  │                Issue                 │              File              │ Priority │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ Skip navigation link missing         │ baseof.html                    │ Critical │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ No ARIA live region on search        │ search.html                    │ Critical │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ Search inputs missing <label>        │ header.html, search.html       │ Critical │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ SVG icons have no text/aria-label    │ Header, footer, sidebar, share │ High     │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ Mobile menu missing aria-expanded    │ header.html                    │ High     │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ No :focus-visible styles             │ style.css                      │ Medium   │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ "Read more" links lack context       │ post-list.html                 │ Medium   │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ Tag cloud popularity invisible to AT │ tags/terms.html                │ Medium   │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ Holiday avatar alt text static       │ special-date-avatar.js         │ Medium   │
+  ├──────────────────────────────────────┼────────────────────────────────┼──────────┤
+  │ Emoji not accessible                 │ footer.html                    │ Low      │
+  └──────────────────────────────────────┴────────────────────────────────┴──────────┘
+
+  ---
+  Would you like me to implement any or all of these fixes? The highest-impact ones are the skip link, ARIA live region on search, and form labels — those three address the most common
+  and frustrating barriers for screen reader users.

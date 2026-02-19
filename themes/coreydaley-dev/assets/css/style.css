@@ -1,8 +1,8 @@
 /*
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
- * Last Modified By: Claude Code (Claude Sonnet 4.5)
- * Last Modified: 2026-02-14T17:45:00-05:00
+ * Last Modified By: Claude Code (Claude Sonnet 4.6)
+ * Last Modified: 2026-02-18T00:00:00-05:00
  */
 
 /* ===================================
@@ -73,12 +73,54 @@ a:hover {
     color: var(--accent-pink);
 }
 
+/* Focus styles for keyboard navigation */
+:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
 /* ===================================
    Utility Classes
    =================================== */
 
 .hidden {
     display: none !important;
+}
+
+/* Screen-reader only — visually hidden but accessible to AT */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip navigation link — hidden until focused */
+.skip-link {
+    position: absolute;
+    top: -48px;
+    left: 1rem;
+    z-index: 10000;
+    padding: 0.6rem 1.2rem;
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 600;
+    font-family: var(--font-body);
+    border-radius: 0 0 6px 6px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+.skip-link:focus {
+    top: 0;
+    color: #ffffff;
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
 }
 
 /* ===================================

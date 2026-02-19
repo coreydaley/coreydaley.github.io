@@ -20,6 +20,7 @@
         <a
           href="https://www.facebook.com/sharer.php?u={{ $url }}&t={{ .Title }}"
           target="_blank"
+          aria-label="Share on Facebook"
           ><svg
             height="50"
             viewBox="0 0 50 50"
@@ -42,6 +43,7 @@
         <a
           href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ $url }}"
           target="_blank"
+          aria-label="Share on X (Twitter)"
           ><svg
             height="50"
             viewBox="0 0 50 50"
@@ -64,6 +66,7 @@
         <a
           href="https://www.linkedin.com/shareArticle?mini=true&url={{ $url }}&title={{ .Title }}&summary={{ $encodedSummary }}"
           target="_blank"
+          aria-label="Share on LinkedIn"
           ><svg
             height="51"
             viewBox="0 0 50 51"
@@ -83,7 +86,7 @@
     {{ end }}
     {{ if $switches.whatsapp }}
       <li>
-        <a href="whatsapp://send?text={{ $textBody }}" target="_blank"
+        <a href="whatsapp://send?text={{ $textBody }}" target="_blank" aria-label="Share on WhatsApp"
           ><svg
             height="50"
             viewBox="0 0 50 50"
@@ -106,6 +109,7 @@
         <a
           href="https://www.xing.com/social_plugins/share/new?sc_p=xing-share&h=1&url={{ $url }}"
           target="_blank"
+          aria-label="Share on Xing"
           ><svg
             height="50"
             viewBox="0 0 50 50"
@@ -128,6 +132,7 @@
         <a
           href="mailto:?subject={{ .Title }}&body={{ $textBody }}"
           target="_blank"
+          aria-label="Share via email"
           ><svg
             height="50"
             viewBox="0 0 50 50"
