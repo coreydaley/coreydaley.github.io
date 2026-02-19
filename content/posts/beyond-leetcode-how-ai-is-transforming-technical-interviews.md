@@ -7,7 +7,7 @@ description = "As AI coding agents become mainstream, the traditional coding int
 summary = "The coding interview landscape is shifting dramatically as AI tools become standard in software development. Rather than memorizing algorithms, candidates may soon demonstrate their ability to work effectively with AI agents—breaking down projects, creating tasks in Jira, and collaborating to solve real-world problems. This shift raises important questions about what skills truly matter and how we evaluate engineering talent in an AI-augmented world. What does this mean for the future of technical hiring?"
 tags = ["ai", "coding-interviews", "software-engineering", "career", "ethics", "leetcode", "jira", "ai-agents"]
 categories = ["AI", "Career"]
-image = "/images/posts/ai-coding-interview.png"
+image = "/images/posts/ai-coding-interview.webp"
 +++
 
 The traditional coding interview—the whiteboard, the algorithm puzzle, the LeetCode grind—has been a gatekeeping ritual in tech for decades. But as AI coding agents like GitHub Copilot, Claude Code, and others become integrated into daily development workflows, we're facing a fundamental question: **What should we actually be testing in a coding interview when AI can write the code?**

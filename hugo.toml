@@ -25,8 +25,8 @@ theme = 'coreydaley-dev'
 
 [params]
   # Add your images to static/images/ directory
-  avatar = '/images/avatars/avatar.png'
-  coverImage = '/images/cover.png'
+  avatar = '/images/avatars/avatar.webp'
+  coverImage = '/images/cover.webp'
   description = 'Technical blog about software engineering and AI development'
   tagline = 'Software Engineer & AI Enthusiast'
 

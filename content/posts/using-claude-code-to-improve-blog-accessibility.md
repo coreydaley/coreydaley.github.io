@@ -7,7 +7,7 @@ description = "Accessibility is something every website owner should care about,
 summary = "Accessibility often gets pushed to the backlog — it feels complex, time-consuming, and hard to test without specialized knowledge. But I recently discovered just how approachable it can be with the right AI tool. I asked Claude Code to audit my Hugo blog for screen reader compatibility with a single prompt. Within seconds it had explored 13 template files, identified issues across 5 priority levels, and produced a comprehensive report. Then I asked it to fix everything — and it did, touching 13 files in one focused session. Whether you run a personal blog or a commercial platform, there is no excuse not to make your site accessible when tools like Claude Code can do the heavy lifting. What accessibility improvements have you been putting off that you could tackle today with an AI coding assistant?"
 tags = ["claude-code", "accessibility", "wcag", "screen-readers", "hugo", "a11y"]
 categories = ["AI", "Web Development", "Best Practices"]
-image = "/images/posts/accessible-website.png"
+image = "/images/posts/accessible-website.webp"
 +++
 
 {{< figure-float src="/images/posts/accessible-website.png" alt="Person wearing headphones using laptop showing an accessible website interface" >}}

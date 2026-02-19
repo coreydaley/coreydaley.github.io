@@ -43,43 +43,43 @@ function checkSpecialDateAvatar() {
   let alt = null;
 
   if (month === 1 && day === 1) {
-    src = "/images/avatars/avatar-newyears.png";
+    src = "/images/avatars/avatar-newyears.webp";
     alt = "Profile avatar celebrating New Year's Day";
   } else if (month === 2 && day === 14) {
-    src = "/images/avatars/avatar-valentines.png";
+    src = "/images/avatars/avatar-valentines.webp";
     alt = "Profile avatar celebrating Valentine's Day";
   } else if (month === 3 && day === 1) {
-    src = "/images/avatars/avatar-birthday.png";
+    src = "/images/avatars/avatar-birthday.webp";
     alt = "Profile avatar celebrating a birthday";
   } else if (month === 3 && day === 17) {
-    src = "/images/avatars/avatar-stpatricks.png";
+    src = "/images/avatars/avatar-stpatricks.webp";
     alt = "Profile avatar celebrating St. Patrick's Day";
   } else if (month === 5 && day === 5) {
-    src = "/images/avatars/avatar-cincodemayo.png";
+    src = "/images/avatars/avatar-cincodemayo.webp";
     alt = "Profile avatar celebrating Cinco de Mayo";
   } else if (month === 5 && dayOfWeek === 1 && day >= 25 && day <= 31) {
-    src = "/images/avatars/avatar-memorial.png";
+    src = "/images/avatars/avatar-memorial.webp";
     alt = "Profile avatar honoring Memorial Day";
   } else if (month === 7 && day === 4) {
-    src = "/images/avatars/avatar-independence-day.png";
+    src = "/images/avatars/avatar-independence-day.webp";
     alt = "Profile avatar celebrating Independence Day";
   } else if (month === 9 && dayOfWeek === 1 && day >= 1 && day <= 7) {
-    src = "/images/avatars/avatar-labor.png";
+    src = "/images/avatars/avatar-labor.webp";
     alt = "Profile avatar celebrating Labor Day";
   } else if (month === 10 && day === 31) {
-    src = "/images/avatars/avatar-halloween.png";
+    src = "/images/avatars/avatar-halloween.webp";
     alt = "Profile avatar dressed up for Halloween";
   } else if (month === 11 && day === 11) {
-    src = "/images/avatars/avatar-veterans.png";
+    src = "/images/avatars/avatar-veterans.webp";
     alt = "Profile avatar honoring Veterans Day";
   } else if (month === 11 && dayOfWeek === 4 && day >= 22 && day <= 28) {
-    src = "/images/avatars/avatar-thanksgiving.png";
+    src = "/images/avatars/avatar-thanksgiving.webp";
     alt = "Profile avatar celebrating Thanksgiving";
   } else if (month === 12 && day === 25) {
-    src = "/images/avatars/avatar-christmas.png";
+    src = "/images/avatars/avatar-christmas.webp";
     alt = "Profile avatar celebrating Christmas";
   } else if (day === 13 && dayOfWeek === 5) {
-    src = "/images/avatars/avatar-friday13.png";
+    src = "/images/avatars/avatar-friday13.webp";
     alt = "Profile avatar themed for Friday the 13th";
   }
 
