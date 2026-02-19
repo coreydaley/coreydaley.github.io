@@ -3,24 +3,27 @@
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-13T21:30:00-05:00
 # Last Modified By: Claude Code (Claude Sonnet 4.6)
-# Last Modified: 2026-02-19T15:00:00-05:00
+# Last Modified: 2026-02-19T15:20:00-05:00
 # Renamed from: resize-images.sh
 #
-# Resizes images in static/images to a maximum width of 512px, converts
-# PNG/JPG images to WebP format, and generates smaller thumbnail variants
-# in thumbs/ subdirectories for use with srcset in templates.
+# For each image in static/images:
+#   PNG/JPG/GIF  → creates an optimized .webp alongside the original (original
+#                  is NOT deleted). If the .webp already exists it is skipped,
+#                  so the script is safe to re-run. Resize to ≤512px is baked
+#                  into the conversion step rather than modifying the source.
+#   WebP         → resized in-place if wider than 512px (it is already the
+#                  target format, so there is no separate "original" to keep).
+#   Browser icons (favicon*, apple-touch-icon*, android-chrome*) → skipped.
 #
-# Thumbnail sizes:
+# Thumbnails (created only when the source was just processed, or when missing):
 #   static/images/posts/   → thumbs/ at 400px  (covers 180px display at 2x DPR)
 #   static/images/avatars/ → thumbs/ at 300px  (covers 150px desktop display at 2x DPR)
 #
 # Requires one of the following for WebP conversion:
-#   macOS:   brew install imagemagick   (or: brew install webp for cwebp)
-#   Ubuntu:  sudo apt-get install imagemagick  (or: webp for cwebp)
-#
-# Requires one of the following for WebP conversion:
-#   macOS:   brew install imagemagick   (or: brew install webp for cwebp)
-#   Ubuntu:  sudo apt-get install imagemagick  (or: webp for cwebp)
+#   macOS:   brew install webp   (cwebp, preferred)
+#            brew install imagemagick  (fallback)
+#   Ubuntu:  sudo apt-get install webp
+#            sudo apt-get install imagemagick  (fallback)
 
 set -e
 
@@ -121,27 +124,40 @@ is_reserved_icon() {
     [[ "$name" == favicon* ]] || [[ "$name" == apple-touch-icon* ]] || [[ "$name" == android-chrome* ]]
 }
 
-# Converts a PNG/JPG to WebP and removes the original on success.
-# Usage: convert_to_webp <input_file>
+# Creates an optimized WebP from a PNG/JPG/GIF. The original is NOT deleted.
+# Optionally resizes to max_width during conversion (0 = no resize).
+# Usage: convert_to_webp <input_file> [max_width]
 # Returns 0 on success, 1 on failure.
 convert_to_webp() {
     local input="$1"
+    local max_width="${2:-0}"
     local output="${input%.*}.webp"
     local success=1
 
     if [ "$WEBP_TOOL" = "cwebp" ]; then
         # -m 6: max compression effort (no quality loss, just slower)
         # -metadata none: strip EXIF/color profile (not needed on the web)
-        cwebp -q "$WEBP_QUALITY" -m 6 -metadata none "$input" -o "$output" 2>/dev/null && success=0
+        if [ "$max_width" -gt 0 ]; then
+            cwebp -q "$WEBP_QUALITY" -m 6 -metadata none -resize "$max_width" 0 "$input" -o "$output" 2>/dev/null && success=0
+        else
+            cwebp -q "$WEBP_QUALITY" -m 6 -metadata none "$input" -o "$output" 2>/dev/null && success=0
+        fi
     elif [ "$WEBP_TOOL" = "magick" ]; then
         # webp:method=6: max compression effort; -strip: remove metadata
-        magick "$input" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$output" 2>/dev/null && success=0
+        if [ "$max_width" -gt 0 ]; then
+            magick "$input" -resize "${max_width}x>" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$output" 2>/dev/null && success=0
+        else
+            magick "$input" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$output" 2>/dev/null && success=0
+        fi
     elif [ "$WEBP_TOOL" = "imagemagick" ]; then
-        convert "$input" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$output" 2>/dev/null && success=0
+        if [ "$max_width" -gt 0 ]; then
+            convert "$input" -resize "${max_width}x>" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$output" 2>/dev/null && success=0
+        else
+            convert "$input" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$output" 2>/dev/null && success=0
+        fi
     fi
 
     if [ $success -eq 0 ] && [ -f "$output" ]; then
-        rm "$input"
         return 0
     else
         [ -f "$output" ] && rm -f "$output"  # clean up partial output
@@ -213,97 +229,110 @@ while IFS= read -r -d '' image_file; do
     total_images=$((total_images + 1))
     relative_path="${image_file#$PROJECT_ROOT/}"
     ext_lower=$(echo "${image_file##*.}" | tr '[:upper:]' '[:lower:]')
-    file_modified=0   # tracks whether this file was actually changed this run
+    file_modified=0
+    processed_file="$image_file"
 
-    # Get image width
-    if [ "$USE_TOOL" = "sips" ]; then
-        width=$(sips -g pixelWidth "$image_file" 2>/dev/null | grep pixelWidth | awk '{print $2}')
-    else
-        width=$($IDENTIFY_CMD -format "%w" "$image_file" 2>/dev/null || echo "0")
-    fi
-
-    if [ -z "$width" ] || [ "$width" = "0" ]; then
-        echo -e "${RED}✗${NC} Failed to read: $relative_path"
-        failed_images=$((failed_images + 1))
-        continue
-    fi
-
-    # --- Resize if needed ---
-    if [ "$width" -gt "$MAX_WIDTH" ]; then
-        echo -e "${YELLOW}↻${NC} Resizing: $relative_path (${width}px → ${MAX_WIDTH}px)"
-
-        backup_file="${image_file}.backup"
-        cp "$image_file" "$backup_file"
-
-        resize_success=0
+    if [ "$ext_lower" = "webp" ]; then
+        # --- Already WebP: resize in-place if oversized ---
+        # WebP is already the target format; there is no separate original to keep.
         if [ "$USE_TOOL" = "sips" ]; then
-            sips -Z "$MAX_WIDTH" "$image_file" &>/dev/null
-            resize_success=$?
-        elif [ "$USE_TOOL" = "magick" ]; then
-            if [ "$ext_lower" = "webp" ]; then
-                magick "$image_file" -resize "${MAX_WIDTH}x>" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$image_file" 2>/dev/null
-            else
-                magick "$image_file" -resize "${MAX_WIDTH}x>" "$image_file" 2>/dev/null
-            fi
-            resize_success=$?
+            width=$(sips -g pixelWidth "$image_file" 2>/dev/null | grep pixelWidth | awk '{print $2}')
         else
-            if [ "$ext_lower" = "webp" ]; then
-                convert "$image_file" -resize "${MAX_WIDTH}x>" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$image_file" 2>/dev/null
-            else
-                convert "$image_file" -resize "${MAX_WIDTH}x>" "$image_file" 2>/dev/null
-            fi
-            resize_success=$?
+            width=$($IDENTIFY_CMD -format "%w" "$image_file" 2>/dev/null || echo "0")
         fi
 
-        if [ $resize_success -eq 0 ]; then
-            if [ "$USE_TOOL" = "sips" ]; then
-                new_width=$(sips -g pixelWidth "$image_file" 2>/dev/null | grep pixelWidth | awk '{print $2}')
-                new_height=$(sips -g pixelHeight "$image_file" 2>/dev/null | grep pixelHeight | awk '{print $2}')
-            else
-                new_width=$($IDENTIFY_CMD -format "%w" "$image_file" 2>/dev/null || echo "?")
-                new_height=$($IDENTIFY_CMD -format "%h" "$image_file" 2>/dev/null || echo "?")
-            fi
-            echo -e "   ${GREEN}✓${NC} Resized to: ${new_width}x${new_height}px"
-            rm "$backup_file"
-            resized_images=$((resized_images + 1))
-            file_modified=1
-        else
-            echo -e "   ${RED}✗${NC} Resize failed — restoring original"
-            mv "$backup_file" "$image_file"
+        if [ -z "$width" ] || [ "$width" = "0" ]; then
+            echo -e "${RED}✗${NC} Failed to read: $relative_path"
             failed_images=$((failed_images + 1))
             continue
         fi
-    else
-        echo -e "${GREEN}✓${NC} Already optimal: $relative_path (${width}px)"
-        skipped_images=$((skipped_images + 1))
-    fi
 
-    # --- Convert to WebP (skip .webp files and reserved browser icons) ---
-    if [ "$ext_lower" != "webp" ] && ! is_reserved_icon "$image_file"; then
-        if [ -n "$WEBP_TOOL" ]; then
-            if convert_to_webp "$image_file"; then
-                echo -e "   ${CYAN}⇢${NC} Converted to WebP: ${relative_path%.*}.webp"
-                converted_images=$((converted_images + 1))
+        if [ "$width" -gt "$MAX_WIDTH" ]; then
+            echo -e "${YELLOW}↻${NC} Resizing WebP: $relative_path (${width}px → ${MAX_WIDTH}px)"
+            resize_success=0
+            if [ "$USE_TOOL" = "sips" ]; then
+                sips -Z "$MAX_WIDTH" "$image_file" &>/dev/null
+                resize_success=$?
+            elif [ "$USE_TOOL" = "magick" ]; then
+                magick "$image_file" -resize "${MAX_WIDTH}x>" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$image_file" 2>/dev/null
+                resize_success=$?
+            else
+                convert "$image_file" -resize "${MAX_WIDTH}x>" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$image_file" 2>/dev/null
+                resize_success=$?
+            fi
+            if [ $resize_success -eq 0 ]; then
+                new_width=$($IDENTIFY_CMD -format "%w" "$image_file" 2>/dev/null || echo "?")
+                echo -e "   ${GREEN}✓${NC} Resized to ${new_width}px"
+                resized_images=$((resized_images + 1))
                 file_modified=1
             else
-                echo -e "   ${YELLOW}⚠${NC} WebP conversion failed — keeping original"
+                echo -e "   ${RED}✗${NC} Resize failed"
+                failed_images=$((failed_images + 1))
+                continue
             fi
+        else
+            echo -e "${GREEN}✓${NC} Already optimal: $relative_path (${width}px)"
+            skipped_images=$((skipped_images + 1))
+        fi
+
+    elif is_reserved_icon "$image_file"; then
+        # --- Browser icons (favicon, apple-touch-icon, android-chrome): never convert ---
+        echo -e "${GREEN}✓${NC} Reserved icon (skipped): $relative_path"
+        skipped_images=$((skipped_images + 1))
+        continue
+
+    else
+        # --- PNG/JPG/GIF: create WebP alongside original; original is preserved ---
+        webp_path="${image_file%.*}.webp"
+
+        if [ -f "$webp_path" ]; then
+            # WebP already exists — nothing to do
+            echo -e "${GREEN}✓${NC} WebP exists: $relative_path"
+            skipped_images=$((skipped_images + 1))
+            processed_file="$webp_path"
+        elif [ -n "$WEBP_TOOL" ]; then
+            # Read source width to determine if a resize is needed during conversion
+            if [ "$USE_TOOL" = "sips" ]; then
+                width=$(sips -g pixelWidth "$image_file" 2>/dev/null | grep pixelWidth | awk '{print $2}')
+            else
+                width=$($IDENTIFY_CMD -format "%w" "$image_file" 2>/dev/null || echo "0")
+            fi
+
+            if [ -z "$width" ] || [ "$width" = "0" ]; then
+                echo -e "${RED}✗${NC} Failed to read: $relative_path"
+                failed_images=$((failed_images + 1))
+                continue
+            fi
+
+            resize_width=0
+            [ "$width" -gt "$MAX_WIDTH" ] && resize_width="$MAX_WIDTH"
+
+            if [ "$resize_width" -gt 0 ]; then
+                echo -e "${YELLOW}⇢${NC} Converting + resizing: $relative_path (${width}px → ${MAX_WIDTH}px → WebP)"
+            else
+                echo -e "${YELLOW}⇢${NC} Converting: $relative_path → WebP"
+            fi
+
+            if convert_to_webp "$image_file" "$resize_width"; then
+                echo -e "   ${GREEN}✓${NC} Created: ${relative_path%.*}.webp  (original preserved)"
+                converted_images=$((converted_images + 1))
+                file_modified=1
+                processed_file="$webp_path"
+            else
+                echo -e "   ${RED}✗${NC} WebP conversion failed — original unchanged"
+                failed_images=$((failed_images + 1))
+                continue
+            fi
+        else
+            echo -e "${YELLOW}⚠${NC} No WebP tool available — skipping: $relative_path"
+            skipped_images=$((skipped_images + 1))
+            continue
         fi
     fi
 
     # --- Generate thumbnail in thumbs/ subdirectory ---
-    # After potential WebP conversion, resolve the file that now exists on disk
-    processed_file="$image_file"
-    if [ "$ext_lower" != "webp" ]; then
-        webp_path="${image_file%.*}.webp"
-        if [ -f "$webp_path" ]; then
-            processed_file="$webp_path"
-        fi
-    fi
-
-    # Only regenerate thumbnail when the source was modified this run, or when
-    # the thumbnail is missing. This keeps the hook idempotent: unchanged,
-    # already-staged images won't touch their thumbs and won't show up in git diff.
+    # Only when the source was modified this run, or when the thumbnail is missing.
+    # This keeps the hook idempotent: unchanged images don't touch their thumbs.
     dir_relative=$(dirname "${processed_file#$PROJECT_ROOT/}")
     thumb_width=0
     if [ "$dir_relative" = "static/images/posts" ]; then
@@ -350,7 +379,7 @@ if [ "$converted_images" -gt 0 ]; then
     echo -e "${YELLOW}Next steps after WebP conversion:${NC}"
     echo -e "  1. Update image references in post frontmatter from .png/.jpg to .webp"
     echo -e "  2. Update hugo.toml avatar/coverImage paths if converted"
-    echo -e "  3. The CI WebP generation step can be removed from hugo.yml"
+    echo -e "  Original files are preserved — delete them manually once references are updated."
     echo ""
 fi
 
