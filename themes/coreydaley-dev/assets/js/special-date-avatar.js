@@ -2,7 +2,7 @@
  * Created By: Claude Code (Claude Sonnet 4.5)
  * Date: 2026-02-14T14:30:00-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.6)
- * Last Modified: 2026-02-19T01:00:00-05:00
+ * Last Modified: 2026-02-19T18:00:00-05:00
  */
 
 // Special Date Avatar Swapping
@@ -31,6 +31,8 @@ function checkSpecialDateAvatar() {
         const { src, alt } = JSON.parse(cached);
         avatar.src = src;
         avatar.alt = alt;
+        const thumb = src.replace("/images/avatars/", "/images/avatars/thumbs/");
+        avatar.srcset = `${thumb} 200w, ${src} 512w`;
       }
       return;
     }
@@ -93,6 +95,8 @@ function checkSpecialDateAvatar() {
   if (src) {
     avatar.src = src;
     avatar.alt = alt;
+    const thumb = src.replace("/images/avatars/", "/images/avatars/thumbs/");
+    avatar.srcset = `${thumb} 200w, ${src} 512w`;
   }
 }
 

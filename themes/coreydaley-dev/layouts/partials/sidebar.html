@@ -1,9 +1,9 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-18T00:00:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-19T18:00:00-05:00 */}}
 <aside class="sidebar">
   <nav class="sidebar-nav">
     <!-- Pages -->
     <div class="nav-section">
-      <h3 class="section-title">
+      <h2 class="section-title">
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -17,7 +17,7 @@
           <polyline points="14,2 14,8 20,8" />
         </svg>
         Pages
-      </h3>
+      </h2>
       <ul class="nav-links">
         <li>
           <a href="{{ "/" | relURL }}" class="nav-link">
@@ -47,7 +47,7 @@
     {{ $categories := .Site.Taxonomies.categories }}
     {{ if $categories }}
       <div class="nav-section">
-        <h3 class="section-title">
+        <h2 class="section-title">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -60,7 +60,7 @@
             />
           </svg>
           Categories
-        </h3>
+        </h2>
         <ul class="nav-links">
           {{ range $name, $taxonomy := $categories }}
             <li>
@@ -81,7 +81,7 @@
     {{ $tags := .Site.Taxonomies.tags }}
     {{ if $tags }}
       <div class="nav-section">
-        <h3 class="section-title">
+        <h2 class="section-title">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -95,7 +95,7 @@
             <line x1="7" y1="7" x2="7.01" y2="7" />
           </svg>
           Tags
-        </h3>
+        </h2>
         <div class="tag-cloud">
           {{ $maxCount := 0 }}
           {{ $minCount := 999 }}

@@ -3,12 +3,20 @@
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-13T21:30:00-05:00
 # Last Modified By: Claude Code (Claude Sonnet 4.6)
-# Last Modified: 2026-02-19T00:00:00-05:00
+# Last Modified: 2026-02-19T18:00:00-05:00
 # Renamed from: resize-images.sh
 #
-# Resizes images in static/images to a maximum width of 512px and converts
-# PNG/JPG images to WebP format. WebP files are ~30-50% smaller than PNG,
-# reducing repository size and eliminating the need for CI-side conversion.
+# Resizes images in static/images to a maximum width of 512px, converts
+# PNG/JPG images to WebP format, and generates smaller thumbnail variants
+# in thumbs/ subdirectories for use with srcset in templates.
+#
+# Thumbnail sizes:
+#   static/images/posts/   → thumbs/ at 400px  (covers 180px display at 2x DPR)
+#   static/images/avatars/ → thumbs/ at 200px  (covers 100px display at 2x DPR)
+#
+# Requires one of the following for WebP conversion:
+#   macOS:   brew install imagemagick   (or: brew install webp for cwebp)
+#   Ubuntu:  sudo apt-get install imagemagick  (or: webp for cwebp)
 #
 # Requires one of the following for WebP conversion:
 #   macOS:   brew install imagemagick   (or: brew install webp for cwebp)
@@ -20,6 +28,8 @@ set -e
 MAX_WIDTH=512
 WEBP_QUALITY=85
 IMAGE_DIR="static/images"
+THUMB_WIDTH_POSTS=400    # 180px display × 2x DPR, rounded up
+THUMB_WIDTH_AVATARS=200  # 100px display × 2x DPR
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
@@ -89,6 +99,8 @@ fi
 echo -e "Maximum width:   ${GREEN}${MAX_WIDTH}px${NC}"
 echo -e "WebP quality:    ${GREEN}${WEBP_QUALITY}${NC}"
 echo -e "Image directory: ${GREEN}${IMAGE_DIR}${NC}"
+echo -e "Post thumbs:     ${GREEN}${THUMB_WIDTH_POSTS}px${NC} (in posts/thumbs/)"
+echo -e "Avatar thumbs:   ${GREEN}${THUMB_WIDTH_AVATARS}px${NC} (in avatars/thumbs/)"
 echo ""
 
 # --- Counters ---
@@ -96,6 +108,7 @@ total_images=0
 resized_images=0
 skipped_images=0
 converted_images=0
+thumb_images=0
 failed_images=0
 
 # --- Helpers ---
@@ -128,6 +141,64 @@ convert_to_webp() {
         return 0
     else
         [ -f "$output" ] && rm -f "$output"  # clean up partial output
+        return 1
+    fi
+}
+
+# Generates a resized copy of a WebP image in a thumbs/ subdirectory.
+# Usage: generate_thumb <source_file> <max_width>
+# Returns 0 on success, 1 on failure.
+generate_thumb() {
+    local source="$1"
+    local thumb_width="$2"
+    local dir
+    dir=$(dirname "$source")
+    local basename
+    basename=$(basename "$source")
+    local thumb_dir="${dir}/thumbs"
+    local thumb_file="${thumb_dir}/${basename}"
+
+    mkdir -p "$thumb_dir"
+
+    # Read source width
+    local img_width
+    if [ "$USE_TOOL" = "sips" ]; then
+        img_width=$(sips -g pixelWidth "$source" 2>/dev/null | grep pixelWidth | awk '{print $2}')
+    else
+        img_width=$($IDENTIFY_CMD -format "%w" "$source" 2>/dev/null || echo "0")
+    fi
+
+    if [ -z "$img_width" ] || [ "$img_width" = "0" ]; then
+        echo -e "   ${RED}✗${NC} Thumb failed (unreadable): ${basename}"
+        return 1
+    fi
+
+    # Copy source into thumbs/ then resize the copy
+    cp "$source" "$thumb_file"
+
+    if [ "$img_width" -le "$thumb_width" ]; then
+        echo -e "   ${CYAN}↳${NC} Thumb (already ≤${thumb_width}px, copied): thumbs/${basename}"
+        return 0
+    fi
+
+    local resize_success=0
+    if [ "$USE_TOOL" = "sips" ]; then
+        sips -Z "$thumb_width" "$thumb_file" &>/dev/null
+        resize_success=$?
+    elif [ "$USE_TOOL" = "magick" ]; then
+        magick "$thumb_file" -resize "${thumb_width}x>" "$thumb_file" 2>/dev/null
+        resize_success=$?
+    else
+        convert "$thumb_file" -resize "${thumb_width}x>" "$thumb_file" 2>/dev/null
+        resize_success=$?
+    fi
+
+    if [ $resize_success -eq 0 ]; then
+        echo -e "   ${CYAN}↳${NC} Thumb: thumbs/${basename} (max ${thumb_width}px)"
+        return 0
+    else
+        rm -f "$thumb_file"
+        echo -e "   ${YELLOW}⚠${NC} Thumb generation failed: ${basename}"
         return 1
     fi
 }
@@ -205,7 +276,28 @@ while IFS= read -r -d '' image_file; do
         fi
     fi
 
-done < <(find "$IMAGE_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" \) -print0)
+    # --- Generate thumbnail in thumbs/ subdirectory ---
+    # After potential WebP conversion, resolve the file that now exists on disk
+    processed_file="$image_file"
+    if [ "$ext_lower" != "webp" ]; then
+        webp_path="${image_file%.*}.webp"
+        if [ -f "$webp_path" ]; then
+            processed_file="$webp_path"
+        fi
+    fi
+
+    dir_relative=$(dirname "${processed_file#$PROJECT_ROOT/}")
+    if [ "$dir_relative" = "static/images/posts" ]; then
+        if generate_thumb "$processed_file" "$THUMB_WIDTH_POSTS"; then
+            thumb_images=$((thumb_images + 1))
+        fi
+    elif [ "$dir_relative" = "static/images/avatars" ]; then
+        if generate_thumb "$processed_file" "$THUMB_WIDTH_AVATARS"; then
+            thumb_images=$((thumb_images + 1))
+        fi
+    fi
+
+done < <(find "$IMAGE_DIR" -type f -not -path "*/thumbs/*" \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" \) -print0)
 
 # --- Summary ---
 echo ""
@@ -216,6 +308,7 @@ echo -e "Total images:         ${total_images}"
 echo -e "Resized:              ${GREEN}${resized_images}${NC}"
 echo -e "Already optimal:      ${GREEN}${skipped_images}${NC}"
 echo -e "Converted to WebP:    ${GREEN}${converted_images}${NC}"
+echo -e "Thumbnails generated: ${GREEN}${thumb_images}${NC}"
 if [ "$failed_images" -gt 0 ]; then
     echo -e "Failed:               ${RED}${failed_images}${NC}"
 fi
@@ -237,7 +330,7 @@ if [ "$converted_images" -gt 0 ]; then
     echo ""
 fi
 
-if [ "$resized_images" -gt 0 ] || [ "$converted_images" -gt 0 ]; then
+if [ "$resized_images" -gt 0 ] || [ "$converted_images" -gt 0 ] || [ "$thumb_images" -gt 0 ]; then
     echo -e "${GREEN}✓ Image processing completed successfully!${NC}"
 else
     echo -e "${BLUE}All images are already optimized.${NC}"
