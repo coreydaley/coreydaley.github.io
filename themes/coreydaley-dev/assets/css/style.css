@@ -234,7 +234,8 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     );
 }
 
-.cover-overlay {
+.cover-image::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
