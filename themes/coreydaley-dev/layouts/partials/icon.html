@@ -1,0 +1,6 @@
+{{/* Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-02-19T00:00:00-05:00 */}}
+{{/* Renders an SVG icon from the sprite. Usage: partial "icon" (dict "name" "icon-github" "type" "fill") */}}
+{{/* type: "fill" (default) or "stroke" */}}
+{{- $name := .name -}}
+{{- $type := .type | default "fill" -}}
+{{- if eq $type "stroke" -}}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#{{ $name }}"></use></svg>{{- else -}}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#{{ $name }}"></use></svg>{{- end -}}
