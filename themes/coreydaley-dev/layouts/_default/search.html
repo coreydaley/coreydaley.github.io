@@ -97,9 +97,7 @@
         const categoriesHtml =
           result.categories && result.categories.length > 0
             ? `<div class="post-categories">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="taxonomy-icon" aria-hidden="true">
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="taxonomy-icon" aria-hidden="true"><use href="#icon-categories"></use></svg>
               ${result.categories
                 .map(
                   (category, i) =>
@@ -113,10 +111,7 @@
         const tagsHtml =
           result.tags && result.tags.length > 0
             ? `<div class="post-tags-list">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="taxonomy-icon" aria-hidden="true">
-                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                <line x1="7" y1="7" x2="7.01" y2="7"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="taxonomy-icon" aria-hidden="true"><use href="#icon-tags"></use></svg>
               ${result.tags
                 .map(
                   (tag, i) =>
