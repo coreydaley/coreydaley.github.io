@@ -66,9 +66,26 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
+      - name: Cache Hugo build artifacts
+        uses: actions/cache@v4
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugo-${{ hashFiles('hugo.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
+      - name: Install WebP tools
+        run: sudo apt-get install -y webp
+
+      - name: Generate WebP images
+        run: |
+          find static/images/posts -name "*.png" -o -name "*.jpg" | while IFS= read -r f; do
+            cwebp -q 85 "$f" -o "${f%.*}.webp" 2>/dev/null || true
+          done
+
       - name: Build with Hugo
         env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_CACHEDIR: /tmp/hugo_cache
           HUGO_ENVIRONMENT: production
         run: |
           hugo \

@@ -20,13 +20,17 @@
           </h2>
 
           {{ if $post.Params.image }}
+            {{ $webp := $post.Params.image | replaceRE `\.(png|jpe?g)$` ".webp" }}
             <div class="post-image">
               <a href="{{ $post.RelPermalink }}">
-                <img
-                  src="{{ $post.Params.image }}"
-                  alt="{{ $post.Title }}"
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcset="{{ $webp }}" type="image/webp" />
+                  <img
+                    src="{{ $post.Params.image }}"
+                    alt="{{ $post.Title }}"
+                    loading="lazy"
+                  />
+                </picture>
               </a>
             </div>
           {{ end }}
