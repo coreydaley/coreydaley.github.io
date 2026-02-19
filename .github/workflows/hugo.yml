@@ -1,5 +1,7 @@
 # Created by: AI Agent
 # Date: 2026-02-01T22:57:31-05:00
+# Last Modified By: Claude Code (Claude Sonnet 4.6)
+# Last Modified: 2026-02-19T00:00:00-05:00
 
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to with Pagefind to Pages

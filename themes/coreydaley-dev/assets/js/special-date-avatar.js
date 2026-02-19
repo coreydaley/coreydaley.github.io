@@ -2,14 +2,15 @@
  * Created By: Claude Code (Claude Sonnet 4.5)
  * Date: 2026-02-14T14:30:00-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.6)
- * Last Modified: 2026-02-18T00:00:00-05:00
+ * Last Modified: 2026-02-19T00:00:00-05:00
  */
 
 // Special Date Avatar Swapping
 // Automatically changes the site avatar based on holidays and special dates
 
 /**
- * Checks the current date and updates the avatar if it matches a special date/holiday
+ * Checks the current date and updates the avatar if it matches a special date/holiday.
+ * Result is cached in localStorage keyed by date to skip recomputation on same-day loads.
  * @returns {void}
  */
 function checkSpecialDateAvatar() {
