@@ -1,12 +1,14 @@
-{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-10T22:15:00-05:00 */}}
+{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-10T22:15:00-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-18T00:00:00-05:00 */}}
 {{- $url := .Destination -}}
 {{- $isExternal := and (not (hasPrefix $url "/")) (not (hasPrefix $url "#")) (hasPrefix $url "http") -}}
+{{- $forceNewTab := eq .Title "_blank" -}}
+{{- $openNewTab := or $isExternal $forceNewTab -}}
 
 
 <a
   href="{{ $url }}"
-  {{- with .Title }}title="{{ . }}"{{ end -}}
-  {{- if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end -}}
+  {{- if and (not $forceNewTab) .Title }} title="{{ .Title }}"{{ end -}}
+  {{- if $openNewTab }} target="_blank" rel="noopener noreferrer"{{ end -}}
 >
   {{- .Text | safeHTML -}}
 </a>
