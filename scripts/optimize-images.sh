@@ -3,7 +3,7 @@
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-13T21:30:00-05:00
 # Last Modified By: Claude Code (Claude Sonnet 4.6)
-# Last Modified: 2026-02-19T18:00:00-05:00
+# Last Modified: 2026-02-19T15:00:00-05:00
 # Renamed from: resize-images.sh
 #
 # Resizes images in static/images to a maximum width of 512px, converts
@@ -12,7 +12,7 @@
 #
 # Thumbnail sizes:
 #   static/images/posts/   → thumbs/ at 400px  (covers 180px display at 2x DPR)
-#   static/images/avatars/ → thumbs/ at 200px  (covers 100px display at 2x DPR)
+#   static/images/avatars/ → thumbs/ at 300px  (covers 150px desktop display at 2x DPR)
 #
 # Requires one of the following for WebP conversion:
 #   macOS:   brew install imagemagick   (or: brew install webp for cwebp)
@@ -26,10 +26,11 @@ set -e
 
 # Configuration
 MAX_WIDTH=512
-WEBP_QUALITY=85
+WEBP_QUALITY=82      # Full-size quality; imperceptibly different from 85, ~10-15% smaller
+THUMB_QUALITY=75     # Thumbnail quality; artifacts invisible at small display sizes
 IMAGE_DIR="static/images"
 THUMB_WIDTH_POSTS=400    # 180px display × 2x DPR, rounded up
-THUMB_WIDTH_AVATARS=200  # 100px display × 2x DPR
+THUMB_WIDTH_AVATARS=300  # 150px display (desktop default) × 2x DPR
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
@@ -97,10 +98,10 @@ else
     echo -e "WebP tool:       ${YELLOW}none${NC}"
 fi
 echo -e "Maximum width:   ${GREEN}${MAX_WIDTH}px${NC}"
-echo -e "WebP quality:    ${GREEN}${WEBP_QUALITY}${NC}"
+echo -e "WebP quality:    ${GREEN}${WEBP_QUALITY}${NC} (thumbs: ${THUMB_QUALITY})"
 echo -e "Image directory: ${GREEN}${IMAGE_DIR}${NC}"
 echo -e "Post thumbs:     ${GREEN}${THUMB_WIDTH_POSTS}px${NC} (in posts/thumbs/)"
-echo -e "Avatar thumbs:   ${GREEN}${THUMB_WIDTH_AVATARS}px${NC} (in avatars/thumbs/)"
+echo -e "Avatar thumbs:   ${GREEN}${THUMB_WIDTH_AVATARS}px${NC} (in avatars/thumbs/) — covers 150px display @ 2x DPR"
 echo ""
 
 # --- Counters ---
@@ -129,11 +130,14 @@ convert_to_webp() {
     local success=1
 
     if [ "$WEBP_TOOL" = "cwebp" ]; then
-        cwebp -q "$WEBP_QUALITY" "$input" -o "$output" 2>/dev/null && success=0
+        # -m 6: max compression effort (no quality loss, just slower)
+        # -metadata none: strip EXIF/color profile (not needed on the web)
+        cwebp -q "$WEBP_QUALITY" -m 6 -metadata none "$input" -o "$output" 2>/dev/null && success=0
     elif [ "$WEBP_TOOL" = "magick" ]; then
-        magick "$input" -quality "$WEBP_QUALITY" "$output" 2>/dev/null && success=0
+        # webp:method=6: max compression effort; -strip: remove metadata
+        magick "$input" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$output" 2>/dev/null && success=0
     elif [ "$WEBP_TOOL" = "imagemagick" ]; then
-        convert "$input" -quality "$WEBP_QUALITY" "$output" 2>/dev/null && success=0
+        convert "$input" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$output" 2>/dev/null && success=0
     fi
 
     if [ $success -eq 0 ] && [ -f "$output" ]; then
@@ -186,10 +190,10 @@ generate_thumb() {
         sips -Z "$thumb_width" "$thumb_file" &>/dev/null
         resize_success=$?
     elif [ "$USE_TOOL" = "magick" ]; then
-        magick "$thumb_file" -resize "${thumb_width}x>" "$thumb_file" 2>/dev/null
+        magick "$thumb_file" -resize "${thumb_width}x>" -quality "$THUMB_QUALITY" -strip -define webp:method=6 "$thumb_file" 2>/dev/null
         resize_success=$?
     else
-        convert "$thumb_file" -resize "${thumb_width}x>" "$thumb_file" 2>/dev/null
+        convert "$thumb_file" -resize "${thumb_width}x>" -quality "$THUMB_QUALITY" -strip -define webp:method=6 "$thumb_file" 2>/dev/null
         resize_success=$?
     fi
 
@@ -209,6 +213,7 @@ while IFS= read -r -d '' image_file; do
     total_images=$((total_images + 1))
     relative_path="${image_file#$PROJECT_ROOT/}"
     ext_lower=$(echo "${image_file##*.}" | tr '[:upper:]' '[:lower:]')
+    file_modified=0   # tracks whether this file was actually changed this run
 
     # Get image width
     if [ "$USE_TOOL" = "sips" ]; then
@@ -235,10 +240,18 @@ while IFS= read -r -d '' image_file; do
             sips -Z "$MAX_WIDTH" "$image_file" &>/dev/null
             resize_success=$?
         elif [ "$USE_TOOL" = "magick" ]; then
-            magick "$image_file" -resize "${MAX_WIDTH}x>" "$image_file" 2>/dev/null
+            if [ "$ext_lower" = "webp" ]; then
+                magick "$image_file" -resize "${MAX_WIDTH}x>" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$image_file" 2>/dev/null
+            else
+                magick "$image_file" -resize "${MAX_WIDTH}x>" "$image_file" 2>/dev/null
+            fi
             resize_success=$?
         else
-            convert "$image_file" -resize "${MAX_WIDTH}x>" "$image_file" 2>/dev/null
+            if [ "$ext_lower" = "webp" ]; then
+                convert "$image_file" -resize "${MAX_WIDTH}x>" -quality "$WEBP_QUALITY" -strip -define webp:method=6 "$image_file" 2>/dev/null
+            else
+                convert "$image_file" -resize "${MAX_WIDTH}x>" "$image_file" 2>/dev/null
+            fi
             resize_success=$?
         fi
 
@@ -253,6 +266,7 @@ while IFS= read -r -d '' image_file; do
             echo -e "   ${GREEN}✓${NC} Resized to: ${new_width}x${new_height}px"
             rm "$backup_file"
             resized_images=$((resized_images + 1))
+            file_modified=1
         else
             echo -e "   ${RED}✗${NC} Resize failed — restoring original"
             mv "$backup_file" "$image_file"
@@ -270,6 +284,7 @@ while IFS= read -r -d '' image_file; do
             if convert_to_webp "$image_file"; then
                 echo -e "   ${CYAN}⇢${NC} Converted to WebP: ${relative_path%.*}.webp"
                 converted_images=$((converted_images + 1))
+                file_modified=1
             else
                 echo -e "   ${YELLOW}⚠${NC} WebP conversion failed — keeping original"
             fi
@@ -286,14 +301,23 @@ while IFS= read -r -d '' image_file; do
         fi
     fi
 
+    # Only regenerate thumbnail when the source was modified this run, or when
+    # the thumbnail is missing. This keeps the hook idempotent: unchanged,
+    # already-staged images won't touch their thumbs and won't show up in git diff.
     dir_relative=$(dirname "${processed_file#$PROJECT_ROOT/}")
+    thumb_width=0
     if [ "$dir_relative" = "static/images/posts" ]; then
-        if generate_thumb "$processed_file" "$THUMB_WIDTH_POSTS"; then
-            thumb_images=$((thumb_images + 1))
-        fi
+        thumb_width="$THUMB_WIDTH_POSTS"
     elif [ "$dir_relative" = "static/images/avatars" ]; then
-        if generate_thumb "$processed_file" "$THUMB_WIDTH_AVATARS"; then
-            thumb_images=$((thumb_images + 1))
+        thumb_width="$THUMB_WIDTH_AVATARS"
+    fi
+
+    if [ "$thumb_width" -gt 0 ]; then
+        thumb_file="$(dirname "$processed_file")/thumbs/$(basename "$processed_file")"
+        if [ "$file_modified" -eq 1 ] || [ ! -f "$thumb_file" ]; then
+            if generate_thumb "$processed_file" "$thumb_width"; then
+                thumb_images=$((thumb_images + 1))
+            fi
         fi
     fi
 

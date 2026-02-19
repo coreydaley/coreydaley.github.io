@@ -67,7 +67,7 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--primary);
+    color: var(--link-color);
 }
 a:hover {
     text-decoration: none;
@@ -75,11 +75,6 @@ a:hover {
 }
 
 /* Focus styles for keyboard navigation */
-:focus-visible {
-    outline: 3px solid var(--primary);
-    outline-offset: 2px;
-    border-radius: 2px;
-}
 
 /* ===================================
    Utility Classes
@@ -1831,7 +1826,7 @@ nav.sharebuttons li > a:hover .will-change {
 .ai-disclaimer {
     margin-top: 0.5rem;
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-primary);
     opacity: 0.8;
 }
 
@@ -1848,7 +1843,7 @@ nav.sharebuttons li > a:hover .will-change {
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: var(--text-muted);
+    color: var(--text-primary);
     transition: all 0.3s ease;
     text-decoration: none;
 }

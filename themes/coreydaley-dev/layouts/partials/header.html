@@ -18,13 +18,13 @@
         {{- $avatarThumb := $avatarFull | replaceRE `^(/images/avatars/)` `${1}thumbs/` -}}
         <img
           src="{{ $avatarFull }}"
-          srcset="{{ $avatarThumb }} 200w, {{ $avatarFull }} 512w"
-          sizes="100px"
+          srcset="{{ $avatarThumb }} 300w, {{ $avatarFull }} 512w"
+          sizes="(max-width: 400px) 80px, (max-width: 640px) 100px, 150px"
           alt="{{ .Site.Title }}"
           class="avatar"
           id="site-avatar"
-          width="100"
-          height="100"
+          width="150"
+          height="150"
         />
       </div>
     </a>

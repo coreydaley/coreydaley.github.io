@@ -9,8 +9,7 @@
   "devDependencies": {
     "prettier": "^3.8.1",
     "prettier-plugin-go-template": "^0.0.15",
-    "@fullhuman/purgecss": "^6.0.0",
-    "purgecss": "^6.0.0",
+    "purgecss": "^8.0.0",
     "pagefind": "^1.2.0"
   }
 }

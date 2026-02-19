@@ -1,13 +1,17 @@
 /**
  * Created By: Claude Code (Claude Sonnet 4.5)
  * Date: 2026-02-08T14:30:00-05:00
+ * Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-19T14:36:00-05:00
  */
 
 module.exports = {
   // Content files to scan for used CSS classes
+  // Note: using explicit paths (not themes/**/) to avoid the exampleSite symlink
+  // at themes/coreydaley-dev/exampleSite/themes/coreydaley-dev -> ../../ which
+  // causes infinite recursion with wildcard globs.
   content: [
     // Hugo templates
-    'themes/**/layouts/**/*.html',
+    'themes/coreydaley-dev/layouts/**/*.html',
     'layouts/**/*.html',
 
     // Hugo content files
@@ -18,13 +22,14 @@ module.exports = {
     'public/**/*.html',
 
     // JavaScript files that might add classes
-    'themes/**/static/**/*.js',
+    'themes/coreydaley-dev/static/**/*.js',
+    'themes/coreydaley-dev/assets/**/*.js',
     'static/**/*.js',
   ],
 
   // CSS files to purge
   css: [
-    'themes/coreydaley-dev/static/css/style.css',
+    'themes/coreydaley-dev/assets/css/style.css',
   ],
 
   // Output directory

@@ -1,9 +1,9 @@
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-08T14:30:00-05:00
-# Last Modified By: Claude Code (Claude Sonnet 4.5)
-# Last Modified: 2026-02-15T00:00:00-05:00
+# Last Modified By: Claude Code (Claude Sonnet 4.6)
+# Last Modified: 2026-02-19T14:40:00-05:00
 
-.PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all optimize-images format pre-commit
+.PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all optimize-images recompress-images format pre-commit
 
 # Default target
 help:
@@ -20,6 +20,7 @@ help:
 	@echo "  make build-all    - Build, Pagefind, and PurgeCSS (production)"
 	@echo "  make restore      - Restore original CSS from backup"
 	@echo "  make optimize-images - Resize and convert images in static/images/ to WebP"
+	@echo "  make recompress-images - Re-encode existing WebP files with best settings (one-time)"
 	@echo "  make format       - Format templates, CSS, and JS with Prettier"
 	@echo "  make clean        - Clean generated files"
 	@echo "  make clean-all    - Clean all generated files including backups"
@@ -70,20 +71,20 @@ purgecss:
 		exit 1; \
 	fi
 	@# Create backup of original CSS
-	@if [ -f "themes/coreydaley-dev/static/css/style.css" ]; then \
-		cp themes/coreydaley-dev/static/css/style.css themes/coreydaley-dev/static/css/style.css.backup; \
+	@if [ -f "themes/coreydaley-dev/assets/css/style.css" ]; then \
+		cp themes/coreydaley-dev/assets/css/style.css themes/coreydaley-dev/assets/css/style.css.backup; \
 		echo "Backup created: style.css.backup"; \
 	fi
 	@# Run PurgeCSS
-	npx purgecss --config purgecss.config.js --output themes/coreydaley-dev/static/css/
+	npx purgecss --config purgecss.config.js --output themes/coreydaley-dev/assets/css/
 	@echo "PurgeCSS complete! Original CSS backed up to style.css.backup"
 	@# Show size comparison
 	@echo ""
 	@echo "Size comparison:"
-	@if [ -f "themes/coreydaley-dev/static/css/style.css.backup" ]; then \
-		du -h themes/coreydaley-dev/static/css/style.css.backup | awk '{print "  Original: " $$1}'; \
+	@if [ -f "themes/coreydaley-dev/assets/css/style.css.backup" ]; then \
+		du -h themes/coreydaley-dev/assets/css/style.css.backup | awk '{print "  Original: " $$1}'; \
 	fi
-	@du -h themes/coreydaley-dev/static/css/style.css | awk '{print "  Purged:   " $$1}'
+	@du -h themes/coreydaley-dev/assets/css/style.css | awk '{print "  Purged:   " $$1}'
 
 # Build and index with Pagefind
 build-search: build pagefind
@@ -111,8 +112,8 @@ build-all: build pagefind purgecss
 
 # Restore original CSS from backup
 restore:
-	@if [ -f "themes/coreydaley-dev/static/css/style.css.backup" ]; then \
-		cp themes/coreydaley-dev/static/css/style.css.backup themes/coreydaley-dev/static/css/style.css; \
+	@if [ -f "themes/coreydaley-dev/assets/css/style.css.backup" ]; then \
+		cp themes/coreydaley-dev/assets/css/style.css.backup themes/coreydaley-dev/assets/css/style.css; \
 		echo "CSS restored from backup"; \
 	else \
 		echo "No backup file found"; \
@@ -121,6 +122,12 @@ restore:
 # Resize images to max 512px width and convert to WebP
 optimize-images:
 	@./scripts/optimize-images.sh
+
+# Re-encode all existing WebP files with best compression settings (one-time operation).
+# Not run automatically — use this explicitly when you want to squeeze existing images.
+# Run `git add static/images` afterward to stage the results.
+recompress-images:
+	@./scripts/recompress-images.sh
 
 # Format Hugo templates, CSS, and JS with Prettier
 format:
@@ -140,5 +147,5 @@ clean:
 # Clean including backup files
 clean-all: clean
 	@echo "Removing CSS backups..."
-	rm -f themes/coreydaley-dev/static/css/*.backup
+	rm -f themes/coreydaley-dev/assets/css/*.backup
 	@echo "All clean!"

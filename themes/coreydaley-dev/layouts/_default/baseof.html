@@ -1,4 +1,4 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-19T18:00:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-19T14:50:00-05:00 */}}
 <!doctype html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
@@ -109,28 +109,10 @@
       />
     </noscript>
 
-    <!-- Stylesheets -->
+    <!-- Stylesheets — inlined to eliminate render-blocking network request -->
     {{ with resources.Get "css/style.css" }}
-      {{ $css := . | resources.Minify | resources.Fingerprint }}
-      <link
-        rel="stylesheet"
-        href="{{ $css.RelPermalink }}"
-        integrity="{{ $css.Data.Integrity }}"
-      />
-    {{ end }}
-
-    {{ if .Site.Params.tracking.googleAnalytics }}
-      <!-- Google Analytics -->
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.tracking.googleAnalytics }}"
-      ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ .Site.Params.tracking.googleAnalytics }}');
-    </script>
+      {{ $css := . | resources.Minify }}
+      <style>{{ $css.Content | safeCSS }}</style>
     {{ end }}
 
     {{ partial "additional-head.html" . }}
@@ -151,6 +133,20 @@
     </div>
 
     {{ partial "footer.html" . }}
+
+    {{ if .Site.Params.tracking.googleAnalytics }}
+      <!-- Google Analytics — loaded at end of body to avoid blocking initial parse -->
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.tracking.googleAnalytics }}"
+      ></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ .Site.Params.tracking.googleAnalytics }}');
+      </script>
+    {{ end }}
 
     {{ $mainJS := resources.Get "js/main.js" }}
     {{ $jsFiles := slice $mainJS }}

@@ -32,7 +32,7 @@ function checkSpecialDateAvatar() {
         avatar.src = src;
         avatar.alt = alt;
         const thumb = src.replace("/images/avatars/", "/images/avatars/thumbs/");
-        avatar.srcset = `${thumb} 200w, ${src} 512w`;
+        avatar.srcset = `${thumb} 300w, ${src} 512w`;
       }
       return;
     }
@@ -96,7 +96,7 @@ function checkSpecialDateAvatar() {
     avatar.src = src;
     avatar.alt = alt;
     const thumb = src.replace("/images/avatars/", "/images/avatars/thumbs/");
-    avatar.srcset = `${thumb} 200w, ${src} 512w`;
+    avatar.srcset = `${thumb} 300w, ${src} 512w`;
   }
 }
 
