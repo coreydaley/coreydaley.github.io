@@ -76,15 +76,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hugo-
 
-      - name: Install WebP tools
-        run: sudo apt-get install -y webp
-
-      - name: Generate WebP images
-        run: |
-          find static/images/posts -name "*.png" -o -name "*.jpg" | while IFS= read -r f; do
-            cwebp -q 85 "$f" -o "${f%.*}.webp" 2>/dev/null || true
-          done
-
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: /tmp/hugo_cache
