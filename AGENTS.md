@@ -43,7 +43,7 @@ image = "/images/posts/your-image.png"
 
 ### Image Workflow (mandatory, in order)
 
-1. **Resize** — run `./scripts/resize-images.sh` (max 512px wide) before referencing any image.
+1. **Resize** — run `./scripts/optimize-images.sh` (max 512px wide, converts to WebP) before referencing any image.
 2. **Alt text** — read the image file directly and write ~10-word alt text describing what is *literally depicted*. Do not base alt text on the filename or post title; screen readers depend on accuracy.
 3. **Insert** — use the shortcode: `{{< figure-float src="/images/posts/example.png" alt="your alt text" >}}`
 4. **Frontmatter** — if `image` is not already set, set it to the first inserted image's path.

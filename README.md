@@ -51,7 +51,7 @@ brew install pre-commit
 pre-commit install
 ```
 
-This sets up a pre-commit hook that runs `make resize-images` before each commit. If images need resizing, the commit will be blocked until you stage the changes.
+This sets up a pre-commit hook that runs `make optimize-images` before each commit. If images need resizing or WebP conversion, the commit will be blocked until you stage the changes.
 
 ### 4. Start Development Server
 

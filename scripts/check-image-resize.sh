@@ -1,14 +1,16 @@
 #!/bin/bash
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-14T12:30:00-05:00
+# Last Modified By: Claude Code (Claude Sonnet 4.6)
+# Last Modified: 2026-02-19T00:00:00-05:00
 
-echo "Running make resize-images..."
-make resize-images
+echo "Running make optimize-images..."
+make optimize-images
 
-# Check if there are any unstaged changes after running make resize-images
+# Check if there are any unstaged changes after running make optimize-images
 if ! git diff --quiet; then
     echo ""
-    echo "❌ ERROR: make resize-images produced changes that are not staged."
+    echo "❌ ERROR: make optimize-images produced changes that are not staged."
     echo ""
     echo "Modified files:"
     git status --short

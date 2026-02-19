@@ -2,9 +2,9 @@
 
 This directory contains utility scripts for the Hugo site.
 
-## resize-images.sh
+## optimize-images.sh
 
-Automatically resizes all images in `static/images/` to a maximum width of 512px while maintaining aspect ratio.
+Automatically resizes all images in `static/images/` to a maximum width of 512px while maintaining aspect ratio, then converts PNG/JPG files to WebP format.
 
 ### Features
 
@@ -20,7 +20,7 @@ Automatically resizes all images in `static/images/` to a maximum width of 512px
 
 ```bash
 # Run from project root
-./scripts/resize-images.sh
+./scripts/optimize-images.sh
 ```
 
 ### Requirements

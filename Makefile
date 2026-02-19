@@ -3,7 +3,7 @@
 # Last Modified By: Claude Code (Claude Sonnet 4.5)
 # Last Modified: 2026-02-15T00:00:00-05:00
 
-.PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all resize-images format pre-commit
+.PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all optimize-images format pre-commit
 
 # Default target
 help:
@@ -19,7 +19,7 @@ help:
 	@echo "  make build-purge  - Build Hugo site and run PurgeCSS"
 	@echo "  make build-all    - Build, Pagefind, and PurgeCSS (production)"
 	@echo "  make restore      - Restore original CSS from backup"
-	@echo "  make resize-images- Resize images in static/images/ to max 512px width"
+	@echo "  make optimize-images - Resize and convert images in static/images/ to WebP"
 	@echo "  make format       - Format templates, CSS, and JS with Prettier"
 	@echo "  make clean        - Clean generated files"
 	@echo "  make clean-all    - Clean all generated files including backups"
@@ -118,9 +118,9 @@ restore:
 		echo "No backup file found"; \
 	fi
 
-# Resize images to max 512px width
-resize-images:
-	@./scripts/resize-images.sh
+# Resize images to max 512px width and convert to WebP
+optimize-images:
+	@./scripts/optimize-images.sh
 
 # Format Hugo templates, CSS, and JS with Prettier
 format:
