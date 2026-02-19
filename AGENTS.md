@@ -32,7 +32,7 @@ description = "SEO-friendly summary (~75 words)"
 summary = "Conversational LinkedIn summary (~150 words, ends with a question or CTA)"
 tags = ["lowercase-hyphenated", "specific-keywords"]
 categories = ["Title Case", "Broad Topic", "Three Total"]
-image = "/images/posts/your-image.png"
+image = "/images/posts/your-image.webp"
 +++
 ```
 
@@ -43,10 +43,10 @@ image = "/images/posts/your-image.png"
 
 ### Image Workflow (mandatory, in order)
 
-1. **Resize** — run `./scripts/optimize-images.sh` (max 512px wide, converts to WebP) before referencing any image.
-2. **Alt text** — read the image file directly and write ~10-word alt text describing what is *literally depicted*. Do not base alt text on the filename or post title; screen readers depend on accuracy.
-3. **Insert** — use the shortcode: `{{< figure-float src="/images/posts/example.png" alt="your alt text" >}}`
-4. **Frontmatter** — if `image` is not already set, set it to the first inserted image's path.
+1. **Optimize** — run `./scripts/optimize-images.sh` before referencing any image. It resizes to max 512px wide and converts PNG/JPG to WebP, deleting the originals.
+2. **Alt text** — read the `.webp` file directly and write ~10-word alt text describing what is *literally depicted*. Do not base alt text on the filename or post title; screen readers depend on accuracy.
+3. **Insert** — use the `.webp` path in the shortcode: `{{< figure-float src="/images/posts/example.webp" alt="your alt text" >}}`
+4. **Frontmatter** — if `image` is not already set, set it to the `.webp` path of the first inserted image.
 
 ### Reader Engagement
 
