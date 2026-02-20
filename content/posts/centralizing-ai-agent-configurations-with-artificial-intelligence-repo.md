@@ -2,9 +2,9 @@
 author = "Claude Code (Claude Sonnet 4.6)"
 date = "2026-02-19T20:26:46-05:00"
 draft = false
-title = "Centralizing AI Agent Configurations with the ai-config Repository"
-description = "Discover how to manage Claude, Codex, and GitHub Copilot configurations from a single source of truth. The coreydaley/ai-config GitHub repository provides a centralized home for agent instructions, reusable skills, custom commands, subagents, and prompts—with a simple Makefile-based setup that symlinks everything into place across your AI tools."
-summary = "If you're juggling Claude Code, Codex, and GitHub Copilot, you know the pain of keeping each one's configuration files in sync. My ai-config repo solves that with a single source of truth: agent instructions, reusable skills, custom commands, subagents, and prompts all live in one place, and a single `make symlinks` command wires them up across every tool. Each directory is purpose-built—skills for reusable capabilities, commands for CLI tools, subagents for delegation, prompts for task-specific guidance. The setup even backs up any files it would overwrite, so you never lose existing config. Whether you're just starting to extend your AI tools or already deep into custom workflows, having everything version-controlled and centralized is a game changer. Are you managing your AI agent configurations in a single repository, or do you keep them scattered across tools?"
+title = "Centralizing AI Agent Configurations with the agent-config Repository"
+description = "Discover how to manage Claude, Codex, and GitHub Copilot configurations from a single source of truth. The coreydaley/agent-config GitHub repository provides a centralized home for agent instructions, reusable skills, custom commands, subagents, and prompts—with a simple Makefile-based setup that symlinks everything into place across your AI tools."
+summary = "If you're juggling Claude Code, Codex, and GitHub Copilot, you know the pain of keeping each one's configuration files in sync. My agent-config repo solves that with a single source of truth: agent instructions, reusable skills, custom commands, subagents, and prompts all live in one place, and a single `make symlinks` command wires them up across every tool. Each directory is purpose-built—skills for reusable capabilities, commands for CLI tools, subagents for delegation, prompts for task-specific guidance. The setup even backs up any files it would overwrite, so you never lose existing config. Whether you're just starting to extend your AI tools or already deep into custom workflows, having everything version-controlled and centralized is a game changer. Are you managing your AI agent configurations in a single repository, or do you keep them scattered across tools?"
 tags = ["ai", "developer-tools", "claude-code", "github-copilot", "codex", "workflow", "automation", "open-source"]
 categories = ["AI", "Tools", "Automation"]
 image = "/images/posts/centralizing-ai-agent-configurations.webp"
@@ -12,7 +12,7 @@ image = "/images/posts/centralizing-ai-agent-configurations.webp"
 
 {{< figure-float src="/images/posts/centralizing-ai-agent-configurations.webp" alt="Three robots labeled Claude, Codex, and Copilot building with colorful wooden blocks on a workshop table" >}}
 
-If you use more than one AI coding agent—Claude Code, GitHub Copilot CLI, OpenAI Codex—you've probably run into the configuration sprawl problem. Skills live in one place, custom instructions in another, and every agent has its own conventions for where to find them. My [ai-config repository](https://github.com/coreydaley/ai-config) is my answer to that problem: a single, version-controlled home for everything that shapes how my AI agents think and behave.
+If you use more than one AI coding agent—Claude Code, GitHub Copilot CLI, OpenAI Codex—you've probably run into the configuration sprawl problem. Skills live in one place, custom instructions in another, and every agent has its own conventions for where to find them. My [agent-config repository](https://github.com/coreydaley/agent-config) is my answer to that problem: a single, version-controlled home for everything that shapes how my AI agents think and behave.
 
 ## What the Repository Does
 
@@ -29,7 +29,7 @@ Each category lives in its own top-level directory, documented by its own README
 ## The Directory Layout
 
 ```
-ai-config/
+agent-config/
 ├── agents/      # Per-agent and shared (GLOBAL.md) configuration
 ├── skills/      # Reusable capabilities shared across agents
 ├── commands/    # CLI commands and scripts agents can invoke
@@ -85,8 +85,8 @@ Not every resource in the repository works with every agent. Claude, Codex, and 
 
 ```bash
 # Clone the repository
-git clone https://github.com/coreydaley/ai-config.git
-cd ai-config
+git clone https://github.com/coreydaley/agent-config.git
+cd agent-config
 
 # Review the structure and READMEs, then wire everything up
 make symlinks
@@ -96,4 +96,4 @@ After that, each agent will pick up the shared configuration, skills, and comman
 
 ---
 
-*As AI agents become more deeply embedded in how we write, code, and create, the question of how to manage their configuration at scale becomes increasingly important. Are you keeping your AI agent configurations centralized in a repository, or do you manage each tool's settings separately—and how's that working for you?*
+_As AI agents become more deeply embedded in how we write, code, and create, the question of how to manage their configuration at scale becomes increasingly important. Are you keeping your AI agent configurations centralized in a repository, or do you manage each tool's settings separately—and how's that working for you?_
