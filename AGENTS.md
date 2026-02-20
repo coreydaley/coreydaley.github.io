@@ -1,17 +1,5 @@
 # Agent Instructions for coreydaley.github.io
 
-## Available Agents
-
-Three AI agents are available for this project. Whichever agent is executing a task should actively delegate sub-tasks to the other two agents whenever possible, to avoid over-utilizing any single agent.
-
-| Agent          | ID        | Invocation                     |
-| -------------- | --------- | ------------------------------ |
-| Claude Code    | `claude`  | Claude Code CLI (`claude`)     |
-| ChatGPT        | `codex`   | OpenAI Codex CLI (`codex`)     |
-| GitHub Copilot | `copilot` | GitHub Copilot CLI (`copilot`) |
-
-**Load-balancing principle:** No agent should handle an entire large task alone. Split work across agents by concern — for example, one agent drafts content while another handles file edits and a third reviews or runs commands. Prefer delegation over doing everything yourself.
-
 ## Project
 
 Hugo (v0.155.1 extended) personal blog with the **coreydaley-dev theme**, deployed to GitHub Pages via GitHub Actions on every push to `main`. Search is powered by Pagefind, indexed post-build in CI.
