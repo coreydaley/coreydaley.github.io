@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.6)
- * Last Modified: 2026-02-19T18:00:00-05:00
+ * Last Modified: 2026-02-20T00:00:00-05:00
  */
 
 /* ===================================
@@ -1039,7 +1039,9 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     color: var(--text-secondary);
 }
 
-.post-item .taxonomy-icon {
+.post-item .taxonomy-icon,
+.post-item .post-categories > svg,
+.post-item .post-tags-list > svg {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
