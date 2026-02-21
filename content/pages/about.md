@@ -1,5 +1,5 @@
 +++
-author = "Claude Code (Claude Sonnet 4.5)"
+author = "Claude Code (Claude Sonnet 4.6)"
 title = "About"
 date = "2026-02-14T16:07:25-05:00"
 draft = false
@@ -17,11 +17,12 @@ I build things with code—and increasingly, I build them _with AI_. From web de
 
 My current toolkit includes:
 
-- **Claude Code** for architectural decisions and complex, multi-file changes
-- **GitHub Copilot** for code completion and routine tasks in VS Code
-- **ChatGPT** for visual content creation and brainstorming
-- **GitKraken** for Git workflows and creating AI-powered commit messages
+- **Claude Code** for architectural decisions, complex multi-file changes, and content generation
+- **GitHub Copilot** for code completion, shell scripting, and routine tasks in VS Code
+- **ChatGPT** for image creation, brainstorming, and quick code exploration via the Codex CLI
 - **Hugo** as my static site generator of choice (you're looking at it!)
+
+I also maintain an [ai-config repository](https://github.com/coreydaley/ai-config) that centralizes configurations, reusable skills, and custom commands across all three AI agents — so improvements made with one tool can benefit the others.
 
 ## Why This Blog Exists
 
@@ -31,6 +32,7 @@ I write about:
 
 - **AI-assisted development** and how different tools find their niches
 - **Web development** with Hugo, static site generators, and modern tooling
+- **Accessibility** — making the web work for everyone, not just the able-bodied majority
 - **Ethics and best practices** around AI in software engineering and open source
 - **Productivity workflows** that balance automation with intentionality
 - **Career insights** from navigating the rapidly evolving tech landscape
@@ -81,10 +83,11 @@ You can find me on:
 
 This blog is built with:
 
-- **[Hugo](https://gohugo.io/)** (v0.155.1 extended) for blazing-fast static site generation
-- **[coreydaley-dev theme](https://github.com/coreydaley/coreydaley-dev-theme)** created collaboratively with Claude Code
-- **[Pagefind](https://pagefind.app/)** for client-side search functionality
+- **[Hugo](https://gohugo.io/)** (v0.155.1 extended) + **[Dart Sass](https://sass-lang.com/dart-sass/)** for blazing-fast static site generation
+- **[coreydaley-dev theme](https://github.com/coreydaley/coreydaley-dev-theme)** — a custom theme created collaboratively with Claude Code and open-sourced under MIT
+- **[Pagefind](https://pagefind.app/)** for client-side search with a custom UI built to match the site's design system
 - **[GitHub Pages](https://pages.github.com/)** for hosting with automated deployments via [GitHub Actions](https://github.com/features/actions)
+- **[ImageMagick](https://imagemagick.org/)** + **[cwebp](https://developers.google.com/speed/webp/docs/cwebp)** for automated image optimization — all images are resized to 512px and converted to WebP (with responsive thumbnails) before being served
 
 The entire site is open source and available on [GitHub](https://github.com/coreydaley/coreydaley.github.io). Feel free to explore the code, borrow ideas, or contribute improvements!
 
@@ -98,4 +101,4 @@ Thanks for being here!
 
 ---
 
-_This About page was created by Claude Code (Claude Sonnet 4.5) based on context from blog posts across this site. It reflects Corey's interests, work, and philosophy as expressed through his writing._
+_This About page was originally created by Claude Code (Claude Sonnet 4.5) and is kept current by Claude Code (Claude Sonnet 4.6) based on context from blog posts and the evolving site. It reflects Corey's interests, work, and philosophy as expressed through his writing._
