@@ -42,6 +42,7 @@
       <link rel="preload" as="image" href="{{ . }}" fetchpriority="high" />
     {{ end }}
 
+
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="{{ $title }}" />
     <meta property="og:description" content="{{ $description }}" />
@@ -135,16 +136,21 @@
     {{ partial "footer.html" . }}
 
     {{ if .Site.Params.tracking.googleAnalytics }}
-      <!-- Google Analytics — loaded at end of body to avoid blocking initial parse -->
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.tracking.googleAnalytics }}"
-      ></script>
+      <!-- Google Analytics — loaded at end of body to avoid blocking initial parse —
+           Disabled for localhost to prevent polluting analytics data during development -->
       <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ .Site.Params.tracking.googleAnalytics }}');
+        // Skip analytics on localhost or 127.0.0.1
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.tracking.googleAnalytics }}';
+          document.head.appendChild(script);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '{{ .Site.Params.tracking.googleAnalytics }}');
+        }
       </script>
     {{ end }}
 
