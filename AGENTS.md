@@ -57,17 +57,6 @@ End every blog post with a thought-provoking question in italics, directly relat
 | Search page  | `content/search.md`  |
 | Site config  | `hugo.toml`          |
 
-## Notion Blog Post Topics Workflow
-
-The [Blog Post Topics](https://www.notion.so/304f4ed7a28f80e6afdbca045866e5c3) page is a to-do list for blog post ideas.
-
-**⚠️ All 4 steps are mandatory** — skipping steps 3–4 causes duplicates and list corruption on future runs.
-
-1. Fetch the page and pick the first unchecked item.
-2. Create the blog post.
-3. Mark the item complete (`[x]`) in Notion.
-4. Move the completed item to the bottom of the list.
-
 ## AI Authorship
 
 Set `author` in frontmatter as `"Agent Name (Model Family Version)"`. Do not include the full model ID with a date suffix.
