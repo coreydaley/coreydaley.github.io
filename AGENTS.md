@@ -12,10 +12,6 @@ hugo --minify                    # build to public/
 hugo new posts/my-post-title.md  # new post (draft by default)
 ```
 
-## ⚠️ Version Control — Never Commit
-
-**Never** run `git add`, `git commit`, or `git push`. Never offer or ask to commit. When work is complete, inform the user so they can review and commit manually.
-
 ## Content Conventions
 
 ### Blog Post Frontmatter
