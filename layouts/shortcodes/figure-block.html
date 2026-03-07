@@ -10,8 +10,8 @@
   {{ $imgStyle = printf "width: 100%%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" }}
 {{ end }}
 <div style="text-align: center; margin: 2rem 0;">
-  <picture style="{{ $pictureStyle }}">
+  <picture style="{{ $pictureStyle | safeCSS }}">
     <source srcset="{{ $webp }}" type="image/webp" />
-    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" style="{{ $imgStyle }}">
+    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" style="{{ $imgStyle | safeCSS }}">
   </picture>
 </div>
