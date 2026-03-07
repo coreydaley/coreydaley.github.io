@@ -1,10 +1,17 @@
-{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-17T22:00:00-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-19T00:00:00-05:00 */}}
+{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-17T22:00:00-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-03-06T00:00:00-05:00 */}}
 {{ $src := .Get "src" }}
 {{ $alt := .Get "alt" | default "" }}
+{{ $width := .Get "width" | default "" }}
 {{ $webp := $src | replaceRE `\.(png|jpe?g)$` ".webp" }}
+{{ $pictureStyle := "display: inline-block;" }}
+{{ $imgStyle := "max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" }}
+{{ if $width }}
+  {{ $pictureStyle = printf "display: block; width: %s;" $width }}
+  {{ $imgStyle = printf "width: 100%%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" }}
+{{ end }}
 <div style="text-align: center; margin: 2rem 0;">
-  <picture>
+  <picture style="{{ $pictureStyle }}">
     <source srcset="{{ $webp }}" type="image/webp" />
-    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" style="{{ $imgStyle }}">
   </picture>
 </div>
