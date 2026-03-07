@@ -152,28 +152,32 @@ Codex will produce:
 
 ---
 
-## Phase 5: Image Prompt
+## Phase 5: Generate Hero Image
 
-**Goal**: Give the user a ready-to-paste prompt for generating a hero image for the post.
+**Goal**: Automatically generate, optimize, and insert a hero image into the final post.
 
-Based on the final post at `content/posts/$SLUG.md`, craft an image generation prompt that:
+### Run the image generation script:
 
-- Captures the **central visual metaphor** of the post (not just the title — think about what *concept* would make a compelling image)
-- Specifies a **consistent art style**: flat vector illustration, dark navy/charcoal background, electric blue and warm amber accents, no text or words in the image, modern SaaS marketing aesthetic
-- Describes the **mood and composition** clearly enough that any image AI can execute it
-- Targets a **landscape aspect ratio** (~16:9 or 3:2) suitable for a blog hero image
-
-Output the prompt in a clearly labeled block so the user can copy it directly. Example structure:
-
-```
-## Image Generation Prompt
-
-[Your prompt here]
-
-**Style notes:** Flat vector illustration, dark navy background, electric blue + amber accents, no text, landscape 16:9.
+```bash
+python3 scripts/generate-post-image.py content/posts/$SLUG.md
 ```
 
-After outputting the prompt, remind the user to run `./scripts/optimize-images.sh` on any downloaded image before referencing it in the post.
+The script will:
+1. Call the Claude API to derive a visual concept from the post content
+2. Call DALL-E 3 (OpenAI API) to generate a 1792×1024 HD image
+3. Download the PNG to `static/images/posts/$SLUG.png`
+4. Optimize to WebP via `./scripts/optimize-images.sh`
+5. Call Claude vision to generate accurate alt text from the actual image
+6. Insert the `figure-float` shortcode and `image` frontmatter field into the post
+
+### Requirements:
+- `.env` file at the repo root with `ANTHROPIC_API_KEY` and `OPENAI_API_KEY` set (see `.env.example`)
+- `.venv/` virtualenv present at the repo root (`python3 -m venv .venv && .venv/bin/pip install anthropic openai requests`)
+- The script self-re-execs with `.venv/bin/python3` automatically — no manual activation needed
+
+### If the script fails (missing API keys or network error):
+
+Fall back to manual: output an image generation prompt based on the post's central visual metaphor, using the blog's established style (dark navy background, electric blue + amber accents, flat vector illustration, no text, landscape 16:9). Remind the user to run `./scripts/optimize-images.sh` on any downloaded image and then manually insert the shortcode and frontmatter field.
 
 ---
 
@@ -188,7 +192,15 @@ content/posts/
 │   ├── $SLUG-codex-draft.md
 │   ├── $SLUG-claude-draft-codex-critique.md
 │   └── $SLUG-merge-notes.md
-└── $SLUG.md   ← final post
+└── $SLUG.md   ← final post (with image field + shortcode inserted)
+```
+
+Images:
+```
+static/images/posts/
+├── $SLUG.png   ← original PNG (preserved, stripped by CI)
+├── $SLUG.webp  ← optimized WebP (used in post)
+└── thumbs/$SLUG.webp
 ```
 
 ---
@@ -205,4 +217,4 @@ content/posts/
 - [ ] Merge notes written (`$SLUG-merge-notes.md`)
 - [ ] Final post written to `content/posts/$SLUG.md` with `draft = false`
 - [ ] User shown the final post and approved
-- [ ] Image generation prompt output to user
+- [ ] Hero image generated and inserted via `generate-post-image.py`
