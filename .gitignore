@@ -19,6 +19,5 @@ Thumbs.db
 npm-debug.log
 hugo.log
 
-.claude
 .vscode
 content/posts/drafts
