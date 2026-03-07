@@ -1,4 +1,4 @@
-{{/* Created By: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-14T15:30:00-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-19T18:00:00-05:00 */}}
+{{/* Created By: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-14T15:30:00-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-03-07T00:00:00-05:00 */}}
 {{/* Post List Partial
   Displays a list of posts with consistent formatting
 
@@ -20,8 +20,21 @@
           </h2>
 
           {{ if $post.Params.image }}
-            {{ $img := $post.Params.image | replaceRE `\.(png|jpe?g)$` ".webp" }}
-            {{ $thumb := $img | replaceRE `^(/images/posts/)` `${1}thumbs/` }}
+            {{- $imgParam := $post.Params.image -}}
+            {{- $img := "" -}}
+            {{- $thumb := "" -}}
+            {{- if hasPrefix $imgParam "/" -}}
+              {{- $img = $imgParam | replaceRE `\.(png|jpe?g)$` ".webp" -}}
+              {{- $thumb = $img | replaceRE `^(/images/posts/)` `${1}thumbs/` -}}
+            {{- else -}}
+              {{- with $post.Resources.GetMatch $imgParam -}}{{- $img = .RelPermalink -}}{{- end -}}
+              {{- with $post.Resources.GetMatch (printf "thumbs/%s" $imgParam) -}}
+                {{- $thumb = .RelPermalink -}}
+              {{- else -}}
+                {{- $thumb = $img -}}
+              {{- end -}}
+            {{- end -}}
+            {{ if $img }}
             <div class="post-image">
               <a href="{{ $post.RelPermalink }}">
                 <picture>
@@ -40,6 +53,7 @@
                 </picture>
               </a>
             </div>
+            {{ end }}
           {{ end }}
 
           {{ if $post.Description }}

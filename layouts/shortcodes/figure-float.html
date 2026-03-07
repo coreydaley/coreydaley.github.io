@@ -1,8 +1,11 @@
-{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-17T22:00:00-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-03-06T00:00:00-05:00 */}}
+{{/* Created by: Claude Code (Claude Sonnet 4.5) | Date: 2026-02-17T22:00:00-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-03-07T00:00:00-05:00 */}}
 {{ $src := .Get "src" }}
 {{ $alt := .Get "alt" | default "" }}
 {{ $side := .Get "side" | default "right" }}
 {{ $width := .Get "width" | default "400px" }}
+{{- if not (hasPrefix $src "/") -}}
+  {{- with .Page.Resources.GetMatch $src -}}{{- $src = .RelPermalink -}}{{- end -}}
+{{- end -}}
 {{ $webp := $src | replaceRE `\.(png|jpe?g)$` ".webp" }}
 {{- if eq $side "left" -}}
 <picture style="float: left; margin: 0 20px 20px 0; max-width: {{ $width }}; width: 100%; display: block;">
