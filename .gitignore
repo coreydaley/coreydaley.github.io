@@ -21,4 +21,6 @@ hugo.log
 
 .vscode
 .claude/settings.local.json
+.env
+.venv
 content/posts/drafts
