@@ -1,4 +1,4 @@
-{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-02-19T18:00:00-05:00 */}}
+{{/* Created by: AI Agent | Date: 2026-02-06T22:56:44-05:00 | Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-03-07T00:00:00-05:00 */}}
 <header class="site-header">
   <div class="cover-image">
     {{- $cover := .Site.Params.coverImage | default "/images/default-cover.jpg" -}}
@@ -171,6 +171,14 @@
           {{- partial "icon" (dict "name" "icon-email" "type" "stroke") -}}
         </a>
       {{ end }}
+      <a
+        href="{{ "/rss.xml" | absURL }}"
+        class="social-icon"
+        title="RSS Feed"
+        aria-label="Subscribe via RSS"
+      >
+        {{- partial "icon" (dict "name" "icon-rss") -}}
+      </a>
     </div>
   </div>
 
