@@ -180,6 +180,18 @@ The script will:
 - `.venv/` virtualenv present at the repo root (`python3 -m venv .venv && .venv/bin/pip install anthropic openai requests`)
 - The script self-re-execs with `.venv/bin/python3` automatically — no manual activation needed
 
+### After the script completes (success or fallback):
+
+Output the following block exactly as shown so the user can copy/paste directly into LinkedIn, X, or other social media. No labels, no extra text — just the content:
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<full text of the `summary` frontmatter field, verbatim>
+
+Read more at https://coreydaley.dev/posts/$SLUG/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
 ### If the script fails (missing API keys or network error):
 
 Fall back to manual: output an image generation prompt based on the post's central visual metaphor, using the blog's established style (dark navy background, electric blue + amber accents, flat vector illustration, no text, landscape 16:9). Remind the user to place the downloaded image in `content/posts/YYYY/MM/$SLUG/`, run `./scripts/optimize-images.sh` from the repo root, then manually insert the shortcode (`{{< figure-float src="hero.webp" alt="..." >}}`) and `image = "hero.webp"` frontmatter field in `index.md`.
@@ -225,3 +237,4 @@ content/posts/
 - [ ] Final post written to `content/posts/YYYY/MM/$SLUG/index.md` with `draft = false`
 - [ ] `aliases = ["/posts/$SLUG/"]` added to frontmatter
 - [ ] Hero image generated and inserted via `generate-post-image.py content/posts/YYYY/MM/$SLUG/index.md`
+- [ ] Post URL and social caption output for copy/paste
