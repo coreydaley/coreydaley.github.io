@@ -189,9 +189,11 @@ Output the following block exactly as shown so the user can copy/paste directly 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <full text of the `summary` frontmatter field, verbatim>
 
-Read more at https://coreydaley.dev/posts/$SLUG/
+Read more at https://coreydaley.dev/posts/YYYY/MM/$SLUG/
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
+
+> **Important:** Always use the canonical URL (`/posts/YYYY/MM/$SLUG/`) for social sharing, not the short alias (`/posts/$SLUG/`). LinkedIn and other social scrapers do not follow `<meta http-equiv=refresh>` redirects, so sharing the alias URL results in no preview image.
 
 ### If the script fails (missing API keys or network error):
 
