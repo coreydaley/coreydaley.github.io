@@ -152,6 +152,7 @@ Codex will produce:
    - Follow all AGENTS.md conventions precisely (frontmatter, closing question, etc.)
    - Add `aliases = ["/posts/$SLUG/"]` to the frontmatter for redirect compatibility
    - Do NOT include an `image` field yet (image is added in Phase 5)
+   - **Set `date` to a few minutes before the current local time** — run `date '+%Y-%m-%dT%H:%M:%S%z'` and subtract ~5 minutes. Hugo will not serve a post whose timestamp is in the future, so a midnight or templated time will cause the post to be invisible during local preview.
 
 5. **Proceed immediately to Phase 5** — do not pause for user approval. The image generation script runs automatically after the final post is written.
 
