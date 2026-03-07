@@ -975,11 +975,11 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
 .post-item {
     padding: 2rem 0;
     position: relative;
-    min-height: 200px;
+    min-height: 230px;
 }
 
 .post-item .post-content {
-    padding-bottom: 4rem;
+    padding-bottom: 5.5rem;
 }
 
 .post-item:first-child {
