@@ -1,0 +1,172 @@
+# Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-07T00:00:00-05:00
+# Add tools alphabetically. The tools page layout sorts and groups them by first letter automatically.
+# Categories: AI Agent, AI Service, Developer Tool, Hardware, Service, Software
+
+- name: "Claude Code"
+  category: "AI Agent"
+  url: "https://claude.ai/claude-code"
+  description: "Primary AI coding agent for complex multi-file changes, architectural decisions, content generation, and full-session development workflows. Powers this entire blog workflow including post creation, image generation, and CI/CD."
+  pros:
+    - "Exceptional reasoning for complex, multi-step tasks"
+    - "Deep filesystem, shell, and tool integration"
+    - "Highly customizable via CLAUDE.md and reusable skills"
+    - "Parallel tool use speeds up multi-step work significantly"
+    - "Strong at maintaining context across large codebases"
+  cons:
+    - "Slower than inline assistants for simple one-liner completions"
+    - "Subscription cost adds up with heavy usage"
+    - "Needs clear instructions to avoid over-engineering"
+
+- name: "Claude.ai"
+  category: "AI Service"
+  url: "https://claude.ai"
+  description: "Web-based AI chat interface for brainstorming, research, drafting, and quick back-and-forth conversations that don't need CLI integration."
+  pros:
+    - "Fast and conversational for exploratory work"
+    - "Excellent at long-form writing and analysis"
+    - "Projects feature lets you maintain persistent context"
+    - "Artifacts make it easy to preview and iterate on code/docs"
+  cons:
+    - "No filesystem access — limited to conversation context"
+    - "Context resets between sessions without Projects"
+    - "Overlaps heavily with Claude Code for technical tasks"
+
+- name: "Codex CLI"
+  category: "AI Agent"
+  url: "https://github.com/openai/codex"
+  description: "OpenAI's command-line AI coding agent. Used for competitive drafting — spawning independent Codex drafts of blog posts to compare and synthesize with Claude drafts."
+  pros:
+    - "Fast execution in non-interactive mode via codex exec"
+    - "Good for independent second opinions on architecture and writing"
+    - "Integrates well into shell automation and CI workflows"
+    - "Free with ChatGPT Plus subscription"
+  cons:
+    - "Less context-aware than Claude Code for large codebases"
+    - "Can produce verbose or over-structured output"
+    - "Requires careful prompting to match project conventions"
+
+- name: "Cursor"
+  category: "Developer Tool"
+  url: "https://cursor.com"
+  description: "AI-first fork of VS Code with built-in AI chat, inline edits, and multi-file context. Used for in-editor AI assistance when a full agent session is overkill."
+  pros:
+    - "Seamless inline AI edits without leaving the editor"
+    - "Familiar VS Code interface and extension compatibility"
+    - "Composer mode handles multi-file refactors well"
+    - "Good at codebase-aware autocomplete"
+  cons:
+    - "Subscription on top of existing AI tool costs"
+    - "Overlaps significantly with Claude Code and Copilot"
+    - "Can feel heavyweight for simple editing tasks"
+
+- name: "Gemini CLI"
+  category: "AI Agent"
+  url: "https://github.com/google-gemini/gemini-cli"
+  description: "Google's command-line AI agent. Added to the agent-config workflow to extend centralized configuration management to a fourth AI tool."
+  pros:
+    - "Free tier with generous limits via Google account"
+    - "Good integration with Google services and Search grounding"
+    - "Fast responses for lightweight tasks"
+  cons:
+    - "Uses TOML command format (incompatible with Markdown-based agents without conversion)"
+    - "Less mature ecosystem of skills and integrations than Claude or Codex"
+    - "Requires format conversion to work with shared agent-config commands"
+
+- name: "GitHub Copilot"
+  category: "AI Agent"
+  url: "https://github.com/features/copilot"
+  description: "AI coding assistant integrated directly into VS Code. Used for fast inline code completion, shell scripting, and routine coding tasks that don't need a full agent session."
+  pros:
+    - "Zero-friction inline suggestions while typing"
+    - "Works inside the editor without switching context"
+    - "Copilot Chat handles quick questions and small refactors"
+    - "Good at boilerplate and repetitive patterns"
+  cons:
+    - "Limited context window compared to Claude Code"
+    - "Less capable for complex architectural or multi-file reasoning"
+    - "Suggestions can be confidently wrong — requires careful review"
+
+- name: "GitKraken"
+  category: "Developer Tool"
+  url: "https://gitkraken.com"
+  description: "Visual Git client that replaces the command line for visualizing branch history, resolving merge conflicts, and managing complex repository states."
+  pros:
+    - "Visual branch graph makes complex history immediately readable"
+    - "Drag-and-drop merge and rebase interactions"
+    - "Built-in merge conflict editor is far better than most alternatives"
+    - "Works across multiple repos from one interface"
+  cons:
+    - "Pro features require a paid subscription"
+    - "Can be slow on repositories with very long histories"
+    - "Overkill for simple linear-history projects"
+
+- name: "Hugo"
+  category: "Software"
+  url: "https://gohugo.io"
+  description: "Static site generator powering this blog. Chosen for its speed, flexibility, and zero runtime dependencies — every page is pre-built HTML served directly from GitHub Pages."
+  pros:
+    - "Extremely fast builds (milliseconds for most sites)"
+    - "No runtime — pure static HTML, no server vulnerabilities"
+    - "Powerful templating with Go templates and partials"
+    - "Excellent leaf bundle support keeps post assets co-located"
+    - "Active ecosystem and good documentation"
+  cons:
+    - "Go template syntax has a steep learning curve"
+    - "Some Hugo conventions (output formats, shortcodes) require documentation diving"
+    - "Theme ecosystem is smaller than Jekyll or WordPress"
+
+- name: "ImageMagick"
+  category: "Software"
+  url: "https://imagemagick.org"
+  description: "Command-line image processing toolkit. Used in the optimize-images.sh script to resize hero images and convert PNG/JPG to WebP for web-optimized delivery."
+  pros:
+    - "Handles virtually any image format conversion"
+    - "Scriptable and automatable — fits naturally into shell pipelines"
+    - "Free and open source"
+    - "Available on every platform including CI runners"
+  cons:
+    - "CLI syntax is unintuitive and easy to get wrong"
+    - "Documentation is dense and hard to navigate"
+    - "Requires separate installation on each machine/runner"
+
+- name: "Pagefind"
+  category: "Software"
+  url: "https://pagefind.app"
+  description: "Static site search library. Indexes the built HTML at CI time and ships a small JavaScript client that runs fully in-browser — no search server required."
+  pros:
+    - "Zero infrastructure — search runs entirely client-side"
+    - "Fast indexing and instant search results"
+    - "Integrates cleanly with Hugo's build pipeline"
+    - "Small bundle size with no external API calls"
+  cons:
+    - "Search index is only as fresh as the last deployment"
+    - "Limited advanced search features compared to Elasticsearch or Algolia"
+    - "Custom UI requires CSS work to match site design"
+
+- name: "Perplexity"
+  category: "AI Service"
+  url: "https://perplexity.ai"
+  description: "AI-powered research tool that searches the live web and synthesizes cited answers. Used for market research, fact-checking, and exploring topics before writing."
+  pros:
+    - "Real-time web search with source citations"
+    - "Faster than manually searching and synthesizing results"
+    - "Pro Search mode handles multi-step research questions well"
+    - "Good at comparing products, tools, and technical approaches"
+  cons:
+    - "Citations can be misleading — always verify primary sources"
+    - "Less useful for tasks that don't require live web data"
+    - "Subscription cost on top of other AI tools"
+
+- name: "VS Code"
+  category: "Developer Tool"
+  url: "https://code.visualstudio.com"
+  description: "Primary code editor. Used for all editing work not handled by AI agents directly, with Copilot integration for inline AI assistance."
+  pros:
+    - "Massive extension ecosystem covers every language and workflow"
+    - "Free and open source"
+    - "Remote development support via SSH and Dev Containers"
+    - "Tight GitHub and Copilot integration"
+  cons:
+    - "Can become slow and memory-hungry with many extensions"
+    - "Default settings require significant customization to optimize"
+    - "Electron-based — heavier than native editors"

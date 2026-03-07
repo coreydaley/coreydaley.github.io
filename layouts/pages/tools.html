@@ -1,0 +1,71 @@
+{{/* Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-07T00:00:00-05:00 */}}
+{{ define "main" }}
+  {{- $tools := sort .Site.Data.tools "name" -}}
+
+  {{/* Collect unique first letters */}}
+  {{- $letters := slice -}}
+  {{- range $tools -}}
+    {{- $l := upper (substr .name 0 1) -}}
+    {{- if not (in $letters $l) -}}
+      {{- $letters = $letters | append $l -}}
+    {{- end -}}
+  {{- end -}}
+
+  <article class="single-post">
+    <header class="post-header">
+      <div class="post-header-content">
+        <h1 class="post-title-single">{{ .Title }}</h1>
+      </div>
+    </header>
+
+    <div class="post-content tools-page">
+      {{ .Content }}
+
+      {{/* A–Z navigation */}}
+      <nav class="tools-alpha-nav" aria-label="Jump to letter">
+        {{- range $letters -}}
+          <a href="#letter-{{ . }}" class="tools-alpha-link">{{ . }}</a>
+        {{- end -}}
+      </nav>
+
+      {{/* Tool sections grouped by first letter */}}
+      {{- range $letters -}}
+        {{- $l := . -}}
+        <section id="letter-{{ $l }}" class="tools-section">
+          <h2 class="tools-letter-heading">{{ $l }}</h2>
+          {{- range $tools -}}
+            {{- if eq (upper (substr .name 0 1)) $l -}}
+              <div class="tool-card">
+                <div class="tool-header">
+                  <h3 class="tool-name">
+                    <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+                  </h3>
+                  <span class="tool-category tool-category--{{ .category | lower | replaceRE " " "-" }}">{{ .category }}</span>
+                </div>
+                <p class="tool-description">{{ .description }}</p>
+                <div class="tool-pros-cons">
+                  {{- if .pros -}}
+                    <div class="tool-pros">
+                      <p class="tool-pros-cons-heading">Pros</p>
+                      <ul>
+                        {{- range .pros -}}<li>{{ . }}</li>{{- end -}}
+                      </ul>
+                    </div>
+                  {{- end -}}
+                  {{- if .cons -}}
+                    <div class="tool-cons">
+                      <p class="tool-pros-cons-heading">Cons</p>
+                      <ul>
+                        {{- range .cons -}}<li>{{ . }}</li>{{- end -}}
+                      </ul>
+                    </div>
+                  {{- end -}}
+                </div>
+              </div>
+            {{- end -}}
+          {{- end -}}
+        </section>
+      {{- end -}}
+    </div>
+  </article>
+{{ end }}

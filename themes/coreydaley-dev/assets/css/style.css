@@ -2205,3 +2205,220 @@ nav.sharebuttons li > a:hover .will-change {
         font-size: 1.1rem;
     }
 }
+
+/* ==========================================================================
+   Tools Page
+   Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-07T00:00:00-05:00
+   ========================================================================== */
+
+.tools-alpha-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1.5rem 0 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.tools-alpha-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tools-alpha-link:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.tools-section {
+    margin-bottom: 2.5rem;
+}
+
+.tools-letter-heading {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.4rem;
+    margin: 0 0 1rem;
+}
+
+.tool-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.15s;
+}
+
+.tool-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.tool-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+}
+
+.tool-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.tool-name a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.tool-name a:hover {
+    color: var(--accent-pink);
+    text-decoration: underline;
+}
+
+.tool-category {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    white-space: nowrap;
+    background: var(--bg-sidebar);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+}
+
+.tool-category--ai-agent {
+    background: rgba(44, 163, 229, 0.12);
+    color: var(--primary-dark);
+    border-color: rgba(44, 163, 229, 0.3);
+}
+
+.tool-category--ai-service {
+    background: rgba(6, 182, 212, 0.12);
+    color: #0891b2;
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.tool-category--developer-tool {
+    background: rgba(249, 115, 22, 0.1);
+    color: #c2410c;
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.tool-category--software {
+    background: rgba(236, 72, 153, 0.1);
+    color: #be185d;
+    border-color: rgba(236, 72, 153, 0.3);
+}
+
+.tool-category--hardware {
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--text-secondary);
+    border-color: rgba(107, 114, 128, 0.3);
+}
+
+.tool-category--service {
+    background: rgba(139, 92, 246, 0.1);
+    color: #7c3aed;
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.tool-description {
+    color: var(--text-secondary);
+    margin: 0 0 1rem;
+    line-height: 1.6;
+}
+
+.tool-pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.tool-pros,
+.tool-cons {
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+}
+
+.tool-pros {
+    background: rgba(34, 197, 94, 0.07);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.tool-cons {
+    background: rgba(239, 68, 68, 0.06);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.tool-pros-cons-heading {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5rem;
+}
+
+.tool-pros .tool-pros-cons-heading { color: #16a34a; }
+.tool-cons .tool-pros-cons-heading { color: #dc2626; }
+
+.tool-pros ul,
+.tool-cons ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.tool-pros li,
+.tool-cons li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .tools-alpha-nav {
+        padding: 0.75rem;
+    }
+
+    .tools-alpha-link {
+        width: 1.9rem;
+        height: 1.9rem;
+        font-size: 0.85rem;
+    }
+
+    .tool-pros-cons {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-card {
+        padding: 1rem;
+    }
+}
