@@ -20,4 +20,5 @@ npm-debug.log
 hugo.log
 
 .vscode
+.claude/settings.local.json
 content/posts/drafts
