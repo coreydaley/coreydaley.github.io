@@ -153,7 +153,7 @@ Codex will produce:
    - Add `aliases = ["/posts/$SLUG/"]` to the frontmatter for redirect compatibility
    - Do NOT include an `image` field yet (image is added in Phase 5)
 
-5. **Show the user** the final post and ask for approval before considering the task complete.
+5. **Proceed immediately to Phase 5** — do not pause for user approval. The image generation script runs automatically after the final post is written.
 
 ---
 
@@ -224,5 +224,4 @@ content/posts/
 - [ ] Merge notes written (`$SLUG-merge-notes.md`)
 - [ ] Final post written to `content/posts/YYYY/MM/$SLUG/index.md` with `draft = false`
 - [ ] `aliases = ["/posts/$SLUG/"]` added to frontmatter
-- [ ] User shown the final post and approved
 - [ ] Hero image generated and inserted via `generate-post-image.py content/posts/YYYY/MM/$SLUG/index.md`
