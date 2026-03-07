@@ -100,7 +100,7 @@ Run this command from Claude Code to kick off the full 5-phase workflow:
 1. **Orient** — Research the topic; review AGENTS.md and recent posts for voice calibration
 2. **Draft** — Claude writes a complete draft to `content/posts/drafts/$SLUG-claude-draft.md`
 3. **Compete** — Codex produces an independent draft and critiques Claude's draft
-4. **Synthesize** — Both drafts are compared; merge notes written; final post produced at `content/posts/$SLUG.md`
+4. **Synthesize** — Both drafts are compared; merge notes written; final post produced at `content/posts/YYYY/MM/$SLUG/index.md`
 5. **Image** — Hero image automatically generated and inserted (see below)
 
 Draft files are written to `content/posts/drafts/` which is gitignored.
@@ -112,7 +112,7 @@ Draft files are written to `content/posts/drafts/` which is gitignored.
 The `scripts/generate-post-image.py` script generates, optimizes, and inserts a hero image for any blog post in one command.
 
 ```bash
-python3 scripts/generate-post-image.py content/posts/my-post.md
+python3 scripts/generate-post-image.py content/posts/YYYY/MM/my-post/index.md
 ```
 
 The script automatically re-execs itself using `.venv/bin/python3` — no manual activation needed.
@@ -121,10 +121,10 @@ The script automatically re-execs itself using `.venv/bin/python3` — no manual
 
 1. Reads the post and calls the **Claude API** to derive a concrete visual concept
 2. Calls **DALL-E 3** (OpenAI API) to generate a 1792×1024 HD image
-3. Downloads the PNG to `static/images/posts/`
-4. Runs `./scripts/optimize-images.sh` to convert it to WebP
+3. Downloads the PNG to the post's bundle directory (alongside `index.md`)
+4. Runs `./scripts/optimize-images.sh` to convert it to WebP and generate a thumbnail
 5. Calls **Claude vision** to read the actual WebP and write accurate alt text
-6. Inserts the `figure-float` shortcode and `image` frontmatter field into the post
+6. Inserts the `figure-float` shortcode and `image` frontmatter field into `index.md`
 
 ### Requirements
 
@@ -140,10 +140,10 @@ The script automatically re-execs itself using `.venv/bin/python3` — no manual
 #### New Blog Post (manual)
 
 ```bash
-hugo new posts/my-post-title.md
+hugo new posts/2026/03/my-post-title/index.md
 ```
 
-Posts are created as drafts by default. Edit the file to fill in frontmatter and content.
+Posts are leaf bundles — each post lives in its own directory alongside its images. Posts are created as drafts by default.
 
 #### Post Frontmatter Structure
 
@@ -159,7 +159,8 @@ description = "SEO-friendly summary (~75 words)"
 summary = "Conversational LinkedIn summary (~150 words, ends with a question or CTA)"
 tags = ["lowercase-hyphenated", "specific-keywords"]
 categories = ["Title Case", "Broad Topic", "Three Total"]
-image = "/images/posts/your-image.webp"
+image = "your-image.webp"
+aliases = ["/posts/your-post-slug/"]
 +++
 ```
 
@@ -175,16 +176,20 @@ image = "/images/posts/your-image.webp"
 | `summary` | ~150 words, conversational, ends with question or CTA |
 | `tags` | Lowercase, hyphenated, specific |
 | `categories` | Exactly **3**, Title Case |
-| `image` | Optional; `.webp` path for og:image / Twitter card |
+| `image` | Optional; **filename only** (e.g. `"hero.webp"`) — must be in the bundle directory |
+| `aliases` | Add `["/posts/your-slug/"]` for redirect compatibility |
 
 ### Image Workflow
 
-1. **Generate** (automated) — run `python3 scripts/generate-post-image.py content/posts/my-post.md`
-2. **Optimize** (manual) — if adding your own image, run `./scripts/optimize-images.sh` before referencing it. Converts PNG/JPG to WebP; originals are preserved locally and stripped by CI.
-3. **Alt text** — read the `.webp` directly and write ~10-word alt text describing what is literally depicted
-4. **Insert** — use the `.webp` path in the shortcode:
+Posts are Hugo leaf bundles — images live inside the post's directory alongside `index.md`.
+
+1. **Place** — put your PNG/JPG in `content/posts/YYYY/MM/slug/`
+2. **Generate** (automated) — run `python3 scripts/generate-post-image.py content/posts/YYYY/MM/slug/index.md` to generate, optimize, and insert a hero image automatically
+3. **Optimize** (manual) — if adding your own image, run `./scripts/optimize-images.sh` from the repo root. Converts PNG/JPG to WebP and creates `thumbs/`. Originals are preserved locally and stripped by CI.
+4. **Alt text** — read the `.webp` directly and write ~10-word alt text describing what is literally depicted
+5. **Insert** — use the **filename only** in the shortcode:
    ```
-   {{< figure-float src="/images/posts/example.webp" alt="your alt text" >}}
+   {{< figure-float src="example.webp" alt="your alt text" >}}
    ```
 
 ### Building the Site
@@ -236,7 +241,8 @@ npx prettier --check "themes/coreydaley-dev/layouts/**/*.html"
 ├── archetypes/
 │   └── default.md                 # Template for new posts
 ├── content/
-│   ├── posts/                     # Blog posts
+│   ├── posts/
+│   │   ├── YYYY/MM/slug/          # Leaf bundle: index.md + images + thumbs/
 │   │   └── drafts/                # In-progress drafts (gitignored)
 │   └── search.md                  # Search page
 ├── hugo.toml                      # Hugo configuration
@@ -246,9 +252,8 @@ npx prettier --check "themes/coreydaley-dev/layouts/**/*.html"
 │   ├── generate-post-image.py     # Automated hero image generation
 │   ├── optimize-images.sh         # PNG/JPG → WebP conversion
 │   └── recompress-images.sh       # Recompress existing WebPs
-├── static/
-│   └── images/
-│       └── posts/                 # Post images (PNG originals + WebP)
+├── static/                        # Global static assets (favicon, theme images)
+│   └── images/                    # Non-post images only
 └── themes/
     └── coreydaley-dev/            # Custom Hugo theme
         ├── layouts/               # Hugo templates
