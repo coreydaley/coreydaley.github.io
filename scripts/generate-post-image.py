@@ -218,7 +218,7 @@ def main() -> None:
         print(f"Usage: {sys.argv[0]} <path-to-post.md>")
         sys.exit(1)
 
-    post_path = Path(sys.argv[1])
+    post_path = Path(sys.argv[1]).resolve()
     if not post_path.exists():
         print(f"Error: {post_path} does not exist")
         sys.exit(1)
