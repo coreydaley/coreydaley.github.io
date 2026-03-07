@@ -32,6 +32,7 @@ Use TodoWrite to track progress through each phase.
 2. Read 2-3 recent posts from `content/posts/` to calibrate voice, tone, structure, and length.
 3. Research the topic using available tools (WebSearch if helpful).
 4. Derive a URL-safe slug from the topic (lowercase, hyphenated, e.g. `my-post-topic`). Store this as `SLUG`.
+5. Determine the current year and month (e.g. `2026/03`). Store this as `YYYY/MM`. The final post path will be `content/posts/YYYY/MM/$SLUG/index.md`.
 
 ### Deliverable:
 
@@ -53,6 +54,8 @@ Create the drafts directory if needed:
 ```bash
 mkdir -p content/posts/drafts
 ```
+
+> **Note:** Drafts are flat `.md` files for iteration convenience. Only the final synthesized post becomes a leaf bundle.
 
 The draft must include:
 
@@ -141,12 +144,14 @@ Codex will produce:
    - ...
    ```
 
-4. **Write the final post** to `content/posts/$SLUG.md`:
+4. **Write the final post** as a leaf bundle at `content/posts/YYYY/MM/$SLUG/index.md`:
+   - Create the bundle directory first: `mkdir -p content/posts/YYYY/MM/$SLUG`
    - Incorporate the best angle, structure, examples, and phrasing from both drafts
    - Apply all valid critiques
    - Set `draft = false`
    - Follow all AGENTS.md conventions precisely (frontmatter, closing question, etc.)
-   - Do NOT include an `image` field unless you already have a `.webp` available
+   - Add `aliases = ["/posts/$SLUG/"]` to the frontmatter for redirect compatibility
+   - Do NOT include an `image` field yet (image is added in Phase 5)
 
 5. **Show the user** the final post and ask for approval before considering the task complete.
 
@@ -159,16 +164,16 @@ Codex will produce:
 ### Run the image generation script:
 
 ```bash
-python3 scripts/generate-post-image.py content/posts/$SLUG.md
+python3 scripts/generate-post-image.py content/posts/YYYY/MM/$SLUG/index.md
 ```
 
 The script will:
 1. Call the Claude API to derive a visual concept from the post content
 2. Call DALL-E 3 (OpenAI API) to generate a 1792×1024 HD image
-3. Download the PNG to `static/images/posts/$SLUG.png`
-4. Optimize to WebP via `./scripts/optimize-images.sh`
+3. Download the PNG to the **post's bundle directory** (`content/posts/YYYY/MM/$SLUG/$SLUG.png`)
+4. Optimize to WebP via `./scripts/optimize-images.sh` (creates `$SLUG.webp` and `thumbs/$SLUG.webp` in the bundle)
 5. Call Claude vision to generate accurate alt text from the actual image
-6. Insert the `figure-float` shortcode and `image` frontmatter field into the post
+6. Insert the `figure-float` shortcode and `image` frontmatter field into `index.md`
 
 ### Requirements:
 - `.env` file at the repo root with `ANTHROPIC_API_KEY` and `OPENAI_API_KEY` set (see `.env.example`)
@@ -177,7 +182,7 @@ The script will:
 
 ### If the script fails (missing API keys or network error):
 
-Fall back to manual: output an image generation prompt based on the post's central visual metaphor, using the blog's established style (dark navy background, electric blue + amber accents, flat vector illustration, no text, landscape 16:9). Remind the user to run `./scripts/optimize-images.sh` on any downloaded image and then manually insert the shortcode and frontmatter field.
+Fall back to manual: output an image generation prompt based on the post's central visual metaphor, using the blog's established style (dark navy background, electric blue + amber accents, flat vector illustration, no text, landscape 16:9). Remind the user to place the downloaded image in `content/posts/YYYY/MM/$SLUG/`, run `./scripts/optimize-images.sh` from the repo root, then manually insert the shortcode (`{{< figure-float src="hero.webp" alt="..." >}}`) and `image = "hero.webp"` frontmatter field in `index.md`.
 
 ---
 
@@ -192,16 +197,18 @@ content/posts/
 │   ├── $SLUG-codex-draft.md
 │   ├── $SLUG-claude-draft-codex-critique.md
 │   └── $SLUG-merge-notes.md
-└── $SLUG.md   ← final post (with image field + shortcode inserted)
+└── YYYY/
+    └── MM/
+        └── $SLUG/               ← leaf bundle (Hugo page bundle)
+            ├── index.md         ← final post (image field + shortcode inserted)
+            ├── $SLUG.png        ← original PNG (preserved locally, stripped by CI)
+            ├── $SLUG.webp       ← optimized WebP (used in post body + og:image)
+            └── thumbs/
+                └── $SLUG.webp   ← thumbnail used in post list
 ```
 
-Images:
-```
-static/images/posts/
-├── $SLUG.png   ← original PNG (preserved, stripped by CI)
-├── $SLUG.webp  ← optimized WebP (used in post)
-└── thumbs/$SLUG.webp
-```
+> All post images live **inside the leaf bundle directory**, not in `static/images/posts/`.
+> The `image` frontmatter field and shortcode `src` use the **filename only** (e.g. `"hero.webp"`), not a path.
 
 ---
 
@@ -215,6 +222,7 @@ static/images/posts/
 - [ ] Codex draft received (`$SLUG-codex-draft.md`)
 - [ ] Codex critique received (`$SLUG-claude-draft-codex-critique.md`)
 - [ ] Merge notes written (`$SLUG-merge-notes.md`)
-- [ ] Final post written to `content/posts/$SLUG.md` with `draft = false`
+- [ ] Final post written to `content/posts/YYYY/MM/$SLUG/index.md` with `draft = false`
+- [ ] `aliases = ["/posts/$SLUG/"]` added to frontmatter
 - [ ] User shown the final post and approved
-- [ ] Hero image generated and inserted via `generate-post-image.py`
+- [ ] Hero image generated and inserted via `generate-post-image.py content/posts/YYYY/MM/$SLUG/index.md`
