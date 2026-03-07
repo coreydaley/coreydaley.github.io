@@ -3,7 +3,7 @@
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-13T21:30:00-05:00
 # Last Modified By: Claude Code (Claude Sonnet 4.6)
-# Last Modified: 2026-03-06T12:00:00-05:00
+# Last Modified: 2026-03-07T14:00:00-05:00
 # Renamed from: resize-images.sh
 #
 # For each image in static/images:
@@ -33,6 +33,7 @@ MAX_WIDTH=1600
 WEBP_QUALITY=82      # Full-size quality; imperceptibly different from 85, ~10-15% smaller
 THUMB_QUALITY=75     # Thumbnail quality; artifacts invisible at small display sizes
 IMAGE_DIR="static/images"
+CONTENT_POSTS_DIR="content/posts"  # leaf bundle post directories (YYYY/MM/slug/)
 THUMB_WIDTH_POSTS=400    # 180px display × 2x DPR, rounded up
 THUMB_WIDTH_AVATARS=300  # 150px display (desktop default) × 2x DPR
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -104,7 +105,8 @@ fi
 echo -e "Maximum width:   ${GREEN}${MAX_WIDTH}px${NC}"
 echo -e "WebP quality:    ${GREEN}${WEBP_QUALITY}${NC} (thumbs: ${THUMB_QUALITY})"
 echo -e "Image directory: ${GREEN}${IMAGE_DIR}${NC}"
-echo -e "Post thumbs:     ${GREEN}${THUMB_WIDTH_POSTS}px${NC} (in posts/thumbs/)"
+echo -e "Content bundles: ${GREEN}${CONTENT_POSTS_DIR}${NC}"
+echo -e "Post thumbs:     ${GREEN}${THUMB_WIDTH_POSTS}px${NC} (in thumbs/ subdir)"
 echo -e "Avatar thumbs:   ${GREEN}${THUMB_WIDTH_AVATARS}px${NC} (in avatars/thumbs/) — covers 150px display @ 2x DPR"
 echo ""
 
@@ -340,6 +342,9 @@ while IFS= read -r -d '' image_file; do
         thumb_width="$THUMB_WIDTH_POSTS"
     elif [ "$dir_relative" = "static/images/avatars" ]; then
         thumb_width="$THUMB_WIDTH_AVATARS"
+    elif [[ "$dir_relative" == content/posts/* ]]; then
+        # Leaf bundle post directory — generate post-sized thumbnail
+        thumb_width="$THUMB_WIDTH_POSTS"
     fi
 
     if [ "$thumb_width" -gt 0 ]; then
@@ -351,7 +356,7 @@ while IFS= read -r -d '' image_file; do
         fi
     fi
 
-done < <(find "$IMAGE_DIR" -type f -not -path "*/thumbs/*" \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" \) -print0)
+done < <(find "$IMAGE_DIR" "$CONTENT_POSTS_DIR" -type f -not -path "*/thumbs/*" \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" \) -print0 2>/dev/null)
 
 # --- Summary ---
 echo ""

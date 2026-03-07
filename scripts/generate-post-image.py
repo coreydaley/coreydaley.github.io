@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-07T12:00:00-05:00
+# Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-03-07T14:00:00-05:00
 """
-Generate and insert a hero image for a Hugo blog post.
+Generate and insert a hero image for a Hugo blog post (leaf bundle layout).
 
 Steps:
   1. Read the post and derive a visual concept via Claude API
   2. Generate the image with DALL-E 3
-  3. Download the PNG to static/images/posts/
+  3. Download the PNG to the post's bundle directory (alongside index.md)
   4. Optimize to WebP via ./scripts/optimize-images.sh
   5. Generate accurate alt text by reading the WebP via Claude vision
   6. Insert figure-float shortcode and image frontmatter field into the post
@@ -22,7 +23,7 @@ Environment:
   OPENAI_API_KEY     — OpenAI API key (for DALL-E 3 image generation)
 
 Usage:
-  python3 scripts/generate-post-image.py content/posts/my-post.md
+  python3 scripts/generate-post-image.py content/posts/2026/03/my-post/index.md
 """
 
 import base64
@@ -49,7 +50,6 @@ except ImportError as e:
     sys.exit(1)
 
 REPO_ROOT = Path(__file__).parent.parent
-IMAGES_DIR = REPO_ROOT / "static" / "images" / "posts"
 
 
 def load_dotenv() -> None:
@@ -180,7 +180,8 @@ def insert_into_post(post_path: Path, slug: str, alt_text: str) -> None:
     """Add image frontmatter field and figure-float shortcode to the post."""
     content = post_path.read_text()
 
-    webp_ref = f"/images/posts/{slug}.webp"
+    # Bundle-relative reference: just the filename, no path prefix
+    webp_ref = f"{slug}.webp"
     # Escape any double quotes in alt text for Hugo shortcode safety
     safe_alt = alt_text.replace('"', "'")
     shortcode = f'{{{{< figure-float src="{webp_ref}" alt="{safe_alt}" >}}}}'
@@ -224,15 +225,23 @@ def main() -> None:
 
     check_env()
 
-    slug = post_path.stem
+    # For leaf bundles (index.md), derive slug from parent directory name.
+    # For legacy flat posts (slug.md), use the file stem.
+    if post_path.name == "index.md":
+        slug = post_path.parent.name
+        bundle_dir = post_path.parent
+    else:
+        slug = post_path.stem
+        bundle_dir = post_path.parent
+
     content = read_post(post_path)
 
     if already_has_image(content):
         print("Post already has an image field — remove it to regenerate.")
         sys.exit(0)
 
-    png_dest = IMAGES_DIR / f"{slug}.png"
-    webp_dest = IMAGES_DIR / f"{slug}.webp"
+    png_dest = bundle_dir / f"{slug}.png"
+    webp_dest = bundle_dir / f"{slug}.webp"
 
     print(f"Generating hero image for: {post_path.name}")
     print()
@@ -261,8 +270,8 @@ def main() -> None:
     print()
 
     print(f"Done. Image added to {post_path}")
-    print(f"  PNG:  static/images/posts/{slug}.png")
-    print(f"  WebP: static/images/posts/{slug}.webp")
+    print(f"  PNG:  {png_dest.relative_to(REPO_ROOT)}")
+    print(f"  WebP: {webp_dest.relative_to(REPO_ROOT)}")
 
 
 if __name__ == "__main__":
