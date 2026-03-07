@@ -13,16 +13,13 @@ I'm a software engineer who's fascinated by the intersection of human creativity
 
 ## What I Do
 
-I build things with code—and increasingly, I build them _with AI_. From web development to automation workflows, I'm constantly experimenting with how different AI assistants can augment human capabilities without replacing human judgment.
+I build things with code—and increasingly, I build them _with AI_. From web development to AI pipeline orchestration, I'm constantly experimenting with how different AI assistants can augment human capabilities without replacing human judgment.
 
-My current toolkit includes:
+My current projects include:
 
-- **Claude Code** for architectural decisions, complex multi-file changes, and content generation
-- **GitHub Copilot** for code completion, shell scripting, and routine tasks in VS Code
-- **ChatGPT** for image creation, brainstorming, and quick code exploration via the Codex CLI
-- **Hugo** as my static site generator of choice (you're looking at it!)
-
-I also maintain an [ai-config repository](https://github.com/coreydaley/ai-config) that centralizes configurations, reusable skills, and custom commands across all three AI agents — so improvements made with one tool can benefit the others.
+- **[Attractor](https://github.com/coreydaley/attractor)** — a DOT-based AI pipeline orchestration engine built in Kotlin. Define multi-LLM workflows as Graphviz directed graphs; the engine pulls execution toward your goal through conditional branches, retries, and human review gates. Documentation and guides live at [attractor.coreydaley.dev](https://attractor.coreydaley.dev).
+- **[agent-config](https://github.com/coreydaley/agent-config)** — a centralized repository for AI agent configurations, skills, and commands across Claude Code, GitHub Copilot, Codex, and Gemini CLI. A Makefile build pipeline handles per-agent format conversion so one source of truth produces correctly formatted output for every tool.
+- **[coreydaley.dev](https://github.com/coreydaley/coreydaley.github.io)** — this site, built with Hugo and a custom theme, deployed to GitHub Pages via GitHub Actions.
 
 ## Why This Blog Exists
 
@@ -31,6 +28,7 @@ This site was built collaboratively with Claude Code—not just to have a blog, 
 I write about:
 
 - **AI-assisted development** and how different tools find their niches
+- **Pipeline orchestration** and building durable, declarative AI workflows
 - **Web development** with Hugo, static site generators, and modern tooling
 - **Accessibility** — making the web work for everyone, not just the able-bodied majority
 - **Ethics and best practices** around AI in software engineering and open source
@@ -93,7 +91,9 @@ The entire site is open source and available on [GitHub](https://github.com/core
 
 ## What's Next?
 
-I'm still figuring out how to best use AI as a peer—someone to bounce architectural ideas off, explore trade-offs with, and think through solutions before diving into implementation. That's the frontier I'm most excited about exploring.
+Attractor is evolving quickly — I'm working on a video series covering installation, configuration, and advanced pipeline patterns (conditional branching, parallel execution, human gates). Watch this blog and [attractor.coreydaley.dev](https://attractor.coreydaley.dev) for updates as they're ready.
+
+Beyond that, I'm continuing to push on what AI-as-a-peer looks like at the workflow level — not just for individual coding tasks, but for multi-agent pipelines that can plan, execute, validate, and recover from failure with minimal human intervention. That's the frontier I'm most interested in.
 
 If you're on a similar journey, or if you have thoughts on any of the topics I write about, I'd love to hear from you. This blog is a conversation, not a monologue.
 
