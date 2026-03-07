@@ -3,15 +3,15 @@
 # Created by: Claude Code (Claude Sonnet 4.5)
 # Date: 2026-02-13T21:30:00-05:00
 # Last Modified By: Claude Code (Claude Sonnet 4.6)
-# Last Modified: 2026-02-19T15:20:00-05:00
+# Last Modified: 2026-03-06T00:00:00-05:00
 # Renamed from: resize-images.sh
 #
 # For each image in static/images:
 #   PNG/JPG/GIF  → creates an optimized .webp alongside the original (original
 #                  is NOT deleted). If the .webp already exists it is skipped,
-#                  so the script is safe to re-run. Resize to ≤512px is baked
+#                  so the script is safe to re-run. Resize to ≤1024px is baked
 #                  into the conversion step rather than modifying the source.
-#   WebP         → resized in-place if wider than 512px (it is already the
+#   WebP         → resized in-place if wider than 1024px (it is already the
 #                  target format, so there is no separate "original" to keep).
 #   Browser icons (favicon*, apple-touch-icon*, android-chrome*) → skipped.
 #
@@ -28,7 +28,7 @@
 set -e
 
 # Configuration
-MAX_WIDTH=512
+MAX_WIDTH=1024
 WEBP_QUALITY=82      # Full-size quality; imperceptibly different from 85, ~10-15% smaller
 THUMB_QUALITY=75     # Thumbnail quality; artifacts invisible at small display sizes
 IMAGE_DIR="static/images"
