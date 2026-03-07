@@ -32,7 +32,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: >
-            --base public/
+            --root-dir ${{ github.workspace }}/public
             --exclude "^https://linkedin\.com"
             --exclude "^https://twitter\.com"
             --exclude "^https://x\.com"
