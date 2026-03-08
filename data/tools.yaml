@@ -1,10 +1,90 @@
 # Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-07T00:00:00-05:00
 # Add tools alphabetically. The tools page layout sorts and groups them by first letter automatically.
 # Categories: AI Agent, AI Service, Developer Tool, Hardware, Service, Software
+# recommend: "Yes" | "Yes, with caveats" | "Maybe" | "No" | "" (leave blank = no opinion yet)
+# recommend_notes: optional explanation — use >- for multi-line (folds into one paragraph):
+#   recommend_notes: >-
+#     First sentence.
+#     Second sentence on a new line but rendered as the same paragraph.
+
+- name: "Apple Hardware and Software Ecosystem"
+  category: "Hardware"
+  url: "https://apple.com"
+  recommend: "Yes"
+  recommend_notes: >-
+    Fully integrated into the Apple ecosystem — iPhone, iPad, MacBook Pro, AirPods, iCloud, etc. —
+    and love that it all just works together without having to mess around with settings and external
+    sync tools. It gives me the best of both worlds between having beautiful desktop applications
+    similar to Microsoft Windows and still having a great command line experience like Linux, and the
+    continuity features across devices are genuinely magical.
+  description: "Hardware and software ecosystem spanning iPhone, iPad, MacBook Pro, AirPods, Apple Watch, and iCloud. The tight vertical integration across devices makes everything from handoff to file sync to AirPlay feel seamless in daily use."
+  pros:
+    - "Seamless cross-device continuity — Handoff, AirDrop, Universal Clipboard just work"
+    - "iCloud keeps contacts, calendars, notes, and files in sync without configuration"
+    - "Best-in-class build quality and long software support lifecycles"
+    - "AirPods integration with automatic device switching is genuinely magical"
+    - "Privacy-first defaults compared to most competitors"
+  cons:
+    - "Premium pricing across the entire product line"
+    - "Walled garden makes mixing in non-Apple devices frustrating"
+    - "iCloud storage tiers feel small relative to device prices"
+
+- name: "balenaEtcher"
+  category: "Software"
+  url: "https://etcher.balena.io"
+  recommend: "Yes"
+  recommend_notes: >-
+    A great free app for writing disk images to a USB drive that you can boot from.
+    Has worked for me several times when others would not.
+  description: "Free, open-source tool for flashing OS images and disk images to USB drives and SD cards. Used whenever a bootable USB is needed — installers, live Linux environments, recovery media, and more."
+  pros:
+    - "Free and open source"
+    - "Validates the write after flashing to catch errors automatically"
+    - "Works with virtually any image format (ISO, IMG, ZIP, etc.)"
+    - "Available on Mac, Windows, and Linux"
+    - "Simple three-step UI — select image, select drive, flash"
+  cons:
+    - "Electron-based — heavier than native alternatives"
+    - "No advanced partitioning or multi-boot support"
+    - "Can be slow compared to command-line tools like dd"
+
+- name: "BetterSnapTool"
+  category: "Software"
+  url: "https://folivora.ai/bettersnaptool"
+  recommend: "Yes"
+  recommend_notes: "A great one-time purchase for anyone who wants more powerful window management on Mac without using a full tiling window manager like Amethyst."
+  description: "Window snapping and management tool for Mac. Lets you snap windows to predefined positions and sizes using keyboard shortcuts or by dragging to screen edges and corners."
+  pros:
+    - "One-time purchase from the Mac App Store"
+    - "Highly customizable snap zones and keyboard shortcuts"
+    - "Supports multiple monitors well"
+    - "Lightweight and stays out of the way"
+  cons:
+    - "macOS has added basic window tiling natively, reducing the gap"
+    - "Setup requires time to configure to your preferred layout"
+    - "UI for configuration is a bit dated"
+
+- name: "ChatGPT"
+  category: "AI Service"
+  url: "https://chatgpt.com"
+  recommend: "Yes"
+  recommend_notes: "Great for quick questions and brainstorming alongside Claude"
+  description: "OpenAI's web-based AI chat interface. Used for quick questions, brainstorming, and tasks where a second AI perspective is useful alongside Claude."
+  pros:
+    - "Fast and capable for general-purpose chat and writing tasks"
+    - "GPT-4o handles images, files, and voice natively"
+    - "Wide plugin and tool ecosystem via custom GPTs"
+    - "Included with ChatGPT Plus, which also covers Codex CLI"
+  cons:
+    - "Overlaps heavily with Claude.ai for most conversational tasks"
+    - "Less consistent tone and reasoning depth than Claude for long-form writing"
+    - "Custom GPTs vary wildly in quality"
 
 - name: "Claude Code"
   category: "AI Agent"
   url: "https://claude.ai/claude-code"
+  recommend: "Yes"
+  recommend_notes: "Love it for complex coding tasks"
   description: "Primary AI coding agent for complex multi-file changes, architectural decisions, content generation, and full-session development workflows. Powers this entire blog workflow including post creation, image generation, and CI/CD."
   pros:
     - "Exceptional reasoning for complex, multi-step tasks"
@@ -20,6 +100,8 @@
 - name: "Claude.ai"
   category: "AI Service"
   url: "https://claude.ai"
+  recommend: "Yes"
+  recommend_notes: "My go-to for brainstorming and writing"
   description: "Web-based AI chat interface for brainstorming, research, drafting, and quick back-and-forth conversations that don't need CLI integration."
   pros:
     - "Fast and conversational for exploratory work"
@@ -34,6 +116,8 @@
 - name: "Codex CLI"
   category: "AI Agent"
   url: "https://github.com/openai/codex"
+  recommend: "Yes"
+  recommend_notes: "Useful for competitive drafting and independent second opinions"
   description: "OpenAI's command-line AI coding agent. Used for competitive drafting — spawning independent Codex drafts of blog posts to compare and synthesize with Claude drafts."
   pros:
     - "Fast execution in non-interactive mode via codex exec"
@@ -45,23 +129,83 @@
     - "Can produce verbose or over-structured output"
     - "Requires careful prompting to match project conventions"
 
-- name: "Cursor"
-  category: "Developer Tool"
-  url: "https://cursor.com"
-  description: "AI-first fork of VS Code with built-in AI chat, inline edits, and multi-file context. Used for in-editor AI assistance when a full agent session is overkill."
+- name: "DaisyDisk"
+  category: "Software"
+  url: "https://daisydiskapp.com"
+  recommend: "Yes"
+  recommend_notes: "Great for quickly identifying and managing disk space usage on Mac."
+  description: "Disk space analyzer for Mac that visualizes storage usage as an interactive sunburst chart. Makes it easy to find what's eating your disk and delete it directly from the app."
   pros:
-    - "Seamless inline AI edits without leaving the editor"
-    - "Familiar VS Code interface and extension compatibility"
-    - "Composer mode handles multi-file refactors well"
-    - "Good at codebase-aware autocomplete"
+    - "Beautiful, intuitive sunburst visualization of disk usage"
+    - "Scans quickly and handles large volumes well"
+    - "Can delete files directly from the scan results"
+    - "Shows hidden and system files with appropriate warnings"
   cons:
-    - "Subscription on top of existing AI tool costs"
-    - "Overlaps significantly with Claude Code and Copilot"
-    - "Can feel heavyweight for simple editing tasks"
+    - "Paid app — not free"
+    - "macOS permission prompts can limit access to some directories"
+    - "Occasional rescans needed to stay current after deletions"
+
+- name: "DBeaver"
+  category: "Developer Tool"
+  url: "https://dbeaver.io"
+  recommend: "Yes, with caveats"
+  recommend_notes: >-
+    Love it and it has support for tons of different types of data sources.
+    Wish they had a 'personal' vs 'commercial' license tier — I'd love Redis support but it's Pro only.
+    That said, the list of Pro-only data sources is very small.
+  description: "Universal database management tool with support for dozens of data sources including PostgreSQL, MySQL, SQLite, MongoDB, and more. Used for querying, schema browsing, data export, and general database administration."
+  pros:
+    - "Supports an enormous range of databases and data sources out of the box"
+    - "Free Community Edition covers the vast majority of everyday use cases"
+    - "SQL editor with autocomplete, formatting, and explain plan support"
+    - "Cross-platform — Mac, Windows, Linux"
+    - "ER diagrams and schema browser make understanding unfamiliar databases fast"
+  cons:
+    - "Some data sources (Redis, Couchbase, etc.) locked behind Pro license"
+    - "No personal license tier — it's free community or paid commercial"
+    - "UI can feel dated and cluttered compared to newer tools"
+
+- name: "Darkroom"
+  category: "Software"
+  url: "https://darkroom.co"
+  recommend: "Yes"
+  recommend_notes: >-
+    Essential software for photo editing and simple video editing.
+    Allows for a one-time purchase instead of a lifetime of subscription fees like Lightroom.
+  description: "Photo and video editing app for Mac, iPhone, and iPad. Used for color grading, photo retouching, and light video edits — a capable, subscription-free alternative to Adobe Lightroom with a clean native interface."
+  pros:
+    - "One-time purchase available — no forced subscription"
+    - "Native app across iPhone, iPad, and Mac with iCloud sync"
+    - "Non-destructive editing with a clean, distraction-free UI"
+    - "Supports RAW files, batch editing, and custom presets"
+    - "Video editing support for basic color grading and cuts"
+  cons:
+    - "Less powerful than Lightroom for large catalog management"
+    - "Smaller preset and plugin ecosystem"
+    - "Advanced masking tools lag behind Lightroom and Photoshop"
+
+- name: "Docker / Docker Desktop"
+  category: "Developer Tool"
+  url: "https://docker.com"
+  recommend: "Yes"
+  recommend_notes: "Absolutely essential for running containers locally for development and testing."
+  description: "Container platform for building, running, and managing containerized applications locally. Docker Desktop provides a GUI and CLI for managing images, containers, volumes, and networks — used for local development environments and testing before deploying to production."
+  pros:
+    - "Consistent, reproducible environments across machines and CI"
+    - "Docker Compose makes multi-service local stacks trivial to spin up"
+    - "Huge ecosystem of pre-built images on Docker Hub"
+    - "Docker Desktop GUI simplifies container and volume management"
+    - "Integrates cleanly with GitHub Actions and most CI platforms"
+  cons:
+    - "Docker Desktop requires a paid subscription for commercial use beyond small teams"
+    - "Can be resource-heavy on macOS (runs a Linux VM under the hood)"
+    - "Networking edge cases on Mac differ from Linux production environments"
 
 - name: "Gemini CLI"
   category: "AI Agent"
   url: "https://github.com/google-gemini/gemini-cli"
+  recommend: "Yes"
+  recommend_notes: "Promising for Google-centric workflows and Search grounding"
   description: "Google's command-line AI agent. Added to the agent-config workflow to extend centralized configuration management to a fourth AI tool."
   pros:
     - "Free tier with generous limits via Google account"
@@ -75,6 +219,8 @@
 - name: "GitHub Copilot"
   category: "AI Agent"
   url: "https://github.com/features/copilot"
+  recommend: "Yes"
+  recommend_notes: "Great for inline code completion and quick coding tasks"
   description: "AI coding assistant integrated directly into VS Code. Used for fast inline code completion, shell scripting, and routine coding tasks that don't need a full agent session."
   pros:
     - "Zero-friction inline suggestions while typing"
@@ -89,6 +235,12 @@
 - name: "GitKraken"
   category: "Developer Tool"
   url: "https://gitkraken.com"
+  recommend: "No"
+  recommend_notes: >-
+    The yearly subscription seems a bit much for my needs, especially for what seems like a low amount
+    of 'Compose commits with AI' usage and a similar git branch graph to what VS Code provides for free.
+    I prefer command-line Git and other visual clients, and Claude/Codex agents can handle complex Git
+    operations without leaving the terminal.
   description: "Visual Git client that replaces the command line for visualizing branch history, resolving merge conflicts, and managing complex repository states."
   pros:
     - "Visual branch graph makes complex history immediately readable"
@@ -100,9 +252,43 @@
     - "Can be slow on repositories with very long histories"
     - "Overkill for simple linear-history projects"
 
+- name: "GPG Keychain"
+  category: "Software"
+  url: "https://gpgtools.org"
+  recommend: "Yes, with caveats"
+  recommend_notes: "Essential for secure communication and code signing on Mac. Still don't have their GPG Mail plugin working with the latest macOS updates, so I use it primarily for key management and git commit signing, but it's an indispensable tool for that."
+  description: "Mac app for managing GPG keys, part of the GPG Suite. Used for creating, importing, and managing PGP keys for signing commits, encrypting email, and verifying signatures."
+  pros:
+    - "Native Mac UI makes GPG key management approachable"
+    - "Integrates with Mail for encrypted email via GPG Mail"
+    - "Supports key generation, import/export, and keyserver sync"
+    - "Works with git for signing commits via GPG"
+  cons:
+    - "GPG Mail (email encryption) requires a paid license"
+    - "GPG itself has a steep learning curve for new users"
+    - "Occasional friction with macOS updates breaking integration"
+
+- name: "Graphviz"
+  category: "Developer Tool"
+  url: "https://graphviz.org"
+  recommend: "Yes"
+  recommend_notes: ""
+  description: "Open-source graph visualization software that renders diagrams from DOT language descriptions. Used for generating dependency graphs, architecture diagrams, and flowcharts programmatically."
+  pros:
+    - "Free and open source"
+    - "Text-based input (DOT language) makes diagrams scriptable and version-controllable"
+    - "Handles complex graphs automatically — no manual layout needed"
+    - "Multiple output formats: SVG, PNG, PDF, and more"
+  cons:
+    - "DOT language syntax requires learning"
+    - "Layout algorithms can produce cluttered results on dense graphs"
+    - "No interactive or GUI editor — purely command-line driven"
+
 - name: "Hugo"
   category: "Software"
   url: "https://gohugo.io"
+  recommend: "Yes"
+  recommend_notes: "Excellent for static site generation and blog workflows"
   description: "Static site generator powering this blog. Chosen for its speed, flexibility, and zero runtime dependencies — every page is pre-built HTML served directly from GitHub Pages."
   pros:
     - "Extremely fast builds (milliseconds for most sites)"
@@ -118,6 +304,8 @@
 - name: "ImageMagick"
   category: "Software"
   url: "https://imagemagick.org"
+  recommend: "Yes"
+  recommend_notes: "Essential for image processing and optimization tasks"
   description: "Command-line image processing toolkit. Used in the optimize-images.sh script to resize hero images and convert PNG/JPG to WebP for web-optimized delivery."
   pros:
     - "Handles virtually any image format conversion"
@@ -129,9 +317,104 @@
     - "Documentation is dense and hard to navigate"
     - "Requires separate installation on each machine/runner"
 
+- name: "JupyterLab"
+  category: "Developer Tool"
+  url: "https://jupyter.org"
+  recommend: ""
+  recommend_notes: ""
+  description: "Interactive notebook environment for Python (and other languages). Used for data exploration, prototyping, and running code alongside markdown notes and visualizations in a browser-based interface."
+  pros:
+    - "Combines code, output, and documentation in a single notebook"
+    - "Excellent for data exploration and iterative experimentation"
+    - "Supports Python, R, Julia, and dozens of other kernels"
+    - "Rich ecosystem of extensions and integrations"
+  cons:
+    - "Notebooks can encourage non-reproducible, out-of-order execution"
+    - "Not ideal for production code or large software projects"
+    - "Dependency management (kernels, environments) can be fiddly"
+
+- name: "LibreOffice"
+  category: "Software"
+  url: "https://libreoffice.org"
+  recommend: "Yes"
+  recommend_notes: >-
+    An absolute essential — better than Microsoft Office or Apple Pages/Numbers/Keynote,
+    and it's free and open source.
+  description: "Free and open-source office suite covering documents, spreadsheets, presentations, databases, and more. A full-featured replacement for Microsoft Office and Apple iWork with broad format compatibility."
+  pros:
+    - "Free and open source — no subscription, no license fees"
+    - "Excellent compatibility with Microsoft Office formats (docx, xlsx, pptx)"
+    - "Full suite: Writer, Calc, Impress, Base, Draw, Math"
+    - "Available on Mac, Windows, and Linux"
+    - "Active development community with regular releases"
+  cons:
+    - "UI feels less polished than Microsoft Office or Apple iWork"
+    - "Some complex Office documents render imperfectly"
+    - "No cloud-native collaboration like Google Docs or Microsoft 365"
+
+- name: "ngrok"
+  category: "Developer Tool"
+  url: "https://ngrok.com"
+  recommend: "Yes"
+  recommend_notes: "Great for quickly exposing local servers to the internet for testing webhooks and sharing work in progress without deployment."
+  description: "Tunneling tool that exposes a local port to the internet via a public URL. Used for testing webhooks, sharing local dev servers with teammates, and demoing work in progress without deploying."
+  pros:
+    - "Instantly expose localhost with a single command"
+    - "HTTPS tunnel out of the box — no SSL cert setup needed"
+    - "Supports webhook inspection and request replay"
+    - "Free tier covers most casual development use cases"
+  cons:
+    - "Free tier URLs are randomly generated and change on restart"
+    - "Persistent custom domains require a paid plan"
+    - "Traffic routes through ngrok's servers — not suitable for sensitive data"
+
+- name: "Notion"
+  category: "Service"
+  url: "https://notion.so"
+  recommend: "No"
+  recommend_notes: >-
+    I prefer tools that are faster and more focused on writing and knowledge management without the
+    overhead of a full workspace platform. Notion is great for collaborative projects but feels too
+    heavy for my personal note-taking and drafting needs. I also don't like being forced into their
+    AI features when I just want a clean writing environment or would rather use a different AI tool.
+  description: "All-in-one workspace for notes, docs, databases, and project tracking. Used for collaborative planning, structured content databases, and anything that benefits from a shared, web-accessible workspace."
+  pros:
+    - "Flexible block-based editor handles everything from simple notes to relational databases"
+    - "Real-time collaboration built in"
+    - "AI features (Notion AI) useful for summarizing and drafting"
+    - "Web-accessible from any device without setup"
+    - "Good for sharing structured information with others"
+  cons:
+    - "Slow load times compared to local-first tools"
+    - "Markdown export is lossy — not ideal as a long-term archive format"
+    - "Free tier limits can be restrictive for larger workspaces"
+    - "Requires internet connection for full functionality"
+
+- name: "Obsidian"
+  category: "Software"
+  url: "https://obsidian.md"
+  recommend: "Yes"
+  recommend_notes: >-
+    Excellent for personal knowledge management and offline-first workflows.
+    I can also open Claude Code or Codex CLI sessions directly in the vault for seamless integration
+    between AI-assisted writing and note-taking.
+  description: "Local-first Markdown note-taking and knowledge management app. Used for capturing ideas, building a personal knowledge base, and drafting content before it moves into the blog workflow."
+  pros:
+    - "Files are plain Markdown — no vendor lock-in, fully portable"
+    - "Powerful graph view and backlinks for connecting ideas"
+    - "Rich plugin ecosystem for custom workflows"
+    - "Works entirely offline with local storage"
+    - "Fast and lightweight compared to Notion or Confluence"
+  cons:
+    - "Sync across devices requires Obsidian Sync (paid) or a DIY solution"
+    - "Plugin quality varies widely — some are abandoned"
+    - "No native real-time collaboration"
+
 - name: "Pagefind"
   category: "Software"
   url: "https://pagefind.app"
+  recommend: "Yes"
+  recommend_notes: "Great for adding search functionality to static sites without a backend"
   description: "Static site search library. Indexes the built HTML at CI time and ships a small JavaScript client that runs fully in-browser — no search server required."
   pros:
     - "Zero infrastructure — search runs entirely client-side"
@@ -143,23 +426,116 @@
     - "Limited advanced search features compared to Elasticsearch or Algolia"
     - "Custom UI requires CSS work to match site design"
 
-- name: "Perplexity"
-  category: "AI Service"
-  url: "https://perplexity.ai"
-  description: "AI-powered research tool that searches the live web and synthesizes cited answers. Used for market research, fact-checking, and exploring topics before writing."
+- name: "Photomator"
+  category: "Software"
+  url: "https://photomator.com"
+  recommend: "Maybe"
+  recommend_notes: >-
+    Purchased before I knew about Darkroom. One-time purchase with great integration with Photos and
+    Pixelmator Pro — so if you already have those two it might make sense, but I'd try Darkroom first.
+  description: "Photo editing app from the Pixelmator team, designed around Apple Photos integration. Offers non-destructive editing with ML-powered tools and deep Pixelmator Pro interoperability for more advanced work."
   pros:
-    - "Real-time web search with source citations"
-    - "Faster than manually searching and synthesizing results"
-    - "Pro Search mode handles multi-step research questions well"
-    - "Good at comparing products, tools, and technical approaches"
+    - "Seamless integration with Apple Photos library"
+    - "One-time purchase"
+    - "ML-powered tools (denoise, Super Resolution, auto enhance) work well"
+    - "Great companion to Pixelmator Pro for round-tripping complex edits"
+    - "Available on Mac, iPhone, and iPad with iCloud sync"
   cons:
-    - "Citations can be misleading — always verify primary sources"
-    - "Less useful for tasks that don't require live web data"
-    - "Subscription cost on top of other AI tools"
+    - "Overlaps significantly with Darkroom for most editing tasks"
+    - "Less useful if you don't organize photos through Apple Photos"
+    - "Not as feature-rich as Lightroom for large catalog workflows"
+
+- name: "Pixelmator Pro"
+  category: "Software"
+  url: "https://pixelmator.com/pro/"
+  recommend: "Yes"
+  recommend_notes: "Love it for anything from simple to complex image editing and resizing."
+  description: "Native Mac image editor used for everything from quick resizes and crops to more complex compositing and retouching. A powerful, affordable alternative to Photoshop that feels at home on macOS."
+  pros:
+    - "Native Mac app — fast, lightweight, and deeply integrated with macOS"
+    - "One-time purchase with no subscription"
+    - "ML-powered tools (background removal, Super Resolution, color matching) are genuinely useful"
+    - "Handles RAW files, layers, masks, and non-destructive edits"
+    - "Great for resizing and optimizing images for the web"
+  cons:
+    - "Mac and iPad only — no Windows or cross-platform option"
+    - "Smaller plugin ecosystem than Photoshop"
+    - "Some advanced compositing workflows still feel easier in Photoshop"
+
+- name: "Screen Recorder by Omi"
+  category: "Software"
+  url: "https://omiapps.com/product/1592987853"
+  recommend: "Yes"
+  recommend_notes: >-
+    Absolutely essential for screen recording demos. One-time purchase with tons of great options —
+    camera overlays, full screen, area, window, window content, app content, audio recording, the works!
+  description: "Mac screen recorder with a comprehensive set of capture modes including full screen, selected area, window, and app content recording. Supports camera picture-in-picture, virtual backgrounds, system audio, mouse/key event display, and on-screen drawing — all in one tool."
+  pros:
+    - "One-time purchase — no subscription"
+    - "Multiple capture modes: full screen, area, window, app, camera"
+    - "Camera picture-in-picture with virtual background support"
+    - "Records system audio, microphone, mouse clicks, and key presses"
+    - "On-screen drawing during recording for annotations and demos"
+  cons:
+    - "Mac only"
+    - "Exports to mp4 — limited format options"
+    - "Lighter editing capabilities compared to dedicated video editors"
+
+- name: "UTM"
+  category: "Software"
+  url: "https://mac.getutm.app"
+  recommend: "Yes"
+  recommend_notes: ""
+  description: "Virtual machine manager for Mac built on QEMU. Used for running Windows, Linux, and other operating systems in VMs on Apple Silicon and Intel Macs without requiring a paid VMware or Parallels license."
+  pros:
+    - "Free and open source"
+    - "Runs on Apple Silicon natively via QEMU/Apple Hypervisor"
+    - "Supports a wide range of guest OS architectures"
+    - "Available on the Mac App Store for easy install"
+  cons:
+    - "Performance lags behind Parallels for Windows on Apple Silicon"
+    - "Setup for some guest OSes requires more manual configuration"
+    - "Less polished UI than commercial alternatives like Parallels or VMware"
+
+- name: "Viscosity"
+  category: "Software"
+  url: "https://sparklabs.com/viscosity/"
+  recommend: "Yes"
+  recommend_notes: "A great one-time purchase for a simple yet powerful VPN client."
+  description: "VPN client for Mac and Windows supporting OpenVPN and other protocols. Used for connecting to VPN servers with a clean, menubar-driven interface and solid connection management."
+  pros:
+    - "One-time purchase — no subscription"
+    - "Clean, minimal menubar UI that stays out of the way"
+    - "Supports OpenVPN, with robust connection profiles and scripting"
+    - "DNS leak protection and traffic statistics built in"
+    - "Available on both Mac and Windows"
+  cons:
+    - "Not free — paid upfront compared to some open-source alternatives"
+    - "No built-in VPN service — requires your own server or provider config"
+    - "WireGuard support is limited compared to dedicated WireGuard clients"
+
+- name: "VLC"
+  category: "Software"
+  url: "https://videolan.org/vlc/"
+  recommend: "Yes"
+  recommend_notes: "Obviously. I mean, who doesn't love VLC?"
+  description: "Free and open-source media player that handles virtually every audio and video format without needing additional codecs. A universal constant in any software toolkit."
+  pros:
+    - "Plays virtually any media format out of the box"
+    - "Free, open source, and available on every platform"
+    - "No ads, no accounts, no telemetry"
+    - "Handles network streams, DVDs, and even damaged files"
+    - "Lightweight and fast to launch"
+  cons:
+    - "UI hasn't changed much in years — feels dated"
+    - "Advanced features are buried in menus"
+    - "Lacks the polish of native platform media players"
 
 - name: "VS Code"
   category: "Developer Tool"
   url: "https://code.visualstudio.com"
+  recommend: "Yes"
+  recommend_notes: "A great general-purpose code editor with strong AI integration and extensibility"
   description: "Primary code editor. Used for all editing work not handled by AI agents directly, with Copilot integration for inline AI assistance."
   pros:
     - "Massive extension ecosystem covers every language and workflow"
@@ -170,3 +546,38 @@
     - "Can become slow and memory-hungry with many extensions"
     - "Default settings require significant customization to optimize"
     - "Electron-based — heavier than native editors"
+
+- name: "WhatsApp"
+  category: "Service"
+  url: "https://whatsapp.com"
+  recommend: "Yes"
+  recommend_notes: "A widely used messaging app that reaches people across platforms and geographies. Great for group chats and international communication, but privacy concerns around metadata collection by Meta are worth noting."
+  description: "Cross-platform messaging app used for personal and group communication. End-to-end encrypted by default and available on iPhone, Mac, and web."
+  pros:
+    - "End-to-end encrypted by default for messages and calls"
+    - "Works across iPhone, Android, Mac, and web"
+    - "Supports voice/video calls, file sharing, and group chats"
+    - "Widely used internationally — reaches people who aren't on iMessage"
+  cons:
+    - "Owned by Meta — privacy concerns around metadata collection"
+    - "Requires a phone number to register"
+    - "Large media files eat storage quickly without regular cleanup"
+
+- name: "Wireshark"
+  category: "Developer Tool"
+  url: "https://wireshark.org"
+  recommend: "Yes"
+  recommend_notes: >-
+    A must-have for packet capture to diagnose deep connection issues or just see how programs
+    and services communicate with each other.
+  description: "Open-source network protocol analyzer for capturing and inspecting packet-level traffic. Used for debugging connection issues, understanding how applications communicate over the network, and diagnosing anything from TLS handshakes to DNS failures."
+  pros:
+    - "Captures and decodes traffic for hundreds of protocols out of the box"
+    - "Powerful display filters make it easy to isolate exactly what you need"
+    - "Free and open source"
+    - "Available on Mac, Windows, and Linux"
+    - "Invaluable for understanding how apps and services actually communicate"
+  cons:
+    - "Steep learning curve — effective use requires networking fundamentals"
+    - "Capturing on macOS requires elevated privileges or a helper tool"
+    - "Raw packet data can be overwhelming without knowing what to filter for"
