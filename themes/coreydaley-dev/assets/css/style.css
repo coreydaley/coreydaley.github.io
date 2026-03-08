@@ -2277,9 +2277,17 @@ nav.sharebuttons li > a:hover .will-change {
 .tool-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.75rem;
     flex-wrap: wrap;
     margin-bottom: 0.6rem;
+}
+
+.tool-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
 }
 
 .tool-name {
@@ -2287,16 +2295,25 @@ nav.sharebuttons li > a:hover .will-change {
     font-size: 1.15rem;
     font-weight: 600;
     margin: 0;
+    color: var(--text-primary);
 }
 
-.tool-name a {
+.tool-website-link {
+    font-size: 0.75rem;
+    font-weight: 600;
     color: var(--link-color);
     text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid var(--link-color);
+    border-radius: 4px;
+    padding: 0.2em 0.55em;
+    transition: background 0.15s, color 0.15s;
 }
 
-.tool-name a:hover {
-    color: var(--accent-pink);
-    text-decoration: underline;
+.tool-website-link:hover {
+    background: var(--link-color);
+    color: var(--bg-primary);
+    text-decoration: none;
 }
 
 .tool-category {
@@ -2347,6 +2364,59 @@ nav.sharebuttons li > a:hover .will-change {
     background: rgba(139, 92, 246, 0.1);
     color: #7c3aed;
     border-color: rgba(139, 92, 246, 0.3);
+}
+
+.tool-recommend {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.tool-recommend-icon {
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.tool-recommend--yes .tool-recommend-icon,
+.tool-recommend--yes strong {
+    color: #16a34a;
+}
+
+.tool-recommend--caveats .tool-recommend-icon--yes {
+    color: #16a34a;
+}
+
+.tool-recommend--caveats .tool-recommend-icon--warning,
+.tool-recommend--caveats strong {
+    color: #c2410c;
+}
+
+.tool-recommend--no .tool-recommend-icon,
+.tool-recommend--no strong {
+    color: #dc2626;
+}
+
+.tool-recommend--maybe .tool-recommend-icon,
+.tool-recommend--maybe strong {
+    color: #6b7280;
+}
+
+.tool-verdict {
+    margin-top: 1.25rem;
+}
+
+.tool-verdict-heading {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin: 0 0 0.25rem;
 }
 
 .tool-description {

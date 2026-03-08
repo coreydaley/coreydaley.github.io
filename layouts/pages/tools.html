@@ -37,10 +37,11 @@
             {{- if eq (upper (substr .name 0 1)) $l -}}
               <div class="tool-card">
                 <div class="tool-header">
-                  <h3 class="tool-name">
-                    <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
-                  </h3>
-                  <span class="tool-category tool-category--{{ .category | lower | replaceRE " " "-" }}">{{ .category }}</span>
+                  <h3 class="tool-name">{{ .name }}</h3>
+                  <div class="tool-header-meta">
+                    <span class="tool-category tool-category--{{ .category | lower | replaceRE " " "-" }}">{{ .category }}</span>
+                    <a href="{{ .url }}" target="_blank" rel="noopener" class="tool-website-link">Visit Website ↗</a>
+                  </div>
                 </div>
                 <p class="tool-description">{{ .description }}</p>
                 <div class="tool-pros-cons">
@@ -61,6 +62,28 @@
                     </div>
                   {{- end -}}
                 </div>
+                {{- if .recommend -}}
+                  {{- $cls := "tool-recommend--yes" -}}
+                  {{- if eq .recommend "No" -}}{{- $cls = "tool-recommend--no" -}}{{- end -}}
+                  {{- if eq .recommend "Yes, with caveats" -}}{{- $cls = "tool-recommend--caveats" -}}{{- end -}}
+                  {{- if eq .recommend "Maybe" -}}{{- $cls = "tool-recommend--maybe" -}}{{- end -}}
+                  <div class="tool-verdict">
+                    <p class="tool-verdict-heading">Recommendation</p>
+                    <p class="tool-recommend {{ $cls }}">
+                      {{- if eq .recommend "Yes, with caveats" -}}
+                        <span class="tool-recommend-icon tool-recommend-icon--yes">&#10003;</span><span class="tool-recommend-icon tool-recommend-icon--warning">&#9888;</span>
+                      {{- else if eq .recommend "No" -}}
+                        <span class="tool-recommend-icon">&#10007;</span>
+                      {{- else if eq .recommend "Maybe" -}}
+                        <span class="tool-recommend-icon">&#63;</span>
+                      {{- else -}}
+                        <span class="tool-recommend-icon">&#10003;</span>
+                      {{- end -}}
+                      <strong>{{ .recommend }}</strong>
+                      {{- if .recommend_notes -}} — {{ .recommend_notes }}{{- end -}}
+                    </p>
+                  </div>
+                {{- end -}}
               </div>
             {{- end -}}
           {{- end -}}
