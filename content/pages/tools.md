@@ -7,4 +7,4 @@ description = "Every AI agent, software tool, service, and piece of hardware in 
 layout = "tools"
 +++
 
-A running list of everything I use regularly — AI agents, developer tools, services, and more. For each tool I've noted what I use it for and the honest pros and cons I've found through daily use. Organized alphabetically; add your own by [editing the data file](https://github.com/coreydaley/coreydaley.github.io/blob/main/data/tools.yaml).
+A running list of everything I use regularly or have used and didn't like — AI agents, developer tools, services, and more. For each tool I've noted what I use/used it for, the honest pros and cons I've found through daily use, and my honest opinion on whether or not I recommend it.
