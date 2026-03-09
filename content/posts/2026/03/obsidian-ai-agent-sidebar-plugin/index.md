@@ -46,6 +46,8 @@ The gap was real. So I built it.
 
 The [Obsidian AI Agent Sidebar plugin](https://github.com/coreydaley/obsidian-ai-agent-sidebar-plugin) is what I wish had already existed. It adds a sidebar panel to Obsidian where you can chat with multiple AI agents and give them direct access to your vault. A few design decisions shaped how it works:
 
+{{< figure-block src="ai-agent-sidebar-chat-interface.webp" alt="Obsidian window with the AI Agent Sidebar open on the right, showing a Claude Code chat panel and a note about auto-shared context." >}}
+
 **1. Multi-agent tabs, not a single chat.** Different models are better at different tasks. The tabbed interface lets you switch between Claude Code, OpenAI Codex, Google Gemini, GitHub Copilot, and any OpenAI-compatible endpoint — without losing conversation history in other tabs.
 
 **2. CLI mode and API mode.** Some agents are best consumed through their official CLIs, using credentials you've already configured in your shell. Others work better through direct API calls. The plugin supports both, which means it adapts to your existing setup rather than forcing a migration.
@@ -55,6 +57,8 @@ The [Obsidian AI Agent Sidebar plugin](https://github.com/coreydaley/obsidian-ai
 **4. OpenAI-compatible endpoint support.** Any provider that speaks the OpenAI protocol — Ollama, vLLM, self-hosted gateways — can be plugged in. This keeps the tool useful beyond the current landscape of commercial APIs.
 
 There's also real-time streaming responses, conversation persistence across sessions, model selection in API mode, and a debug mode that shows raw output when something breaks.
+
+{{< figure-block src="ai-agent-sidebar-settings.webp" alt="Obsidian plugin settings panel listing Anthropic, OpenAI, Google, GitHub, and OpenAI Compatible providers with CLI and API mode toggles for each." >}}
 
 ## How I Built It (With AI, Obviously)
 
