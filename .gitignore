@@ -23,4 +23,4 @@ hugo.log
 .claude/settings.local.json
 .env
 .venv
-content/posts/drafts
+drafts/

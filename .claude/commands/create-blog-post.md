@@ -50,14 +50,14 @@ Write a brief **Orientation Summary** covering:
 
 **Goal**: Write a complete, publication-ready draft following all project conventions.
 
-### Write to: `content/posts/drafts/$SLUG-claude-draft.md`
+### Write to: `drafts/$SLUG-claude-draft.md`
 
 Create the drafts directory if needed:
 ```bash
-mkdir -p content/posts/drafts
+mkdir -p drafts
 ```
 
-> **Note:** Drafts are flat `.md` files for iteration convenience. Only the final post becomes a leaf bundle.
+> **Note:** Drafts are flat `.md` files stored in `drafts/` at the repo root (outside `content/` so Hugo never renders them). Only the final post becomes a leaf bundle.
 
 The draft must include:
 
@@ -96,20 +96,20 @@ The draft must include:
 ### Execute Codex:
 
 ```bash
-codex exec "Please read content/posts/drafts/$SLUG-claude-draft.md. This is a Claude-written draft for a personal tech blog. Also read CLAUDE.md for the project content conventions. Then: (1) Write your own independent draft to content/posts/drafts/$SLUG-codex-draft.md — same topic, same TOML frontmatter format with double-quote strings, but your own angle, structure, and voice. Only AFTER your draft is complete, (2) read Claude's draft again and write a critique to content/posts/drafts/$SLUG-claude-draft-codex-critique.md — what works, what's weak, what's missing, what you'd change."
+codex exec "Please read drafts/$SLUG-claude-draft.md. This is a Claude-written draft for a personal tech blog. Also read CLAUDE.md for the project content conventions. Then: (1) Write your own independent draft to drafts/$SLUG-codex-draft.md — same topic, same TOML frontmatter format with double-quote strings, but your own angle, structure, and voice. Only AFTER your draft is complete, (2) read Claude's draft again and write a critique to drafts/$SLUG-claude-draft-codex-critique.md — what works, what's weak, what's missing, what you'd change."
 ```
 
 ### Wait for Codex to complete.
 
 Codex will produce:
-- `content/posts/drafts/$SLUG-codex-draft.md` — Independent draft
-- `content/posts/drafts/$SLUG-claude-draft-codex-critique.md` — Critique of your draft
+- `drafts/$SLUG-codex-draft.md` — Independent draft
+- `drafts/$SLUG-claude-draft-codex-critique.md` — Critique of your draft
 
 ### Read both files once Codex finishes.
 
 ### Write your critique of the Codex draft:
 
-After reading the Codex draft, write your own critique to `content/posts/drafts/$SLUG-codex-draft-claude-critique.md`. Evaluate:
+After reading the Codex draft, write your own critique to `drafts/$SLUG-codex-draft-claude-critique.md`. Evaluate:
 - What angle or framing did Codex take that differs from yours?
 - What does Codex do better — structure, conciseness, voice, examples?
 - What is weak, missing, or wrong in Codex's draft?
@@ -135,7 +135,7 @@ This critique is your editorial brief going into synthesis — be specific and o
    - Examples or analogies unique to each
    - Tone and voice differences
 
-3. **Write merge notes** to `content/posts/drafts/$SLUG-merge-notes.md`:
+3. **Write merge notes** to `drafts/$SLUG-merge-notes.md`:
    ```markdown
    # Merge Notes: [Post Title]
 
@@ -158,7 +158,7 @@ This critique is your editorial brief going into synthesis — be specific and o
    - ...
    ```
 
-4. **Write the synthesized draft** to `content/posts/drafts/$SLUG-synthesized-draft.md`:
+4. **Write the synthesized draft** to `drafts/$SLUG-synthesized-draft.md`:
    - Incorporate the best angle, structure, examples, and phrasing from both drafts
    - Apply all valid critiques from both directions
    - Use full TOML frontmatter with `draft = true`
@@ -174,13 +174,13 @@ This critique is your editorial brief going into synthesis — be specific and o
 ### Execute Codex:
 
 ```bash
-codex exec "Please read content/posts/drafts/$SLUG-synthesized-draft.md. This is a synthesized blog post draft for a personal tech blog. Also read CLAUDE.md for the project content conventions. Act as a professional editor. Write an editorial critique to content/posts/drafts/$SLUG-synthesized-draft-editorial-critique.md covering: (1) overall clarity and argument strength, (2) pacing and structure — are any sections too long, too short, or in the wrong order?, (3) voice consistency — does the post read as one cohesive piece or does it have seams from the merge?, (4) specific lines or paragraphs to cut, rewrite, or move, (5) whether the opening hook and closing question are strong. Be direct and specific — line-level feedback where useful."
+codex exec "Please read drafts/$SLUG-synthesized-draft.md. This is a synthesized blog post draft for a personal tech blog. Also read CLAUDE.md for the project content conventions. Act as a professional editor. Write an editorial critique to drafts/$SLUG-synthesized-draft-editorial-critique.md covering: (1) overall clarity and argument strength, (2) pacing and structure — are any sections too long, too short, or in the wrong order?, (3) voice consistency — does the post read as one cohesive piece or does it have seams from the merge?, (4) specific lines or paragraphs to cut, rewrite, or move, (5) whether the opening hook and closing question are strong. Be direct and specific — line-level feedback where useful."
 ```
 
 ### Wait for Codex to complete.
 
 Codex will produce:
-- `content/posts/drafts/$SLUG-synthesized-draft-editorial-critique.md` — Professional editorial critique
+- `drafts/$SLUG-synthesized-draft-editorial-critique.md` — Professional editorial critique
 
 ### Read the critique carefully before proceeding to Phase 6.
 
@@ -255,15 +255,16 @@ Fall back to manual: output an image generation prompt based on the post's centr
 After this workflow completes, you'll have:
 
 ```
+drafts/                              ← gitignored, outside content/ (Hugo never renders these)
+├── $SLUG-claude-draft.md
+├── $SLUG-codex-draft.md
+├── $SLUG-claude-draft-codex-critique.md
+├── $SLUG-codex-draft-claude-critique.md
+├── $SLUG-merge-notes.md
+├── $SLUG-synthesized-draft.md
+└── $SLUG-synthesized-draft-editorial-critique.md
+
 content/posts/
-├── drafts/
-│   ├── $SLUG-claude-draft.md
-│   ├── $SLUG-codex-draft.md
-│   ├── $SLUG-claude-draft-codex-critique.md
-│   ├── $SLUG-codex-draft-claude-critique.md
-│   ├── $SLUG-merge-notes.md
-│   ├── $SLUG-synthesized-draft.md
-│   └── $SLUG-synthesized-draft-editorial-critique.md
 └── YYYY/
     └── MM/
         └── $SLUG/               ← leaf bundle (Hugo page bundle)
@@ -284,13 +285,13 @@ content/posts/
 - [ ] CLAUDE.md read and conventions internalized
 - [ ] Recent posts reviewed for tone/voice calibration
 - [ ] Orientation summary written (slug, angle, key points, categories)
-- [ ] Claude draft written to `content/posts/drafts/$SLUG-claude-draft.md`
+- [ ] Claude draft written to `drafts/$SLUG-claude-draft.md`
 - [ ] Codex executed and completed
 - [ ] Codex draft received (`$SLUG-codex-draft.md`)
 - [ ] Codex critique received (`$SLUG-claude-draft-codex-critique.md`)
 - [ ] Claude critique of Codex draft written (`$SLUG-codex-draft-claude-critique.md`)
 - [ ] Merge notes written (`$SLUG-merge-notes.md`)
-- [ ] Synthesized draft written to `content/posts/drafts/$SLUG-synthesized-draft.md`
+- [ ] Synthesized draft written to `drafts/$SLUG-synthesized-draft.md`
 - [ ] Codex editorial review completed (`$SLUG-synthesized-draft-editorial-critique.md`)
 - [ ] Final post written to `content/posts/YYYY/MM/$SLUG/index.md` with `draft = false`
 - [ ] `aliases = ["/posts/$SLUG/"]` added to frontmatter
