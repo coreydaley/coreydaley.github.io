@@ -15,11 +15,7 @@ I'm a software engineer who's fascinated by the intersection of human creativity
 
 I build things with code—and increasingly, I build them _with AI_. From web development to AI pipeline orchestration, I'm constantly experimenting with how different AI assistants can augment human capabilities without replacing human judgment.
 
-My current projects include:
-
-- **[Attractor](https://github.com/coreydaley/attractor)** — a DOT-based AI pipeline orchestration engine built in Kotlin. Define multi-LLM workflows as Graphviz directed graphs; the engine pulls execution toward your goal through conditional branches, retries, and human review gates. Documentation and guides live at [attractor.coreydaley.dev](https://attractor.coreydaley.dev).
-- **[agent-config](https://github.com/coreydaley/agent-config)** — a centralized repository for AI agent configurations, skills, and commands across Claude Code, GitHub Copilot, Codex, and Gemini CLI. A Makefile build pipeline handles per-agent format conversion so one source of truth produces correctly formatted output for every tool.
-- **[coreydaley.dev](https://github.com/coreydaley/coreydaley.github.io)** — this site, built with Hugo and a custom theme, deployed to GitHub Pages via GitHub Actions.
+You can find a full list of projects — active, completed, and archived — on the [Projects](/pages/projects/) page.
 
 ## Why This Blog Exists
 
