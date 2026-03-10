@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-07T12:00:00-05:00
-# Last Modified By: Claude Code (Claude Sonnet 4.6) | Last Modified: 2026-03-07T14:00:00-05:00
 """
 Generate and insert a hero image for a Hugo blog post (leaf bundle layout).
 

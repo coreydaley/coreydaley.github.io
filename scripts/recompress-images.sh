@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Created by: Claude Code (Claude Sonnet 4.6)
-# Date: 2026-02-19T15:10:00-05:00
 #
 # Re-encodes all existing WebP images with maximum compression settings,
 # replacing each file only if the re-encoded output is actually smaller.

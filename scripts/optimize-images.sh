@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-
-# Created by: Claude Code (Claude Sonnet 4.5)
-# Date: 2026-02-13T21:30:00-05:00
-# Last Modified By: Claude Code (Claude Sonnet 4.6)
-# Last Modified: 2026-03-07T14:00:00-05:00
 # Renamed from: resize-images.sh
 #
 # For each image in static/images:

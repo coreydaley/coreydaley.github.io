@@ -1,8 +1,3 @@
-# Created by: Claude Code (Claude Sonnet 4.5)
-# Date: 2026-02-08T14:30:00-05:00
-# Last Modified By: Claude Code (Claude Sonnet 4.6)
-# Last Modified: 2026-02-19T14:40:00-05:00
-
 .PHONY: help build serve clean purgecss pagefind build-search build-purge build-all install dev restore clean-all optimize-images recompress-images format pre-commit
 
 # Default target
