@@ -1,0 +1,8 @@
+{{ $src := .Get "src" | default "/images/avatars/avatar.webp" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $side := .Get "side" | default "left" }}
+{{ $shape := .Get "shape" | default "circle" }}
+<div class="about-intro{{ if eq $side "right" }} about-intro--right{{ end }}">
+  <img src="{{ $src }}" alt="{{ $alt }}" class="{{ if eq $shape "circle" }}about-avatar{{ else }}about-section-image{{ end }}">
+  <div class="about-intro-text">{{ .Inner | markdownify }}</div>
+</div>
