@@ -1,0 +1,45 @@
+{{/* Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-10T00:00:00-04:00 */}}
+{{/* related-posts.html
+  Shows up to 3 related posts scored by category + tag overlap via Hugo Related Pages API.
+  Rendered outside data-pagefind-body — recommendations are navigation links, not post content.
+  Gracefully hides the section when no related posts are found.
+*/}}
+{{- $related := where (.Site.RegularPages.Related .) "Section" "posts" -}}
+{{- $related = where $related "Permalink" "ne" .Permalink | first 3 -}}
+{{- if $related -}}
+  <section class="related-posts">
+    <h2 class="related-posts-heading">If you enjoyed this post, you might also enjoy...</h2>
+    <div class="related-posts-grid">
+      {{- range $related -}}
+        <article class="related-post-card">
+          {{- $imgParam := .Params.image -}}
+          {{- if $imgParam -}}
+            {{- $img := "" -}}
+            {{- if hasPrefix $imgParam "/" -}}
+              {{- $img = $imgParam | replaceRE `\.(png|jpe?g)$` ".webp" -}}
+            {{- else -}}
+              {{- with .Resources.GetMatch (printf "thumbs/%s" $imgParam) -}}
+                {{- $img = .RelPermalink -}}
+              {{- else -}}
+                {{- with .Resources.GetMatch $imgParam -}}{{- $img = .RelPermalink -}}{{- end -}}
+              {{- end -}}
+            {{- end -}}
+            {{- if $img -}}
+              <a href="{{ .RelPermalink }}" class="related-post-image-link" tabindex="-1" aria-hidden="true">
+                <img src="{{ $img }}" alt="{{ .Title }}" width="400" height="225" loading="lazy" />
+              </a>
+            {{- end -}}
+          {{- end -}}
+          <div class="related-post-body">
+            <h3 class="related-post-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+            {{- if .Description -}}
+              <p class="related-post-excerpt">{{ .Description | truncate 120 }}</p>
+            {{- end -}}
+          </div>
+        </article>
+      {{- end -}}
+    </div>
+  </section>
+{{- end -}}
