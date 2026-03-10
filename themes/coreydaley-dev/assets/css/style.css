@@ -2,7 +2,7 @@
  * Created by: AI Agent
  * Date: 2026-02-06T22:56:44-05:00
  * Last Modified By: Claude Code (Claude Sonnet 4.6)
- * Last Modified: 2026-02-20T00:00:00-05:00
+ * Last Modified: 2026-03-10T00:00:00-05:00
  */
 
 /* ===================================
@@ -2609,4 +2609,116 @@ nav.sharebuttons li > a:hover .will-change {
         width: 100px;
         aspect-ratio: 4 / 3;
     }
+}
+
+/* ============================================================
+   Projects Page
+   ============================================================ */
+
+
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.15s;
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+}
+
+.project-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.project-header-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.project-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 4px;
+    padding: 0.2em 0.55em;
+    transition: background 0.15s, color 0.15s;
+}
+
+.project-link--site {
+    color: var(--link-color);
+    border: 1px solid var(--link-color);
+}
+
+.project-link--site:hover {
+    background: var(--link-color);
+    color: var(--bg-primary);
+    text-decoration: none;
+}
+
+.project-link--github {
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.project-link--github:hover {
+    background: var(--text-secondary);
+    color: var(--bg-primary);
+    text-decoration: none;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+}
+
+.project-highlights {
+    margin: 0 0 0.75rem;
+    padding-left: 1.25rem;
+}
+
+.project-highlights li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+}
+
+.project-tech-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    background: var(--bg-sidebar);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
 }
