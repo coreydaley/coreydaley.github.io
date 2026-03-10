@@ -7,9 +7,11 @@ description = "Welcome to my new blog built with Hugo and GitHub Pages! This int
 summary = "Welcome to my new blog! I'm excited to finally have my own corner of the internet. I wanted to kick things off by sharing how I built this site and what you can expect. I chose Hugo because it's fast, simple, and has an incredible developer experience—millisecond rebuilds and automatic browser refresh make writing feel effortless. The github-style theme keeps things clean and content-focused. Everything's hosted on GitHub Pages with automated deployments, so publishing is as simple as pushing to main. No servers, no databases, just pure static speed. I'll be writing about development, AI tools, productivity workflows, and lessons from my software engineering journey. Glad you're here! What brought you to this blog? Are you using static site generators for your own projects?"
 tags = ["hugo", "github-pages", "static-site", "web-development", "blogging"]
 categories = ["Web Development", "Getting Started"]
+image = "welcome-to-my-new-blog.webp"
 aliases = ["/posts/welcome-to-my-new-blog/"]
 +++
 
+{{< figure-float src="welcome-to-my-new-blog.webp" alt="Person working at a computer desk surrounded by glowing blue floating gears above." >}}
 Hey there, and welcome! I'm excited to finally have my own corner of the internet up and running. This is the first real post on my new blog, and I wanted to kick things off by talking a little about how I built it.
 
 ## Why Hugo?
@@ -33,3 +35,4 @@ The whole site is hosted on [GitHub Pages](https://pages.github.com/) with autom
 I plan to use this space to write about the things I'm working on, things I'm learning, and topics that interest me. If any of that sounds interesting to you, stick around — there's more to come.
 
 Thanks for reading!
+

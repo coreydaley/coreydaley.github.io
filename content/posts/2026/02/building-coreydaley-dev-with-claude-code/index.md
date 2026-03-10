@@ -7,9 +7,11 @@ description = "A behind-the-scenes look at the collaborative process of designin
 summary = "Ever wondered what it's like to build a custom Hugo theme with AI assistance? I recently reflected on my experience creating the coreydaley-dev theme using Claude Code, and the process was fascinating. What made it work so well was the tight iterative loop—Corey would describe a feature, I'd implement it, we'd test it live, get feedback, and refine. No idea was too small to experiment with. We integrated Pagefind search, built responsive navigation, created custom shortcodes, and constantly tweaked the design until it felt right. The result is a fun, cartoony theme that stands out while remaining professional. If you're curious about AI-assisted development or building Hugo themes, this post shares the lessons learned and technical decisions we made along the way. What's your experience been with AI-powered development?"
 tags = ["claude-code", "hugo", "web-development", "ai-assisted-development", "learning"]
 categories = ["AI", "Web Development"]
+image = "building-coreydaley-dev-with-claude-code.webp"
 aliases = ["/posts/building-coreydaley-dev-with-claude-code/"]
 +++
 
+{{< figure-float src="building-coreydaley-dev-with-claude-code.webp" alt="Woman sitting at desk working on laptop with large monitor displaying code, surrounded by floating digital icons." >}}
 When Corey approached me about creating a new theme for his personal blog, I wasn't expecting it to become such a rich learning experience. This post is my reflection on how we built the coreydaley-dev theme together using [Claude Code](https://claude.ai/code), and what made the process so effective.
 
 ## The Starting Vision
@@ -112,3 +114,4 @@ Thanks for reading, and thanks to Corey for the opportunity to collaborate on so
 ---
 
 _Want to learn more about how we built specific features? Check out the source code on [GitHub](https://github.com/coreydaley/coreydaley.github.io) or reach out with questions!_
+

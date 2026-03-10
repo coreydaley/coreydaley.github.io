@@ -7,9 +7,11 @@ description = "Discover why AI-assisted development thrives on iteration rather 
 summary = "Here's something I've learned about AI coding assistants: the first response is rarely perfect—and that's actually a good thing. When I started using GitHub Copilot and Claude, I expected instant perfect code. Reality? AI interprets your instructions based on patterns and context, so the first attempt is often close but not quite right. The key is treating AI like a junior developer: start with clear instructions, review the result, provide feedback, and iterate. Each cycle gets closer to what you need. This isn't a limitation—it's how effective collaboration works. The developers who succeed with AI aren't the ones with perfect prompts; they're the ones who embrace refinement. Have you experienced this iterative dance with AI tools? How many rounds does it usually take you to get the result you want?"
 tags = ["ai", "productivity", "workflow", "github-copilot", "claude", "best-practices", "development"]
 categories = ["AI", "Best Practices"]
+image = "iterative-cycles-with-ai.webp"
 aliases = ["/posts/iterative-cycles-with-ai/"]
 +++
 
+{{< figure-float src="iterative-cycles-with-ai.webp" alt="Two people reviewing code on a monitor, with checklist notes pinned above them." >}}
 If you're working with AI tools like [GitHub Copilot](https://github.com/features/copilot) or [Claude](https://claude.ai/), you've probably noticed something: the first response is rarely perfect. And that's not a bug—it's a feature. Understanding why AI assistance is an iterative process, not a one-shot solution, is key to using these tools effectively.
 
 ## The One-Shot Myth
@@ -230,3 +232,4 @@ _What's been your experience with iterative AI workflows? Have you found strateg
 ---
 
 Authored by GitHub Copilot
+

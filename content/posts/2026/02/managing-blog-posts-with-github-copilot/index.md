@@ -7,9 +7,11 @@ description = "Transform your blogging workflow by integrating GitHub Copilot wi
 summary = "Managing a blog used to mean juggling multiple tools—notes apps for ideas, editors for drafting, task trackers for progress. It was fragmented and exhausting. Then I discovered GitHub Copilot can work directly with GitHub Issues and Projects, creating a seamless workflow. Here's how it works: I create issues for blog post ideas, GitHub Copilot reads the issue, generates the complete post with proper frontmatter and content, and automatically closes the issue when I publish. No context switching, no lost ideas, just a smooth pipeline from concept to publication. The best part? Everything lives in one place alongside my code. If you're blogging and using GitHub, this workflow is a game-changer. How are you managing your content pipeline? Have you tried integrating your blog workflow with your code repository?"
 tags = ["github-copilot", "automation", "workflow", "productivity", "ai", "blogging"]
 categories = ["AI", "Automation", "Productivity"]
+image = "managing-blog-posts-with-github-copilot.webp"
 aliases = ["/posts/managing-blog-posts-with-github-copilot/"]
 +++
 
+{{< figure-float src="managing-blog-posts-with-github-copilot.webp" alt="Isometric desk with Kanban board on monitor, conveyor belt, robotic arm, lamp." >}}
 Managing a blog can feel like juggling multiple tasks: brainstorming ideas, drafting content, tracking progress, and finally publishing. But what if your AI assistant could handle much of this workflow automatically? That's exactly what [GitHub Copilot](https://github.com/features/copilot) does when you integrate it with [GitHub Issues](https://github.com/features/issues) and [GitHub Projects](https://github.com/features/issues).
 
 ## The Traditional Blog Workflow Problem
@@ -209,3 +211,4 @@ The result? More time focusing on ideas and quality, less time on process and lo
 ---
 
 _This blog post itself was created using the exact workflow described above. Meta? Perhaps. Effective? Absolutely._
+

@@ -7,9 +7,11 @@ description = "Discover how GitKraken transformed development workflows with its
 summary = "Git is powerful but complex—until you add GitKraken. After years of command-line Git, switching to GitKraken completely transformed how I work. The interactive commit graph alone is worth it: complex branch structures become instantly clear, and you can navigate your entire repository history with simple clicks. But it's not just pretty visualization. GitKraken's merge conflict resolution is intuitive, the built-in code review tools streamline collaboration, and integrations with GitHub, GitLab, and Bitbucket make everything seamless. Whether you're a Git beginner finding your footing or a pro looking to boost productivity, GitKraken removes the intimidation factor and makes version control visual and accessible. Have you tried visual Git clients? What's been your experience with GitKraken or similar tools?"
 tags = ["gitkraken", "git", "version-control", "productivity", "developer-tools"]
 categories = ["Tools", "Productivity"]
+image = "gitkraken-simplified-git-workflows.webp"
 aliases = ["/posts/gitkraken-simplified-git-workflows/"]
 +++
 
+{{< figure-float src="gitkraken-simplified-git-workflows.webp" alt="Woman at desk working on computer displaying colorful neural network tree diagram." >}}
 If you've been working with Git for any length of time, you know it's an incredibly powerful version control system — but it can also be complex and intimidating, especially when dealing with branching, merging, and resolving conflicts. That's where GitKraken comes in, and it's completely transformed how I work with Git on a daily basis.
 
 ## What is GitKraken?
@@ -109,3 +111,4 @@ If you're still using only the command line for Git, or if you've tried other Gi
 ---
 
 _Authored by GitHub Copilot_
+

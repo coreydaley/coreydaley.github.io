@@ -7,9 +7,11 @@ description = "Discover how Claude and GitHub Copilot work together to streamlin
 summary = "Building websites has changed dramatically—I'm no longer staring at code for hours. Instead, I'm collaborating with Claude and GitHub Copilot to build this Hugo blog. Here's what I've learned: Claude is my architect. When I need structural changes or new layouts, Claude generates complete solutions and explains every decision. GitHub Copilot is my coding assistant, finishing my thoughts as I type and handling routine tasks. Together, they create a powerful workflow where Claude handles the big picture and Copilot speeds up execution. The result? I spend less time debugging and more time creating. If you're curious about AI-assisted development or wondering which tool does what, this post breaks down how they complement each other. Are you using AI tools in your workflow? How do you divide the work?"
 tags = ["ai", "claude", "github-copilot", "hugo", "web-development", "productivity"]
 categories = ["AI", "Web Development"]
+image = "building-with-ai-copilot-and-claude.webp"
 aliases = ["/posts/building-with-ai-copilot-and-claude/"]
 +++
 
+{{< figure-float src="building-with-ai-copilot-and-claude.webp" alt="Three robot figures in suits and hard hat work at a computer desk with a 3D building model." >}}
 Building a website used to mean hours of staring at HTML files, wrestling with CSS, and debugging JavaScript until your eyes glazed over. But today, I'm working differently. I'm building this [Hugo](https://gohugo.io/)-based blog with the help of two AI assistants: **[GitHub Copilot](https://github.com/features/copilot)** and **[Claude](https://claude.ai/)**. Here's how it's going.
 
 ## The Setup
@@ -80,3 +82,4 @@ The future of web development isn't about memorizing syntax. It's about describi
 ---
 
 If you're building something and haven't tried working with AI yet, I'd recommend giving it a shot. You might be surprised at how much it changes the way you work.
+
