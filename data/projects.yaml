@@ -1,0 +1,97 @@
+# Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-10T00:00:00-05:00
+# Add projects in any order — the projects page layout groups them by status.
+# status: "Active" | "Completed" | "On Hold" | "Archived"
+# url: optional main/homepage URL
+# github: optional GitHub repository URL
+# tech: optional list of languages, frameworks, or tools used
+
+- name: "obsidian-ai-agent-sidebar-plugin"
+  status: "Active"
+  github: "https://github.com/coreydaley/obsidian-ai-agent-sidebar-plugin"
+  description: >-
+    An Obsidian plugin that adds a sidebar for chatting with AI agents — Claude Code, OpenAI Codex,
+    Google Gemini, GitHub Copilot, and any OpenAI-compatible endpoint. Agents can read, create,
+    edit, rename, and delete files in your vault via CLI tools or direct API calls, with streaming
+    responses and auto-context from the currently open note.
+  tech:
+    - "TypeScript"
+    - "Obsidian API"
+    - "Node.js"
+  highlights:
+    - "Supports Claude, Codex, Gemini, Copilot, and any OpenAI-compatible server (Ollama, vLLM, LM Studio)"
+    - "Both CLI mode (spawns installed tool) and API mode (direct provider API with key) per agent"
+    - "Vault CRUD operations with path validation and confirmation prompt for deletes"
+    - "Streaming responses, multi-agent tabs, persistent conversations, and debug mode"
+
+- name: "agent-config"
+  status: "Active"
+  github: "https://github.com/coreydaley/agent-config"
+  description: >-
+    Centralized repository for AI agent configurations, skills, and commands across Claude Code,
+    GitHub Copilot, Codex CLI, and Gemini CLI. A Makefile build pipeline handles per-agent format
+    conversion so one source of truth produces correctly formatted output for every tool.
+  tech:
+    - "Makefile"
+    - "YAML"
+    - "Markdown"
+    - "Shell"
+  highlights:
+    - "Single source of truth for commands and skills shared across four AI coding agents"
+    - "Makefile pipeline converts shared configs into each agent's native format automatically"
+    - "Covers Claude Code, GitHub Copilot, OpenAI Codex CLI, and Gemini CLI"
+
+- name: "attractor"
+  status: "Active"
+  url: "https://attractor.coreydaley.dev"
+  github: "https://github.com/coreydaley/attractor"
+  description: >-
+    A DOT-based AI pipeline orchestration engine built in Kotlin. Define multi-LLM workflows as
+    Graphviz directed graphs; the engine pulls execution toward your goal through conditional
+    branches, retries, and human review gates. Documentation and guides live at
+    attractor.coreydaley.dev.
+  tech:
+    - "Kotlin"
+    - "Graphviz DOT"
+    - "Gradle"
+  highlights:
+    - "Pipelines are defined as Graphviz DOT files — version-controllable and human-readable"
+    - "Supports conditional branching, parallel execution, retries, and human review gates"
+    - "Designed to orchestrate workflows across multiple LLM providers"
+
+- name: "coreydaley-dev-theme"
+  status: "Active"
+  github: "https://github.com/coreydaley/coreydaley-dev-theme"
+  description: >-
+    A Hugo theme for technical blogs with a playful futurism aesthetic — vibrant colors, cartoon-style
+    elements, smooth animations, and a LinkedIn-inspired header layout. Powers coreydaley.dev and is
+    open-sourced under MIT for anyone to use.
+  tech:
+    - "Hugo"
+    - "CSS"
+    - "JavaScript"
+    - "Pagefind"
+  highlights:
+    - "Responsive two-column layout with sticky sidebar, tag cloud, and category navigation"
+    - "Full-text search via Pagefind — client-side, no backend required"
+    - "Special date avatar swapping for holidays and custom dates"
+    - "Configurable social links, Google Analytics, and custom head/footer partials"
+
+- name: "coreydaley.github.io"
+  status: "Active"
+  url: "https://coreydaley.dev"
+  github: "https://github.com/coreydaley/coreydaley.github.io"
+  description: >-
+    This site — a Hugo-powered personal blog with a custom theme, deployed to GitHub Pages via
+    GitHub Actions. Built collaboratively with Claude Code to explore AI-assisted development
+    workflows. Includes a custom Pagefind search integration, leaf bundle post structure,
+    automated image optimization, and a sprint-based development workflow.
+  tech:
+    - "Hugo"
+    - "Dart Sass"
+    - "Pagefind"
+    - "GitHub Actions"
+    - "Claude Code"
+  highlights:
+    - "Custom coreydaley-dev theme built with and maintained by Claude Code"
+    - "Automated image optimization pipeline converts PNG/JPG to WebP with responsive thumbnails"
+    - "Sprint-based development workflow with AI agents handling entire feature sprints"

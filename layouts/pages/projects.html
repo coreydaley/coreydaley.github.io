@@ -1,0 +1,45 @@
+{{/* Created by: Claude Code (Claude Sonnet 4.6) | Date: 2026-03-10T00:00:00-05:00 */}}
+{{ define "main" }}
+  {{- $projects := .Site.Data.projects -}}
+
+  <article class="single-post">
+    <header class="post-header">
+      <div class="post-header-content">
+        <h1 class="post-title-single">{{ .Title }}</h1>
+      </div>
+    </header>
+
+    <div class="post-content projects-page">
+      {{ .Content }}
+
+      {{- range $projects -}}
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">{{ .name }}</h3>
+            <div class="project-header-links">
+              {{- if .url -}}
+                <a href="{{ .url }}" target="_blank" rel="noopener" class="project-link project-link--site">Visit Site ↗</a>
+              {{- end -}}
+              {{- if .github -}}
+                <a href="{{ .github }}" target="_blank" rel="noopener" class="project-link project-link--github">GitHub ↗</a>
+              {{- end -}}
+            </div>
+          </div>
+          <p class="project-description">{{ .description }}</p>
+          {{- if .highlights -}}
+            <ul class="project-highlights">
+              {{- range .highlights -}}<li>{{ . }}</li>{{- end -}}
+            </ul>
+          {{- end -}}
+          {{- if .tech -}}
+            <div class="project-tech">
+              {{- range .tech -}}
+                <span class="project-tech-tag">{{ . }}</span>
+              {{- end -}}
+            </div>
+          {{- end -}}
+        </div>
+      {{- end -}}
+    </div>
+  </article>
+{{ end }}
