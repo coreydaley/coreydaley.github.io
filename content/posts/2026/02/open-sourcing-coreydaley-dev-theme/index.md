@@ -4,7 +4,13 @@ title = "Open Sourcing the coreydaley-dev Hugo Theme"
 date = "2026-02-14T17:30:20-05:00"
 draft = false
 description = "Announcing the release of coreydaley-dev, a fun and functional Hugo theme now available on GitHub under the MIT license. This post explores why I'm open sourcing the theme, its standout features including special date avatar swapping, the collaborative AI-assisted development process, and how you can use it for your own projects. Discover a Hugo theme that balances personality with performance, built through human-AI collaboration and designed to make static sites more engaging and distinctive."
-summary = "I'm excited to announce that the Hugo theme powering this site—coreydaley-dev—is now open source! After building it collaboratively with Claude Code, I've released it under the MIT license so anyone can use, modify, and learn from it. The theme offers a unique cartoony aesthetic with practical features like special date avatar swapping (think Halloween pumpkins or holiday themes), Pagefind search integration, responsive design, and full customization options. You can preview it at theme.coreydaley.dev or grab it from GitHub at coreydaley/coreydaley-dev-theme. This wasn't just about creating a theme—it was an experiment in AI-assisted development and a chance to give back to the Hugo community. If you're looking for a Hugo theme that stands out from the typical minimal design while remaining fast and functional, check it out! What features would you want to see in a Hugo theme?"
+summary = """I'm excited to announce that the Hugo theme powering this site—coreydaley-dev—is now open source! After building it collaboratively with Claude Code, I've released it under the MIT license so anyone can use, modify, and learn from it.
+
+The theme offers a unique cartoony aesthetic with practical features like special date avatar swapping (think Halloween pumpkins or holiday themes), Pagefind search integration, responsive design, and full customization options. You can preview it at theme.coreydaley.dev or grab it from GitHub at coreydaley/coreydaley-dev-theme.
+
+This wasn't just about creating a theme—it was an experiment in AI-assisted development and a chance to give back to the Hugo community. If you're looking for a Hugo theme that stands out from the typical minimal design while remaining fast and functional, check it out! What features would you want to see in a Hugo theme?
+
+Read more at https://coreydaley.dev/posts/2026/02/open-sourcing-coreydaley-dev-theme/"""
 tags = ["hugo", "open-source", "web-development", "themes", "mit-license", "ai-collaboration"]
 categories = ["Web Development", "Open Source", "Getting Started"]
 aliases = ["/posts/open-sourcing-coreydaley-dev-theme/"]

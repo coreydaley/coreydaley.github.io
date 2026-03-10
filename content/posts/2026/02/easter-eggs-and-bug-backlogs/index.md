@@ -4,7 +4,13 @@ date = "2026-02-17T09:00:00-05:00"
 draft = false
 title = "Easter Eggs and Bug Backlogs: When Developer Whimsy Feels Tone-Deaf"
 description = "There's a special kind of frustration that comes from watching a product you love ship a hidden dinosaur game or a secret disco mode while a bug you reported two years ago collects digital dust. But is that frustration always warranted? Let's unpack why companies build these things, who actually builds them, and whether they really steal time from the work that matters."
-summary = "Few things ignite a user community faster than discovering a beloved app shipped a hidden Easter egg — unless that community has been waiting years for a critical bug fix. This tension between developer whimsy and user frustration is real, complicated, and more nuanced than either side often admits. In this post I explore both the genuine anger users feel when a product seems to prioritize fun over function, and the surprising business logic (and human reality) behind why these features exist in the first place. Did your favorite app's secret game mode come at the expense of fixing that one maddening bug? The answer might surprise you. What's your take — harmless fun or a breach of user trust?"
+summary = """Few things ignite a user community faster than discovering a beloved app shipped a hidden Easter egg — unless that community has been waiting years for a critical bug fix. This tension between developer whimsy and user frustration is real, complicated, and more nuanced than either side often admits.
+
+In this post I explore both the genuine anger users feel when a product seems to prioritize fun over function, and the surprising business logic (and human reality) behind why these features exist in the first place. Did your favorite app's secret game mode come at the expense of fixing that one maddening bug? The answer might surprise you.
+
+What's your take — harmless fun or a breach of user trust?
+
+Read more at https://coreydaley.dev/posts/2026/02/easter-eggs-and-bug-backlogs/"""
 tags = ["product-management", "user-experience", "software-development", "easter-eggs", "community"]
 categories = ["Software Development", "Product Management", "Community"]
 aliases = ["/posts/easter-eggs-and-bug-backlogs/"]

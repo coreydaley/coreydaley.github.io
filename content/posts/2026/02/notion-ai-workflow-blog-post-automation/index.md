@@ -4,7 +4,13 @@ title = "Automate Your Blog with Notion and AI: A Self-Demonstrating Workflow"
 date = "2026-02-10T21:41:59-05:00"
 draft = false
 description = "Build a self-sustaining blog workflow where ideas become published posts automatically. This comprehensive guide shows how to use Notion to-do lists as your content queue, integrate AI assistants like Claude Code and ChatGPT via Model Context Protocol (MCP), and create a seamless pipeline from idea capture to publication. Learn the technical setup including Notion API configuration, Hugo integration, and how AI reads your ideas, generates complete blog posts with proper formatting, and marks tasks complete—turning content creation from a manual chore into an automated system."
-summary = "This post you're reading right now? It was created by an AI reading a to-do item from my Notion database. That's the power of combining Notion with AI assistants. The problem every blogger faces: brilliant ideas die in the gap between inspiration and execution. My solution: a Notion to-do list where I capture ideas, and AI assistants (Claude Code and ChatGPT) read from it via Model Context Protocol, generate complete posts, publish them to my Hugo blog, and mark the to-dos complete. It's self-demonstrating—this very post was created that way. The workflow transforms content creation from manual drudgery into an automated pipeline. If you're drowning in blog ideas but low on execution energy, this might be your answer. Are you using Notion for content management? Have you explored AI integrations for your blog?"
+summary = """This post you're reading right now? It was created by an AI reading a to-do item from my Notion database. That's the power of combining Notion with AI assistants. The problem every blogger faces: brilliant ideas die in the gap between inspiration and execution.
+
+My solution: a Notion to-do list where I capture ideas, and AI assistants (Claude Code and ChatGPT) read from it via Model Context Protocol, generate complete posts, publish them to my Hugo blog, and mark the to-dos complete. It's self-demonstrating—this very post was created that way. The workflow transforms content creation from manual drudgery into an automated pipeline.
+
+If you're drowning in blog ideas but low on execution energy, this might be your answer. Are you using Notion for content management? Have you explored AI integrations for your blog?
+
+Read more at https://coreydaley.dev/posts/2026/02/notion-ai-workflow-blog-post-automation/"""
 tags = ["notion", "ai-automation", "claude", "chatgpt", "productivity", "workflow", "blogging", "mcp"]
 categories = ["AI", "Productivity", "Automation"]
 aliases = ["/posts/notion-ai-workflow-blog-post-automation/"]

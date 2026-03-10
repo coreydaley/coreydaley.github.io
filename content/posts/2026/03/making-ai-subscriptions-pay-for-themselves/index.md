@@ -4,7 +4,13 @@ date = "2026-03-07T14:00:00-05:00"
 draft = false
 title = "Making Your AI Subscriptions Pay for Themselves"
 description = "Between Claude Pro, ChatGPT Plus, GitHub Copilot, Cursor, and a handful of specialty tools, a serious AI stack can run $100 or more per month. This post explores a practical closed-loop strategy: give every subscription a job, pick one small revenue experiment, and use the tools themselves to generate enough income to cover the bill."
-summary = "A coworker and I were debriefing after an AI Bootcamp when I said the quiet part out loud: 'I need my AI subscriptions to pay for themselves.' Add up Claude Pro, ChatGPT Plus, GitHub Copilot, Cursor, and a research tool, and you're looking at $100+ a month just to stay current. The mental shift that changes everything: stop running your AI stack like subscriptions and start running it like equipment. Every tool needs a job. Assign each one to a revenue output, pick one small experiment, and ship something real in two weeks. You don't need a hit app — you need $112/month and a closed loop. Are you running your AI tools in consumer mode or operator mode?"
+summary = """A coworker and I were debriefing after an AI Bootcamp when I said the quiet part out loud: 'I need my AI subscriptions to pay for themselves.' Add up Claude Pro, ChatGPT Plus, GitHub Copilot, Cursor, and a research tool, and you're looking at $100+ a month just to stay current.
+
+The mental shift that changes everything: stop running your AI stack like subscriptions and start running it like equipment. Every tool needs a job. Assign each one to a revenue output, pick one small experiment, and ship something real in two weeks.
+
+You don't need a hit app — you need $112/month and a closed loop. Are you running your AI tools in consumer mode or operator mode?
+
+Read more at https://coreydaley.dev/posts/2026/03/making-ai-subscriptions-pay-for-themselves/"""
 tags = ["ai-subscriptions", "side-income", "vibe-coding", "indie-games", "ai-tools", "subscription-fatigue", "side-projects", "ai-bootcamp"]
 categories = ["AI", "Productivity", "Career"]
 image = "making-ai-subscriptions-pay-for-themselves.webp"

@@ -4,7 +4,13 @@ date = "2026-02-13T15:45:00-05:00"
 draft = false
 title = "The AI Divide: When Innovation Amplifies Inequality"
 description = "As AI tools become more powerful and accessible, they're creating a new kind of digital divide. This post explores how financial resources increasingly determine who can harness AI's full potential, examining the implications for creators, businesses, and society while maintaining a balanced perspective on this complex issue."
-summary = "We're witnessing something unprecedented: AI tools that can generate content, build applications, and automate creative work at scales previously unimaginable. But there's a catch—the most powerful capabilities often come with price tags that not everyone can afford. From individual creators competing for attention to startups facing AI-augmented giants, the ability to pay for advanced AI is becoming a new axis of inequality. Is this just another chapter in technological progress, or are we creating a permanent divide between the AI haves and have-nots? What do you think should be done to ensure AI benefits everyone, not just those who can afford it?"
+summary = """We're witnessing something unprecedented: AI tools that can generate content, build applications, and automate creative work at scales previously unimaginable. But there's a catch—the most powerful capabilities often come with price tags that not everyone can afford.
+
+From individual creators competing for attention to startups facing AI-augmented giants, the ability to pay for advanced AI is becoming a new axis of inequality.
+
+Is this just another chapter in technological progress, or are we creating a permanent divide between the AI haves and have-nots? What do you think should be done to ensure AI benefits everyone, not just those who can afford it?
+
+Read more at https://coreydaley.dev/posts/2026/02/ai-ethics-resource-gap/"""
 tags = ["ai", "ethics", "digital-divide", "inequality", "technology-access", "ai-tools"]
 categories = ["AI", "Ethics"]
 aliases = ["/posts/ai-ethics-resource-gap/"]

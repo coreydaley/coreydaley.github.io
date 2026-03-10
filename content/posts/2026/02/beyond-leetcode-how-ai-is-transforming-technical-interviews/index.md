@@ -4,7 +4,13 @@ title = "Beyond LeetCode: How AI is Transforming Technical Interviews"
 date = "2026-02-15T17:46:25-05:00"
 draft = false
 description = "As AI coding agents become mainstream, the traditional coding interview is evolving. Explore how live AI-assisted problem-solving, collaborative workflows with planning modes, and practical project management may replace LeetCode-style assessments, while examining the ethical implications of this transformation."
-summary = "The coding interview landscape is shifting dramatically as AI tools become standard in software development. Rather than memorizing algorithms, candidates may soon demonstrate their ability to work effectively with AI agents—breaking down projects, creating tasks in Jira, and collaborating to solve real-world problems. This shift raises important questions about what skills truly matter and how we evaluate engineering talent in an AI-augmented world. What does this mean for the future of technical hiring?"
+summary = """The coding interview landscape is shifting dramatically as AI tools become standard in software development. Rather than memorizing algorithms, candidates may soon demonstrate their ability to work effectively with AI agents—breaking down projects, creating tasks in Jira, and collaborating to solve real-world problems.
+
+This shift raises important questions about what skills truly matter and how we evaluate engineering talent in an AI-augmented world.
+
+What does this mean for the future of technical hiring?
+
+Read more at https://coreydaley.dev/posts/2026/02/beyond-leetcode-how-ai-is-transforming-technical-interviews/"""
 tags = ["ai", "coding-interviews", "software-engineering", "career", "ethics", "leetcode", "jira", "ai-agents"]
 categories = ["AI", "Career"]
 aliases = ["/posts/beyond-leetcode-how-ai-is-transforming-technical-interviews/"]

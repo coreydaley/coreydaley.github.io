@@ -69,13 +69,19 @@ The draft must include:
   draft = true
   title = "..."
   description = "..."
-  summary = "..."
+  summary = """Hook paragraph — 2-3 sentences on the problem or angle.
+
+What the post covers — key insight or main content, 2-3 sentences.
+
+Closing question or CTA?
+
+Read more at https://coreydaley.dev/posts/YYYY/MM/$SLUG/"""
   tags = ["...", "..."]
   categories = ["...", "...", "..."]
   +++
   ```
   - `description`: SEO-friendly, ~75 words
-  - `summary`: Conversational LinkedIn summary, ~150 words, ends with a question or CTA
+  - `summary`: Triple-quoted multi-line TOML (`"""`). 2–3 short paragraphs formatted for direct LinkedIn copy-paste: (1) hook/problem, (2) what the post covers, (3) closing question or CTA. Final line is always `Read more at https://coreydaley.dev/posts/YYYY/MM/$SLUG/`. Closing `"""` on its own line with no trailing blank line before it.
   - `tags`: lowercase, hyphenated, specific
   - `categories`: exactly 3, Title Case
   - No `image` field in the draft (images are added after the image optimization workflow)
@@ -232,17 +238,15 @@ The script will:
 
 ### After the script completes (success or fallback):
 
-Output the following block exactly as shown so the user can copy/paste directly into LinkedIn, X, or other social media. No labels, no extra text — just the content:
+Output the following block verbatim so the user can copy/paste directly into LinkedIn, X, or other social media. No labels, no extra text — just the content between the rules:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-<full text of the `summary` frontmatter field, verbatim>
-
-Read more at https://coreydaley.dev/posts/YYYY/MM/$SLUG/
+<full text of the `summary` frontmatter field, verbatim — it is already paragraph-formatted with the permalink as the last line>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-> **Important:** Always use the canonical URL (`/posts/YYYY/MM/$SLUG/`) for social sharing, not the short alias (`/posts/$SLUG/`). LinkedIn and other social scrapers do not follow `<meta http-equiv=refresh>` redirects, so sharing the alias URL results in no preview image.
+> **Important:** Always use the canonical URL in the `summary` field (`/posts/YYYY/MM/$SLUG/`) for social sharing, not the short alias (`/posts/$SLUG/`). LinkedIn and other social scrapers do not follow `<meta http-equiv=refresh>` redirects, so the alias URL results in no preview image.
 
 ### If the script fails (missing API keys or network error):
 

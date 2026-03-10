@@ -4,7 +4,13 @@ date = "2026-03-09T11:45:00-04:00"
 draft = false
 title = "Why I Left Notion and Built My Own AI Agent Plugin for Obsidian"
 description = "After refusing to pay for yet another AI subscription I couldn't customize, I switched from Notion to Obsidian and discovered there was no way to use my existing AI services inside it. So I built one — an open source AI Agent Sidebar plugin developed with agentic engineering and the dark factory method."
-summary = "I was already paying for Claude, Codex, and several other AI services when Notion started pushing its own AI add-on. The problem wasn't just the price — it was that Notion AI couldn't talk to any of the tools I already had, and my workflow had become a copy-paste treadmill between my notes and my agents. So I switched to Obsidian and hit the same wall: no native way to use your own AI. I built the Obsidian AI Agent Sidebar plugin — an open source tool that brings Claude Code, OpenAI Codex, Google Gemini, GitHub Copilot, and any OpenAI-compatible server directly into your Obsidian sidebar, with real vault read/write access. Developed using agentic engineering and the dark factory method, it's the integration I needed and couldn't find. What would you build if the tool you needed simply didn't exist yet?"
+summary = """I was already paying for Claude, Codex, and several other AI services when Notion started pushing its own AI add-on. The problem wasn't just the price — it was that Notion AI couldn't talk to any of the tools I already had, and my workflow had become a copy-paste treadmill between my notes and my agents. So I switched to Obsidian and hit the same wall: no native way to use your own AI.
+
+I built the Obsidian AI Agent Sidebar plugin — an open source tool that brings Claude Code, OpenAI Codex, Google Gemini, GitHub Copilot, and any OpenAI-compatible server directly into your Obsidian sidebar, with real vault read/write access. Developed using agentic engineering and the dark factory method, it's the integration I needed and couldn't find.
+
+What would you build if the tool you needed simply didn't exist yet?
+
+Read more at https://coreydaley.dev/posts/2026/03/obsidian-ai-agent-sidebar-plugin/"""
 tags = ["obsidian", "ai-agents", "open-source", "plugin-development", "agentic-engineering", "dark-factory", "claude", "codex"]
 categories = ["AI", "Tools", "Automation"]
 image = "obsidian-ai-agent-sidebar-plugin.webp"

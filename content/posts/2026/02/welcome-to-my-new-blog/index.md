@@ -4,7 +4,13 @@ date = "2026-02-01T22:16:10-05:00"
 draft = false
 title = "Welcome to My New Blog"
 description = "Welcome to my new blog built with Hugo and GitHub Pages! This introductory post explores why I chose Hugo as my static site generator for its speed and developer experience, how the github-style theme provides a clean and responsive design, and how automated deployments through GitHub Actions make publishing effortless. Learn about the technical decisions behind this site and what you can expect in future posts covering development, AI tools, productivity workflows, and more insights from my software engineering journey."
-summary = "Welcome to my new blog! I'm excited to finally have my own corner of the internet. I wanted to kick things off by sharing how I built this site and what you can expect. I chose Hugo because it's fast, simple, and has an incredible developer experience—millisecond rebuilds and automatic browser refresh make writing feel effortless. The github-style theme keeps things clean and content-focused. Everything's hosted on GitHub Pages with automated deployments, so publishing is as simple as pushing to main. No servers, no databases, just pure static speed. I'll be writing about development, AI tools, productivity workflows, and lessons from my software engineering journey. Glad you're here! What brought you to this blog? Are you using static site generators for your own projects?"
+summary = """Welcome to my new blog! I'm excited to finally have my own corner of the internet. I wanted to kick things off by sharing how I built this site and what you can expect. I chose Hugo because it's fast, simple, and has an incredible developer experience—millisecond rebuilds and automatic browser refresh make writing feel effortless.
+
+The github-style theme keeps things clean and content-focused. Everything's hosted on GitHub Pages with automated deployments, so publishing is as simple as pushing to main. No servers, no databases, just pure static speed. I'll be writing about development, AI tools, productivity workflows, and lessons from my software engineering journey.
+
+Glad you're here! What brought you to this blog? Are you using static site generators for your own projects?
+
+Read more at https://coreydaley.dev/posts/2026/02/welcome-to-my-new-blog/"""
 tags = ["hugo", "github-pages", "static-site", "web-development", "blogging"]
 categories = ["Web Development", "Getting Started"]
 image = "welcome-to-my-new-blog.webp"

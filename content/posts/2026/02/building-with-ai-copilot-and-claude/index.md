@@ -4,7 +4,13 @@ date = "2026-02-03T21:02:25-05:00"
 draft = false
 title = "Building with AI: Copilot and Claude"
 description = "Discover how Claude and GitHub Copilot work together to streamline website development. Claude handles architectural decisions and structural changes like creating custom Hugo layouts and navigation systems, while GitHub Copilot excels at code completion and routine tasks. This post explores the division of labor between these AI tools, their complementary strengths, and how their collaboration creates a powerful development workflow that balances high-level planning with efficient implementation for building and maintaining this Hugo-powered blog."
-summary = "Building websites has changed dramatically—I'm no longer staring at code for hours. Instead, I'm collaborating with Claude and GitHub Copilot to build this Hugo blog. Here's what I've learned: Claude is my architect. When I need structural changes or new layouts, Claude generates complete solutions and explains every decision. GitHub Copilot is my coding assistant, finishing my thoughts as I type and handling routine tasks. Together, they create a powerful workflow where Claude handles the big picture and Copilot speeds up execution. The result? I spend less time debugging and more time creating. If you're curious about AI-assisted development or wondering which tool does what, this post breaks down how they complement each other. Are you using AI tools in your workflow? How do you divide the work?"
+summary = """Building websites has changed dramatically—I'm no longer staring at code for hours. Instead, I'm collaborating with Claude and GitHub Copilot to build this Hugo blog. Here's what I've learned: Claude is my architect. When I need structural changes or new layouts, Claude generates complete solutions and explains every decision.
+
+GitHub Copilot is my coding assistant, finishing my thoughts as I type and handling routine tasks. Together, they create a powerful workflow where Claude handles the big picture and Copilot speeds up execution. The result? I spend less time debugging and more time creating.
+
+If you're curious about AI-assisted development or wondering which tool does what, this post breaks down how they complement each other. Are you using AI tools in your workflow? How do you divide the work?
+
+Read more at https://coreydaley.dev/posts/2026/02/building-with-ai-copilot-and-claude/"""
 tags = ["ai", "claude", "github-copilot", "hugo", "web-development", "productivity"]
 categories = ["AI", "Web Development"]
 image = "building-with-ai-copilot-and-claude.webp"

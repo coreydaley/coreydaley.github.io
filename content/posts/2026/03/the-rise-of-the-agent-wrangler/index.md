@@ -4,7 +4,13 @@ date = "2026-03-10T11:55:00-04:00"
 draft = false
 title = "The Rise of the Agent Wrangler"
 description = "AI agents can write code, fix bugs, and ship features — but who can be trusted to ship production software when most implementation is delegated? Meet the Agent Wrangler: the engineer who decomposes work, directs multiple agents, validates output, and owns the outcome. Deep technical foundations matter more than ever. The keyboard gets less important. Judgment gets everything."
-summary = "People keep asking if AI is going to replace software engineers. Better question: who can still be trusted to ship production software when most implementation is delegated to agents? That role is the Agent Wrangler — and it isn't a step down from engineering, it's a different kind of engineering. You spend your day directing Claude Code, Codex, and similar tools through feature work, bug hunts, security audits, and codebase exploration. The job sounds easier than traditional engineering. It isn't — at least not for the people who do it well. Because when you're orchestrating agents, your technical depth is the control surface. CS fundamentals don't disappear; they become the language you use to catch when an agent is wrong. Software engineers aren't going away. They need to adapt — like they always have. Maybe the real new title is 'Adaptability Engineer.' Are you ready to stop coding and start wrangling?"
+summary = """People keep asking if AI is going to replace software engineers. Better question: who can still be trusted to ship production software when most implementation is delegated to agents? That role is the Agent Wrangler — and it isn't a step down from engineering, it's a different kind of engineering.
+
+You spend your day directing Claude Code, Codex, and similar tools through feature work, bug hunts, security audits, and codebase exploration. The job sounds easier than traditional engineering. It isn't — at least not for the people who do it well. Because when you're orchestrating agents, your technical depth is the control surface. CS fundamentals don't disappear; they become the language you use to catch when an agent is wrong.
+
+Software engineers aren't going away. They need to adapt — like they always have. Maybe the real new title is 'Adaptability Engineer.' Are you ready to stop coding and start wrangling?
+
+Read more at https://coreydaley.dev/posts/2026/03/the-rise-of-the-agent-wrangler/"""
 tags = ["agent-wrangler", "ai-agents", "software-engineering", "career", "coding-interviews", "adaptability", "ai-future", "claude-code", "codex"]
 categories = ["AI", "Career", "Best Practices"]
 image = "the-rise-of-the-agent-wrangler.webp"

@@ -4,7 +4,13 @@ date = "2026-03-06T12:00:00-05:00"
 draft = false
 title = "Attractor: When Chaos Theory Meets AI Pipeline Orchestration"
 description = "Attractor is a DOT-based AI pipeline orchestration engine that borrows its name and philosophy from dynamical systems theory. Define your workflow as a Graphviz directed graph, and Attractor pulls multi-LLM execution toward your desired outcome — through conditional branches, retries, human gates, and failure recovery. The entire codebase is AI-generated, making it a live proof of the Software Factory paradigm it embodies."
-summary = "Most AI automation breaks for the same reason: the workflow is hidden inside scripts, prompts, and tribal knowledge. Attractor takes a different path — one borrowed from chaos theory. In dynamical systems, an attractor is a state a system naturally converges toward even through turbulence. Apply that to AI workflows, and you get directed graphs that pull multi-LLM execution through branching, retries, human review gates, and failure recovery toward a defined goal. The entire codebase is AI-generated, which makes it a working proof-of-concept of the Software Factory philosophy. If we can declaratively orchestrate AI agents today, what should we still insist on owning as humans?"
+summary = """Most AI automation breaks for the same reason: the workflow is hidden inside scripts, prompts, and tribal knowledge. Attractor takes a different path — one borrowed from chaos theory. In dynamical systems, an attractor is a state a system naturally converges toward even through turbulence.
+
+Apply that to AI workflows, and you get directed graphs that pull multi-LLM execution through branching, retries, human review gates, and failure recovery toward a defined goal. The entire codebase is AI-generated, which makes it a working proof-of-concept of the Software Factory philosophy.
+
+If we can declaratively orchestrate AI agents today, what should we still insist on owning as humans?
+
+Read more at https://coreydaley.dev/posts/2026/03/attractor-dot-pipeline-orchestration/"""
 tags = ["pipeline-orchestration", "graphviz-dot", "multi-llm", "workflow-automation", "software-factory", "ai-agents", "kotlin", "agentic-ai", "attractor"]
 categories = ["AI", "Automation", "Tools", "Attractor"]
 aliases = ["/posts/attractor-dot-pipeline-orchestration/"]

@@ -4,7 +4,13 @@ date = "2026-02-18T23:03:58-05:00"
 draft = false
 title = "How I Used Claude Code to Make My Blog Accessible in Minutes"
 description = "Accessibility is something every website owner should care about, yet it's easy to deprioritize. I asked Claude Code to audit my Hugo blog for screen reader compatibility and was amazed at both the depth of its findings and how quickly it fixed every issue — from missing skip-navigation links to unlabeled SVG icons to dynamic search results that screen readers couldn't detect."
-summary = "Accessibility often gets pushed to the backlog — it feels complex, time-consuming, and hard to test without specialized knowledge. But I recently discovered just how approachable it can be with the right AI tool. I asked Claude Code to audit my Hugo blog for screen reader compatibility with a single prompt. Within seconds it had explored 13 template files, identified issues across 5 priority levels, and produced a comprehensive report. Then I asked it to fix everything — and it did, touching 13 files in one focused session. Whether you run a personal blog or a commercial platform, there is no excuse not to make your site accessible when tools like Claude Code can do the heavy lifting. What accessibility improvements have you been putting off that you could tackle today with an AI coding assistant?"
+summary = """Accessibility often gets pushed to the backlog — it feels complex, time-consuming, and hard to test without specialized knowledge. But I recently discovered just how approachable it can be with the right AI tool.
+
+I asked Claude Code to audit my Hugo blog for screen reader compatibility with a single prompt. Within seconds it had explored 13 template files, identified issues across 5 priority levels, and produced a comprehensive report. Then I asked it to fix everything — and it did, touching 13 files in one focused session.
+
+Whether you run a personal blog or a commercial platform, there is no excuse not to make your site accessible when tools like Claude Code can do the heavy lifting. What accessibility improvements have you been putting off that you could tackle today with an AI coding assistant?
+
+Read more at https://coreydaley.dev/posts/2026/02/using-claude-code-to-improve-blog-accessibility/"""
 tags = ["claude-code", "accessibility", "wcag", "screen-readers", "hugo", "a11y"]
 categories = ["AI", "Web Development", "Best Practices"]
 aliases = ["/posts/using-claude-code-to-improve-blog-accessibility/"]

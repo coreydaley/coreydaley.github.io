@@ -4,7 +4,13 @@ date = "2026-03-07T16:00:00-05:00"
 draft = false
 title = "When Your First Version Fails: Iterating on agent-config with AI"
 description = "The first version of agent-config tried to impose uniform rules on Claude, Codex, Copilot, and Gemini — and it broke. The fix wasn't better engineering up front. It was accepting failure fast, letting AI handle per-agent format conversion, and shipping a v2 that actually works. Here's what the failure taught about human instinct, AI-assisted iteration, and why failing cheaper is a skill worth building."
-summary = "I built agent-config v1 to centralize AI agent configurations across Claude, Codex, Copilot, and Gemini — and it failed. Not dramatically, but fundamentally: I tried to force every agent to follow the same rules in the same format, because that's what my human instincts said made sense. The problem is those agents have completely different requirements. Gemini needs TOML. The others use Markdown. You can't just symlink your way to consistency. v2 fixes this by letting AI handle the translation — automated merging of global and per-agent configs, format conversion per tool, and intelligent symlink setup. The real lesson isn't about config management, though. It's about failing fast, iterating faster with AI than you ever could alone, and trusting the tools to solve problems your instincts would have you paper over. Are you letting your human instincts slow down your AI iteration cycles?"
+summary = """I built agent-config v1 to centralize AI agent configurations across Claude, Codex, Copilot, and Gemini — and it failed. Not dramatically, but fundamentally: I tried to force every agent to follow the same rules in the same format, because that's what my human instincts said made sense. The problem is those agents have completely different requirements. Gemini needs TOML. The others use Markdown. You can't just symlink your way to consistency.
+
+v2 fixes this by letting AI handle the translation — automated merging of global and per-agent configs, format conversion per tool, and intelligent symlink setup.
+
+The real lesson isn't about config management, though. It's about failing fast, iterating faster with AI than you ever could alone, and trusting the tools to solve problems your instincts would have you paper over. Are you letting your human instincts slow down your AI iteration cycles?
+
+Read more at https://coreydaley.dev/posts/2026/03/agent-config-v2-failing-forward-with-ai/"""
 tags = ["ai", "developer-tools", "agent-config", "claude-code", "workflow", "automation", "open-source", "iteration"]
 categories = ["AI", "Tools", "Automation"]
 image = "agent-config-v2-failing-forward-with-ai.webp"

@@ -4,7 +4,13 @@ date = "2026-03-10T15:40:00-04:00"
 draft = false
 title = "The Blog That Builds Itself: AI Automation Behind the Scenes"
 description = "This blog runs on a custom automation pipeline where AI agents compete, critique, and synthesize every post. Here's how the /create-blog-post command, a DALL-E 3 image generation script, pre-commit image enforcement, and WebP optimization all compose into a content system that behaves like production software."
-summary = "What happens when you stop treating AI as a writing assistant and start treating it as a co-publisher? This blog has accumulated a full automation stack: a /create-blog-post command that pits Claude and Codex against each other in a competitive draft workflow, a Python script that generates hero images using DALL-E 3 and Claude vision, pre-commit hooks that block commits with unoptimized images, and a Bash script that handles WebP conversion and thumbnail generation automatically. The design principle behind all of it: treat each stage as a contract, not a prompt. The meta-detail: this post was written by the same pipeline it describes. What would your content workflow look like if you designed it the same way you'd design a software system — and which parts would you never automate at all?"
+summary = """What happens when you stop treating AI as a writing assistant and start treating it as a co-publisher? This blog has accumulated a full automation stack: a /create-blog-post command that pits Claude and Codex against each other in a competitive draft workflow, a Python script that generates hero images using DALL-E 3 and Claude vision, pre-commit hooks that block commits with unoptimized images, and a Bash script that handles WebP conversion and thumbnail generation automatically.
+
+The design principle behind all of it: treat each stage as a contract, not a prompt. The meta-detail: this post was written by the same pipeline it describes.
+
+What would your content workflow look like if you designed it the same way you'd design a software system — and which parts would you never automate at all?
+
+Read more at https://coreydaley.dev/posts/2026/03/building-a-blog-automation-pipeline-with-ai/"""
 tags = ["automation", "ai", "claude-code", "codex", "blog-workflow", "dall-e", "pre-commit", "hugo", "webp", "workflow"]
 categories = ["AI", "Automation", "Web Development"]
 image = "building-a-blog-automation-pipeline-with-ai.webp"

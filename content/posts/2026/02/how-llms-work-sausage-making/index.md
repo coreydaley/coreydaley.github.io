@@ -4,7 +4,13 @@ date = "2026-02-20T09:00:00-05:00"
 draft = false
 title = "Seeing How the Sausage Gets Made: Demystifying AI and LLMs"
 description = "Understanding how large language models actually work under the hood removes some of the wonder — but it also replaces irrational fear with informed clarity. AI isn't magic, it isn't plotting against us, and knowing why might just change how you think about your own brain."
-summary = "There's a moment every developer eventually hits when they stop treating AI as a magic oracle and start asking: okay, but *how does it actually work?* It's the technology equivalent of learning Santa isn't real. A little wonder leaves the room, but something better moves in: understanding. And understanding turns out to be a surprisingly effective antidote to the kind of fear that has people picturing Skynet every time a chatbot gives a confident answer. So let's look inside the machine — and maybe, along the way, inside ourselves. What do you think when you finally see how the sausage gets made?"
+summary = """There's a moment every developer eventually hits when they stop treating AI as a magic oracle and start asking: okay, but how does it actually work? It's the technology equivalent of learning Santa isn't real. A little wonder leaves the room, but something better moves in: understanding.
+
+And understanding turns out to be a surprisingly effective antidote to the kind of fear that has people picturing Skynet every time a chatbot gives a confident answer. So let's look inside the machine — and maybe, along the way, inside ourselves.
+
+What do you think when you finally see how the sausage gets made?
+
+Read more at https://coreydaley.dev/posts/2026/02/how-llms-work-sausage-making/"""
 tags = ["artificial-intelligence", "llm", "machine-learning", "how-it-works", "demystifying-ai"]
 categories = ["AI", "Getting Started", "Best Practices"]
 image = "sausage-being-made.webp"
