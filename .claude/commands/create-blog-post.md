@@ -1,10 +1,10 @@
 ---
-description: Create a blog post draft by writing a Claude draft, spawning a Codex competing draft, then synthesizing both into a final post following project conventions.
+description: Create a blog post draft by writing a Claude draft, spawning a Codex competing draft, critiquing each other's work, synthesizing, getting a Codex editorial review, then producing the final post following project conventions.
 ---
 
 # Create Blog Post: Competitive Draft Workflow
 
-You are orchestrating a 4-phase workflow to produce a high-quality blog post through competitive ideation and synthesis with Codex.
+You are orchestrating a workflow to produce a high-quality blog post through competitive ideation, mutual critique, synthesis, and editorial review with Codex.
 
 ## Topic
 
@@ -14,9 +14,11 @@ $ARGUMENTS
 
 1. **Orient** - Research the topic and review project conventions
 2. **Draft** - Write your Claude draft
-3. **Compete** - Codex creates an independent draft and critiques yours
-4. **Synthesize** - Compare and merge both drafts into the final post
-5. **Image Prompt** - Generate an image generation prompt based on the final post
+3. **Compete** - Codex creates an independent draft and critiques yours; Claude critiques Codex's draft
+4. **Synthesize** - Compare and merge both drafts into a synthesized draft
+5. **Editorial Review** - Codex reviews the synthesized draft as a professional editor
+6. **Finalize** - Apply editorial feedback and write the final post
+7. **Image** - Generate and insert the hero image
 
 Use TodoWrite to track progress through each phase.
 
@@ -55,7 +57,7 @@ Create the drafts directory if needed:
 mkdir -p content/posts/drafts
 ```
 
-> **Note:** Drafts are flat `.md` files for iteration convenience. Only the final synthesized post becomes a leaf bundle.
+> **Note:** Drafts are flat `.md` files for iteration convenience. Only the final post becomes a leaf bundle.
 
 The draft must include:
 
@@ -89,12 +91,12 @@ The draft must include:
 
 ## Phase 3: Compete (Codex)
 
-**Goal**: Get Codex's independent take and critique of your draft.
+**Goal**: Get Codex's independent take and critique of your draft; write your critique of Codex's draft.
 
 ### Execute Codex:
 
 ```bash
-codex exec "Please read content/posts/drafts/$SLUG-claude-draft.md. This is a Claude-written draft for a personal tech blog. Also read AGENTS.md for the project content conventions. Then: (1) Write your own independent draft to content/posts/drafts/$SLUG-codex-draft.md — same topic, same TOML frontmatter format with double-quote strings, but your own angle, structure, and voice. Only AFTER your draft is complete, (2) read Claude's draft again and write a critique to content/posts/drafts/$SLUG-claude-draft-codex-critique.md — what works, what's weak, what's missing, what you'd change."
+codex exec "Please read content/posts/drafts/$SLUG-claude-draft.md. This is a Claude-written draft for a personal tech blog. Also read CLAUDE.md for the project content conventions. Then: (1) Write your own independent draft to content/posts/drafts/$SLUG-codex-draft.md — same topic, same TOML frontmatter format with double-quote strings, but your own angle, structure, and voice. Only AFTER your draft is complete, (2) read Claude's draft again and write a critique to content/posts/drafts/$SLUG-claude-draft-codex-critique.md — what works, what's weak, what's missing, what you'd change."
 ```
 
 ### Wait for Codex to complete.
@@ -105,18 +107,27 @@ Codex will produce:
 
 ### Read both files once Codex finishes.
 
+### Write your critique of the Codex draft:
+
+After reading the Codex draft, write your own critique to `content/posts/drafts/$SLUG-codex-draft-claude-critique.md`. Evaluate:
+- What angle or framing did Codex take that differs from yours?
+- What does Codex do better — structure, conciseness, voice, examples?
+- What is weak, missing, or wrong in Codex's draft?
+- What would you defend from your own draft that Codex missed or handled worse?
+
+This critique is your editorial brief going into synthesis — be specific and opinionated.
+
 ---
 
 ## Phase 4: Synthesize
 
-**Goal**: Merge the best of both drafts into the final blog post.
+**Goal**: Merge the best of both drafts into a synthesized draft for editorial review.
 
 ### Synthesis process:
 
-1. **Evaluate Codex's critique** of your draft:
-   - Which criticisms are valid?
-   - What did Codex catch that you missed?
-   - What will you defend?
+1. **Evaluate both critiques**:
+   - Codex's critique of your draft: which criticisms are valid? What will you defend?
+   - Your critique of Codex's draft: what from Codex is worth taking? What should be left behind?
 
 2. **Compare the two drafts**:
    - Angle/framing differences
@@ -134,7 +145,10 @@ Codex will produce:
    ## Codex Draft Strengths
    - ...
 
-   ## Valid Critiques Accepted
+   ## Valid Critiques Accepted (from Codex's critique of Claude draft)
+   - ...
+
+   ## Valid Critiques Accepted (from Claude's critique of Codex draft)
    - ...
 
    ## Critiques Rejected (with reasoning)
@@ -144,21 +158,56 @@ Codex will produce:
    - ...
    ```
 
-4. **Write the final post** as a leaf bundle at `content/posts/YYYY/MM/$SLUG/index.md`:
-   - Create the bundle directory first: `mkdir -p content/posts/YYYY/MM/$SLUG`
+4. **Write the synthesized draft** to `content/posts/drafts/$SLUG-synthesized-draft.md`:
    - Incorporate the best angle, structure, examples, and phrasing from both drafts
-   - Apply all valid critiques
-   - Set `draft = false`
-   - Follow all AGENTS.md conventions precisely (frontmatter, closing question, etc.)
-   - Add `aliases = ["/posts/$SLUG/"]` to the frontmatter for redirect compatibility
-   - Do NOT include an `image` field yet (image is added in Phase 5)
-   - **Set `date` to a few minutes before the current local time** — run `date '+%Y-%m-%dT%H:%M:%S%z'` and subtract ~5 minutes. Hugo will not serve a post whose timestamp is in the future, so a midnight or templated time will cause the post to be invisible during local preview.
-
-5. **Proceed immediately to Phase 5** — do not pause for user approval. The image generation script runs automatically after the final post is written.
+   - Apply all valid critiques from both directions
+   - Use full TOML frontmatter with `draft = true`
+   - Follow all CLAUDE.md conventions (closing question, etc.)
+   - Do NOT set `draft = false` yet — the editorial review comes next
 
 ---
 
-## Phase 5: Generate Hero Image
+## Phase 5: Editorial Review (Codex)
+
+**Goal**: Have Codex review the synthesized draft as a professional editor before finalizing.
+
+### Execute Codex:
+
+```bash
+codex exec "Please read content/posts/drafts/$SLUG-synthesized-draft.md. This is a synthesized blog post draft for a personal tech blog. Also read CLAUDE.md for the project content conventions. Act as a professional editor. Write an editorial critique to content/posts/drafts/$SLUG-synthesized-draft-editorial-critique.md covering: (1) overall clarity and argument strength, (2) pacing and structure — are any sections too long, too short, or in the wrong order?, (3) voice consistency — does the post read as one cohesive piece or does it have seams from the merge?, (4) specific lines or paragraphs to cut, rewrite, or move, (5) whether the opening hook and closing question are strong. Be direct and specific — line-level feedback where useful."
+```
+
+### Wait for Codex to complete.
+
+Codex will produce:
+- `content/posts/drafts/$SLUG-synthesized-draft-editorial-critique.md` — Professional editorial critique
+
+### Read the critique carefully before proceeding to Phase 6.
+
+---
+
+## Phase 6: Finalize
+
+**Goal**: Apply the editorial feedback and write the publication-ready final post.
+
+1. **Evaluate the editorial critique**:
+   - Which line-level and structural notes improve the post?
+   - What will you apply vs. push back on, and why?
+
+2. **Write the final post** as a leaf bundle at `content/posts/YYYY/MM/$SLUG/index.md`:
+   - Create the bundle directory first: `mkdir -p content/posts/YYYY/MM/$SLUG`
+   - Apply accepted editorial feedback — tighten pacing, fix seams, cut or rewrite flagged sections
+   - Set `draft = false`
+   - Follow all CLAUDE.md conventions precisely (frontmatter, closing question, etc.)
+   - Add `aliases = ["/posts/$SLUG/"]` to the frontmatter for redirect compatibility
+   - Do NOT include an `image` field yet (image is added in Phase 7)
+   - **Set `date` to a few minutes before the current local time** — run `date '+%Y-%m-%dT%H:%M:%S%z'` and subtract ~5 minutes. Hugo will not serve a post whose timestamp is in the future, so a midnight or templated time will cause the post to be invisible during local preview.
+
+3. **Proceed immediately to Phase 7** — do not pause for user approval.
+
+---
+
+## Phase 7: Generate Hero Image
 
 **Goal**: Automatically generate, optimize, and insert a hero image into the final post.
 
@@ -211,7 +260,10 @@ content/posts/
 │   ├── $SLUG-claude-draft.md
 │   ├── $SLUG-codex-draft.md
 │   ├── $SLUG-claude-draft-codex-critique.md
-│   └── $SLUG-merge-notes.md
+│   ├── $SLUG-codex-draft-claude-critique.md
+│   ├── $SLUG-merge-notes.md
+│   ├── $SLUG-synthesized-draft.md
+│   └── $SLUG-synthesized-draft-editorial-critique.md
 └── YYYY/
     └── MM/
         └── $SLUG/               ← leaf bundle (Hugo page bundle)
@@ -229,14 +281,17 @@ content/posts/
 
 ## Output Checklist
 
-- [ ] AGENTS.md read and conventions internalized
+- [ ] CLAUDE.md read and conventions internalized
 - [ ] Recent posts reviewed for tone/voice calibration
 - [ ] Orientation summary written (slug, angle, key points, categories)
 - [ ] Claude draft written to `content/posts/drafts/$SLUG-claude-draft.md`
 - [ ] Codex executed and completed
 - [ ] Codex draft received (`$SLUG-codex-draft.md`)
 - [ ] Codex critique received (`$SLUG-claude-draft-codex-critique.md`)
+- [ ] Claude critique of Codex draft written (`$SLUG-codex-draft-claude-critique.md`)
 - [ ] Merge notes written (`$SLUG-merge-notes.md`)
+- [ ] Synthesized draft written to `content/posts/drafts/$SLUG-synthesized-draft.md`
+- [ ] Codex editorial review completed (`$SLUG-synthesized-draft-editorial-critique.md`)
 - [ ] Final post written to `content/posts/YYYY/MM/$SLUG/index.md` with `draft = false`
 - [ ] `aliases = ["/posts/$SLUG/"]` added to frontmatter
 - [ ] Hero image generated and inserted via `generate-post-image.py content/posts/YYYY/MM/$SLUG/index.md`
