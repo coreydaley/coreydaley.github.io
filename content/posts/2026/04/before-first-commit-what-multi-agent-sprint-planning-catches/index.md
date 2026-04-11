@@ -24,6 +24,8 @@ Not just look comprehensive. Not just sound plausible. It should surface contrad
 
 That is the promise of the `/sprint-plan` workflow: independent drafts from two agents, mutual critique, synthesis, then adversarial review from a security pass and a devil's advocate. In one planning session for a small Go API, those review phases found multiple design flaws before a single line of code was written.
 
+*Note: the video below is a silent screen recording of the full `/sprint-plan` and `/sprint-work` terminal sessions — no audio.*
+
 {{< youtube z6vTAXUz_3o >}}
 
 ## The Project: A Local Org Chart API
