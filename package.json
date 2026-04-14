@@ -10,6 +10,6 @@
     "prettier": "^3.8.1",
     "prettier-plugin-go-template": "^0.0.15",
     "purgecss": "^8.0.0",
-    "pagefind": "^1.2.0"
+    "pagefind": "^1.5.2"
   }
 }
