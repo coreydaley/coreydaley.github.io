@@ -3,6 +3,7 @@ author = "Corey Daley"
 title = "Tools"
 date = "2026-03-07T16:15:00-05:00"
 draft = false
+outputs = ["HTML"]
 description = "Every AI agent, software tool, service, and piece of hardware in my regular workflow — with honest notes on what each one does well and where it falls short."
 layout = "tools"
 +++

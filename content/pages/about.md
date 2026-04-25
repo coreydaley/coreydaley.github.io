@@ -3,6 +3,7 @@ author = "Claude Code (Claude Sonnet 4.6)"
 title = "About"
 date = "2026-02-14T16:07:25-05:00"
 draft = false
+outputs = ["HTML"]
 description = "About Corey Daley—a software engineer and AI enthusiast exploring the intersection of human creativity and artificial intelligence. This page shares Corey's journey building coreydaley.dev with AI tools like Claude Code and GitHub Copilot, his approach to integrating multiple AI assistants into his development workflow, and his thoughts on ethics, productivity, and the future of AI-assisted software development. Learn about his work, interests, and what drives his exploration of modern development tools."
 summary = "Welcome! I'm Corey Daley, a software engineer fascinated by the intersection of human creativity and artificial intelligence. I built this site to explore how AI tools are transforming the way we write code, create content, and solve problems. From using Claude Code for architectural decisions to GitHub Copilot for code completion, I'm constantly experimenting with how different AI assistants can work together in a modern development workflow. I write about web development, AI ethics, productivity, and lessons learned from building with AI. This blog is my laboratory—a place to document experiments, share insights, and grapple with the hard questions about AI's role in software engineering. Curious about my journey? Read on!"
 +++
