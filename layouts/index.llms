@@ -1,0 +1,25 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+
+{{ .Site.Params.tagline }}
+
+Plain text versions of individual posts are available by appending .txt to any post URL.
+Example: {{ absURL "posts/2026/04/before-first-commit-what-multi-agent-sprint-planning-catches/index.txt" }}
+
+Full concatenated content for bulk consumption: {{ absURL "llms-full.txt" }}
+
+## Blog Posts
+
+{{ $posts := where .Site.RegularPages "Section" "posts" -}}
+{{ $posts = where $posts "Draft" false -}}
+{{ range sort $posts "Date" "desc" -}}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+## Site Sections
+
+- [Home]({{ "/" | absURL }}): Latest posts and site overview
+- [Categories]({{ "/categories/" | absURL }}): Browse posts by category
+- [Tags]({{ "/tags/" | absURL }}): Browse posts by tag
+- [Search]({{ "/search/" | absURL }}): Full-text search across all posts
+- [RSS Feed]({{ "/rss.xml" | absURL }}): Subscribe for new posts

@@ -15,8 +15,31 @@ theme = 'coreydaley-dev'
 [outputFormats.RSS]
   baseName = "rss"
 
+[outputFormats.txt]
+  mediaType = "text/plain"
+  isPlainText = true
+  baseName = "index"
+  isHTML = false
+  rel = "alternate"
+  notAlternative = false
+
+[outputFormats.llms]
+  mediaType = "text/plain"
+  isPlainText = true
+  baseName = "llms"
+  isHTML = false
+  notAlternative = true
+
+[outputFormats.llmsfull]
+  mediaType = "text/plain"
+  isPlainText = true
+  baseName = "llms-full"
+  isHTML = false
+  notAlternative = true
+
 [outputs]
-  home = ["HTML", "RSS", "webmanifest"]
+  home = ["HTML", "RSS", "webmanifest", "llms", "llmsfull"]
+  page = ["HTML", "txt"]
 
 [pagination]
   pagerSize = 10

@@ -128,12 +128,10 @@
 
 
     <div class="main-container">
-      {{ partial "sidebar.html" . }}
-
-
-      <main class="content-area" id="main-content">
+      <main class="content-area" id="main-content" role="main">
         {{ block "main" . }}{{ end }}
       </main>
+      {{ partial "sidebar.html" . }}
     </div>
 
     {{ partial "footer.html" . }}

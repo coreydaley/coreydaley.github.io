@@ -1,0 +1,22 @@
+{{ .Site.Title }} - Full Content Archive
+Generated: {{ now.Format "2006-01-02" }}
+Source: {{ .Site.BaseURL }}
+
+{{ $posts := where .Site.RegularPages "Section" "posts" -}}
+{{ $posts = where $posts "Draft" false -}}
+{{ range sort $posts "Date" "desc" -}}
+================================================================================
+Title: {{ .Title }}
+Date: {{ .Date.Format "2006-01-02" }}
+Author: {{ .Params.author | default $.Site.Title }}
+URL: {{ .Permalink }}
+{{- with .Params.tags }}
+Tags: {{ delimit . ", " }}
+{{- end }}
+{{- with .Params.categories }}
+Categories: {{ delimit . ", " }}
+{{- end }}
+
+{{ .Plain }}
+
+{{ end -}}

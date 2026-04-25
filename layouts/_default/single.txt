@@ -1,0 +1,14 @@
+Title: {{ .Title }}
+Date: {{ .Date.Format "2006-01-02" }}
+Author: {{ .Params.author | default .Site.Title }}
+URL: {{ .Permalink }}
+{{- with .Params.tags }}
+Tags: {{ delimit . ", " }}
+{{- end }}
+{{- with .Params.categories }}
+Categories: {{ delimit . ", " }}
+{{- end }}
+
+---
+
+{{ .Plain }}

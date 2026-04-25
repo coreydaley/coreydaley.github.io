@@ -630,6 +630,10 @@ body:has(.site-header.header-scrolled) .sidebar-nav {
     z-index: 1;
 }
 
+.sidebar {
+    order: -1;
+}
+
 /* ===================================
    Sidebar
    =================================== */
